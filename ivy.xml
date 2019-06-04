@@ -1,0 +1,18 @@
+<ivy-module version="2.0">
+    <info organisation="org.apache" module="TP2"/>
+
+    <configurations>
+        <conf name="build" description="binary jars"/>
+    </configurations>
+
+    <dependencies>
+        <dependency org="org.mockito" name="mockito-all" rev="1.9.0" conf="build->default"/>
+        <dependency org="junit" name="junit" rev="4.2" conf="build->default"/>
+    </dependencies>
+
+    <taskdef name="ivy-configure" classname="org.apache.ivy.ant.IvyConfigure"/>
+    <taskdef name="ivy-resolve" classname="org.apache.ivy.ant.IvyResolve"/>
+    <taskdef name="ivy-retrieve" classname="org.apache.ivy.ant.IvyRetrieve"/>
+    <taskdef name="ivy-publish" classname="org.apache.ivy.ant.IvyPublish"/>
+
+</ivy-module>
