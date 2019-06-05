@@ -1,4 +1,4 @@
-<project name="TP2" basedir="." default="test">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="nicopaez.tutoriales.oo.notas" basedir="." default="test">
     <property name="build" location="build" />
     <property name="libs" location="libs" />
     <property name="classes.dir" location="build" />
@@ -16,7 +16,7 @@
     <!-- Ivy customization -->
     <property name="ivy.install.version" value="2.2.0" />
     <property name="ivy.jar.dir" value="${libs}/" />
-    <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy-2.5.0-rc1.jar" />
+    <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />
     <!-- End of 'Ivy customization -->
 
     <!-- For those who are behind a proxy you may add the line bellow -->
@@ -49,6 +49,7 @@
         <mkdir dir="${build}" />
         <mkdir dir="${build}/classes" />
         <mkdir dir="${build}/tests" />
+        <mkdir dir="${reports.dir}" />
     </target>
 
     <target name="compilar.aplicacion" depends="setup, resolve">
