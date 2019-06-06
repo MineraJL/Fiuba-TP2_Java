@@ -10,6 +10,7 @@ public class MaterialTest {
 
     }
 
+    @Test
     public void testMaterialReduceSuDurabilidadEn4(){
         Material materialTest =  new Material(9);
         materialTest.reducirDurabilidadEn(4);
