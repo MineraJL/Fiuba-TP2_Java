@@ -1,8 +1,10 @@
-public class PicoFino {
+package Herramientas;
+
+public class Hacha {
 
     private int fuerza;
 
-    public PicoFino(int fuerza){
+    public Hacha(int fuerza){
         this.fuerza = fuerza;
     }
 

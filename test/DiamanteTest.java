@@ -1,3 +1,7 @@
+import Herramientas.Hacha;
+import Herramientas.Pico;
+import Herramientas.PicoFino;
+import Materiales.Diamante;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

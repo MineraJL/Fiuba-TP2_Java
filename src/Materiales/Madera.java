@@ -1,3 +1,7 @@
+package Materiales;
+
+import Herramientas.Hacha;
+
 public class Madera extends Material {
 
 

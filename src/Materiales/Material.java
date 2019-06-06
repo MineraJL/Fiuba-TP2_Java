@@ -1,3 +1,9 @@
+package Materiales;
+
+import Herramientas.Hacha;
+import Herramientas.Pico;
+import Herramientas.PicoFino;
+
 public class Material {
     protected int durabilidad;
     public Material(int durabilidadInicial) {
