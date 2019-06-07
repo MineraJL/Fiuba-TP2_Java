@@ -1,13 +1,16 @@
 package Herramientas;
 
-public class Pico {
-    private int fuerza;
+import Materiales.Madera;
+
+public class Pico extends Herramienta {
 
     public Pico(int fuerza){
-        this.fuerza = fuerza;
+        super(fuerza,0);
     }
 
-    public int Fuerza(){
-        return this.fuerza;
+
+    @Override
+    public void golpear(Madera material) {
+
     }
 }

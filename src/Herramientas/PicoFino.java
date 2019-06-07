@@ -1,14 +1,17 @@
 package Herramientas;
 
-public class PicoFino {
+import Materiales.Madera;
 
-    private int fuerza;
+public class PicoFino extends Herramienta {
+
 
     public PicoFino(int fuerza){
-        this.fuerza = fuerza;
+        super(fuerza,0);
     }
 
-    public int Fuerza(){
-        return this.fuerza;
+    @Override
+    public void golpear(Madera material) {
+
     }
+
 }
