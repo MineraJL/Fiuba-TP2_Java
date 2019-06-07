@@ -18,9 +18,9 @@ public abstract class Material {
         this.durabilidad = this.durabilidad - cantidadAReducir;
     }
 
-    public void recibirGolpeDe(Hacha pico){}
+    public void recibirGolpeDe(Hacha hacha){}
 
     public void recibirGolpeDe(Pico pico){}
 
-    public void recibirGolpeDe(PicoFino pico){}
+    public void recibirGolpeDe(PicoFino picoFino){}
 }
