@@ -1,3 +1,7 @@
+package Materiales;
+
+import Herramientas.Pico;
+
 public class Piedra extends Material {
     public Piedra(int durabilidadInicial) {
         super(durabilidadInicial);

@@ -1,3 +1,7 @@
+package Materiales;
+
+import Herramientas.PicoFino;
+
 public class Diamante extends Material {
 
     public Diamante(int durabilidadInicial) {

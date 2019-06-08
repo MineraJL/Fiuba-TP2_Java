@@ -1,3 +1,5 @@
+import Materiales.Material;
+
 public class DesgasteSegunMultiplicador {
 
     private int multiplicador;
