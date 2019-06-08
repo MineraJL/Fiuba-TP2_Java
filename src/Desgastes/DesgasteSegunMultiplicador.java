@@ -1,3 +1,5 @@
+package Desgastes;
+
 public class DesgasteSegunMultiplicador {
 
     private int multiplicador;

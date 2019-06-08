@@ -1,3 +1,4 @@
+package Desgastes;
 
 public class DesgastePorUsos {
     private int durabilidad;
