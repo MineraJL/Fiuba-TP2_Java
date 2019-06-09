@@ -3,6 +3,8 @@ package Herramientas;
 import Desgastes.Desgaste;
 import Materiales.Madera;
 import Materiales.Material;
+import Materiales.Metal;
+import Materiales.Piedra;
 
 public abstract class Herramienta {
 
@@ -24,4 +26,6 @@ public abstract class Herramienta {
     }
 
     public abstract void golpear(Madera material);
+    public abstract void golpear(Piedra material);
+    public abstract void golpear(Metal material);
 }

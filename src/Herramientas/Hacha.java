@@ -7,10 +7,6 @@ import Materiales.Piedra;
 
 public class Hacha extends Herramienta {
 
-    public Hacha(int fuerza){
-        super(fuerza,0);
-    }
-
 
     public Hacha(Madera material) {
         super(2, new DesgasteSegunMultiplicador(1,100));

@@ -21,14 +21,20 @@ public class Pico extends Herramienta {
     }
 
 
+    @Override
+    public void golpear(Madera material) {
 
+    }
 
     @Override
     public void golpear(Piedra material) {
         material.reducirDurabilidadEn(this.fuerza);
     }
 
+    @Override
+    public void golpear(Metal material) {
 
+    }
 
 
 }
