@@ -29,9 +29,9 @@ public class Hacha extends Herramienta {
 
 
     @Override
-    public void golpear(Madera material){
+    public void golpear(Madera recursoMadera){
         this.desgaste.desgastarCon(this.fuerza);
-        material.reducirDurabilidadEn(this.fuerza);
+        this.material.golpear(recursoMadera);
     }
 
 
