@@ -11,6 +11,6 @@ public class Madera extends Material {
 
     @Override
     public void recibirGolpeDe(Hacha hacha) {
-        this.durabilidad = this.durabilidad - hacha.Fuerza();
+        this.durabilidad = this.durabilidad - hacha.fuerza();
     }
 }

@@ -1,26 +1,26 @@
 package Herramientas;
 
+import Desgastes.Desgaste;
 import Materiales.Madera;
 import Materiales.Material;
 
 public abstract class Herramienta {
 
     protected int fuerza;
+    protected Desgaste desgaste;
 
-    protected int durabilidad;
-    protected Material material;
 
-    public Herramienta(int fuerza, int durabilidadInicial){
-        this.fuerza = fuerza;
-        this.durabilidad = durabilidadInicial;
+    protected Herramienta(int fuerzaIndicada,  Desgaste desgasteIndicado){
+        this.fuerza = fuerzaIndicada;
+        this.desgaste = desgasteIndicado;
     }
 
-    public int Fuerza() {
+    public int fuerza() {
         return this.fuerza;
     }
 
     public int durabilidad(){
-        return this.durabilidad;
+        return this.desgaste.durabilidad();
     }
 
     public abstract void golpear(Madera material);

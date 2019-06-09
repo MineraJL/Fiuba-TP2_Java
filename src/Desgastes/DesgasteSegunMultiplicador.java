@@ -2,16 +2,16 @@ package Desgastes;
 
 public class DesgasteSegunMultiplicador extends Desgaste {
 
-    private int multiplicador;
+    private double multiplicador;
 
-    public DesgasteSegunMultiplicador(int multiplicadorDesgaste, int durabilidadDesgaste) {
+    public DesgasteSegunMultiplicador(double multiplicadorDesgaste, int durabilidadDesgaste) {
         this.multiplicador = multiplicadorDesgaste;
         this.durabilidad = durabilidadDesgaste;
     }
 
     public void desgastarCon(int cantidad){
 
-        this.durabilidad = this.durabilidad - cantidad * this.multiplicador;
+        this.durabilidad = this.durabilidad - (int)(cantidad * this.multiplicador);
 
     }
 
