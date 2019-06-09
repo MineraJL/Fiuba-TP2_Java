@@ -8,4 +8,6 @@ public abstract class Desgaste {
         return this.durabilidad;
     }
 
+    public abstract void desgastarCon(int fuerza);
+
 }

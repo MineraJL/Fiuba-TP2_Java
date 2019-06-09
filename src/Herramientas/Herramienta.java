@@ -1,27 +1,43 @@
 package Herramientas;
 
-import Materiales.Madera;
-import Materiales.Material;
+import Desgastes.Desgaste;
+import Recursos.Madera;
+import Recursos.Diamante;
+import Recursos.Metal;
+import Recursos.Piedra;
+import TipoMaterial.*;
 
 public abstract class Herramienta {
 
     protected int fuerza;
+    protected Desgaste desgaste;
+    protected TipoMaterial material;
 
-    protected int durabilidad;
-    protected Material material;
 
-    public Herramienta(int fuerza, int durabilidadInicial){
-        this.fuerza = fuerza;
-        this.durabilidad = durabilidadInicial;
+    protected Herramienta(int fuerzaIndicada,  Desgaste desgasteIndicado){
+        this.fuerza = fuerzaIndicada;
+        this.desgaste = desgasteIndicado;
     }
 
-    public int Fuerza() {
+    public int fuerza() {
         return this.fuerza;
     }
 
     public int durabilidad(){
-        return this.durabilidad;
+        return this.desgaste.durabilidad();
     }
 
-    public abstract void golpear(Madera material);
+    public void golpear(Madera material){
+        this.desgaste.desgastarCon(this.fuerza);
+    }
+    public void golpear(Piedra material){
+        this.desgaste.desgastarCon(this.fuerza);
+    }
+    public void golpear(Metal material){
+        this.desgaste.desgastarCon(this.fuerza);
+    }
+
+    public void golpear(Diamante material){
+        this.desgaste.desgastarCon(this.fuerza);
+    }
 }

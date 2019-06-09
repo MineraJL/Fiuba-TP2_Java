@@ -1,4 +1,4 @@
-package Materiales;
+package Recursos;
 
 import Herramientas.Pico;
 
@@ -9,6 +9,6 @@ public class Piedra extends Material {
 
     @Override
     public void recibirGolpeDe(Pico pico) {
-        this.durabilidad = this.durabilidad - pico.Fuerza();
+        this.durabilidad = this.durabilidad - pico.fuerza();
     }
 }

@@ -1,17 +1,27 @@
 package Herramientas;
-
-import Materiales.Madera;
+import Recursos.*;
+import Desgastes.DesgasteSegunMultiplicador;
+import Recursos.Diamante;
+import TipoMaterial.TipoMetalYPiedra;
 
 public class PicoFino extends Herramienta {
 
 
-    public PicoFino(int fuerza){
-        super(fuerza,0);
+    public PicoFino(TipoMetalYPiedra material){
+        super(20, new DesgasteSegunMultiplicador(0.1,1000));
+        this.material= material;
     }
 
-    @Override
-    public void golpear(Madera material) {
 
+    public void golpear(Diamante recursoDiamante) {
+        super.golpear(recursoDiamante);
+        this.material.golpear(recursoDiamante, this.fuerza);
+    }
+    public void golpear(Madera material){
+    }
+    public void golpear(Piedra material){
+    }
+    public void golpear(Metal material){
     }
 
 }

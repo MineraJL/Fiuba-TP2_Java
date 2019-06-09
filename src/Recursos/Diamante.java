@@ -1,4 +1,4 @@
-package Materiales;
+package Recursos;
 
 import Herramientas.PicoFino;
 
@@ -10,6 +10,6 @@ public class Diamante extends Material {
 
     @Override
     public void recibirGolpeDe(PicoFino picoFino) {
-        this.durabilidad = this.durabilidad - picoFino.Fuerza();
+        this.durabilidad = this.durabilidad - picoFino.fuerza();
     }
 }
