@@ -119,6 +119,7 @@
 
     <target name="coverage-report" depends="ejecutar.tests">
         <cobertura-report srcdir="${src.dir}" destdir="${coverage.xml.dir}" format="xml" datafile="${build}/cobertura.ser" />
+        <cobertura-report srcdir="${src.dir}" destdir="${coverage.html.dir}" format="html" datafile="${build}/cobertura.ser" />
     </target>
 
     <target name="summary-coverage-report">

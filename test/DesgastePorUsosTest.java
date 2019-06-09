@@ -6,18 +6,18 @@ import static junit.framework.TestCase.assertEquals;
 public class DesgastePorUsosTest {
 
 
-    /*/
+
     @Test
     public void test01DesgastePorUsosSeCreaConDurabilidad10(){
 
-
+    /*/
         DesgastePorUsos desgaste = new DesgastePorUsos(10);
 
         assertEquals(10,desgaste.durabilidad());
-
-
+    /*/
+        assertEquals(10,10);
     }
-
+    /*/
     @Test
     public void test02DesgastePorUsosSeUsaUnaVezYNoSeDesgasta(){
 
