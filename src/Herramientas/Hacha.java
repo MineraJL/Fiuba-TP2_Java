@@ -1,9 +1,7 @@
 package Herramientas;
 
 import Desgastes.DesgasteSegunMultiplicador;
-import Materiales.Madera;
-import Materiales.Metal;
-import Materiales.Piedra;
+import Recursos.Madera;
 import TipoMaterial.*;
 
 public class Hacha extends Herramienta {
@@ -15,13 +13,13 @@ public class Hacha extends Herramienta {
     }
 
     public Hacha(TipoPiedra piedra) {
-        super(4, new DesgasteSegunMultiplicador(1,200));
+        super(5, new DesgasteSegunMultiplicador(1,200));
         this.material= piedra;
 
     }
 
     public Hacha(TipoMetal metal) {
-        super(12, new DesgasteSegunMultiplicador(0.5,400));
+        super(10, new DesgasteSegunMultiplicador(0.5,400));
         this.material= metal;
 
     }
@@ -29,7 +27,7 @@ public class Hacha extends Herramienta {
 
     @Override
     public void golpear(Madera recursoMadera){
-        this.desgaste.desgastarCon(this.fuerza);
+        super.golpear(recursoMadera);
         this.material.golpear(recursoMadera, this.fuerza);
     }
 

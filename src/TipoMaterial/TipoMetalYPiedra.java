@@ -1,5 +1,5 @@
 package TipoMaterial;
-import Materiales.Diamante;
+import Recursos.Diamante;
 
 public class TipoMetalYPiedra extends TipoMaterial{
 

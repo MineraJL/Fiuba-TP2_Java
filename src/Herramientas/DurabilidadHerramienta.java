@@ -1,6 +1,6 @@
 package Herramientas;
 
-import Materiales.Madera;
+import Recursos.Madera;
 
 public class DurabilidadHerramienta {
 

@@ -1,8 +1,7 @@
 package Herramientas;
 
-import Desgastes.DesgastePorUsos;
 import Desgastes.DesgasteSegunMultiplicador;
-import Materiales.Diamante;
+import Recursos.Diamante;
 import TipoMaterial.TipoMetalYPiedra;
 
 public class PicoFino extends Herramienta {
@@ -15,7 +14,7 @@ public class PicoFino extends Herramienta {
 
     @Override
     public void golpear(Diamante recursoDiamante) {
-        this.desgaste.desgastarCon(this.fuerza);
+        super.golpear(recursoDiamante);
         this.material.golpear(recursoDiamante, this.fuerza);
     }
 

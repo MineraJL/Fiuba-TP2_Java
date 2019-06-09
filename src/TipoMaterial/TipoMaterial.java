@@ -1,10 +1,9 @@
 package TipoMaterial;
 
-import Desgastes.Desgaste;
-import Materiales.Diamante;
-import Materiales.Madera;
-import Materiales.Metal;
-import Materiales.Piedra;
+import Recursos.Diamante;
+import Recursos.Madera;
+import Recursos.Metal;
+import Recursos.Piedra;
 
 public abstract class TipoMaterial {
 

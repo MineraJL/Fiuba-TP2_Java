@@ -1,4 +1,4 @@
-package Materiales;
+package Recursos;
 
 import Herramientas.Hacha;
 
