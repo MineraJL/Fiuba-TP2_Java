@@ -1,5 +1,5 @@
-import Desgastes.DesgasteSegunMultiplicador;
 import org.junit.Test;
+import Desgastes.*;
 
 import static junit.framework.TestCase.assertEquals;
 
