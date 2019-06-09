@@ -1,7 +1,8 @@
-public class DesgasteSegunMultiplicador {
+package Desgastes;
+
+public class DesgasteSegunMultiplicador extends Desgaste {
 
     private int multiplicador;
-    private int durabilidad;
 
     public DesgasteSegunMultiplicador(int multiplicadorDesgaste, int durabilidadDesgaste) {
         this.multiplicador = multiplicadorDesgaste;
@@ -14,7 +15,4 @@ public class DesgasteSegunMultiplicador {
 
     }
 
-    public int durabilidad(){
-        return this.durabilidad;
-    }
 }
