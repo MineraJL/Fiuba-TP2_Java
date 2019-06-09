@@ -31,7 +31,7 @@ public class Hacha extends Herramienta {
     @Override
     public void golpear(Madera recursoMadera){
         this.desgaste.desgastarCon(this.fuerza);
-        this.material.golpear(recursoMadera);
+        this.material.golpear(recursoMadera, this.fuerza);
     }
 
 
