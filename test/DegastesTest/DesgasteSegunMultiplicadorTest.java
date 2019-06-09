@@ -1,3 +1,5 @@
+package DegastesTest;
+
 import org.junit.Test;
 import Desgastes.*;
 

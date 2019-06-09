@@ -1,3 +1,5 @@
+package DegastesTest;
+
 import Desgastes.DesgastePorUsos;
 import org.junit.Test;
 
