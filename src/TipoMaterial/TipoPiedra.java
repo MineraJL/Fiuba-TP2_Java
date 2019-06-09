@@ -9,11 +9,10 @@ import Materiales.Piedra;
 
 public class TipoPiedra extends TipoMaterial{
 
-    public TipoPiedra(int fuerza,  Desgaste desgasteIndicado){
-        super(2, desgasteIndicado);
+    public TipoPiedra(){
     }
 
-    public  void golpear(Madera madera){ madera.reducirDurabilidadEn(this.fuerza);}
-    public  void golpear(Piedra piedra){piedra.reducirDurabilidadEn(this.fuerza);}
-    public  void golpear(Metal metal){metal.reducirDurabilidadEn(this.fuerza);}
+    public void golpear(Madera recurso, int fuerza){ recurso.reducirDurabilidadEn(fuerza);}
+    public void golpear(Piedra recurso, int fuerza){recurso.reducirDurabilidadEn(fuerza);}
+
 }

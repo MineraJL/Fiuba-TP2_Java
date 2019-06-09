@@ -2,6 +2,7 @@ package Herramientas;
 
 import Desgastes.Desgaste;
 import Materiales.Madera;
+import Materiales.Diamante;
 import Materiales.Material;
 import Materiales.Metal;
 import Materiales.Piedra;
@@ -27,7 +28,17 @@ public abstract class Herramienta {
         return this.desgaste.durabilidad();
     }
 
-    public void golpear(Madera material){}
-    public void golpear(Piedra material){}
-    public void golpear(Metal material){}
+    public void golpear(Madera material){
+
+    }
+    public void golpear(Piedra material){
+
+    }
+    public void golpear(Metal material){
+
+    }
+
+    public void golpear(Diamante material){
+
+    }
 }
