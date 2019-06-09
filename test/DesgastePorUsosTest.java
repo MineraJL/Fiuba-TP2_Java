@@ -1,3 +1,4 @@
+import Desgastes.DesgastePorUsos;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
