@@ -12,11 +12,12 @@ public class DesgastePorUsos extends Desgaste {
 
     }
 
-    public void desgastar(){
+    public void desgastarCon(int fuerza){
         this.usos = this.usos + 1;
         if (this.usos == this.usosMaximos){
             this.durabilidad = 0;
         }
+
     }
 
 }

@@ -4,26 +4,33 @@ import Desgastes.DesgasteSegunMultiplicador;
 import Materiales.Madera;
 import Materiales.Metal;
 import Materiales.Piedra;
+import TipoMaterial.*;
 
 public class Hacha extends Herramienta {
 
 
-    public Hacha(Madera material) {
+    public Hacha(TipoMadera madera) {
         super(2, new DesgasteSegunMultiplicador(1,100));
+        this.material= madera;
     }
 
-    public Hacha(Piedra material) {
+    public Hacha(TipoPiedra piedra) {
         super(4, new DesgasteSegunMultiplicador(1,200));
+        this.material= piedra;
+
     }
 
-    public Hacha(Metal material) {
+    public Hacha(TipoMetal metal) {
         super(12, new DesgasteSegunMultiplicador(0.5,400));
+        this.material= metal;
+
     }
 
 
 
     @Override
     public void golpear(Madera material){
+        this.desgaste.desgastarCon(this.fuerza);
         material.reducirDurabilidadEn(this.fuerza);
     }
 

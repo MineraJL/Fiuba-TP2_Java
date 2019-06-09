@@ -5,11 +5,13 @@ import Materiales.Madera;
 import Materiales.Material;
 import Materiales.Metal;
 import Materiales.Piedra;
+import TipoMaterial.*;
 
 public abstract class Herramienta {
 
     protected int fuerza;
     protected Desgaste desgaste;
+    protected TipoMaterial material;
 
 
     protected Herramienta(int fuerzaIndicada,  Desgaste desgasteIndicado){
@@ -25,7 +27,7 @@ public abstract class Herramienta {
         return this.desgaste.durabilidad();
     }
 
-    public abstract void golpear(Madera material);
-    public abstract void golpear(Piedra material);
-    public abstract void golpear(Metal material);
+    public void golpear(Madera material){}
+    public void golpear(Piedra material){}
+    public void golpear(Metal material){}
 }
