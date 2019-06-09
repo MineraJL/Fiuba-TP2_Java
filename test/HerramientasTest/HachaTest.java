@@ -109,7 +109,7 @@ public class HachaTest {
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         hacha.golpear(recursoMadera);
-        assertEquals(198, hacha.durabilidad());
+        assertEquals(195, hacha.durabilidad());
     }
     // Hacha de Piedra reduce durabilidad contra Piedra
     @Test
@@ -118,7 +118,7 @@ public class HachaTest {
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         hacha.golpear(recursoPiedra);
-        assertEquals(198, hacha.durabilidad());
+        assertEquals(195, hacha.durabilidad());
     }
     // Hacha de Piedra reduce durabilidad contra Metal
     @Test
@@ -127,7 +127,7 @@ public class HachaTest {
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         hacha.golpear(recursoMetal);
-        assertEquals(198, hacha.durabilidad());
+        assertEquals(195, hacha.durabilidad());
     }
     // Hacha de Piedra reduce durabilidad contra Diamante
     @Test
@@ -136,7 +136,7 @@ public class HachaTest {
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         hacha.golpear(recursoDiamante);
-        assertEquals(198, hacha.durabilidad());
+        assertEquals(195, hacha.durabilidad());
     }
 
     // HACHA METAL
@@ -148,7 +148,7 @@ public class HachaTest {
         TipoMetal materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         hacha.golpear(recursoMadera);
-        assertEquals(400, hacha.durabilidad());
+        assertEquals(395, hacha.durabilidad());
     }
     // Hacha de Metal reduce durabilidad contra Piedra
     @Test
@@ -157,7 +157,7 @@ public class HachaTest {
         TipoMetal materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         hacha.golpear(recursoPiedra);
-        assertEquals(400, hacha.durabilidad());
+        assertEquals(395, hacha.durabilidad());
     }
     // Hacha de Metal reduce durabilidad contra Metal
     @Test
@@ -166,7 +166,7 @@ public class HachaTest {
         TipoMetal materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         hacha.golpear(recursoMetal);
-        assertEquals(400, hacha.durabilidad());
+        assertEquals(395, hacha.durabilidad());
     }
     // Hacha de Metal reduce durabilidad contra Diamante
     @Test
@@ -175,7 +175,7 @@ public class HachaTest {
         TipoMetal materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         hacha.golpear(recursoDiamante);
-        assertEquals(400, hacha.durabilidad());
+        assertEquals(395, hacha.durabilidad());
     }
 
 }

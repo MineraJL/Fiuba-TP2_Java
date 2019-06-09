@@ -51,7 +51,7 @@ public class PiedraTest {
     }
     // Golpe hacha de Metal
     @Test
-    public void testPiedraReduceSuDurabilidadEnDosSiEsGolpeadoPorHachaDeMetal(){
+    public void testPiedraNoReduceSuDurabilidadEnDosSiEsGolpeadoPorHachaDeMetal(){
         TipoMetal materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         Piedra piedraTest =  new Piedra(30);

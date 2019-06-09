@@ -11,5 +11,5 @@ public class TipoMetal extends TipoMaterial{
 
     public void golpear(Madera recurso, int fuerza){ recurso.reducirDurabilidadEn(fuerza);}
     public void golpear(Piedra recurso, int fuerza){recurso.reducirDurabilidadEn(fuerza);}
-    public void golpear(Metal recurso, int fuerza){recurso.reducirDurabilidadEn(fuerza);}
+
 }
