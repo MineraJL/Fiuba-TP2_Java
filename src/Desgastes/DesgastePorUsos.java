@@ -1,7 +1,6 @@
 package Desgastes;
 
-public class DesgastePorUsos {
-    private int durabilidad;
+public class DesgastePorUsos extends Desgaste {
     private int usos;
 
 
@@ -16,10 +15,6 @@ public class DesgastePorUsos {
         if (this.usos == this.durabilidad){
             this.durabilidad = 0;
         }
-    }
-
-    public int durabilidad(){
-        return this.durabilidad;
     }
 
 }
