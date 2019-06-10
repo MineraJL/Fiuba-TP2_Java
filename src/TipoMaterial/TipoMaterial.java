@@ -8,9 +8,7 @@ import Recursos.Piedra;
 public abstract class TipoMaterial {
 
 
-    protected TipoMaterial(){
 
-    }
 
     public void golpear(Madera madera, int fuerza){}
     public void golpear(Piedra piedra, int fuerza){}

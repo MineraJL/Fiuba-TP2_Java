@@ -1,15 +1,9 @@
 package Recursos;
 
-import Herramientas.Pico;
+public class Metal extends Recurso {
 
-public class Metal extends Material {
-
-    public Metal(int durabilidadInicial) {
-        super(durabilidadInicial);
+    public Metal() {
+        super.setDurabilidad(50);
     }
 
-    @Override
-    public void recibirGolpeDe(Pico pico) {
-        this.durabilidad = this.durabilidad - pico.fuerza();
-    }
 }

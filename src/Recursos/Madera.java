@@ -1,16 +1,9 @@
 package Recursos;
 
-import Herramientas.Hacha;
+public class Madera extends Recurso {
 
-public class Madera extends Material {
-
-
-    public Madera(int durabilidadInicial) {
-        super(durabilidadInicial);
+    public Madera() {
+        this.setDurabilidad(10);
     }
 
-    @Override
-    public void recibirGolpeDe(Hacha hacha) {
-        this.durabilidad = this.durabilidad - hacha.fuerza();
-    }
 }

@@ -65,7 +65,7 @@ public class PicoTest {
     // Pico de Madera reduce durabilidad contra madera
     @Test
     public void testPicoDeMaderaSeUsaContraRecursoMaderaYSeReduceSuDurabilidad(){
-        Madera recursoMadera = new Madera(10) ;
+        Madera recursoMadera = new Madera() ;
         TipoMadera materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
         pico.golpear(recursoMadera);
@@ -74,7 +74,7 @@ public class PicoTest {
     // Pico de Madera reduce durabilidad contra Metal
     @Test
     public void testPicoDeMaderaSeUsaContraRecursoMetalYSeReduceSuDurabilidad(){
-        Piedra recursoPiedra = new Piedra(10) ;
+        Piedra recursoPiedra = new Piedra() ;
         TipoMadera materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
         pico.golpear(recursoPiedra);
@@ -83,7 +83,7 @@ public class PicoTest {
     // Pico de Madera reduce durabilidad contra Piedra
     @Test
     public void testPicoDeMaderaSeUsaContraRecursoPiedraYSeReduceSuDurabilidad(){
-        Metal recursoMetal = new Metal(10) ;
+        Metal recursoMetal = new Metal() ;
         TipoMadera materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
         pico.golpear(recursoMetal);
@@ -92,7 +92,7 @@ public class PicoTest {
     // Pico de Madera reduce durabilidad contra diamante
     @Test
     public void testPicoDeMaderaSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad(){
-        Diamante recursoDiamante = new Diamante(10) ;
+        Diamante recursoDiamante = new Diamante() ;
         TipoMadera materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
         pico.golpear(recursoDiamante);
@@ -105,7 +105,7 @@ public class PicoTest {
     // Pico de Piedra reduce durabilidad contra Madera
     @Test
     public void testPicoDePiedraSeUsaContraRecursoMaderaYSeReduceSuDurabilidad(){
-        Madera recursoMadera = new Madera(10) ;
+        Madera recursoMadera = new Madera() ;
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
         pico.golpear(recursoMadera);
@@ -114,7 +114,7 @@ public class PicoTest {
     // Pico de Piedra reduce durabilidad contra Piedra
     @Test
     public void testPicoDePiedraSeUsaContraRecursoPiedraYSeReduceSuDurabilidad(){
-        Piedra recursoPiedra = new Piedra(10) ;
+        Piedra recursoPiedra = new Piedra() ;
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
         pico.golpear(recursoPiedra);
@@ -123,7 +123,7 @@ public class PicoTest {
     // Pico de Piedra reduce durabilidad contra Metal
     @Test
     public void testPicoDePiedraSeUsaContraRecursoMetalYSeReduceSuDurabilidad(){
-        Metal recursoMetal = new Metal(10) ;
+        Metal recursoMetal = new Metal() ;
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
         pico.golpear(recursoMetal);
@@ -132,7 +132,7 @@ public class PicoTest {
     // Pico de Piedra reduce durabilidad contra Diamante
     @Test
     public void testPicoDePiedraSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad(){
-        Diamante recursoDiamante = new Diamante(10) ;
+        Diamante recursoDiamante = new Diamante() ;
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
         pico.golpear(recursoDiamante);
@@ -144,7 +144,7 @@ public class PicoTest {
     // Pico de Metal no reduce durabilidad contra Madera
     @Test
     public void testPicoDeMetalSeUsaContraRecursoMaderaYNoSeReduceSuDurabilidad(){
-        Madera recursoMadera = new Madera(10) ;
+        Madera recursoMadera = new Madera() ;
         TipoMetal materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
         pico.golpear(recursoMadera);
@@ -153,7 +153,7 @@ public class PicoTest {
     // Pico de Metal no reduce durabilidad contra Piedra
     @Test
     public void testPicoDeMetalSeUsaContraRecursoPiedraYNoSeReduceSuDurabilidad(){
-        Piedra recursoPiedra = new Piedra(10) ;
+        Piedra recursoPiedra = new Piedra() ;
         TipoMetal materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
         pico.golpear(recursoPiedra);
@@ -162,7 +162,7 @@ public class PicoTest {
     // Pico de Metal no reduce durabilidad contra Metal
     @Test
     public void testPicoDeMetalSeUsaContraRecursoMetalYNoSeReduceSuDurabilidad(){
-        Metal recursoMetal = new Metal(10) ;
+        Metal recursoMetal = new Metal() ;
         TipoMetal materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
         pico.golpear(recursoMetal);
@@ -171,7 +171,7 @@ public class PicoTest {
     // Pico de Metal no reduce durabilidad contra Diamante
     @Test
     public void testPicoDeMetalSeUsaContraRecursoDiamanteYNoSeReduceSuDurabilidad(){
-        Diamante recursoDiamante = new Diamante(10) ;
+        Diamante recursoDiamante = new Diamante() ;
         TipoMetal materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
         pico.golpear(recursoDiamante);
@@ -180,7 +180,7 @@ public class PicoTest {
     // Pico de Metal reduce durabilidad contra Diamante
     @Test
     public void testPicoDeMetalSeGastaAlGolpeNumero10(){
-        Diamante recursoDiamante = new Diamante(10) ;
+        Diamante recursoDiamante = new Diamante() ;
         TipoMetal materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
         for(int i=1; i<11; i++){
