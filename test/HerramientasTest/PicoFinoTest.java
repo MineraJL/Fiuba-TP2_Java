@@ -35,7 +35,7 @@ public class PicoFinoTest {
         // Pico fino no reduce durabilidad contra madera
         @Test
         public void testPicoFinoSeUsaContraRecursoMaderaYNoSeReduceSuDurabilidad(){
-            Madera recursoMadera = new Madera(10) ;
+            Madera recursoMadera = new Madera() ;
             TipoMetalYPiedra materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
             picoFino.golpear(recursoMadera);
@@ -44,7 +44,7 @@ public class PicoFinoTest {
         // Pico fino no  reduce durabilidad contra Metal
         @Test
         public void testPicoFinoSeUsaContraRecursoMetalYSeReduceSuDurabilidad(){
-            Piedra recursoPiedra = new Piedra(10) ;
+            Piedra recursoPiedra = new Piedra() ;
             TipoMetalYPiedra materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
             picoFino.golpear(recursoPiedra);
@@ -53,7 +53,7 @@ public class PicoFinoTest {
         // Pico fino no reduce durabilidad contra Piedra
         @Test
         public void testPicoFinoSeUsaContraRecursoPiedraYSeReduceSuDurabilidad(){
-            Metal recursoMetal = new Metal(10) ;
+            Metal recursoMetal = new Metal() ;
             TipoMetalYPiedra materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
             picoFino.golpear(recursoMetal);
@@ -62,7 +62,7 @@ public class PicoFinoTest {
         // Pico fino reduce durabilidad contra diamante
         @Test
         public void testPicoFinoSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad(){
-            Diamante recursoDiamante = new Diamante(10) ;
+            Diamante recursoDiamante = new Diamante() ;
             TipoMetalYPiedra materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
             picoFino.golpear(recursoDiamante);
