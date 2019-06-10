@@ -12,8 +12,8 @@ public class DiamanteTest {
         // Diamante Durabilidad
         @Test
         public void testDiamanteSeCreaConLaDurabilidadIndicada(){
-            Metal metalTest =  new Metal();
-            assertEquals(100, metalTest.durabilidad());
+        	Diamante DiamanteTest =  new Diamante();
+            assertEquals(100, DiamanteTest.durabilidad());
 
         }
 
