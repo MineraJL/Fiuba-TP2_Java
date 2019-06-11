@@ -11,11 +11,24 @@ public abstract class Herramienta {
     protected TipoMaterial material;
 
 
+    public Herramienta(TipoMaterial material){
+        this.material=material;
+    }
+
+    /*
     protected Herramienta(int fuerzaIndicada,  Desgaste desgasteIndicado){
         this.fuerza = fuerzaIndicada;
         this.desgaste = desgasteIndicado;
-    }
+    }*/
 
+    public abstract void asignarMaterial(TipoMaterial material);
+
+    public void asignarFuerza(int fuerza){
+        this.fuerza= fuerza;
+    }
+    public void asignarDesgaste(Desgaste desgaste){
+        this.desgaste = desgaste;
+    }
     public int fuerza() {
         return this.fuerza;
     }
