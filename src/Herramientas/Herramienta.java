@@ -21,14 +21,22 @@ public abstract class Herramienta {
         this.desgaste = desgasteIndicado;
     }*/
 
-    public abstract void asignarMaterial(TipoMaterial material);
+    public void asignarMaterial(TipoMaterial material){material.definirValores(this);}
 
+
+    // Set
     public void asignarFuerza(int fuerza){
         this.fuerza= fuerza;
     }
     public void asignarDesgaste(Desgaste desgaste){
         this.desgaste = desgaste;
     }
+
+
+
+
+
+    // Get
     public int fuerza() {
         return this.fuerza;
     }
