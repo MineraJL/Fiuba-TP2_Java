@@ -1,10 +1,7 @@
 package Herramientas;
 
-import Desgastes.Desgaste;
-import Recursos.Madera;
-import Recursos.Diamante;
-import Recursos.Metal;
-import Recursos.Piedra;
+import Desgastes.*;
+import Recursos.*;
 import TipoMaterial.*;
 
 public abstract class Herramienta {
@@ -27,6 +24,11 @@ public abstract class Herramienta {
         return this.desgaste.durabilidad();
     }
 
+
+    // Dispatch
+    public void golpear(Recurso recurso) { recurso.golpearCon(this);}
+    // Fin dispatch
+
     public void golpear(Madera material){
         this.desgaste.desgastarCon(this.fuerza);
     }
@@ -36,7 +38,6 @@ public abstract class Herramienta {
     public void golpear(Metal material){
         this.desgaste.desgastarCon(this.fuerza);
     }
-
     public void golpear(Diamante material){
         this.desgaste.desgastarCon(this.fuerza);
     }

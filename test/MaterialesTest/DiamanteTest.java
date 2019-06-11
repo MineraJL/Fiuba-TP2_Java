@@ -17,7 +17,7 @@ public class DiamanteTest {
 
         }
 
-        // Metal reduce durabilidad
+        // Diamante reduce durabilidad
         @Test
         public void testDiamanteReduceSuDurabilidadEn10(){
             Diamante diamanteTest =  new Diamante();
@@ -33,7 +33,7 @@ public class DiamanteTest {
         public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorHachaDeMadera(){
             TipoMadera materialMadera = new TipoMadera();
             Herramienta hacha = new Hacha(materialMadera);
-            Diamante diamanteTest =  new Diamante();
+            Recurso diamanteTest =  new Diamante();
             hacha.golpear(diamanteTest);
             assertEquals(100, diamanteTest.durabilidad());
         }
@@ -42,7 +42,7 @@ public class DiamanteTest {
         public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorHachaDePiedra(){
             TipoPiedra materialPiedra = new TipoPiedra();
             Herramienta hacha = new Hacha(materialPiedra);
-            Diamante diamanteTest =  new Diamante();
+            Recurso diamanteTest =  new Diamante();
             hacha.golpear(diamanteTest);
             assertEquals(100, diamanteTest.durabilidad());
         }
@@ -51,7 +51,7 @@ public class DiamanteTest {
         public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorHachaDeMetal(){
             TipoMetal materialMetal = new TipoMetal();
             Herramienta hacha = new Hacha(materialMetal);
-            Diamante diamanteTest =  new Diamante();
+            Recurso diamanteTest =  new Diamante();
             hacha.golpear(diamanteTest);
             assertEquals(100, diamanteTest.durabilidad());
         }
@@ -62,7 +62,7 @@ public class DiamanteTest {
         public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorPicoMadera(){
             TipoMadera materialMadera = new TipoMadera();
             Herramienta pico = new Pico(materialMadera);
-            Diamante diamanteTest =  new Diamante();
+            Recurso diamanteTest =  new Diamante();
             pico.golpear(diamanteTest);
             assertEquals(100, diamanteTest.durabilidad());
         }
@@ -71,7 +71,7 @@ public class DiamanteTest {
         public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorPicoPiedra(){
             TipoPiedra materialPiedra = new TipoPiedra();
             Herramienta pico = new Pico(materialPiedra);
-            Diamante diamanteTest =  new Diamante();
+            Recurso diamanteTest =  new Diamante();
             pico.golpear(diamanteTest);
             assertEquals(100, diamanteTest.durabilidad());
         }
@@ -80,7 +80,7 @@ public class DiamanteTest {
         public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorPicoMetal(){
             TipoMetal materialMetal = new TipoMetal();
             Herramienta pico = new Pico(materialMetal);
-            Diamante diamanteTest =  new Diamante();
+            Recurso diamanteTest =  new Diamante();
             pico.golpear(diamanteTest);
             assertEquals(100, diamanteTest.durabilidad());
         }
@@ -90,7 +90,7 @@ public class DiamanteTest {
         public void testDiamanteReduceSuDurabilidadSiEsGolpeadoPorPicoFino(){
             TipoMetalYPiedra materialMetalYPiedra = new TipoMetalYPiedra();
             Herramienta pico = new PicoFino(materialMetalYPiedra);
-            Diamante diamanteTest =  new Diamante();
+            Recurso diamanteTest =  new Diamante();
             pico.golpear(diamanteTest);
             assertEquals(80, diamanteTest.durabilidad());
         }
