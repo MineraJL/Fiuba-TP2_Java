@@ -9,7 +9,7 @@ public class Hacha extends Herramienta {
 
     public Hacha(TipoMaterial material){
         super(material);
-        this.material.definirValores(this);
+        this.asignarMaterial(material);
     }
 
 
@@ -21,12 +21,12 @@ public class Hacha extends Herramienta {
 
     public void asignarMaterial(TipoPiedra piedra){
         this.asignarFuerza(5);
-        this.asignarDesgaste(new DesgasteSegunMultiplicador(1,100));
+        this.asignarDesgaste(new DesgasteSegunMultiplicador(1,200));
     }
 
     public void asignarMaterial(TipoMetal metal){
         this.asignarFuerza(10);
-        this.asignarDesgaste(new DesgasteSegunMultiplicador(1,100));
+        this.asignarDesgaste(new DesgasteSegunMultiplicador(0.5,400));
     }
     // Fin Dispatch
 

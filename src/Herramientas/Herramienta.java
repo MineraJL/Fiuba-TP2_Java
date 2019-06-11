@@ -24,6 +24,12 @@ public abstract class Herramienta {
     public void asignarMaterial(TipoMaterial material){material.definirValores(this);}
 
 
+    public void asignarMaterial(TipoMadera madera){}
+    public void asignarMaterial(TipoPiedra piedra){}
+    public void asignarMaterial(TipoMetal metal){}
+    public void asignarMaterial(TipoMetalYPiedra metalYPiedra){}
+
+
     // Set
     public void asignarFuerza(int fuerza){
         this.fuerza= fuerza;
