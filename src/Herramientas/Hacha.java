@@ -9,7 +9,7 @@ public class Hacha extends Herramienta {
 
     public Hacha(TipoMaterial material){
         super(material);
-        this.asignarMaterial(material);
+        this.material.definirValores(this);
     }
 
 
