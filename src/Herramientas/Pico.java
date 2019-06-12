@@ -5,28 +5,36 @@ import Desgastes.DesgasteSegunMultiplicador;
 import Recursos.Metal;
 import Recursos.Piedra;
 import TipoMaterial.TipoMadera;
+import TipoMaterial.TipoMaterial;
 import TipoMaterial.TipoMetal;
 import TipoMaterial.TipoPiedra;
 
 public class Pico extends Herramienta {
 
-    public Pico(TipoMadera madera) {
-
-        super(2, new DesgasteSegunMultiplicador(1,100));
-        this.material= madera;
+    public Pico(TipoMaterial material) {
+        super(material);
+        this.material.definirValores(this);
     }
 
-    public Pico(TipoPiedra piedra) {
 
-        super(4, new DesgasteSegunMultiplicador(0.66,200));
-        this.material= piedra;
+
+
+    // Asignar valores por material - Dispatch
+    public void asignarMaterial(TipoMadera madera){
+        this.asignarFuerza(2);
+        this.asignarDesgaste(new DesgasteSegunMultiplicador(1,100));
     }
 
-    public Pico(TipoMetal metal) {
-        super(12, new DesgastePorUsos(10, 400));
-        this.material= metal;
+    public void asignarMaterial(TipoPiedra piedra){
+        this.asignarFuerza(4);
+        this.asignarDesgaste(new DesgasteSegunMultiplicador(0.66,200));
     }
 
+    public void asignarMaterial(TipoMetal metal){
+        this.asignarFuerza(12);
+        this.asignarDesgaste(new DesgastePorUsos(10, 400));
+    }
+    // Fin Dispatch
 
 
     @Override

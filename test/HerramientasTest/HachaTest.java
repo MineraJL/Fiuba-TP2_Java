@@ -145,7 +145,7 @@ public class HachaTest {
     @Test
     public void testHachaDeMetalSeUsaContraRecursoMaderaYSeReduceSuDurabilidad(){
         Madera recursoMadera = new Madera() ;
-        TipoMetal materialMetal = new TipoMetal();
+        TipoMaterial materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         hacha.golpear(recursoMadera);
         assertEquals(395, hacha.durabilidad());

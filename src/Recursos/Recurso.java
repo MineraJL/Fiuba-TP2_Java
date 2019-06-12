@@ -1,6 +1,8 @@
 package Recursos;
 
 
+import Herramientas.*;
+
 public abstract class Recurso {
 
     protected int durabilidad;
@@ -8,6 +10,9 @@ public abstract class Recurso {
     protected Recurso() {
 
     }
+
+
+    public abstract void golpearCon(Herramienta herramienta);
 
     protected void setDurabilidad(int durabilidad){
         this.durabilidad = durabilidad;
