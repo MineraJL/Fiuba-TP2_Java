@@ -1,10 +1,12 @@
 package Herramientas;
 
 import Desgastes.*;
+import Mapa.Casillero;
+import Mapa.Item;
 import Recursos.*;
 import TipoMaterial.*;
 
-public abstract class Herramienta {
+public abstract class Herramienta implements Item {
 
     protected int fuerza;
     protected Desgaste desgaste;
@@ -15,15 +17,10 @@ public abstract class Herramienta {
         this.material=material;
     }
 
-    /*
-    protected Herramienta(int fuerzaIndicada,  Desgaste desgasteIndicado){
-        this.fuerza = fuerzaIndicada;
-        this.desgaste = desgasteIndicado;
-    }*/
+
+    public void agregarCasillero(Casillero casillero){}
 
     public void asignarMaterial(TipoMaterial material){material.definirValores(this);}
-
-
     public void asignarMaterial(TipoMadera madera){}
     public void asignarMaterial(TipoPiedra piedra){}
     public void asignarMaterial(TipoMetal metal){}
