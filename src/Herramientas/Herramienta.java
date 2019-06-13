@@ -6,7 +6,7 @@ import Mapa.Item;
 import Recursos.*;
 import TipoMaterial.*;
 
-public abstract class Herramienta implements Item {
+public abstract class Herramienta {
 
     protected int fuerza;
     protected Desgaste desgaste;
@@ -18,7 +18,7 @@ public abstract class Herramienta implements Item {
     }
 
 
-    public void agregarCasillero(Casillero casillero){}
+
 
     public void asignarMaterial(TipoMaterial material){material.definirValores(this);}
     public void asignarMaterial(TipoMadera madera){}

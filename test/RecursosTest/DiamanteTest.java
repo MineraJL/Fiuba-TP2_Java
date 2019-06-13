@@ -1,4 +1,4 @@
-package MaterialesTest;
+package RecursosTest;
 import Herramientas.*;
 import Recursos.*;
 import TipoMaterial.*;
