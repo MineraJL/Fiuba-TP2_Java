@@ -3,36 +3,27 @@ package Mapa;
 public class Casillero {
 
     private Mapa mapa;
-
     private static int fila;
     private static int columna;
     private Item item;
+    private EstadoCasillero estado;
 
-    public Casillero(Mapa mapa, int fila, int columna){
-        this.mapa= mapa;
-        this.fila= fila;
-        this.columna= columna;
+    public Casillero(){
+        this.mapa= null;
         this.item= null;
+        this.estado= new EstadoDisponible();
     }
 
-
-    // Set and Get item
-    public void setItem(Item itemNuevo){
-        this.item=itemNuevo;
-        this.item.agregarCasillero(this);
+    // Set ubicacion mapa
+    public void setUbicacion(Mapa mapa, int fila, int columna){
+        this.mapa=mapa;
+        this.setFila(fila);
+        this.setColumna(columna);
     }
-    public Item getItem(){
-        return this.item;
-    }
-    //
+    private void setFila(int fila){this.fila= fila; }
+    private void setColumna(int columna){ this.columna= columna;  }
 
-    // Limpiar item, casillero vacio
-    public void limpiarItem(){
-        this.item=null;
-    }
-    //
-
-    // Ubicacion mapa
+    // Get ubicacion mapa
     public int getFila(){
         return this.fila;
     }
@@ -41,9 +32,27 @@ public class Casillero {
     }
     //
 
-    public void movermeHaciaArriba(){
-        Casillero casilleroDeArriba= this.mapa.getCasillero(this.getFila(), this.getColumna()+1);
+    // Set and Get item
+    public void setItem(Item itemNuevo){
+        this.estado= new EstadoOcupado();
+        this.item=itemNuevo;
+        this.item.setCasillero(this);
     }
+    public Item getItem(){
+        return this.item;
+    }
+    //
+
+    // Limpiar item, casillero vacio
+    public Item quitarItem(){
+        this.estado= new EstadoDisponible();
+        Item item= this.getItem();
+        this.item=null;
+        return item;
+    }
+    //
+
+
 
     // Mover Casillero
     public void moverArriba(){
@@ -61,10 +70,8 @@ public class Casillero {
 
 
     // Switch de items en los casilleros
-    public void intercambiarItems(Casillero casillero){
-        Item item= casillero.getItem();
-        casillero.setItem(this.getItem());
-        this.setItem(item);
+    public void moverItem(Casillero casillero){
+        this.estado.movermeItem(casillero.getItem(),casillero);
     }
 
 

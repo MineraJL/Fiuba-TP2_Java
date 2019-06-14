@@ -4,11 +4,18 @@ import java.util.ArrayList;
 
 public interface Item {
 
-    void agregarCasillero(Casillero casillero);
+    void setCasillero(Casillero casillero);
+    Casillero getCasillero();
+
     int getFila();
     int getColumna();
 
+    void intercambiarCasilleros(Item item);
 
+    void moverArriba();
+    void moverAbajo();
+    void moverIzquierda();
+    void moverDerecha();
     //public int[] ubicacion();
 
 

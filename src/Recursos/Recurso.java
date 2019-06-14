@@ -15,8 +15,11 @@ public abstract class Recurso implements Item {
     }
 
     // Implementacion interface item
-    public void agregarCasillero(Casillero casillero){
+    public void setCasillero(Casillero casillero){
         this.casillero= casillero;
+    }
+    public Casillero getCasillero(){
+        return this.casillero;
     }
     public int getFila(){
         return this.casillero.getFila();
@@ -25,7 +28,18 @@ public abstract class Recurso implements Item {
         return this.casillero.getColumna();
     }
 
+    public void intercambiarCasilleros(Item item){}
 
+    public void moverArriba(){
+
+    }
+    public void moverAbajo(){
+
+    }
+    public void moverIzquierda(){
+
+    }
+    public void moverDerecha(){    }
     // Fin implementacion
 
 
