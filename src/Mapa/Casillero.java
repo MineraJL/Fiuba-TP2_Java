@@ -3,8 +3,8 @@ package Mapa;
 public class Casillero {
 
     private Mapa mapa;
-    private static int fila;
-    private static int columna;
+    private int fila;
+    private int columna;
     private Item item;
     private EstadoCasillero estado;
 

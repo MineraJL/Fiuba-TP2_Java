@@ -45,6 +45,8 @@ public class ItemTest {
         casillero.setItem(recurso);
         assertEquals(1, recurso.getColumna());
     }
+
+
     @Test
     public void testItemJugador(){
         Mapa mapa = new Mapa(10,10);

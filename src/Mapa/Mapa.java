@@ -2,9 +2,9 @@ package Mapa;
 
 public class Mapa {
 
-    public int filas;
-    public int columnas;
-    public Casillero[][] matriz;
+    private int filas;
+    private int columnas;
+    private Casillero[][] matriz;
 
     public Mapa(int filas, int columnas) {
         this.filas = filas;
@@ -17,6 +17,7 @@ public class Mapa {
     public Casillero getCasillero(int fila, int columna) {
         return matriz[fila][columna];
     }
+
     public void setCasillero(Casillero casillero, int fila, int columna) {
         this.matriz[fila][columna] = casillero;
         casillero.setUbicacion(this,fila,columna);
@@ -29,7 +30,6 @@ public class Mapa {
             for(int columna=0; columna < this.columnas; columna++){
                 Casillero casillero= new Casillero();
                 this.setCasillero(casillero, fila,columna);
-                casillero.setUbicacion(this,fila,columna);
             }
         }
     }

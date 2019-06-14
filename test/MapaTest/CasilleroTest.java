@@ -11,6 +11,7 @@ public class CasilleroTest {
 
 
     // UBICACION EN EL MAPA
+    // No verifica que casillero se ubique en el mapa sino que tenga la ubicación deseada.
     @Test
     public void testCasilleroSeUbicaCorrectamenteEnLaFilaCero(){
         Mapa mapa = new Mapa(3,3);
