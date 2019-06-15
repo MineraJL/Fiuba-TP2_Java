@@ -55,14 +55,14 @@ public class Jugador implements Item {
 
 	// Fin implementacion
 
-	public void construirHacha(TipoMadera unMaterial) {
+	public void construirHacha(TipoMaterial unMaterial) {
 		Hacha hacha = new Hacha(unMaterial);
 		
 		inventario.agregarHerramienta(hacha);
 	}
 	
-	public void usarHerramienta(Madera unMaterial) {
-		herramientaDeTrabajo.golpear(unMaterial);
+	public void usarHerramienta(Recurso unRecurso) {
+		herramientaDeTrabajo.golpear(unRecurso);
 	}
 	
 	public Herramienta herraminentaActual() {
