@@ -9,15 +9,14 @@ public class DesgasteSegunMultiplicadorTest {
 
     @Test
     public void testDesgasteSegunMultiplicadorSeDesgastaEnLaCantidadRecibidaMultiplicadaPorElMultiplicadorConQueSeCrea(){
-    /*/
+ 
         int durabilidadInicial = 10;
         DesgasteSegunMultiplicador desgaste = new DesgasteSegunMultiplicador(1,durabilidadInicial);
         desgaste.desgastarCon(1);
 
-        assertEquals(durabilidadInicial-1,desgaste.durabilidad());    /*/
-        assertEquals(1,1);
+        assertEquals(durabilidadInicial-1,desgaste.durabilidad());    
     }
-    /*/
+ 
     @Test
     public void test2DesgasteSegunMultiplicadorSeDesgastaEnLaCantidadRecibidaMultiplicadaPorElMultiplicadorConQueSeCrea(){
 
@@ -39,7 +38,5 @@ public class DesgasteSegunMultiplicadorTest {
         assertEquals(durabilidadInicial-2,desgaste.durabilidad());
 
     }
-
-*/
 
 }

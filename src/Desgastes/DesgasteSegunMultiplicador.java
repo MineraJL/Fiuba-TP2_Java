@@ -15,9 +15,4 @@ public class DesgasteSegunMultiplicador extends Desgaste {
 
     }
 
-    public void desgastar(){
-
-
-    }
-
 }
