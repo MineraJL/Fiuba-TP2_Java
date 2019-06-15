@@ -1,7 +1,5 @@
 package Mapa;
 
-import java.util.ArrayList;
-
 public interface Item {
 
     void setCasillero(Casillero casillero);

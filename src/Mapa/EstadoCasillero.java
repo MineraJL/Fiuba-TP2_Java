@@ -1,5 +1,8 @@
 package Mapa;
 
 public interface EstadoCasillero {
-    void movermeItem(Item item,Casillero casillero);
+
+    EstadoCasillero setItem(Item itemNuevo, Casillero casillero);
+
+    Item getItem();
 }

@@ -2,12 +2,21 @@ package Mapa;
 
 public class EstadoOcupado implements EstadoCasillero {
 
+    private Item item;
 
-    public EstadoOcupado() {
+    public EstadoOcupado(Item itemNuevo, Casillero casilleroDelQueSoyEstado) {
+        this.item=itemNuevo;
+        itemNuevo.setCasillero(casilleroDelQueSoyEstado);
     }
 
-
-    public void movermeItem (Item item, Casillero casillero){
-        }
+    @Override
+    public EstadoCasillero setItem(Item itemNuevo, Casillero casillero){
+        return this;
     }
+    @Override
+    public Item getItem() {
+        return this.item;
+    }
+
+}
 

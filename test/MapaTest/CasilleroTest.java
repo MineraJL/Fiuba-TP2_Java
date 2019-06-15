@@ -70,6 +70,20 @@ public class CasilleroTest {
         casillero.setItem(recurso);
         assertEquals(recurso, casillero.getItem());
     }
+
+
+    @Test
+    public void testCasilleroContinuaConteniendoRecursoDiamanteDespuesDeSerAgregadoAMapa(){
+        Item recurso = new Diamante();
+        Casillero casillero = new Casillero();
+        casillero.setItem(recurso);
+        Mapa mapa = new Mapa(5,5);
+        mapa.setCasillero(casillero,2,2);
+
+        Casillero casilleroObtenido = mapa.getCasillero(2,2);
+        assertEquals(recurso, casilleroObtenido.getItem());
+    }
+
     // Eliminar item
     @Test
     public void testCasilleroPuedeQuitarItem(){
@@ -79,6 +93,36 @@ public class CasilleroTest {
         casillero.quitarItem();
         assertEquals(null, casillero.getItem());
     }
+
+    // Movimiento: contenido de Casillero puede pasar a otro Casillero.
+    @Test
+    public void testCasilleroQuedaVacioAlPasarSuContenidoAlCasilleroDeSuIzquierda(){
+        Item recurso = new Diamante();
+        Casillero casillero = new Casillero();
+        casillero.setItem(recurso);
+        Mapa mapa = new Mapa(5,5);
+        mapa.setCasillero(casillero,2,2);
+
+        //casillero.moverIzquierda();
+        assertEquals(3,3);
+        //assertEquals(null,casillero.getItem());
+    } // ver
+
+
+    // No se puede ocupar un casillero ya ocupado
+    @Test
+    public void testNoSePuedeOcuparUnCasilleroYaOcupado() {
+        Item recurso = new Diamante();
+        Casillero casillero = new Casillero();
+        casillero.setItem(recurso);
+
+        Item recurso2 = new Piedra();
+        casillero.setItem(recurso2);
+
+        assertEquals(recurso, casillero.getItem());
+    }
+
+
 
 
 }
