@@ -25,7 +25,7 @@ public class Mapa {
         return this.matriz[posicion.getX()][posicion.getY()];
     }
 
-    public void setCasillero(Casillero casillero, Posicion posicion) {
+    private void setCasillero(Casillero casillero, Posicion posicion) {
         this.matriz[posicion.getX()][posicion.getY()] = casillero;
         casillero.setPosicion(posicion);
     }
