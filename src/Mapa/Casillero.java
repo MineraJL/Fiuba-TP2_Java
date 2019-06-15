@@ -46,13 +46,6 @@ public class Casillero {
     // Dejar vacío al Casillero
     public void quitarItem(){
         this.estado=this.estado.quitarItem();
-
-        /*this.estado= new EstadoDisponible();
-        Item item= this.getItem();
-        this.item=null;
-        return item;
-        */
-
     }
 
 
