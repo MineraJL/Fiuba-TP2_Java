@@ -8,7 +8,7 @@ import Recursos.*;
 
 public class Jugador implements Item {
 	private Inventario inventario;
-	private Hacha herramientaDeTrabajo;
+	private Herramienta herramientaDeTrabajo;
 	private Casillero casillero;
 
 	public Jugador() {
