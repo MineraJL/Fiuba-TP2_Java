@@ -2,12 +2,12 @@ package Mapa;
 
 public class Posicion {
 
-    private int x;
-    private int y;
+    private int coorX;
+    private int coorY;
 
     public Posicion(int coorX, int coorY) {
-        this.x = coorX;
-        this.y = coorY;
+        this.coorX = coorX;
+        this.coorY = coorY;
     }
 
     public Posicion siguientePosicion(Direccion direccion) {
@@ -15,10 +15,10 @@ public class Posicion {
     }
 
     public int getX() {
-        return x;
+        return this.coorX;
     }
 
     public int getY() {
-        return y;
+        return this.coorY;
     }
 }

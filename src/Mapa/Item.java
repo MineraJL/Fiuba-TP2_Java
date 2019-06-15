@@ -6,8 +6,8 @@ public interface Item {
     void cambiarCasillero(Casillero casillero);
     Casillero getCasillero();
 
-    int getFila();
-    int getColumna();
+    Posicion getPosicion();
 
     void mover(Mapa mapa, Direccion direccion);
+    void ingresar(Mapa mapa, Posicion posicion);
 }

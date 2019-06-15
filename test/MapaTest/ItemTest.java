@@ -18,7 +18,7 @@ public class ItemTest {
         casillero1.setPosicion(0, 0);
         Item item = new Jugador();
         item.setCasillero(casillero1);
-        assertEquals(0, item.getFila());
+        assertEquals(0, item.getPosicion().getX());
     }
 
     @Test
@@ -27,7 +27,7 @@ public class ItemTest {
         casillero1.setPosicion(0, 0);
         Item item = new Jugador();
         item.setCasillero(casillero1);
-        assertEquals(0, item.getColumna());
+        assertEquals(0,  item.getPosicion().getY());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class ItemTest {
         casillero1.setPosicion(1, 0);
         Item item = new Jugador();
         item.setCasillero(casillero1);
-        assertEquals(1, item.getFila());
+        assertEquals(1, item.getPosicion().getX());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class ItemTest {
         casillero1.setPosicion(0, 1);
         Item item = new Jugador();
         item.setCasillero(casillero1);
-        assertEquals(1, item.getColumna());
+        assertEquals(1, item.getPosicion().getY());
     }
     //
 

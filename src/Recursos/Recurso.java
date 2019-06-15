@@ -24,15 +24,12 @@ public abstract class Recurso implements Item {
     public Casillero getCasillero(){
         return this.casillero;
     }
-    public int getFila(){
-        return this.casillero.getFila();
-    }
-    public int getColumna(){
-        return this.casillero.getColumna();
-    }
+
+    public Posicion getPosicion(){return this.casillero.getPosicion();}
 
     public void mover(Mapa mapa, Direccion direccion){
     }
+    public void ingresar(Mapa mapa, Posicion posicion){ mapa.getCasillero(posicion).setItem(this);}
     // Fin implementacion
 
 

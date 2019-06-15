@@ -4,6 +4,7 @@ import Herramientas.*;
 import Mapa.*;
 import TipoMaterial.*;
 import Recursos.*;
+import javafx.geometry.Pos;
 
 public class Jugador implements Item {
 	private Inventario inventario;
@@ -30,16 +31,13 @@ public class Jugador implements Item {
 	public Casillero getCasillero(){
 		return this.casillero;
 	}
-	public int getFila(){
-		return this.casillero.getFila();
-	}
-	public int getColumna(){
-		return this.casillero.getColumna();
-	}
+	public Posicion getPosicion(){return this.casillero.getPosicion();}
 
 	public void mover(Mapa mapa, Direccion direccion){
 		this.casillero.getCasilleroVecino(mapa, direccion).setItem(this);
 	}
+
+	public void ingresar(Mapa mapa, Posicion posicion){ mapa.getCasillero(posicion).setItem(this);}
 	// Fin implementacion
 
 

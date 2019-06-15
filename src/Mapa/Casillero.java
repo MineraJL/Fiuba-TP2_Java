@@ -15,14 +15,12 @@ public class Casillero {
     public void setPosicion(int fila, int columna){
         this.posicion= new Posicion(fila, columna);
     }
+    public void setPosicion(Posicion posicion){this.posicion= posicion;}
 
-    // Get ubicacion mapa
+    // Get posicion mapa
     public Posicion getPosicion(){
         return this.posicion;
     }
-    public int getFila(){return this.posicion.getX();}
-    public int getColumna(){return this.posicion.getY();}
-    //
 
     // Set estado
     public void setEstado(EstadoCasillero estado){

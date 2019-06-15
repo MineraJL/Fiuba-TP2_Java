@@ -14,7 +14,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         Posicion posicion = new Posicion(0,2);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(0, casillero.getFila());
+        assertEquals(0, casillero.getPosicion().getX());
     }
     // X igual a 1
     @Test
@@ -22,7 +22,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         Posicion posicion = new Posicion(1,2);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(1, casillero.getFila());
+        assertEquals(1, casillero.getPosicion().getX());
     }
     // Y igual a 0
     @Test
@@ -30,7 +30,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         Posicion posicion = new Posicion(2,0);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(0, casillero.getColumna());
+        assertEquals(0, casillero.getPosicion().getY());
     }
     // Y igual a 1
     @Test
@@ -38,7 +38,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         Posicion posicion = new Posicion(2,1);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(1, casillero.getColumna());
+        assertEquals(1, casillero.getPosicion().getY());
     }
 
     // Mapa devuelve casillero con la direccion pedida
@@ -49,7 +49,7 @@ public class MapaTest{
         Posicion posicion = new Posicion(2,2);
         Direccion direccion = Direccion.norte();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
-        assertEquals(3, casillero.getColumna());
+        assertEquals(3, casillero.getPosicion().getY());
     }
     // Casillero sur
     @Test
@@ -58,7 +58,7 @@ public class MapaTest{
         Posicion posicion = new Posicion(2,2);
         Direccion direccion = Direccion.sur();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
-        assertEquals(1, casillero.getColumna());
+        assertEquals(1, casillero.getPosicion().getY());
     }
 
     // Casillero este
@@ -68,7 +68,7 @@ public class MapaTest{
         Posicion posicion = new Posicion(2,2);
         Direccion direccion = Direccion.este();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
-        assertEquals(3, casillero.getFila());
+        assertEquals(3, casillero.getPosicion().getX());
     }
 
     // Casillero oeste
@@ -78,7 +78,7 @@ public class MapaTest{
         Posicion posicion = new Posicion(2,2);
         Direccion direccion = Direccion.oeste();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
-        assertEquals(1, casillero.getFila());
+        assertEquals(1, casillero.getPosicion().getX());
     }
 
 
