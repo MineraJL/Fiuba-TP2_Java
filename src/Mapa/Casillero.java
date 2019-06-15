@@ -47,7 +47,7 @@ public class Casillero {
     }
     //
 
-    // Limpiar item, casillero vacio
+    // Dejar vacío al Casillero
     public Item quitarItem(){
         this.estado= new EstadoDisponible();
         Item item= this.getItem();
@@ -58,7 +58,7 @@ public class Casillero {
 
 
 
-    // Mover Casillero
+    // Mover Item de Casillero al Casillero que corresponda
     public void moverArriba(){
         this.mapa.moverArriba(this);
     }
@@ -77,8 +77,11 @@ public class Casillero {
 
     // Switch de items en los casilleros
     // no hay switch de contenidos de casilleros; es unidireccional, el ítem va de acá hacia allá.
-    public void moverItemA(Casillero casillero){
-        this.estado.movermeItem(casillero.getItem(),casillero);
+    public void moverItemA(Casillero casilleroDestino){
+        
+
+
+        /*this.estado.movermeItem(casilleroDestino.getItem(),casilleroDestino);*/
     }
 
 

@@ -51,10 +51,10 @@ public class Mapa {
             casillero.moverItemA(this.matriz[casillero.getFila()][casillero.getColumna() - 1]);
         }
     }
-    public void moverIzquierda(Casillero casillero){
+    public void moverIzquierda(Casillero casilleroOrigen){
         // Verifico que no sea el final del mapa
-        if(casillero.getFila()-1 >= 0) {
-            casillero.moverItemA(this.matriz[casillero.getFila() - 1][casillero.getColumna()]);
+        if(casilleroOrigen.getFila()-1 >= 0) {
+            casilleroOrigen.moverItemA(this.matriz[casilleroOrigen.getFila() - 1][casilleroOrigen.getColumna()]); //el pm es destino
         }
     }
     public void moverDerecha(Casillero casillero) {
