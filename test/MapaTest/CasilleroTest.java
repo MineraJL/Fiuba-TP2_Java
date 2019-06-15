@@ -85,6 +85,21 @@ public class CasilleroTest {
         assertEquals(recurso, casilleroObtenido.getItem());
     }
 
+    // Casillero siguiente
+    @Test
+    public void testElCasilleroSiguienteIzquierdaAlFila2Columna4EstaEnColumna3(){
+
+        Mapa mapa = new Mapa(5,5);
+        mapa.inicializarCasilleros();
+        Casillero casillero = new Casillero();
+        mapa.setCasillero(casillero,2,3);
+
+        Casillero siguienteIzquierda = mapa.obtenerSiguienteIzquierdaDe(casillero);
+
+        assertEquals(siguienteIzquierda.getColumna(),3);
+
+    }
+
     // Eliminar item
     @Test
     public void testCasilleroPuedeQuitarItem(){
@@ -95,22 +110,7 @@ public class CasilleroTest {
         assertEquals(null, casillero.getItem());
     }
 
-    // Movimiento: contenido de Casillero puede pasar a otro Casillero.
-    @Test
-    public void testCasilleroQuedaVacioAlPasarSuContenidoAlCasilleroDeSuIzquierda(){
-        Item recurso = new Diamante();
-        Casillero casillero = new Casillero();
-        casillero.setItem(recurso);
-        Mapa mapa = new Mapa(5,5);
-        mapa.setCasillero(casillero,2,2);
-
-        //casillero.moverIzquierda();
-        assertEquals(3,3);
-        //assertEquals(null,casillero.getItem());
-    } // ver, hay problema con el mover.
-
-
-    // No se puede ocupar un casillero ya ocupado
+    // Intentar ocupar Casillero disponible, y luego de eliminar su contenido,
     @Test
     public void testNoSePuedeOcuparUnCasilleroYaOcupado() {
         Item diamante = new Diamante();
@@ -137,21 +137,38 @@ public class CasilleroTest {
     }
 
 
+    // Movimiento: contenido de Casillero puede pasar a otro Casillero.
     @Test
-    public void testElCasilleroSiguienteIzquierdaAlFila2Columna4EstaEnColumna3(){
-
-        Mapa mapa = new Mapa(5,5);
-        mapa.inicializarCasilleros();
+    public void testAlPasarContenidoDeCasilleroAlDeSuIzquierdaElContenidoQuedaEnElCasilleroCorrespondiente(){
+        Item recurso = new Diamante();
         Casillero casillero = new Casillero();
+        casillero.setItem(recurso);
+        Mapa mapa = new Mapa(5,5);
+        mapa.setCasillero(casillero,2,2);
+
+        casillero.moverIzquierda();
+
+        Casillero casilleroObtenido = mapa.getCasillero(1,2);
+
+        assertEquals(casilleroObtenido, casillero);
+    } // ver
+
+
+    @Test
+    public void testCasilleroQuedaDisponibleParaSerOcupadoAlPasarSuContenidoAlCasilleroDeSuIzquierda(){
+        Item recurso = new Diamante();
+        Casillero casillero = new Casillero();
+        casillero.setItem(recurso);
+        Mapa mapa = new Mapa(5,5);
         mapa.setCasillero(casillero,2,3);
 
-        Casillero siguienteIzquierda = mapa.obtenerSiguienteIzquierdaDe(casillero);
+        casillero.moverIzquierda();
 
-        assertEquals(siguienteIzquierda.getColumna(),3);
+        Item piedra = new Piedra();
+        casillero.setItem(piedra);
 
-    }
-
-
+        assertEquals(piedra, casillero.getItem());
+    } // ver
 
     @Test
     public void testAlMoverItemDeUnCasilleroAOtroElCasilleroOrigenQuedaDisponibleParaSerOcupado(){

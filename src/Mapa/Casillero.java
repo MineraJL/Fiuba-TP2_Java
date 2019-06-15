@@ -66,8 +66,17 @@ public class Casillero {
 
     public void moverIzquierda(){
         Casillero siguiente = this.mapa.obtenerSiguienteIzquierdaDe(this);
-        siguiente.setItemDe(this.estado);
 
+        // temp, debug
+        System.out.println(this.mapa.getClass()); // temp, debug
+        System.out.println(this.getClass());
+        System.out.println(this.getFila());
+        System.out.println(this.getColumna()); // fin temp, debug
+        // soy el casillero de origen y esta testeado el metodo obtenerSiguienteIzquierdaDe; no se por que siguiente es null.
+        // fin temp, debug
+
+        siguiente.setItem(this.estado.getItem()); // esta linea deberia andar pero dice que siguiente es null.
+        this.estado.quitarItem();
     }
 
 
@@ -76,15 +85,7 @@ public class Casillero {
     }
 
 
-    // Se mueve un Ítem de un Casillero a otro
-    public void setItemDe(EstadoCasillero estadoDeCasilleroOrigen){
-        this.estado=this.estado.setItem(estadoDeCasilleroOrigen.getItem(),this);
-
-    }
-
-
-
-    // este método moverMiItemA, solo usado por mapa, no debería usarse más, se reemplaza por serItemDe (o si no existe, recoborItemDe)
+    // este método moverMiItemA, solo usado por mapa, no debería usarse más, se reemplaza por setItemDe. Analogo a moverIzquierda.
     public void moverMiItemA(Casillero casilleroDestino){
         casilleroDestino.setItem(this.item);
     }
