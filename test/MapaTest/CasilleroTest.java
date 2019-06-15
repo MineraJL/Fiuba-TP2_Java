@@ -140,11 +140,10 @@ public class CasilleroTest {
     @Test
     public void testElCasilleroSiguienteIzquierdaAlFila2Columna4EstaEnColumna3(){
 
-        Casillero casillero = new Casillero();
         Mapa mapa = new Mapa(5,5);
         mapa.inicializarCasilleros();
-
-        casillero.setUbicacion(mapa,2,3);
+        Casillero casillero = new Casillero();
+        mapa.setCasillero(casillero,2,3);
 
         Casillero siguienteIzquierda = mapa.obtenerSiguienteIzquierdaDe(casillero);
 
@@ -156,21 +155,20 @@ public class CasilleroTest {
 
     @Test
     public void testAlMoverItemDeUnCasilleroAOtroElCasilleroOrigenQuedaDisponibleParaSerOcupado(){
+        Mapa mapa = new Mapa(5,5);
+        mapa.inicializarCasilleros();
+        Casillero casilleroOriginal = new Casillero();
+        mapa.setCasillero(casilleroOriginal,2,3);
 
         Item jugador = new Jugador();
-        Casillero casillero = new Casillero();
-        casillero.setItem(jugador);
-        Mapa mapa =new Mapa(5,5);
-        mapa.inicializarCasilleros();
-        mapa.setCasillero(casillero,2,2);
-        jugador.moverIzquierda(); // hay un problema acá
+        casilleroOriginal.setItem(jugador);
 
+        jugador.moverIzquierda();
 
-       // Item diamante = new Diamante();
-        //casillero.setItem(diamante);
+        Item diamante = new Diamante();
+        casilleroOriginal.setItem(diamante);
 
-        //assertEquals(diamante, casillero.getItem());
-        assertEquals(1,1);
+        assertEquals(diamante, casilleroOriginal.getItem());
     }
 
 

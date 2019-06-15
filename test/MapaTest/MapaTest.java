@@ -67,4 +67,17 @@ public class MapaTest{
         assertEquals(3, casilleroObtenido.getColumna());
     }
 
+
+    @Test
+    public void testLuegoDeInicializarCasillerosSePuedeEstablecerYObtenerUnCasilleroCorrectamente(){
+        Mapa mapa = new Mapa(3,3);
+        mapa.inicializarCasilleros();
+        Casillero casillero = new Casillero();
+        mapa.setCasillero(casillero,0,1);
+
+        Casillero casilleroObtenido = mapa.getCasillero(0,1);
+        assertEquals(casillero, casilleroObtenido); // sigue siendo el mismo.
+    }
+
+
 }
