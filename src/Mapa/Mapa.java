@@ -42,25 +42,25 @@ public class Mapa {
     public void moverArriba(Casillero casillero){
         // Verifico que no sea el final del mapa
         if(casillero.getColumna()+1 <= this.columnas) {
-            this.matriz[casillero.getFila()][casillero.getColumna() + 1].moverItem(casillero);
+            this.matriz[casillero.getFila()][casillero.getColumna() + 1].moverItemA(casillero);
         }
     }
     public void moverAbajo(Casillero casillero){
         // Verifico que no sea el final del mapa
         if(casillero.getColumna()-1 >= 0) {
-            casillero.moverItem(this.matriz[casillero.getFila()][casillero.getColumna() - 1]);
+            casillero.moverItemA(this.matriz[casillero.getFila()][casillero.getColumna() - 1]);
         }
     }
     public void moverIzquierda(Casillero casillero){
         // Verifico que no sea el final del mapa
         if(casillero.getFila()-1 >= 0) {
-            casillero.moverItem(this.matriz[casillero.getFila() - 1][casillero.getColumna()]);
+            casillero.moverItemA(this.matriz[casillero.getFila() - 1][casillero.getColumna()]);
         }
     }
     public void moverDerecha(Casillero casillero) {
         // Verifico que no sea el final del mapa
         if (casillero.getFila() + 1 <= this.filas) {
-            casillero.moverItem(this.matriz[casillero.getFila() + 1][casillero.getColumna()]);
+            casillero.moverItemA(this.matriz[casillero.getFila() + 1][casillero.getColumna()]);
         }
     }
     // Fin movimiento

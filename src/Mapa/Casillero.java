@@ -8,10 +8,12 @@ public class Casillero {
     private Item item;
     private EstadoCasillero estado;
 
+
     public Casillero(){
         this.mapa= null;
         this.item= null;
         this.estado= new EstadoDisponible();
+
     }
 
     // Set ubicacion mapa
@@ -34,9 +36,11 @@ public class Casillero {
 
     // Set and Get item
     public void setItem(Item itemNuevo){
+
         this.estado= new EstadoOcupado();
         this.item=itemNuevo;
         this.item.setCasillero(this);
+
     }
     public Item getItem(){
         return this.item;
@@ -62,6 +66,8 @@ public class Casillero {
         this.mapa.moverAbajo(this);
     }
     public void moverIzquierda(){
+
+
         this.mapa.moverIzquierda(this);
     }
     public void moverDerecha(){
@@ -70,7 +76,8 @@ public class Casillero {
 
 
     // Switch de items en los casilleros
-    public void moverItem(Casillero casillero){
+    // no hay switch de contenidos de casilleros; es unidireccional, el ítem va de acá hacia allá.
+    public void moverItemA(Casillero casillero){
         this.estado.movermeItem(casillero.getItem(),casillero);
     }
 
