@@ -10,7 +10,7 @@ public abstract class Recurso implements Item {
     protected Casillero casillero;
 
     protected Recurso() {
-
+        this.setCasillero(new Casillero());
     }
 
     // Implementacion interface item

@@ -2,16 +2,16 @@ package Mapa;
 
 public class Direccion {
 
-    private static Direccion norte;
-    private static Direccion sur;
-    private static Direccion este;
-    private static Direccion oeste;
+    private static Direccion arriba;
+    private static Direccion abajo;
+    private static Direccion derecha;
+    private static Direccion izquierda;
 
     static {
-        norte = new Direccion(0, 1);
-        sur = new Direccion(0, -1);
-        este = new Direccion(1, 0);
-        oeste = new Direccion(-1, 0);
+        arriba = new Direccion(0, 1);
+        abajo = new Direccion(0, -1);
+        derecha = new Direccion(1, 0);
+        izquierda = new Direccion(-1, 0);
     }
 
 
@@ -24,20 +24,20 @@ public class Direccion {
 
     }
 
-    public static Direccion norte() {
-        return norte;
+    public static Direccion arriba() {
+        return arriba;
     }
 
-    public static Direccion sur() {
-        return sur;
+    public static Direccion abajo() {
+        return abajo;
     }
 
-    public static Direccion este() {
-        return este;
+    public static Direccion derecha() {
+        return derecha;
     }
 
-    public static Direccion oeste() {
-        return oeste;
+    public static Direccion izquierda() {
+        return izquierda;
     }
 
     public Posicion proximaPosicion(Posicion posicion) {

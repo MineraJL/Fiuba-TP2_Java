@@ -48,7 +48,7 @@ public class MapaTest{
     public void testMapaDevuelveCasilleroEnLaDireccionNorte(){
         Mapa mapa = new Mapa(10,10);
         Posicion posicion = new Posicion(2,2);
-        Direccion direccion = Direccion.norte();
+        Direccion direccion = Direccion.arriba();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
         assertEquals(3, casillero.getPosicion().getY());
     }
@@ -57,7 +57,7 @@ public class MapaTest{
     public void testMapaDevuelveCasilleroEnLaDireccionSur(){
         Mapa mapa = new Mapa(10,10);
         Posicion posicion = new Posicion(2,2);
-        Direccion direccion = Direccion.sur();
+        Direccion direccion = Direccion.abajo();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
         assertEquals(1, casillero.getPosicion().getY());
     }
@@ -67,7 +67,7 @@ public class MapaTest{
     public void testMapaDevuelveCasilleroEnLaDireccionEste(){
         Mapa mapa = new Mapa(10,10);
         Posicion posicion = new Posicion(2,2);
-        Direccion direccion = Direccion.este();
+        Direccion direccion = Direccion.derecha();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
         assertEquals(3, casillero.getPosicion().getX());
     }
@@ -77,7 +77,7 @@ public class MapaTest{
     public void testMapaDevuelveCasilleroEnLaDireccionOeste(){
         Mapa mapa = new Mapa(10,10);
         Posicion posicion = new Posicion(2,2);
-        Direccion direccion = Direccion.oeste();
+        Direccion direccion = Direccion.izquierda();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
         assertEquals(1, casillero.getPosicion().getX());
     }

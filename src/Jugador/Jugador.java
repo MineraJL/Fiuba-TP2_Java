@@ -17,6 +17,7 @@ public class Jugador implements Item {
 		inventario = new Inventario(hacha);
 		
 		herramientaDeTrabajo = hacha;
+		this.setCasillero(new Casillero());
 	}
 
 

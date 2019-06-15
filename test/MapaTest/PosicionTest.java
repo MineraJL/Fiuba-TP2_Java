@@ -38,7 +38,7 @@ public class PosicionTest {
     @Test
     public void testPosicionDevuelveSuPosicionEnDireccionNorte(){
         Posicion posicion1 = new Posicion(2,9);
-        Direccion direccion= Direccion.norte();
+        Direccion direccion= Direccion.arriba();
         Posicion posicion2 = posicion1.siguientePosicion(direccion);
         assertEquals(10, posicion2.getY());
     }
@@ -46,7 +46,7 @@ public class PosicionTest {
     @Test
     public void testPosicionDevuelveSuPosicionEnDireccionSur(){
         Posicion posicion1 = new Posicion(2,9);
-        Direccion direccion= Direccion.sur();
+        Direccion direccion= Direccion.abajo();
         Posicion posicion2 = posicion1.siguientePosicion(direccion);
         assertEquals(8, posicion2.getY());
     }
@@ -54,7 +54,7 @@ public class PosicionTest {
     @Test
     public void testPosicionDevuelveSuPosicionEnDireccionEste(){
         Posicion posicion1 = new Posicion(2,9);
-        Direccion direccion= Direccion.este();
+        Direccion direccion= Direccion.derecha();
         Posicion posicion2 = posicion1.siguientePosicion(direccion);
         assertEquals(3, posicion2.getX());
     }
@@ -62,7 +62,7 @@ public class PosicionTest {
     @Test
     public void testPosicionDevuelveSuPosicionEnDireccionOeste(){
         Posicion posicion1 = new Posicion(2,9);
-        Direccion direccion= Direccion.oeste();
+        Direccion direccion= Direccion.izquierda();
         Posicion posicion2 = posicion1.siguientePosicion(direccion);
         assertEquals(1, posicion2.getX());
     }
