@@ -2,7 +2,6 @@ package MapaTest;
 import Jugador.Jugador;
 import Mapa.*;
 import Recursos.*;
-import javafx.geometry.Pos;
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
