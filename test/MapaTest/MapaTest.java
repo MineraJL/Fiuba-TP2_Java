@@ -1,4 +1,5 @@
 package MapaTest;
+import Jugador.Jugador;
 import Mapa.*;
 import org.junit.Test;
 
@@ -81,5 +82,66 @@ public class MapaTest{
         assertEquals(1, casillero.getPosicion().getX());
     }
 
+    // MAPA CREA "BORDES" CON CASILLEROS CON ESTADO OCUPADO EN LOS BORDES. LOS ITEMS NO PUEDEN INGRESAR A ESOS CASILLEROS POR EL ESTADO
+    // Sobre X=0
+    @Test
+    public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreXIgualCero(){
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero2= new Casillero();
+        Item item = new Jugador();
+        item.setCasillero(casillero2);
+        Posicion posicion = new Posicion(0,7);
+
+        item.ingresar(mapa,posicion);
+        Casillero casillero= mapa.getCasillero(posicion);
+
+
+        assertNotSame(casillero, item.getCasillero());
+    }
+    // Sobre X maxima
+    @Test
+    public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreXMaxima(){
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero2= new Casillero();
+        Item item = new Jugador();
+        item.setCasillero(casillero2);
+        Posicion posicion = new Posicion(9,7);
+
+        item.ingresar(mapa,posicion);
+        Casillero casillero= mapa.getCasillero(posicion);
+
+
+        assertNotSame(casillero, item.getCasillero());
+    }
+    // Sobre Y=0
+    @Test
+    public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreYIgualCero(){
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero2= new Casillero();
+        Item item = new Jugador();
+        item.setCasillero(casillero2);
+        Posicion posicion = new Posicion(7,0);
+
+        item.ingresar(mapa,posicion);
+        Casillero casillero= mapa.getCasillero(posicion);
+
+
+        assertNotSame(casillero, item.getCasillero());
+    }
+    // Sobre Y maxima
+    @Test
+    public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreYMaxima(){
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero2= new Casillero();
+        Item item = new Jugador();
+        item.setCasillero(casillero2);
+        Posicion posicion = new Posicion(7,9);
+
+        item.ingresar(mapa,posicion);
+        Casillero casillero= mapa.getCasillero(posicion);
+
+
+        assertNotSame(casillero, item.getCasillero());
+    }
 
 }

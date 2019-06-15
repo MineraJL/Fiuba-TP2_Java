@@ -13,7 +13,7 @@ public class Mapa {
         this.columnas = columnas;
         this.matriz = new Casillero[filas][columnas];
         this.inicializarCasilleros();
-        //this.generarBordes();
+        this.generarBordes();
 
     }
 
@@ -46,18 +46,11 @@ public class Mapa {
     private void generarBordes(){
         for(int fila=0; fila < this.filas; fila++){
             this.matriz[fila][0].setEstado(new EstadoOcupado());
-            }
-
-        for(int fila=0; fila < this.filas; fila++){
-            this.matriz[fila][this.columnas].setEstado(new EstadoOcupado());
+            this.matriz[fila][this.columnas-1].setEstado(new EstadoOcupado());
         }
-
         for(int columna=0; columna< this.columnas; columna++){
-        this.matriz[0][columna].setEstado(new EstadoOcupado());
-        }
-
-        for(int columna=0; columna< this.columnas; columna++){
-            this.matriz[this.filas][columna].setEstado(new EstadoOcupado());
+            this.matriz[0][columna].setEstado(new EstadoOcupado());
+            this.matriz[this.filas-1][columna].setEstado(new EstadoOcupado());
         }
 
     }
