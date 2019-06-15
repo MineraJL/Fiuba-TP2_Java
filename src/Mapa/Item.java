@@ -14,7 +14,6 @@ public interface Item {
     void moverAbajo();
     void moverIzquierda();
     void moverDerecha();
-    //public int[] ubicacion();
 
 
 }

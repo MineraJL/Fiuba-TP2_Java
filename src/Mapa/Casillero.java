@@ -58,17 +58,33 @@ public class Casillero {
     public void moverAbajo(){
         this.mapa.moverAbajo(this);
     }
-    public void moverIzquierda(){
-
-
+    // comento el metodo original para usar uno que solo pida el siguiente a mapa
+    /*public void moverIzquierda(){
         this.mapa.moverIzquierda(this);
     }
+    */
+
+    public void moverIzquierda(){
+        Casillero siguiente = this.mapa.obtenerSiguienteIzquierdaDe(this);
+        siguiente.setItemDe(this.estado);
+
+    }
+
+
     public void moverDerecha(){
         this.mapa.moverDerecha(this);
     }
 
 
     // Se mueve un Ítem de un Casillero a otro
+    public void setItemDe(EstadoCasillero estadoDeCasilleroOrigen){
+        this.estado=this.estado.setItem(estadoDeCasilleroOrigen.getItem(),this);
+
+    }
+
+
+
+    // este método moverMiItemA, solo usado por mapa, no debería usarse más, se reemplaza por serItemDe (o si no existe, recoborItemDe)
     public void moverMiItemA(Casillero casilleroDestino){
         casilleroDestino.setItem(this.item);
     }

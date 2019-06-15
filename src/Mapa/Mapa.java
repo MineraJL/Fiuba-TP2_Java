@@ -51,7 +51,20 @@ public class Mapa {
             casillero.moverMiItemA(this.matriz[casillero.getFila()][casillero.getColumna() - 1]);
         }
     }
-    public void moverIzquierda(Casillero casilleroOrigen){
+
+    // agrego método obtenerSiguiente
+    public Casillero obtenerSiguienteIzquierdaDe(Casillero casilleroOrigen) { // agrego este metodo que solo devuelve el siguiente
+        Casillero casilleroSiguienteIzquierda = casilleroOrigen;
+        if(casilleroOrigen.getFila()-1 >= 0) {
+            casilleroSiguienteIzquierda = this.matriz[casilleroOrigen.getFila() - 1][casilleroOrigen.getColumna()];
+        }
+        return casilleroSiguienteIzquierda;
+    }
+    // fin metodo obtenerSiguiente
+
+    // desde moverIzquierda en Casillero, uso mapa.obtenerSiguienteIzquierdaDe(...) en vez de mapa.moverIzquierda
+    // pero el cambio todavia no es definitivo xq igual hay un problema con atibutos (null) mapa y estado de Casillero.
+    public void moverIzquierda(Casillero casilleroOrigen){ // metodo original
         // Verifico que no sea el final del mapa
         if(casilleroOrigen.getFila()-1 >= 0) {
             casilleroOrigen.moverMiItemA(this.matriz[casilleroOrigen.getFila() - 1][casilleroOrigen.getColumna()]); //el pm es destino

@@ -107,7 +107,7 @@ public class CasilleroTest {
         //casillero.moverIzquierda();
         assertEquals(3,3);
         //assertEquals(null,casillero.getItem());
-    } // ver
+    } // ver, hay problema con el mover.
 
 
     // No se puede ocupar un casillero ya ocupado
@@ -137,6 +137,21 @@ public class CasilleroTest {
     }
 
 
+    @Test
+    public void testElCasilleroSiguienteIzquierdaAlFila2Columna4EstaEnColumna3(){
+
+        Casillero casillero = new Casillero();
+        Mapa mapa = new Mapa(5,5);
+        mapa.inicializarCasilleros();
+
+        casillero.setUbicacion(mapa,2,3);
+
+        Casillero siguienteIzquierda = mapa.obtenerSiguienteIzquierdaDe(casillero);
+
+        assertEquals(siguienteIzquierda.getColumna(),3);
+
+    }
+
 
 
     @Test
@@ -148,7 +163,7 @@ public class CasilleroTest {
         Mapa mapa =new Mapa(5,5);
         mapa.inicializarCasilleros();
         mapa.setCasillero(casillero,2,2);
-        //jugador.moverIzquierda(); // hay un problema acá
+        jugador.moverIzquierda(); // hay un problema acá
 
 
        // Item diamante = new Diamante();
