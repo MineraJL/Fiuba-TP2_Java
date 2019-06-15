@@ -77,8 +77,8 @@ public class Casillero {
 
     // Switch de items en los casilleros
     // no hay switch de contenidos de casilleros; es unidireccional, el ítem va de acá hacia allá.
-    public void moverItemA(Casillero casilleroDestino){
-        
+    public void moverMiItemA(Casillero casilleroDestino){
+
 
 
         /*this.estado.movermeItem(casilleroDestino.getItem(),casilleroDestino);*/
