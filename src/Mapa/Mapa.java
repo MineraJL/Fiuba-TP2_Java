@@ -15,13 +15,11 @@ public class Mapa {
     }
 
     // Get and Set Casilleros
-    public Casillero getCasillero(Casillero casillero, Direccion direccion) {
-        int coorX= casillero.getPosicion().siguientePosicion(direccion).getX();
-        int coorY= casillero.getPosicion().siguientePosicion(direccion).getY();
-        return matriz[coorX][coorY];
+    public Casillero getCasillero(Posicion posicion, Direccion direccion) {
+        return matriz[posicion.siguientePosicion(direccion).getX()][posicion.siguientePosicion(direccion).getY()];
     }
-    public Casillero getCasillero(int fila, int columna){
-        return this.matriz[fila][columna];
+    public Casillero getCasillero(Posicion posicion){
+        return this.matriz[posicion.getX()][posicion.getY()];
     }
     public void setCasillero(Casillero casillero, int fila, int columna) {
         this.matriz[fila][columna] = casillero;

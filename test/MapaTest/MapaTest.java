@@ -1,22 +1,84 @@
 package MapaTest;
-import Mapa.Casillero;
-import Mapa.Mapa;
+import Mapa.*;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
 public class MapaTest{
 
-    // ubicación y obtención de casilleros
+    // CREACION MAPA
+    // Mapa instancia los Casilleros con ubicacion correcta
+    // X igual a 0
     @Test
-    public void testMapaUbicaCasilleroFila2Columna3EnLaUbicacionCorrectaFila2(){
+    public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnXIgualACero(){
         Mapa mapa = new Mapa(10,10);
-        //Casillero casillero = new Casillero();
-        //mapa.setCasillero(casillero,2,3);
-        //Casillero casilleroObtenido = mapa.getCasillero(2,3);
-        //assertEquals(2, casilleroObtenido.getFila());
-        assertEquals(2, 2);
+        Posicion posicion = new Posicion(0,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(0, casillero.getFila());
     }
+    // X igual a 1
+    @Test
+    public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnXIgualAUno(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(1,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(1, casillero.getFila());
+    }
+    // Y igual a 0
+    @Test
+    public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnYIgualACero(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(2,0);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(0, casillero.getColumna());
+    }
+    // Y igual a 1
+    @Test
+    public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnYIgualAUno(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(2,1);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(1, casillero.getColumna());
+    }
+
+    // Mapa devuelve casillero con la direccion pedida
+    // Casillero norte
+    @Test
+    public void testMapaDevuelveCasilleroEnLaDireccionNorte(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(0,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(0, casillero.getFila());
+    }
+    // Casillero sur
+    @Test
+    public void testMapaDevuelveCasilleroEnLaDireccionSur(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(0,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(0, casillero.getFila());
+    }
+
+    // Casillero este
+    @Test
+    public void testMapaDevuelveCasilleroEnLaDireccionEste(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(0,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(0, casillero.getFila());
+    }
+
+    // Casillero oeste
+    @Test
+    public void testMapaDevuelveCasilleroEnLaDireccionOeste(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(0,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(0, casillero.getFila());
+    }
+
+
+
 /*
     @Test
     public void testMapaUbicaCasilleroFila2Columna3EnLaUbicacionCorrectaColumna3(){

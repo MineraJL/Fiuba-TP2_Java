@@ -30,7 +30,7 @@ public class Casillero {
     }
 
     public Casillero getCasilleroVecino(Mapa mapa, Direccion direccion){
-        return mapa.getCasillero(this,direccion);
+        return mapa.getCasillero(this.getPosicion(),direccion);
     }
 
     public void setItem(Item item){

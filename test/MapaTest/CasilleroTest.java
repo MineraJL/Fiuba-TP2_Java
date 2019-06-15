@@ -75,7 +75,8 @@ public class CasilleroTest {
     public void testCasilleroDevuelveCasilleroEnLaDireccionNorte(){
 
         Mapa mapa = new Mapa(5,5);
-        Casillero casillero1= mapa.getCasillero(2,2);
+        Posicion posicion = new Posicion(2,2);
+        Casillero casillero1= mapa.getCasillero(posicion);
         Direccion direccion= Direccion.norte();
         Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
         assertEquals(3,casillero2.getColumna());
@@ -85,7 +86,8 @@ public class CasilleroTest {
     public void testCasilleroDevuelveCasilleroEnLaDireccionSur(){
 
         Mapa mapa = new Mapa(5,5);
-        Casillero casillero1= mapa.getCasillero(2,2);
+        Posicion posicion = new Posicion(2,2);
+        Casillero casillero1= mapa.getCasillero(posicion);
         Direccion direccion= Direccion.sur();
         Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
         assertEquals(1,casillero2.getColumna());
@@ -95,7 +97,8 @@ public class CasilleroTest {
     public void testCasilleroDevuelveCasilleroEnLaDireccionEste(){
 
         Mapa mapa = new Mapa(5,5);
-        Casillero casillero1= mapa.getCasillero(2,2);
+        Posicion posicion = new Posicion(2,2);
+        Casillero casillero1= mapa.getCasillero(posicion);
         Direccion direccion= Direccion.este();
         Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
         assertEquals(3,casillero2.getFila());
@@ -105,7 +108,8 @@ public class CasilleroTest {
     public void testCasilleroDevuelveCasilleroEnLaDireccionOeste(){
 
         Mapa mapa = new Mapa(5,5);
-        Casillero casillero1= mapa.getCasillero(2,2);
+        Posicion posicion = new Posicion(2,2);
+        Casillero casillero1= mapa.getCasillero(posicion);
         Direccion direccion= Direccion.oeste();
         Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
         assertEquals(1,casillero2.getFila());
