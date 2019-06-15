@@ -13,7 +13,7 @@ public class HachaTest {
     // Hacha de madera Durabilidad
     @Test
     public void testHachaDeMaderaSeCreaConDurabilidadCorrespondiente(){
-        TipoMadera materialMadera = new TipoMadera();
+        TipoMaterial materialMadera = new TipoMadera();
         Herramienta hacha = new Hacha(materialMadera);
         assertEquals(100, hacha.durabilidad());
 
@@ -21,7 +21,7 @@ public class HachaTest {
     // Hacha de madera fuerza
     @Test
     public void testHachaDeMaderaSeCreaConFuerzaCorrespondiente(){
-        TipoMadera materialMadera = new TipoMadera();
+        TipoMaterial materialMadera = new TipoMadera();
         Herramienta hacha = new Hacha(materialMadera);
         assertEquals(2, hacha.fuerza());
 
@@ -29,7 +29,7 @@ public class HachaTest {
     // Hacha de Piedra Durabilidad
     @Test
     public void testHachaDePiedraSeCreaConDurabilidadCorrespondiente(){
-        TipoPiedra materialPiedra = new TipoPiedra();
+        TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         assertEquals(200, hacha.durabilidad());
 
@@ -37,7 +37,7 @@ public class HachaTest {
     // Hacha de Piedra fuerza
     @Test
     public void testHachaDePiedraSeCreaConFuerzaCorrespondiente(){
-        TipoPiedra materialPiedra = new TipoPiedra();
+        TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         assertEquals(5, hacha.fuerza());
 
@@ -45,7 +45,7 @@ public class HachaTest {
     // Hacha de Metal Durabilidad
     @Test
     public void testHachaDeMetalSeCreaConDurabilidadCorrespondiente(){
-        TipoMetal materialMetal = new TipoMetal();
+        TipoMaterial materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         assertEquals(400, hacha.durabilidad());
 
@@ -53,7 +53,7 @@ public class HachaTest {
     // Hacha de Metal fuerza
     @Test
     public void testHachaDeMetalSeCreaConFuerzaCorrespondiente(){
-        TipoMetal materialMetal = new TipoMetal();
+        TipoMaterial materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         assertEquals(10, hacha.fuerza());
 
@@ -66,7 +66,7 @@ public class HachaTest {
     @Test
     public void testHachaDeMaderaSeUsaContraRecursoMaderaYSeReduceSuDurabilidad(){
         Madera recursoMadera = new Madera();
-        TipoMadera materialMadera = new TipoMadera();
+        TipoMaterial materialMadera = new TipoMadera();
         Herramienta hacha = new Hacha(materialMadera);
         hacha.golpear(recursoMadera);
         assertEquals(98, hacha.durabilidad());
@@ -75,7 +75,7 @@ public class HachaTest {
     @Test
     public void testHachaDeMaderaSeUsaContraRecursoMetalYSeReduceSuDurabilidad(){
         Piedra recursoPiedra = new Piedra() ;
-        TipoMadera materialMadera = new TipoMadera();
+        TipoMaterial materialMadera = new TipoMadera();
         Herramienta hacha = new Hacha(materialMadera);
         hacha.golpear(recursoPiedra);
         assertEquals(98, hacha.durabilidad());
@@ -84,7 +84,7 @@ public class HachaTest {
     @Test
     public void testHachaDeMaderaSeUsaContraRecursoPiedraYSeReduceSuDurabilidad(){
         Metal recursoMetal = new Metal() ;
-        TipoMadera materialMadera = new TipoMadera();
+        TipoMaterial materialMadera = new TipoMadera();
         Herramienta hacha = new Hacha(materialMadera);
         hacha.golpear(recursoMetal);
         assertEquals(98, hacha.durabilidad());
@@ -93,7 +93,7 @@ public class HachaTest {
     @Test
     public void testHachaDeMaderaSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad(){
         Diamante recursoDiamante = new Diamante() ;
-        TipoMadera materialMadera = new TipoMadera();
+        TipoMaterial materialMadera = new TipoMadera();
         Herramienta hacha = new Hacha(materialMadera);
         hacha.golpear(recursoDiamante);
         assertEquals(98, hacha.durabilidad());
@@ -106,7 +106,7 @@ public class HachaTest {
     @Test
     public void testHachaDePiedraSeUsaContraRecursoMaderaYSeReduceSuDurabilidad(){
         Madera recursoMadera = new Madera() ;
-        TipoPiedra materialPiedra = new TipoPiedra();
+        TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         hacha.golpear(recursoMadera);
         assertEquals(195, hacha.durabilidad());
@@ -115,7 +115,7 @@ public class HachaTest {
     @Test
     public void testHachaDePiedraSeUsaContraRecursoPiedraYSeReduceSuDurabilidad(){
         Piedra recursoPiedra = new Piedra() ;
-        TipoPiedra materialPiedra = new TipoPiedra();
+        TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         hacha.golpear(recursoPiedra);
         assertEquals(195, hacha.durabilidad());
@@ -124,7 +124,7 @@ public class HachaTest {
     @Test
     public void testHachaDePiedraSeUsaContraRecursoMetalYSeReduceSuDurabilidad(){
         Metal recursoMetal = new Metal() ;
-        TipoPiedra materialPiedra = new TipoPiedra();
+        TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         hacha.golpear(recursoMetal);
         assertEquals(195, hacha.durabilidad());
@@ -133,7 +133,7 @@ public class HachaTest {
     @Test
     public void testHachaDePiedraSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad(){
         Diamante recursoDiamante = new Diamante() ;
-        TipoPiedra materialPiedra = new TipoPiedra();
+        TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         hacha.golpear(recursoDiamante);
         assertEquals(195, hacha.durabilidad());
@@ -154,7 +154,7 @@ public class HachaTest {
     @Test
     public void testHachaDeMetalSeUsaContraRecursoPiedraYSeReduceSuDurabilidad(){
         Piedra recursoPiedra = new Piedra() ;
-        TipoMetal materialMetal = new TipoMetal();
+        TipoMaterial materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         hacha.golpear(recursoPiedra);
         assertEquals(395, hacha.durabilidad());
@@ -163,7 +163,7 @@ public class HachaTest {
     @Test
     public void testHachaDeMetalSeUsaContraRecursoMetalYSeReduceSuDurabilidad(){
         Metal recursoMetal = new Metal() ;
-        TipoMetal materialMetal = new TipoMetal();
+        TipoMaterial materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         hacha.golpear(recursoMetal);
         assertEquals(395, hacha.durabilidad());
@@ -172,7 +172,7 @@ public class HachaTest {
     @Test
     public void testHachaDeMetalSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad(){
         Diamante recursoDiamante = new Diamante() ;
-        TipoMetal materialMetal = new TipoMetal();
+        TipoMaterial materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         hacha.golpear(recursoDiamante);
         assertEquals(395, hacha.durabilidad());
