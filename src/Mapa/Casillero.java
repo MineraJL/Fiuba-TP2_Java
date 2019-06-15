@@ -36,25 +36,25 @@ public class Casillero {
 
     // Set and Get item
     public void setItem(Item itemNuevo){
-
         this.estado=this.estado.setItem(itemNuevo,this);
-
     }
+
     public Item getItem(){
-
         return estado.getItem();
-
     }
-    //
 
     // Dejar vacío al Casillero
-    public Item quitarItem(){
-        this.estado= new EstadoDisponible();
+    public void quitarItem(){
+        this.estado=this.estado.quitarItem();
+
+        /*this.estado= new EstadoDisponible();
         Item item= this.getItem();
         this.item=null;
         return item;
+        */
+
     }
-    //
+
 
 
 
@@ -75,12 +75,9 @@ public class Casillero {
     }
 
 
-    // Switch de items en los casilleros
-    // no hay switch de contenidos de casilleros; es unidireccional, el ítem va de acá hacia allá.
+    // Se mueve un Ítem de un Casillero a otro
     public void moverMiItemA(Casillero casilleroDestino){
         casilleroDestino.setItem(this.item);
-        //return quitarItem();
-        //this.item=null;
     }
 
 

@@ -15,4 +15,10 @@ public class EstadoDisponible implements EstadoCasillero{
     public Item getItem() {
         return null;
     }
+
+    @Override
+    public EstadoCasillero quitarItem(){
+        return this;
+    }
+
 }

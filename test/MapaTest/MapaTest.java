@@ -67,9 +67,4 @@ public class MapaTest{
         assertEquals(3, casilleroObtenido.getColumna());
     }
 
-    // //requerimientos // //
-    // se puede ocupar un casillero vacio
-    // no se puede ocupar un casillero ocupado
-    // un casillero puede ser ocupado por un recurso o por un personaje.
-
 }

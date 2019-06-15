@@ -6,7 +6,8 @@ public class EstadoOcupado implements EstadoCasillero {
 
     public EstadoOcupado(Item itemNuevo, Casillero casilleroDelQueSoyEstado) {
         this.item=itemNuevo;
-        itemNuevo.setCasillero(casilleroDelQueSoyEstado);
+        //itemNuevo.setCasillero(casilleroDelQueSoyEstado);
+        itemNuevo.setCasillero(new Casillero());
     }
 
     @Override
@@ -16,6 +17,11 @@ public class EstadoOcupado implements EstadoCasillero {
     @Override
     public Item getItem() {
         return this.item;
+    }
+
+
+    public EstadoCasillero quitarItem(){
+        return new EstadoDisponible();
     }
 
 }
