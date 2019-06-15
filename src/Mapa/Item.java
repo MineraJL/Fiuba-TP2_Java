@@ -3,17 +3,11 @@ package Mapa;
 public interface Item {
 
     void setCasillero(Casillero casillero);
+    void cambiarCasillero(Casillero casillero);
     Casillero getCasillero();
 
     int getFila();
     int getColumna();
 
-    void intercambiarCasilleros(Item item);
-
-    void moverArriba();
-    void moverAbajo();
-    void moverIzquierda();
-    void moverDerecha();
-
-
+    void mover(Mapa mapa, Direccion direccion);
 }

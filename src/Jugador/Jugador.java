@@ -1,8 +1,7 @@
 package Jugador;
 
 import Herramientas.*;
-import Mapa.Casillero;
-import Mapa.Item;
+import Mapa.*;
 import TipoMaterial.*;
 import Recursos.*;
 
@@ -24,6 +23,10 @@ public class Jugador implements Item {
 	public void setCasillero(Casillero casillero){
 		this.casillero= casillero;
 	}
+	public void cambiarCasillero(Casillero casilleroNuevo){
+		this.casillero.setEstado(new EstadoDisponible());
+		this.setCasillero(casilleroNuevo);
+	}
 	public Casillero getCasillero(){
 		return this.casillero;
 	}
@@ -34,26 +37,12 @@ public class Jugador implements Item {
 		return this.casillero.getColumna();
 	}
 
-	public void intercambiarCasilleros(Item item){
-		Casillero casillero= item.getCasillero();
-		item.setCasillero(this.getCasillero());
-		this.setCasillero(casillero);
+	public void mover(Mapa mapa, Direccion direccion){
+		this.casillero.getCasilleroVecino(mapa, direccion).setItem(this);
 	}
-
-	public void moverArriba(){
-		this.casillero.moverArriba();
-	}
-	public void moverAbajo(){
-		this.casillero.moverAbajo();
-	}
-	public void moverIzquierda(){
-		this.casillero.moverIzquierda();
-	}
-	public void moverDerecha(){
-		this.casillero.moverDerecha();
-	}
-
 	// Fin implementacion
+
+
 
 	public void construirHacha(TipoMadera unMaterial) {
 		Hacha hacha = new Hacha(unMaterial);

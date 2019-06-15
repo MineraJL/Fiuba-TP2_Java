@@ -5,55 +5,70 @@ import Recursos.*;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertSame;
 
 
 public class ItemTest {
 
+
+    // UBICACION ITEM
     @Test
-    public void testItemTieneLaUbicacionDelCasilleroFilaCero(){
-        Mapa mapa = new Mapa(3,3);
-        Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,0,0);
-        Item recurso = new Diamante();
-        casillero.setItem(recurso);
-        assertEquals(0, recurso.getFila());
-    }
-    @Test
-    public void testItemTieneLaUbicacionDelCasilleroColumnaCero(){
-        Mapa mapa = new Mapa(3,3);
-        Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,0,0);
-        Item recurso = new Diamante();
-        casillero.setItem(recurso);
-        assertEquals(0, recurso.getColumna());
-    }
-    @Test
-    public void testItemTieneLaUbicacionDelCasilleroFilaUno(){
-        Mapa mapa = new Mapa(3,3);
-        Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,1,0);
-        Item recurso = new Diamante();
-        casillero.setItem(recurso);
-        assertEquals(1, recurso.getFila());
-    }
-    @Test
-    public void testItemTieneLaUbicacionDelCasilleroColumnaUno(){
-        Mapa mapa = new Mapa(3,3);
-        Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,0,1);
-        Item recurso = new Diamante();
-        casillero.setItem(recurso);
-        assertEquals(1, recurso.getColumna());
+    public void testItemTieneLaMismaFilaDelCasilleroSeteadoEnCero() {
+        Casillero casillero1 = new Casillero();
+        casillero1.setPosicion(0, 0);
+        Item item = new Jugador();
+        item.setCasillero(casillero1);
+        assertEquals(0, item.getFila());
     }
 
+    @Test
+    public void testItemTieneLaMismaColumnaDelCasilleroSeteadoEnCero() {
+        Casillero casillero1 = new Casillero();
+        casillero1.setPosicion(0, 0);
+        Item item = new Jugador();
+        item.setCasillero(casillero1);
+        assertEquals(0, item.getColumna());
+    }
 
     @Test
-    public void testItemJugador(){
-        Mapa mapa = new Mapa(10,10);
-        mapa.inicializarCasilleros();
-        Item jugador = new Jugador();
-        mapa.setItem(jugador,5,5);
-        assertEquals(5, jugador.getColumna());
+    public void testItemTieneLaMismaFilaDelCasilleroSeteadoEnUno() {
+        Casillero casillero1 = new Casillero();
+        casillero1.setPosicion(1, 0);
+        Item item = new Jugador();
+        item.setCasillero(casillero1);
+        assertEquals(1, item.getFila());
     }
+
+    @Test
+    public void testItemTieneLaMismaColumnaDelCasilleroSeteadoEnUno() {
+        Casillero casillero1 = new Casillero();
+        casillero1.setPosicion(0, 1);
+        Item item = new Jugador();
+        item.setCasillero(casillero1);
+        assertEquals(1, item.getColumna());
+    }
+    //
+
+
+    // ITEM TIENE EL CASILLERO SETEADO
+    @Test
+    public void testItemTieneElCasilleroSeteado() {
+        Casillero casillero1 = new Casillero();
+        casillero1.setPosicion(0, 0);
+        Item item = new Jugador();
+        item.setCasillero(casillero1);
+        assertSame(casillero1,item.getCasillero());
+    }
+    @Test
+    public void testItemTieneElUltimoCasilleroSeteado() {
+        Casillero casillero1 = new Casillero();
+        Casillero casillero2 = new Casillero();
+        casillero1.setPosicion(0, 0);
+        Item item1 = new Jugador();
+        item1.setCasillero(casillero2);
+        item1.setCasillero(casillero1);
+        assertSame(casillero1,item1.getCasillero());
+    }
+
 
 }

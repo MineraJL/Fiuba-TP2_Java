@@ -6,19 +6,10 @@ public class EstadoDisponible implements EstadoCasillero{
 
     }
 
-    @Override
-    public EstadoCasillero setItem(Item itemNuevo, Casillero casilleroDelQueSoyEstado) {
-        return new EstadoOcupado(itemNuevo, casilleroDelQueSoyEstado);
-    }
 
-    @Override
-    public Item getItem() {
-        return null;
-    }
-
-    @Override
-    public EstadoCasillero quitarItem(){
-        return this;
+    public void setItem(Casillero casillero, Item item) {
+        casillero.setEstado(new EstadoOcupado());
+        item.cambiarCasillero(casillero);
     }
 
 }

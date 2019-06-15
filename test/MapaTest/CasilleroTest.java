@@ -2,190 +2,176 @@ package MapaTest;
 import Jugador.Jugador;
 import Mapa.*;
 import Recursos.*;
+import javafx.geometry.Pos;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.*;
 
 
 public class CasilleroTest {
 
 
 
-    // UBICACION EN EL MAPA
-    // No verifica que casillero se ubique en el mapa sino que tenga la ubicación deseada.
+    // Seteo Filas y columnas
     @Test
-    public void testCasilleroSeUbicaCorrectamenteEnLaFilaCero(){
-        Mapa mapa = new Mapa(3,3);
+    public void testCasilleroSeteaFilaEnCero(){
         Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,0,0);
+        casillero.setPosicion(0,0);
         assertEquals(0, casillero.getFila());
     }
     @Test
-    public void testCasilleroSeUbicaCorrectamenteEnLaColumnaCero(){
-        Mapa mapa = new Mapa(3,3);
+    public void testCasilleroSeteaColumnaEnCero(){
         Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,0,0);
+        casillero.setPosicion(0,0);
         assertEquals(0, casillero.getColumna());
     }
     @Test
-    public void testCasilleroSeUbicaCorrectamenteEnLaFilaUno(){
-        Mapa mapa = new Mapa(3,3);
+    public void testCasilleroSeteaFilaEnUno(){
         Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,1,0);
+        casillero.setPosicion(1,1);
         assertEquals(1, casillero.getFila());
     }
     @Test
-    public void testCasilleroSeUbicaCorrectamenteEnLaColumnaUno(){
-        Mapa mapa = new Mapa(3,3);
+    public void testCasilleroSeteaColumnaEnUno(){
         Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,0,1);
+        casillero.setPosicion(1,1);
         assertEquals(1, casillero.getColumna());
     }
-
-    // CONTENER ITEM
-    @Test
-    public void testCasilleroPuedeContenerItemRecursoMadera(){
-        Item recurso = new Madera();
-        Casillero casillero = new Casillero();
-        casillero.setItem(recurso);
-        assertEquals(recurso, casillero.getItem());
-    }
-    @Test
-    public void testCasilleroPuedeContenerItemRecursoPiedra(){
-        Item recurso = new Piedra();
-        Casillero casillero = new Casillero();
-        casillero.setItem(recurso);
-        assertEquals(recurso, casillero.getItem());
-    }
-    @Test
-    public void testCasilleroPuedeContenerItemRecursoMetal(){
-        Item recurso = new Metal();
-        Casillero casillero = new Casillero();
-        casillero.setItem(recurso);
-        assertEquals(recurso, casillero.getItem());
-    }
-    @Test
-    public void testCasilleroPuedeContenerItemRecursoDiamante(){
-        Item recurso = new Diamante();
-        Casillero casillero = new Casillero();
-        casillero.setItem(recurso);
-        assertEquals(recurso, casillero.getItem());
-    }
-
+    //
 
     @Test
-    public void testCasilleroContinuaConteniendoRecursoDiamanteDespuesDeSerAgregadoAMapa(){
-        Item recurso = new Diamante();
+    public void testCasilleroDevuelvePosicionAsignadaFilaEnCero(){
         Casillero casillero = new Casillero();
-        casillero.setItem(recurso);
-        Mapa mapa = new Mapa(5,5);
-        mapa.setCasillero(casillero,2,2);
-
-        Casillero casilleroObtenido = mapa.getCasillero(2,2);
-        assertEquals(recurso, casilleroObtenido.getItem());
+        casillero.setPosicion(0,0);
+        Posicion posicion = casillero.getPosicion();
+        assertEquals(0, posicion.getX());
+    }
+    @Test
+    public void testCasilleroDevuelvePosicionAsignadaColumnaEnCero(){
+        Casillero casillero = new Casillero();
+        casillero.setPosicion(0,0);
+        Posicion posicion = casillero.getPosicion();
+        assertEquals(0, posicion.getY());
+    }
+    @Test
+    public void testCasilleroDevuelvePosicionAsignadaFilaEnUno(){
+        Casillero casillero = new Casillero();
+        casillero.setPosicion(1,1);
+        Posicion posicion = casillero.getPosicion();
+        assertEquals(1, posicion.getX());
+    }
+    @Test
+    public void testCasilleroDevuelvePosicionAsignadaColumnaEnUno(){
+        Casillero casillero = new Casillero();
+        casillero.setPosicion(1,1);
+        Posicion posicion = casillero.getPosicion();
+        assertEquals(1, posicion.getY());
     }
 
-    // Casillero siguiente
+
+    // CASILLERO SIGUIENTE
+    // Casillero norte
     @Test
-    public void testElCasilleroSiguienteIzquierdaAlFila2Columna4EstaEnColumna3(){
+    public void testCasilleroDevuelveCasilleroEnLaDireccionNorte(){
 
         Mapa mapa = new Mapa(5,5);
-        mapa.inicializarCasilleros();
-        Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,2,3);
-
-        Casillero siguienteIzquierda = mapa.obtenerSiguienteIzquierdaDe(casillero);
-
-        assertEquals(siguienteIzquierda.getColumna(),3);
-
+        Casillero casillero1= mapa.getCasillero(2,2);
+        Direccion direccion= Direccion.norte();
+        Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
+        assertEquals(3,casillero2.getColumna());
     }
-
-    // Eliminar item
+    // Casillero sur
     @Test
-    public void testCasilleroPuedeQuitarItem(){
-        Item recurso = new Diamante();
-        Casillero casillero = new Casillero();
-        casillero.setItem(recurso);
-        casillero.quitarItem();
-        assertEquals(null, casillero.getItem());
-    }
+    public void testCasilleroDevuelveCasilleroEnLaDireccionSur(){
 
-    // Intentar ocupar Casillero disponible, y luego de eliminar su contenido,
-    @Test
-    public void testNoSePuedeOcuparUnCasilleroYaOcupado() {
-        Item diamante = new Diamante();
-        Casillero casillero = new Casillero();
-        casillero.setItem(diamante);
-
-        Item piedra = new Piedra();
-        casillero.setItem(piedra);
-
-        assertEquals(diamante, casillero.getItem());
-    }
-
-    @Test
-    public void testAlQuitarItemDeCasilleroEsteQuedaDisponibleParaSerOcupado() {
-        Item diamante = new Diamante();
-        Casillero casillero = new Casillero();
-        casillero.setItem(diamante);
-        casillero.quitarItem();
-
-        Item piedra = new Piedra();
-        casillero.setItem(piedra);
-
-        assertEquals(piedra, casillero.getItem());
-    }
-
-
-    // Movimiento: contenido de Casillero puede pasar a otro Casillero.
-    @Test
-    public void testAlPasarContenidoDeCasilleroAlDeSuIzquierdaElContenidoQuedaEnElCasilleroCorrespondiente(){
-        Item recurso = new Diamante();
-        Casillero casillero = new Casillero();
-        casillero.setItem(recurso);
         Mapa mapa = new Mapa(5,5);
-        mapa.setCasillero(casillero,2,2);
+        Casillero casillero1= mapa.getCasillero(2,2);
+        Direccion direccion= Direccion.sur();
+        Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
+        assertEquals(1,casillero2.getColumna());
+    }
+    // Casillero este
+    @Test
+    public void testCasilleroDevuelveCasilleroEnLaDireccionEste(){
 
-        casillero.moverIzquierda();
+        Mapa mapa = new Mapa(5,5);
+        Casillero casillero1= mapa.getCasillero(2,2);
+        Direccion direccion= Direccion.este();
+        Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
+        assertEquals(3,casillero2.getFila());
+    }
+    // Casillero oeste
+    @Test
+    public void testCasilleroDevuelveCasilleroEnLaDireccionOeste(){
 
-        Casillero casilleroObtenido = mapa.getCasillero(1,2);
+        Mapa mapa = new Mapa(5,5);
+        Casillero casillero1= mapa.getCasillero(2,2);
+        Direccion direccion= Direccion.oeste();
+        Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
+        assertEquals(1,casillero2.getFila());
+    }
+    //
 
-        assertEquals(casilleroObtenido, casillero);
-    } // ver
-
+    // CASILLERO ESTADO
 
     @Test
-    public void testCasilleroQuedaDisponibleParaSerOcupadoAlPasarSuContenidoAlCasilleroDeSuIzquierda(){
-        Item recurso = new Diamante();
-        Casillero casillero = new Casillero();
-        casillero.setItem(recurso);
-        Mapa mapa = new Mapa(5,5);
-        mapa.setCasillero(casillero,2,3);
+    public void testCasilleroConEstadoDisponibleAceptaItem(){
 
-        casillero.moverIzquierda();
+        Casillero casillero1 = new Casillero();
+        Casillero casillero2 = new Casillero();
+        Item item = new Jugador();
 
-        Item piedra = new Piedra();
-        casillero.setItem(piedra);
+        item.setCasillero(casillero2);
+        casillero1.setEstado(new EstadoDisponible());
 
-        assertEquals(piedra, casillero.getItem());
-    } // ver
+        casillero1.setItem(item);
 
+        assertSame(casillero1,item.getCasillero());
+    }
     @Test
-    public void testAlMoverItemDeUnCasilleroAOtroElCasilleroOrigenQuedaDisponibleParaSerOcupado(){
-        Mapa mapa = new Mapa(5,5);
-        mapa.inicializarCasilleros();
-        Casillero casilleroOriginal = new Casillero();
-        mapa.setCasillero(casilleroOriginal,2,3);
+    public void testCasilleroConEstadoOcupadoNoAceptaItem(){
 
-        Item jugador = new Jugador();
-        casilleroOriginal.setItem(jugador);
+        Casillero casillero1 = new Casillero();
+        Casillero casillero2 = new Casillero();
+        Item item = new Jugador();
+        item.setCasillero(casillero2);
 
-        jugador.moverIzquierda();
+        casillero1.setEstado(new EstadoOcupado());
 
-        Item diamante = new Diamante();
-        casilleroOriginal.setItem(diamante);
+        casillero1.setItem(item);
 
-        assertEquals(diamante, casilleroOriginal.getItem());
+        assertNotSame(casillero1,item.getCasillero());
+    }
+
+
+    // Casillero acepta item si no tiene item
+    @Test
+    public void testCasilleroAceptaItemSiNoTieneItem(){
+
+        Casillero casillero1 = new Casillero();
+        Casillero casillero2 = new Casillero();
+
+        Item item = new Jugador();
+        item.setCasillero(casillero2);
+        casillero1.setItem(item);
+
+        assertSame(casillero1,item.getCasillero());
+    }
+    // Casillero oeste
+    @Test
+    public void testCasilleroNoAceptaItemSiYaTieneItem(){
+
+        Casillero casillero1 = new Casillero();
+        Casillero casillero2 = new Casillero();
+        Item item1 = new Jugador();
+        Item item2 = new Jugador();
+
+        item1.setCasillero(casillero2); // Le asigno al item un casillero.
+        casillero1.setItem(item1);
+        casillero1.setItem(item2);
+
+        assertNotSame(casillero1,item2.getCasillero());
+
     }
 
 

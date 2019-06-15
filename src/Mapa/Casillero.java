@@ -2,94 +2,39 @@ package Mapa;
 
 public class Casillero {
 
-    private Mapa mapa;
-    private int fila;
-    private int columna;
-    private Item item;
+    private Posicion posicion;
     private EstadoCasillero estado;
 
 
     public Casillero(){
-        this.mapa= null;
-        this.item= null;
-        this.estado= new EstadoDisponible();
+        this.setEstado(new EstadoDisponible());
 
     }
 
     // Set ubicacion mapa
-    public void setUbicacion(Mapa mapa, int fila, int columna){
-        this.mapa=mapa;
-        this.setFila(fila);
-        this.setColumna(columna);
+    public void setPosicion(int fila, int columna){
+        this.posicion= new Posicion(fila, columna);
     }
-    private void setFila(int fila){this.fila= fila; }
-    private void setColumna(int columna){ this.columna= columna;  }
 
     // Get ubicacion mapa
-    public int getFila(){
-        return this.fila;
+    public Posicion getPosicion(){
+        return this.posicion;
     }
-    public int getColumna(){
-        return this.columna;
-    }
+    public int getFila(){return this.posicion.getX();}
+    public int getColumna(){return this.posicion.getY();}
     //
 
-    // Set and Get item
-    public void setItem(Item itemNuevo){
-        this.estado=this.estado.setItem(itemNuevo,this);
+    // Set estado
+    public void setEstado(EstadoCasillero estado){
+        this.estado=estado;
     }
 
-    public Item getItem(){
-        return estado.getItem();
+    public Casillero getCasilleroVecino(Mapa mapa, Direccion direccion){
+        return mapa.getCasillero(this,direccion);
     }
 
-    // Dejar vacío al Casillero
-    public void quitarItem(){
-        this.estado=this.estado.quitarItem();
+    public void setItem(Item item){
+        this.estado.setItem(this,item);
     }
-
-
-
-
-    // Mover Item de Casillero al Casillero que corresponda
-    public void moverArriba(){
-        this.mapa.moverArriba(this);
-    }
-    public void moverAbajo(){
-        this.mapa.moverAbajo(this);
-    }
-    // comento el metodo original para usar uno que solo pida el siguiente a mapa
-    /*public void moverIzquierda(){
-        this.mapa.moverIzquierda(this);
-    }
-    */
-
-    public void moverIzquierda(){
-        Casillero siguiente = this.mapa.obtenerSiguienteIzquierdaDe(this);
-
-        // temp, debug
-        System.out.println(this.mapa.getClass()); // temp, debug
-        System.out.println(this.getClass());
-        System.out.println(this.getFila());
-        System.out.println(this.getColumna()); // fin temp, debug
-        // soy el casillero de origen y esta testeado el metodo obtenerSiguienteIzquierdaDe; no se por que siguiente es null.
-        // fin temp, debug
-
-        siguiente.setItem(this.estado.getItem()); // esta linea deberia andar pero dice que siguiente es null.
-        this.estado.quitarItem();
-    }
-
-
-    public void moverDerecha(){
-        this.mapa.moverDerecha(this);
-    }
-
-
-    // este método moverMiItemA, solo usado por mapa, no debería usarse más, se reemplaza por setItemDe. Analogo a moverIzquierda.
-    public void moverMiItemA(Casillero casilleroDestino){
-        casilleroDestino.setItem(this.item);
-    }
-
-
 
 }
