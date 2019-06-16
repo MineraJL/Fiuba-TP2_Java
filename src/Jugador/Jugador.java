@@ -4,7 +4,7 @@ import Herramientas.*;
 import Mapa.*;
 import TipoMaterial.*;
 import Recursos.*;
-import javafx.geometry.Pos;
+
 
 public class Jugador implements Item {
 	private Inventario inventario;
