@@ -1,70 +1,147 @@
 package MapaTest;
-import Mapa.Casillero;
-import Mapa.Mapa;
+import Jugador.Jugador;
+import Mapa.*;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.*;
 
 public class MapaTest{
 
-    // ubicación y obtención de casilleros
+    // CREACION MAPA
+    // Mapa instancia los Casilleros con ubicacion correcta
+    // X igual a 0
     @Test
-    public void testMapaUbicaCasilleroFila2Columna3EnLaUbicacionCorrectaFila2(){
+    public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnXIgualACero(){
         Mapa mapa = new Mapa(10,10);
-        Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,2,3);
-        Casillero casilleroObtenido = mapa.getCasillero(2,3);
-        assertEquals(2, casilleroObtenido.getFila());
+        Posicion posicion = new Posicion(0,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(0, casillero.getPosicion().getX());
     }
-
+    // X igual a 1
     @Test
-    public void testMapaUbicaCasilleroFila2Columna3EnLaUbicacionCorrectaColumna3(){
+    public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnXIgualAUno(){
         Mapa mapa = new Mapa(10,10);
-        Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,2,3);
-        Casillero casilleroObtenido = mapa.getCasillero(2,3);
-        assertEquals(3, casilleroObtenido.getColumna());
+        Posicion posicion = new Posicion(1,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(1, casillero.getPosicion().getX());
     }
-
-    @Test // caso borde
-    public void testMapaUbicaAUnSegundoCasilleroEnLaUbicacionCorrectaFila4(){
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,2,3);
-
-        Casillero casillero2 = new Casillero();
-        mapa.setCasillero(casillero2,4,1);
-        Casillero casilleroObtenido2 = mapa.getCasillero(4,1);
-        assertEquals(4, casilleroObtenido2.getFila());
-    }
-
-    @Test // caso borde
-    public void testLuegoDeUbicarMasCasillerosMapaSigueConteniendoAlPrimerCasilleroUbicadoEnFila2(){
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero = new Casillero();
-        mapa.setCasillero(casillero,2,3);
-        Casillero casilleroObtenido = mapa.getCasillero(2,3);
-
-        Casillero casillero2 = new Casillero();
-        mapa.setCasillero(casillero2,4,1);
-        Casillero casilleroObtenido2 = mapa.getCasillero(4,1);
-        assertEquals(2, casilleroObtenido.getFila());
-    }
-
-        // inicialización del mapa
+    // Y igual a 0
     @Test
-    public void testLuegoDeInicializarCasillerosElCasilleroFila2Columna3ExisteEnMapaFila2(){
+    public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnYIgualACero(){
         Mapa mapa = new Mapa(10,10);
-        mapa.inicializarCasilleros();
-        Casillero casilleroObtenido = mapa.getCasillero(2,3);
-        assertEquals(2, casilleroObtenido.getFila());
+        Posicion posicion = new Posicion(2,0);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(0, casillero.getPosicion().getY());
     }
+    // Y igual a 1
     @Test
-    public void testLuegoDeInicializarCasillerosElCasilleroFila2Columna3ExisteEnMapaColumna3(){
+    public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnYIgualAUno(){
         Mapa mapa = new Mapa(10,10);
-        mapa.inicializarCasilleros();
-        Casillero casilleroObtenido = mapa.getCasillero(2,3);
-        assertEquals(3, casilleroObtenido.getColumna());
+        Posicion posicion = new Posicion(2,1);
+        Casillero casillero= mapa.getCasillero(posicion);
+        assertEquals(1, casillero.getPosicion().getY());
+    }
+
+    // Mapa devuelve casillero con la direccion pedida
+    // Casillero norte
+    @Test
+    public void testMapaDevuelveCasilleroEnLaDireccionNorte(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(2,2);
+        Direccion direccion = Direccion.arriba();
+        Casillero casillero= mapa.getCasillero(posicion, direccion);
+        assertEquals(3, casillero.getPosicion().getY());
+    }
+    // Casillero sur
+    @Test
+    public void testMapaDevuelveCasilleroEnLaDireccionSur(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(2,2);
+        Direccion direccion = Direccion.abajo();
+        Casillero casillero= mapa.getCasillero(posicion, direccion);
+        assertEquals(1, casillero.getPosicion().getY());
+    }
+
+    // Casillero este
+    @Test
+    public void testMapaDevuelveCasilleroEnLaDireccionEste(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(2,2);
+        Direccion direccion = Direccion.derecha();
+        Casillero casillero= mapa.getCasillero(posicion, direccion);
+        assertEquals(3, casillero.getPosicion().getX());
+    }
+
+    // Casillero oeste
+    @Test
+    public void testMapaDevuelveCasilleroEnLaDireccionOeste(){
+        Mapa mapa = new Mapa(10,10);
+        Posicion posicion = new Posicion(2,2);
+        Direccion direccion = Direccion.izquierda();
+        Casillero casillero= mapa.getCasillero(posicion, direccion);
+        assertEquals(1, casillero.getPosicion().getX());
+    }
+
+    // MAPA CREA "BORDES" CON CASILLEROS CON ESTADO OCUPADO EN LOS BORDES. LOS ITEMS NO PUEDEN INGRESAR A ESOS CASILLEROS POR EL ESTADO
+    // Sobre X=0
+    @Test
+    public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreXIgualCero(){
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero2= new Casillero();
+        Item item = new Jugador();
+        item.setCasillero(casillero2);
+        Posicion posicion = new Posicion(0,7);
+
+        item.ingresar(mapa,posicion);
+        Casillero casillero= mapa.getCasillero(posicion);
+
+
+        assertNotSame(casillero, item.getCasillero());
+    }
+    // Sobre X maxima
+    @Test
+    public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreXMaxima(){
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero2= new Casillero();
+        Item item = new Jugador();
+        item.setCasillero(casillero2);
+        Posicion posicion = new Posicion(9,7);
+
+        item.ingresar(mapa,posicion);
+        Casillero casillero= mapa.getCasillero(posicion);
+
+
+        assertNotSame(casillero, item.getCasillero());
+    }
+    // Sobre Y=0
+    @Test
+    public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreYIgualCero(){
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero2= new Casillero();
+        Item item = new Jugador();
+        item.setCasillero(casillero2);
+        Posicion posicion = new Posicion(7,0);
+
+        item.ingresar(mapa,posicion);
+        Casillero casillero= mapa.getCasillero(posicion);
+
+
+        assertNotSame(casillero, item.getCasillero());
+    }
+    // Sobre Y maxima
+    @Test
+    public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreYMaxima(){
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero2= new Casillero();
+        Item item = new Jugador();
+        item.setCasillero(casillero2);
+        Posicion posicion = new Posicion(7,9);
+
+        item.ingresar(mapa,posicion);
+        Casillero casillero= mapa.getCasillero(posicion);
+
+
+        assertNotSame(casillero, item.getCasillero());
     }
 
 }

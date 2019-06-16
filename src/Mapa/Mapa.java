@@ -1,5 +1,7 @@
 package Mapa;
 
+import javafx.geometry.Pos;
+
 public class Mapa {
 
     private int filas;
@@ -10,59 +12,50 @@ public class Mapa {
         this.filas = filas;
         this.columnas = columnas;
         this.matriz = new Casillero[filas][columnas];
+        this.inicializarCasilleros();
+        this.generarBordes();
 
     }
 
     // Get and Set Casilleros
-    public Casillero getCasillero(int fila, int columna) {
-        return matriz[fila][columna];
+    public Casillero getCasillero(Posicion posicion, Direccion direccion) {
+        return matriz[posicion.siguientePosicion(direccion).getX()][posicion.siguientePosicion(direccion).getY()];
+    }
+    public Casillero getCasillero(Posicion posicion){
+        return this.matriz[posicion.getX()][posicion.getY()];
     }
 
-    public void setCasillero(Casillero casillero, int fila, int columna) {
-        this.matriz[fila][columna] = casillero;
-        casillero.setUbicacion(this,fila,columna);
+    private void setCasillero(Casillero casillero, Posicion posicion) {
+        this.matriz[posicion.getX()][posicion.getY()] = casillero;
+        casillero.setPosicion(posicion);
     }
     //
 
-    public void inicializarCasilleros(){
+    private void inicializarCasilleros(){
 
         for(int fila=0; fila < this.filas; fila++){
             for(int columna=0; columna < this.columnas; columna++){
+                Posicion posicion= new Posicion(fila, columna);
                 Casillero casillero= new Casillero();
-                this.setCasillero(casillero, fila,columna);
+                this.setCasillero(casillero, posicion);
             }
         }
+
     }
 
-    public void setItem(Item item, int fila, int columna){
-        this.matriz[fila][columna].setItem(item);
+    private void generarBordes(){
+        for(int fila=0; fila < this.filas; fila++){
+            this.matriz[fila][0].setEstado(new EstadoOcupado());
+            this.matriz[fila][this.columnas-1].setEstado(new EstadoOcupado());
+        }
+        for(int columna=0; columna< this.columnas; columna++){
+            this.matriz[0][columna].setEstado(new EstadoOcupado());
+            this.matriz[this.filas-1][columna].setEstado(new EstadoOcupado());
+        }
+
     }
 
-    // Movimiento
-    public void moverArriba(Casillero casillero){
-        // Verifico que no sea el final del mapa
-        if(casillero.getColumna()+1 <= this.columnas) {
-            this.matriz[casillero.getFila()][casillero.getColumna() + 1].moverItem(casillero);
-        }
-    }
-    public void moverAbajo(Casillero casillero){
-        // Verifico que no sea el final del mapa
-        if(casillero.getColumna()-1 >= 0) {
-            casillero.moverItem(this.matriz[casillero.getFila()][casillero.getColumna() - 1]);
-        }
-    }
-    public void moverIzquierda(Casillero casillero){
-        // Verifico que no sea el final del mapa
-        if(casillero.getFila()-1 >= 0) {
-            casillero.moverItem(this.matriz[casillero.getFila() - 1][casillero.getColumna()]);
-        }
-    }
-    public void moverDerecha(Casillero casillero) {
-        // Verifico que no sea el final del mapa
-        if (casillero.getFila() + 1 <= this.filas) {
-            casillero.moverItem(this.matriz[casillero.getFila() + 1][casillero.getColumna()]);
-        }
-    }
-    // Fin movimiento
+
+
 
 }

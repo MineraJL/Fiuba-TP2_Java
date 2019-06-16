@@ -2,8 +2,7 @@ package Recursos;
 
 
 import Herramientas.*;
-import Mapa.Casillero;
-import Mapa.Item;
+import Mapa.*;
 
 public abstract class Recurso implements Item {
 
@@ -11,35 +10,26 @@ public abstract class Recurso implements Item {
     protected Casillero casillero;
 
     protected Recurso() {
-
+        this.setCasillero(new Casillero());
     }
 
     // Implementacion interface item
     public void setCasillero(Casillero casillero){
         this.casillero= casillero;
     }
+    public void cambiarCasillero(Casillero casilleroNuevo){
+        this.casillero.setEstado(new EstadoDisponible());
+        this.setCasillero(casilleroNuevo);
+    }
     public Casillero getCasillero(){
         return this.casillero;
     }
-    public int getFila(){
-        return this.casillero.getFila();
-    }
-    public int getColumna(){
-        return this.casillero.getColumna();
-    }
 
-    public void intercambiarCasilleros(Item item){}
+    public Posicion getPosicion(){return this.casillero.getPosicion();}
 
-    public void moverArriba(){
-
+    public void mover(Mapa mapa, Direccion direccion){
     }
-    public void moverAbajo(){
-
-    }
-    public void moverIzquierda(){
-
-    }
-    public void moverDerecha(){    }
+    public void ingresar(Mapa mapa, Posicion posicion){ mapa.getCasillero(posicion).setItem(this);}
     // Fin implementacion
 
 

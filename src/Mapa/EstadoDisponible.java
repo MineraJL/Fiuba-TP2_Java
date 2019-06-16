@@ -2,8 +2,14 @@ package Mapa;
 
 public class EstadoDisponible implements EstadoCasillero{
 
-
-    public void movermeItem(Item item, Casillero casillero){
+    public EstadoDisponible(){
 
     }
+
+
+    public void setItem(Casillero casillero, Item item) {
+        casillero.setEstado(new EstadoOcupado());
+        item.cambiarCasillero(casillero);
+    }
+
 }

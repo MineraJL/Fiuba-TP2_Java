@@ -1,22 +1,13 @@
 package Mapa;
 
-import java.util.ArrayList;
-
 public interface Item {
 
     void setCasillero(Casillero casillero);
+    void cambiarCasillero(Casillero casillero);
     Casillero getCasillero();
 
-    int getFila();
-    int getColumna();
+    Posicion getPosicion();
 
-    void intercambiarCasilleros(Item item);
-
-    void moverArriba();
-    void moverAbajo();
-    void moverIzquierda();
-    void moverDerecha();
-    //public int[] ubicacion();
-
-
+    void mover(Mapa mapa, Direccion direccion);
+    void ingresar(Mapa mapa, Posicion posicion);
 }

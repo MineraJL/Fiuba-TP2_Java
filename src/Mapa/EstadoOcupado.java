@@ -3,11 +3,8 @@ package Mapa;
 public class EstadoOcupado implements EstadoCasillero {
 
 
-    public EstadoOcupado() {
-    }
+    public void setItem(Casillero casillero, Item item) {
 
-
-    public void movermeItem (Item item, Casillero casillero){
-        }
     }
+}
 
