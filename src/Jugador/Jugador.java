@@ -44,7 +44,9 @@ public class Jugador implements Item {
 
 
 	public void construirHacha(TipoMaterial unMaterial) {
-		inventario.agregarHerramienta(new Hacha(unMaterial));
+		Hacha hacha = new Hacha(unMaterial);
+
+		inventario.agregarHerramienta(hacha);
 	}
 	
 	public void usarHerramienta(Recurso unRecurso) {
