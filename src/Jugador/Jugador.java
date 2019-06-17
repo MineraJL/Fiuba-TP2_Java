@@ -25,16 +25,14 @@ public class Jugador implements Item {
 	public void setCasillero(Casillero casillero){
 		this.casillero= casillero;
 	}
-	public void cambiarCasillero(Casillero casilleroNuevo){
-		this.casillero.setEstado(new EstadoDisponible());
-		this.setCasillero(casilleroNuevo);
-	}
+
 	public Casillero getCasillero(){
 		return this.casillero;
 	}
 	public Posicion getPosicion(){return this.casillero.getPosicion();}
 
 	public void mover(Mapa mapa, Direccion direccion){
+		this.casillero.quitarItem();
 		this.casillero.getCasilleroVecino(mapa, direccion).setItem(this);
 	}
 

@@ -12,8 +12,6 @@ public class ItemVacio implements Item {
 
     // no deberia implementar esta interfaz xq todos estos metodos sobran
     @Override
-    public void cambiarCasillero(Casillero casillero){}
-    @Override
     public Casillero getCasillero(){return new Casillero();}
     @Override
     public Posicion getPosicion(){return new Posicion(0,0);}
