@@ -12,7 +12,7 @@ public class EstadoDisponible implements EstadoCasillero{
     }
 
     public Item getItem(){
-        return null;
+        return new ItemVacio();
     }
 
     public EstadoCasillero quitarItem(){

@@ -700,6 +700,26 @@ public class MapaIntegracionTest {
     }
 
 
+    @Test
+    public void testLuegoDeMoverItemAOtroCasilleroElCasilleroOrigenQuedaDisponibleParaSerOcupado(){
+
+        Casillero casilleroOrigen = new Casillero();
+
+        Item jugador = new Jugador();
+        jugador.setCasillero(casilleroOrigen);
+
+        Mapa mapa = new Mapa(10,10);
+        jugador.ingresar(mapa,new Posicion(4,4));
+        jugador.mover(mapa, Direccion.izquierda());
+
+        // ahora el casillero origen debe estar disponible
+        Item otroJugador = new Jugador();
+        otroJugador.setCasillero(casilleroOrigen);
+
+        assertEquals(casilleroOrigen,otroJugador.getCasillero());
+    }
+
+
 }
 
 

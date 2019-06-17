@@ -2,7 +2,6 @@ package MapaTest;
 
 import Mapa.Direccion;
 import Mapa.Posicion;
-import javafx.geometry.Pos;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
