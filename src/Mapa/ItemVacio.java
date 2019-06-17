@@ -9,7 +9,6 @@ public class ItemVacio implements Item {
         this.casillero = casilleroRecibido;
     }
 
-
     // no deberia implementar esta interfaz xq todos estos metodos sobran
     @Override
     public Casillero getCasillero(){return new Casillero();}

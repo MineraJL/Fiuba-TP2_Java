@@ -21,7 +21,7 @@ public class EstadoOcupado implements EstadoCasillero {
         return new EstadoDisponible();
     }
 
-    public EstadoOcupado(){}
+    public EstadoOcupado(){} // existe por lo de los bordes.
 
 
 }
