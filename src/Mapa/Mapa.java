@@ -1,6 +1,5 @@
 package Mapa;
 
-import javafx.geometry.Pos;
 
 public class Mapa {
 

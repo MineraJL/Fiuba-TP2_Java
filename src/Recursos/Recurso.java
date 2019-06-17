@@ -17,10 +17,7 @@ public abstract class Recurso implements Item {
     public void setCasillero(Casillero casillero){
         this.casillero= casillero;
     }
-    public void cambiarCasillero(Casillero casilleroNuevo){
-        this.casillero.setEstado(new EstadoDisponible());
-        this.setCasillero(casilleroNuevo);
-    }
+
     public Casillero getCasillero(){
         return this.casillero;
     }

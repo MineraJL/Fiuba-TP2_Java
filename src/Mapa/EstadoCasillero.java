@@ -2,6 +2,10 @@ package Mapa;
 
 public interface EstadoCasillero {
 
-    void setItem(Casillero casillero, Item item);
+    EstadoCasillero setItem(Casillero casillero, Item item);
+
+    Item getItem();
+
+    EstadoCasillero quitarItem();
 
 }
