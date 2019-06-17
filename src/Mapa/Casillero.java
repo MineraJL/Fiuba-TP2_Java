@@ -31,8 +31,17 @@ public class Casillero {
         return mapa.getCasillero(this.getPosicion(),direccion);
     }
 
+    // Manejo del item
     public void setItem(Item item){
-        this.estado.setItem(this,item);
+        this.estado=this.estado.setItem(this,item);
+    }
+
+    public Item getItem(){
+        return estado.getItem();
+    }
+
+    public void quitarItem(){
+        this.estado=this.estado.quitarItem();
     }
 
 }
