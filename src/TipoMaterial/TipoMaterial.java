@@ -16,4 +16,9 @@ public abstract class TipoMaterial {
     public void golpear(Piedra piedra, int fuerza){}
     public void golpear(Metal metal,int fuerza ){}
     public void golpear(Diamante diamante, int fuerza){}
+
+    @Override
+    public boolean equals(Object obj){
+        return this.getClass() == obj.getClass();
+    }
 }
