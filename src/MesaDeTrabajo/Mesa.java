@@ -1,6 +1,9 @@
 package MesaDeTrabajo;
 
 import Herramientas.Hacha;
+import Mapa.Casillero;
+import Mapa.Item;
+import Mapa.ItemVacio;
 import MateriaPrima.MPMadera;
 import MateriaPrima.MPVacio;
 import MateriaPrima.MateriaPrima;
@@ -8,7 +11,16 @@ import TipoMaterial.TipoMadera;
 
 public class Mesa {
 
+    Casillero[][] grilla;
+
     public Mesa(){
+        grilla = new Casillero[3][3];
+        Item itemvacio = new ItemVacio();
+        for (int i = 0; i < grilla.length; i++) {
+            for (int j = 0; j < grilla[i].length; j++) {
+                grilla[i][j].setItem(itemvacio);
+            }
+        }
     }
 
     public MateriaPrima[][] obtenerDisposicionCorrectaHachaDeMadera(){
@@ -43,4 +55,23 @@ public class Mesa {
 
     }
 
+    public void guardarMateriaPrimaEn(Item materiaPrima, int filaCasillero, int colunmaCasillero){
+        this.grilla[filaCasillero][colunmaCasillero].setItem(materiaPrima);
+    }
+
+    public Item obtenerItemEn(int filaCasillero, int colunmaCasillero){
+        return this.grilla[filaCasillero][colunmaCasillero].getItem();
+    }
+/*
+    public boolean equals(Mesa otraMesa){
+        for (int i = 0; i < grilla.length; i++) {
+            for (int j = 0; j < grilla[i].length; j++) {
+                if (!grilla[i][j].getItem().equals(otraMesa.obtenerItemEn(i,j)) ){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+*/
 }

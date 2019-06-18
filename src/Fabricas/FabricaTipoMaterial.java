@@ -8,10 +8,10 @@ import java.util.*;
 
 public class FabricaTipoMaterial {
 
-    private ArrayList<IFabricaMAterial> fabricasDeMaterial;
+    private ArrayList<IFabricaMaterial> fabricasDeMaterial;
 
     public FabricaTipoMaterial(){
-        fabricasDeMaterial = new ArrayList<IFabricaMAterial>();
+        fabricasDeMaterial = new ArrayList<IFabricaMaterial>();
         this.fabricasDeMaterial.add(new FabricaMaterialTipoMadera());
         this.fabricasDeMaterial.add(new FabricaMaterialTipoMetal());
         this.fabricasDeMaterial.add(new FabricaMaterialTipoPiedra());

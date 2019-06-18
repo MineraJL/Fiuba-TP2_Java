@@ -10,7 +10,7 @@ import TipoMaterial.TipoMetalYPiedra;
 
 import java.util.List;
 
-public class FabricaMaterialTipoMetalYPiedra implements IFabricaMAterial {
+public class FabricaMaterialTipoMetalYPiedra implements IFabricaMaterial {
 
     @Override
     public TipoMaterial fabricarMaterial(List<Item> materiaPrima) {

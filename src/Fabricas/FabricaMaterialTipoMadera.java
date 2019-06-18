@@ -8,7 +8,7 @@ import TipoMaterial.TipoMadera;
 
 import java.util.List;
 
-public class FabricaMaterialTipoMadera implements IFabricaMAterial {
+public class FabricaMaterialTipoMadera implements IFabricaMaterial {
 
     public FabricaMaterialTipoMadera(){}
 

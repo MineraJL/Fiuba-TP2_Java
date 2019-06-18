@@ -5,7 +5,7 @@ import TipoMaterial.TipoMaterial;
 
 import java.util.List;
 
-public interface IFabricaMAterial {
+public interface IFabricaMaterial {
 
     public TipoMaterial fabricarMaterial(List<Item> materiaPrima);
 }

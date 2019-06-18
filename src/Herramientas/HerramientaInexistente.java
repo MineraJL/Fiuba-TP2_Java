@@ -5,14 +5,16 @@ import Recursos.*;
 import TipoMaterial.TipoMaterial;
 import TipoMaterial.*;
 
-public class HerramientaInexistente {
+public class HerramientaInexistente extends Herramienta {
 
 
 
     public HerramientaInexistente(TipoMaterial material){
+        super(material);
     }
 
     public HerramientaInexistente(){
+        super(new TipoMaterialInexistente());
     }
 
 
