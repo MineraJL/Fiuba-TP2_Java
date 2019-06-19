@@ -48,7 +48,10 @@ public class Jugador implements Item {
 	}
 	
 	public void usarHerramienta(Recurso unRecurso) {
-		herramientaDeTrabajo.golpear(unRecurso);
+		
+		while(herramientaDeTrabajo.durabilidad() > 0 
+				&& unRecurso.durabilidad() > 0)
+			herramientaDeTrabajo.golpear(unRecurso);
 	}
 	
 	public Herramienta herraminentaActual() {
