@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public class FabricaHerramientas {
 
 
-    private ArrayList<FabricaHerramientas> fabricasDeHerramienta;
+    private ArrayList<IFabricaHerramienta> fabricasDeHerramienta;
     public FabricaHerramientas(){
-        this.fabricasDeHerramienta = new ArrayList<FabricaHerramientas>();
+        this.fabricasDeHerramienta = new ArrayList<IFabricaHerramienta>();
         this.fabricasDeHerramienta.add(new FabricaHacha());
     }
 

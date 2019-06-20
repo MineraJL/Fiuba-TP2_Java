@@ -23,6 +23,14 @@ public class MaderaTest {
         assertEquals(6, maderaTest.durabilidad());
     }
 
+    //Igualdad
+    @Test
+    public void testUnaMaderaEsIgualAOtraMadera(){
+        Madera unaMadera =  new Madera();
+        Madera otraMadera =  new Madera();
+        assertEquals(unaMadera, otraMadera);
+    }
+
 
     // GOLPES HACHA
 

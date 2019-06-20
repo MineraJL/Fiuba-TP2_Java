@@ -23,12 +23,12 @@ public class FabricaTipoMaterial {
         TipoMaterial vacio = new TipoMaterialInexistente();
         TipoMaterial materialCreado = new TipoMaterialInexistente();
         int i = 0;
-        while (materialCreado.equals(vacio) && (i<materiaPrima.size())) {
+        while (materialCreado.equals(vacio) && (i<fabricasDeMaterial.size())) {
 
             materialCreado = fabricasDeMaterial.get(i).fabricarMaterial(materiaPrima);
             i++;
         }
-
+        System.out.println(materialCreado.getClass());
         return materialCreado;
     }
 

@@ -4,10 +4,13 @@ import Herramientas.Hacha;
 import Mapa.Casillero;
 import Mapa.Item;
 import Mapa.ItemVacio;
+import Mapa.Posicion;
 import MateriaPrima.MPMadera;
 import MateriaPrima.MPVacio;
 import MateriaPrima.MateriaPrima;
 import TipoMaterial.TipoMadera;
+
+import java.util.ArrayList;
 
 public class Mesa {
 
@@ -15,9 +18,10 @@ public class Mesa {
 
     public Mesa(){
         grilla = new Casillero[3][3];
-        Item itemvacio = new ItemVacio();
+        Item itemvacio = new MPVacio();
         for (int i = 0; i < grilla.length; i++) {
             for (int j = 0; j < grilla[i].length; j++) {
+                grilla[i][j] = new Casillero();
                 grilla[i][j].setItem(itemvacio);
             }
         }
@@ -57,10 +61,24 @@ public class Mesa {
 
     public void guardarMateriaPrimaEn(Item materiaPrima, int filaCasillero, int colunmaCasillero){
         this.grilla[filaCasillero][colunmaCasillero].setItem(materiaPrima);
+        System.out.print(materiaPrima.getClass());
+        System.out.print(this.grilla[filaCasillero][colunmaCasillero].getItem());
+        System.out.print(" en ");
+        System.out.print(filaCasillero);
+        System.out.println(colunmaCasillero);
     }
 
     public Item obtenerItemEn(int filaCasillero, int colunmaCasillero){
         return this.grilla[filaCasillero][colunmaCasillero].getItem();
+    }
+    public ArrayList<Item> obtenerItemsEn(ArrayList<Posicion> posiciones){
+        ArrayList<Item> itemsObtenidos = new ArrayList<Item>();
+        for (int i = 0; i < posiciones.size(); i++) {
+            int x = posiciones.get(i).getX();
+            int y = posiciones.get(i).getY();
+            itemsObtenidos.add(this.obtenerItemEn(x,y));
+        }
+        return itemsObtenidos;
     }
 /*
     public boolean equals(Mesa otraMesa){
@@ -74,4 +92,5 @@ public class Mesa {
         return true;
     }
 */
+
 }
