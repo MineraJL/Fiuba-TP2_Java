@@ -92,8 +92,10 @@ public class EstadoCasilleroTest {
 
         Item item1 = new Madera();
 
-        //EstadoCasillero  nuevoEstado = estado.setItem(item1);
+        Casillero c = new Casillero();
 
-        //assertSame(casillero1,item1.getCasillero());
+        EstadoCasillero  nuevoEstado = estado.setItem(c,item1);
+
+        assertSame(nuevoEstado.getItem(),item1);
     }
 }

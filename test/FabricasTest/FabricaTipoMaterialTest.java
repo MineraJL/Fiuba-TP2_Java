@@ -61,10 +61,10 @@ public class FabricaTipoMaterialTest {
     public void testCreacionTipoMetalYPiedra() {
         FabricaTipoMaterial fabricaMaterial = new FabricaTipoMaterial();
         ArrayList<Item> trozosDeHerramienta = new ArrayList<Item>();
+        trozosDeHerramienta.add(new MPPiedra());
         trozosDeHerramienta.add(new MPMetal());
-        trozosDeHerramienta.add(new MPPiedra());
-        trozosDeHerramienta.add(new MPPiedra());
-        trozosDeHerramienta.add(new MPMadera());
+        trozosDeHerramienta.add(new MPMetal());
+        trozosDeHerramienta.add(new MPMetal());
         trozosDeHerramienta.add(new MPMadera());
         trozosDeHerramienta.add(new MPMadera());
         TipoMaterial materialCreado = fabricaMaterial.fabricarMaterial(trozosDeHerramienta);

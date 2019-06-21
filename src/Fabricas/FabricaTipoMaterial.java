@@ -28,7 +28,6 @@ public class FabricaTipoMaterial {
             materialCreado = fabricasDeMaterial.get(i).fabricarMaterial(materiaPrima);
             i++;
         }
-        System.out.println(materialCreado.getClass());
         return materialCreado;
     }
 

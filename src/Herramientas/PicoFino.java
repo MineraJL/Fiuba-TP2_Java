@@ -32,7 +32,8 @@ public class PicoFino extends Herramienta {
     // Fin Dispatch
 
     public void golpear(Diamante recursoDiamante) {
-        super.golpear(recursoDiamante);
+        //super.golpear(recursoDiamante);
+        this.desgaste.desgastarCon(this.durabilidad());
         this.material.golpear(recursoDiamante, this.fuerza);
     }
     public void golpear(Madera material){

@@ -11,9 +11,12 @@ public class FabricaHerramientas {
 
 
     private ArrayList<IFabricaHerramienta> fabricasDeHerramienta;
+
     public FabricaHerramientas(){
         this.fabricasDeHerramienta = new ArrayList<IFabricaHerramienta>();
         this.fabricasDeHerramienta.add(new FabricaHacha());
+        this.fabricasDeHerramienta.add(new FabricaPico());
+        this.fabricasDeHerramienta.add(new FabricaPicoFino());
     }
 
 

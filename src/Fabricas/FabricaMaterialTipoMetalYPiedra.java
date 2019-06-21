@@ -15,18 +15,18 @@ public class FabricaMaterialTipoMetalYPiedra implements IFabricaMaterial {
     @Override
     public TipoMaterial fabricarMaterial(List<Item> materiaPrima) {
         TipoMaterial materialCreado = new TipoMaterialInexistente();
-        MPPiedra materia = new MPPiedra();
+        MPMetal materia = new MPMetal();
         MPMadera materiaMango = new MPMadera();
 
-        if (!materiaPrima.get(0).equals(new MPMetal())){
+        if (!materiaPrima.get(0).equals(new MPPiedra())){
             return materialCreado;
         }
-        for (int i = 1; i < 3 ; i++) {
+        for (int i = 1; i < 4 ; i++) {
             if (  !materiaPrima.get(i).equals(materia)){
                 return materialCreado;
             }
         }
-        for (int i = 3; i < materiaPrima.size() ; i++) {
+        for (int i = 4; i < materiaPrima.size() ; i++) {
             if (  !materiaPrima.get(i).equals(materiaMango)){
                 return materialCreado;
             }

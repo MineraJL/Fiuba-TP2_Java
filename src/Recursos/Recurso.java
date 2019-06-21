@@ -44,4 +44,9 @@ public abstract class Recurso implements Item {
     public void reducirDurabilidadEn(int cantidadAReducir) {
         this.durabilidad = this.durabilidad - cantidadAReducir;
     }
+
+    @Override
+    public boolean equals(Object object){
+        return object.getClass() == this.getClass();
+    }
 }

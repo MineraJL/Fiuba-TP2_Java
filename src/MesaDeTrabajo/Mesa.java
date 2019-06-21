@@ -1,6 +1,8 @@
 package MesaDeTrabajo;
 
+import Fabricas.FabricaHerramientas;
 import Herramientas.Hacha;
+import Herramientas.Herramienta;
 import Mapa.Casillero;
 import Mapa.Item;
 import Mapa.ItemVacio;
@@ -22,50 +24,19 @@ public class Mesa {
         for (int i = 0; i < grilla.length; i++) {
             for (int j = 0; j < grilla[i].length; j++) {
                 grilla[i][j] = new Casillero();
-                grilla[i][j].setItem(itemvacio);
             }
         }
     }
 
-    public MateriaPrima[][] obtenerDisposicionCorrectaHachaDeMadera(){
 
-        MateriaPrima[][] disposicion = new MateriaPrima[3][3];
-
-        MPMadera maderita = new MPMadera();
-        MPVacio vacio = new MPVacio();
-
-        disposicion[0][0]=maderita;
-        disposicion[0][1]=maderita;
-        disposicion[0][2]=vacio;
-
-        disposicion[1][0]=maderita;
-        disposicion[1][1]=maderita;
-        disposicion[1][2]=vacio;
-
-        disposicion[2][1]=vacio;
-        disposicion[2][1]=maderita;
-        disposicion[2][2]=vacio;
-
-        return disposicion;
-    }
-
-    public Hacha construiHerramienta(MateriaPrima[][] disposicionRecibida){
-        // if(disposicionRecibida.equals(obtenerDisposicionCorrectaHachaDeMadera()))
-            // en el futuro en vez de usar ese metodo obtenerDisp..., se itera una coleccion "disposicionesCorrectas"
-            // obs: que devolvemos si no coincide ?
-            // tal vez deberia delegarse algo aca..., a la disposicion, que deberia ser una clase que haga equals para cada elemento
-                    // igual el problema persiste...
-        return new Hacha(new TipoMadera());
+    public Herramienta construiHerramienta(){
+        FabricaHerramientas fabrica = new FabricaHerramientas();
+        return fabrica.fabricarHerramienta(this);
 
     }
 
     public void guardarMateriaPrimaEn(Item materiaPrima, int filaCasillero, int colunmaCasillero){
         this.grilla[filaCasillero][colunmaCasillero].setItem(materiaPrima);
-        System.out.print(materiaPrima.getClass());
-        System.out.print(this.grilla[filaCasillero][colunmaCasillero].getItem());
-        System.out.print(" en ");
-        System.out.print(filaCasillero);
-        System.out.println(colunmaCasillero);
     }
 
     public Item obtenerItemEn(int filaCasillero, int colunmaCasillero){
@@ -80,17 +51,5 @@ public class Mesa {
         }
         return itemsObtenidos;
     }
-/*
-    public boolean equals(Mesa otraMesa){
-        for (int i = 0; i < grilla.length; i++) {
-            for (int j = 0; j < grilla[i].length; j++) {
-                if (!grilla[i][j].getItem().equals(otraMesa.obtenerItemEn(i,j)) ){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-*/
 
 }

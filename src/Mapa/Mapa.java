@@ -12,6 +12,7 @@ public class Mapa {
         this.filas = filas;
         this.columnas = columnas;
         this.matriz = new Casillero[filas][columnas];
+        this.matrizEnlazada = new CasilleroEnlazado[filas][columnas];
         this.inicializarCasilleros();
         this.inicializarCasillerosEnlazados();
         this.generarBordes();
