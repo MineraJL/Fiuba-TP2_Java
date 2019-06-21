@@ -2,6 +2,7 @@ package Jugador;
 
 import Herramientas.*;
 import Mapa.*;
+import MateriaPrima.MateriaPrima;
 import TipoMaterial.*;
 import Recursos.*;
 
@@ -47,11 +48,20 @@ public class Jugador implements Item {
 		inventario.agregarHerramienta(hacha);
 	}
 	
-	public void usarHerramienta(Recurso unRecurso) {
+	public void golpearRecurso(Recurso unRecurso) {
+		usarHerramienta(unRecurso);
+		recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getItem());
+	}
+	
+	private void usarHerramienta(Recurso unRecurso) {
 		
 		while(herramientaDeTrabajo.durabilidad() > 0 
 				&& unRecurso.durabilidad() > 0)
 			herramientaDeTrabajo.golpear(unRecurso);
+	}
+	
+	private void recolectarMateriaPrima(MateriaPrima materiaPrima) {
+		inventario.agregarMateriaPrima(materiaPrima);
 	}
 	
 	public Herramienta herraminentaActual() {
