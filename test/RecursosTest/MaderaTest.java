@@ -101,7 +101,7 @@ public class MaderaTest {
         	MateriaPrima mpMadera = new MPMadera();
         	
         	while (madera.durabilidad() > 0)
-        		madera.reducirDurabilidadEn(10);
+        		madera.reducirDurabilidadEn(7);
         	
         	assertEquals(mpMadera, madera.getCasillero().getItem());
         }

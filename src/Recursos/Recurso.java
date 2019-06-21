@@ -46,7 +46,7 @@ public abstract class Recurso implements Item {
     public void reducirDurabilidadEn(int cantidadAReducir) {
         this.durabilidad = this.durabilidad - cantidadAReducir;
         
-        if (durabilidad > 0) {
+        if (durabilidad <= 0) {
         	casillero.quitarItem();
         	Item materiaPrima = this.liberarMateriaPrima();
         	casillero.setItem(materiaPrima);
