@@ -1,16 +1,10 @@
 package MesaDeTrabajo;
 
 import Fabricas.FabricaHerramientas;
-import Herramientas.Hacha;
 import Herramientas.Herramienta;
 import Mapa.Casillero;
 import Mapa.Item;
-import Mapa.ItemVacio;
 import Mapa.Posicion;
-import MateriaPrima.MPMadera;
-import MateriaPrima.MPVacio;
-import MateriaPrima.MateriaPrima;
-import TipoMaterial.TipoMadera;
 
 import java.util.ArrayList;
 
@@ -20,7 +14,6 @@ public class Mesa {
 
     public Mesa(){
         grilla = new Casillero[3][3];
-        Item itemvacio = new MPVacio();
         for (int i = 0; i < grilla.length; i++) {
             for (int j = 0; j < grilla[i].length; j++) {
                 grilla[i][j] = new Casillero();

@@ -1,6 +1,5 @@
 package FabricasTest;
 
-import Fabricas.FabricaPico;
 import Fabricas.FabricaPicoFino;
 import Fabricas.IFabricaHerramienta;
 import Herramientas.Herramienta;
@@ -10,7 +9,6 @@ import MateriaPrima.MPPiedra;
 import MateriaPrima.MPVacio;
 import MesaDeTrabajo.Mesa;
 import Recursos.Diamante;
-import Recursos.Piedra;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -36,14 +34,14 @@ public class FabricaPicoFinoTest {
         mesa.guardarMateriaPrimaEn(vacio, 2, 2);
 
         Herramienta herramientaFabricada = fabricaHerramientas.fabricarHerramienta(mesa);
-        Diamante maderaEnPiso = new Diamante();
+        Diamante diamanteEnPiso = new Diamante();
 
-        herramientaFabricada.golpear(maderaEnPiso);
+        herramientaFabricada.golpear(diamanteEnPiso);
 
         //veo si se comporta como un Pico de madera
 
         assertEquals(1000 -(int)(1000*0.1), herramientaFabricada.durabilidad());
-        assertEquals(100 - 20, maderaEnPiso.durabilidad());
+        assertEquals(100 - 20, diamanteEnPiso.durabilidad());
     }
 
 }

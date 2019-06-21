@@ -1,7 +1,6 @@
 package FabricasTest;
 
 import Fabricas.FabricaHacha;
-import Fabricas.FabricaHerramientas;
 import Herramientas.Herramienta;
 import MateriaPrima.MPMadera;
 import MateriaPrima.MPMetal;
@@ -37,7 +36,7 @@ public class FabricaHachaTest {
 
         herramientaFabricada.golpear(maderaEnPiso);
 
-        //veo si se comporta como un Hacha de piedra
+        //veo si se comporta como un Hacha de madera
         assertEquals(100 - 2, herramientaFabricada.durabilidad());
         assertEquals(10 - 2, maderaEnPiso.durabilidad());
     }
@@ -93,7 +92,7 @@ public class FabricaHachaTest {
 
         herramientaFabricada.golpear(maderaEnPiso);
 
-        //veo si se comporta como un Hacha de piedra
+        //veo si se comporta como un Hacha de metal
         assertEquals(400 - 5, herramientaFabricada.durabilidad());
         assertEquals(10 - 10, maderaEnPiso.durabilidad());
     }
