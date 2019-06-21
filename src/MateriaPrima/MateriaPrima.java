@@ -8,6 +8,11 @@ import Mapa.Posicion;
 
 public class MateriaPrima implements Item {
 	
+    @Override
+    public boolean equals(Object obj) {
+        return this.getClass() == obj.getClass();
+    }
+    
 	protected Casillero casillero;
 	
 	public MateriaPrima() {

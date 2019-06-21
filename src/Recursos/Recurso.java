@@ -3,7 +3,7 @@ package Recursos;
 
 import Herramientas.*;
 import Mapa.*;
-import MateriaPrima.Lenio;
+import MateriaPrima.MPMadera;
 import MateriaPrima.MateriaPrima;
 
 public abstract class Recurso implements Item {
@@ -46,10 +46,13 @@ public abstract class Recurso implements Item {
     public void reducirDurabilidadEn(int cantidadAReducir) {
         this.durabilidad = this.durabilidad - cantidadAReducir;
         
-        if (durabilidad == 0) {
+        if (durabilidad > 0) {
         	casillero.quitarItem();
-        	casillero.setItem(new MateriaPrima());
+        	Item materiaPrima = this.liberarMateriaPrima();
+        	casillero.setItem(materiaPrima);
         }
         	
     }
+    
+    public abstract Item liberarMateriaPrima();
 }

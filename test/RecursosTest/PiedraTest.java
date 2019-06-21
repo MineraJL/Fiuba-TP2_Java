@@ -1,6 +1,8 @@
 package RecursosTest;
 
 import Herramientas.*;
+import MateriaPrima.MPPiedra;
+import MateriaPrima.MateriaPrima;
 import Recursos.*;
 import TipoMaterial.*;
 import org.junit.Test;
@@ -98,6 +100,17 @@ public class PiedraTest {
         Recurso piedraTest = new Piedra();
         pico.golpear(piedraTest);
         assertEquals(30, piedraTest.durabilidad());
+    }
+    
+    @Test
+    public void testRecursoPiedraSeTransformaEnMateriaPrimaPiedra() {
+    	Recurso piedra = new Piedra();
+    	MateriaPrima mpPiedra = new MPPiedra();
+    	
+    	while (piedra.durabilidad() > 0)
+    		piedra.reducirDurabilidadEn(10);
+    	
+    	assertEquals(mpPiedra, piedra.getCasillero().getItem());
     }
 }
         
