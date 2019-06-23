@@ -1,6 +1,7 @@
-package JugadorTest;
+package InventarioTest;
 
 import Herramientas.*;
+import Inventario.Inventario;
 import Jugador.*;
 import TipoMaterial.*;
 
@@ -25,7 +26,7 @@ public class InventarioTest {
 		Pico unPico = new Pico(madera);
 		Inventario unInventario = new Inventario(unHacha);
 		
-		unInventario.agregarHerramienta(unPico);
+		unInventario.agregarElemento(unPico);
 		
 		assertEquals(2, unInventario.cantidadHerramientas());
 	}
