@@ -1,5 +1,7 @@
 package RecursosTest;
 import Herramientas.*;
+import MateriaPrima.MPMadera;
+import MateriaPrima.MateriaPrima;
 import Recursos.*;
 import TipoMaterial.*;
 import org.junit.Test;
@@ -92,4 +94,15 @@ public class MaderaTest {
         pico.golpear(maderaTest);
         assertEquals(10, maderaTest.durabilidad());
     }
+    
+    @Test
+    public void testRecursoMaderaSeTransformaEnMateriaPrimaMadera() {
+        	Recurso madera = new Madera();
+        	MateriaPrima mpMadera = new MPMadera();
+        	
+        	while (madera.durabilidad() > 0)
+        		madera.reducirDurabilidadEn(7);
+        	
+        	assertEquals(mpMadera, madera.getCasillero().getItem());
+        }
 }

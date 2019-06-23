@@ -1,6 +1,7 @@
 package RecursosTest;
 import Herramientas.*;
 import Recursos.*;
+import MateriaPrima.*;
 import TipoMaterial.*;
 import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
@@ -93,5 +94,16 @@ public class DiamanteTest {
             Recurso diamanteTest =  new Diamante();
             pico.golpear(diamanteTest);
             assertEquals(80, diamanteTest.durabilidad());
+        }
+        
+        @Test
+        public void testRecursoDiamanteSeTransformaEnMateriaPrimaDiamante() {
+        	Recurso diamante = new Diamante();
+        	MateriaPrima mpDiamante = new MPDiamante();
+        	
+        	while (diamante.durabilidad() > 0)
+        		diamante.reducirDurabilidadEn(10);
+        	
+        	assertEquals(mpDiamante, diamante.getCasillero().getItem());
         }
     }

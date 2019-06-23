@@ -1,5 +1,7 @@
 package RecursosTest;
 import Herramientas.*;
+import MateriaPrima.MPMetal;
+import MateriaPrima.MateriaPrima;
 import Recursos.*;
 import TipoMaterial.*;
 import org.junit.Test;
@@ -93,5 +95,16 @@ public class MetalTest {
             Recurso metalTest =  new Metal();
             pico.golpear(metalTest);
             assertEquals(50, metalTest.durabilidad());
+        }
+        
+        @Test
+        public void testRecursoMetalSeTransformaEnMateriaPrimaMetal() {
+        	Recurso metal = new Metal();
+        	MateriaPrima mpMetal = new MPMetal();
+        	
+        	while (metal.durabilidad() > 0)
+        		metal.reducirDurabilidadEn(10);
+        	
+        	assertEquals(mpMetal, metal.getCasillero().getItem());
         }
     }
