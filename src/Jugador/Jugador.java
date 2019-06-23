@@ -11,6 +11,17 @@ public class Jugador implements Item {
 	private Inventario inventario;
 	private Hacha herramientaDeTrabajo;
 	private Casillero casillero;
+	
+	private void usarHerramienta(Recurso unRecurso) {
+		
+		while(herramientaDeTrabajo.durabilidad() > 0 
+				&& unRecurso.durabilidad() > 0)
+			herramientaDeTrabajo.golpear(unRecurso);
+	}
+	
+	private void recolectarMateriaPrima(MateriaPrima materiaPrima) {
+		inventario.agregarElemento(materiaPrima);
+	}
 
 	public Jugador() {
 		TipoMadera madera = new TipoMadera();
@@ -40,12 +51,10 @@ public class Jugador implements Item {
 	public void ingresar(Mapa mapa, Posicion posicion){ mapa.getCasillero(posicion).setItem(this);}
 	// Fin implementacion
 
-
-
 	public void construirHacha(TipoMaterial unMaterial) {
 		Hacha hacha = new Hacha(unMaterial);
 
-		inventario.agregarHerramienta(hacha);
+		inventario.agregarElemento(hacha);
 	}
 	
 	public void golpearRecurso(Recurso unRecurso) {
@@ -53,16 +62,9 @@ public class Jugador implements Item {
 		recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getItem());
 	}
 	
-	private void usarHerramienta(Recurso unRecurso) {
-		
-		while(herramientaDeTrabajo.durabilidad() > 0 
-				&& unRecurso.durabilidad() > 0)
-			herramientaDeTrabajo.golpear(unRecurso);
-	}
-	
-	private void recolectarMateriaPrima(MateriaPrima materiaPrima) {
-		inventario.agregarMateriaPrima(materiaPrima);
-	}
+	/*public void cambiarHerramienta () {
+		herramientaDeTrabajo = ;
+	}*/
 	
 	public Herramienta herraminentaActual() {
 		return herramientaDeTrabajo;
