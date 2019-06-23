@@ -1,6 +1,7 @@
 package Jugador;
 
 import Herramientas.*;
+import Inventario.Inventario;
 import Mapa.*;
 import MateriaPrima.MateriaPrima;
 import TipoMaterial.*;
@@ -70,7 +71,7 @@ public class Jugador implements Item {
 		return herramientaDeTrabajo;
 	}
 	
-	public int cantidadHerramientas() {
+	/*public int cantidadHerramientas() {
 		return inventario.cantidadHerramientas();
-	}
+	}*/
 }

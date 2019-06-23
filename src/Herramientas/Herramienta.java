@@ -1,6 +1,7 @@
 package Herramientas;
 
 import Desgastes.*;
+import Inventario.InventarioHerramienta;
 import Mapa.Casillero;
 import Mapa.Item;
 import Recursos.*;
@@ -18,7 +19,7 @@ public abstract class Herramienta {
     }
 
 
-
+public abstract void agregarAlInventario(InventarioHerramienta inventario);
 
     public void asignarMaterial(TipoMaterial material){material.definirValores(this);}
     public void asignarMaterial(TipoMadera madera){}
