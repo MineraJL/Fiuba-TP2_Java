@@ -2,6 +2,7 @@ package Herramientas;
 import Desgastes.DesgastePorUsos;
 import Recursos.*;
 import Desgastes.DesgasteSegunMultiplicador;
+import Inventario.InventarioHerramienta;
 import Recursos.Diamante;
 import TipoMaterial.*;
 
@@ -13,6 +14,9 @@ public class PicoFino extends Herramienta {
         this.material.definirValores(this);
     }
 
+    public void agregarAlInventario(InventarioHerramienta inventario) {
+    	inventario.agregarHerramienta(this);
+    }
 
     // Asignar valores por material - Dispatch
     public void asignarMaterial(TipoMetalYPiedra metalYPiedra){
