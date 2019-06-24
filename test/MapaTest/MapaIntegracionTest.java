@@ -11,7 +11,7 @@ public class MapaIntegracionTest {
 
 
     @Test
-    public void testItemJugadorSeMueveALaDerechaEnElMapaUnaVez() {
+    public void testItemJugadorSeMueveALaDerechaEnElMapaDosVeces() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
         Jugador jugador = new Jugador();
@@ -29,7 +29,7 @@ public class MapaIntegracionTest {
     // MOVIMIENTO ITEM JUGADOR - MAPA VACIO
     // 2 movimientos a la derecha
     @Test
-    public void testItemJugadorSeMueveALaDerechaEnElMapaDosVeces() {
+    public void testItemJugadorSeMueveALaDerechaEnElMapaDosVeces_sinEspecificarMapa() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
         Item item = new Jugador();
