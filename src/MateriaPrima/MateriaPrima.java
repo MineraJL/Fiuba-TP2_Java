@@ -1,12 +1,13 @@
 package MateriaPrima;
 
+import Inventario.InventarioMateriaPrima;
 import Mapa.Casillero;
 import Mapa.Direccion;
 import Mapa.Item;
 import Mapa.Mapa;
 import Mapa.Posicion;
 
-public class MateriaPrima implements Item {
+public abstract class MateriaPrima implements Item {
 	
     @Override
     public boolean equals(Object obj) {
@@ -42,4 +43,6 @@ public class MateriaPrima implements Item {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public abstract void agregarAlInventario(InventarioMateriaPrima inventario);
 }
