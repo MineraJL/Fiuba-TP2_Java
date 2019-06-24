@@ -64,19 +64,37 @@ public class Jugador implements Item {
 		recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getItem());
 	}
 	
-	/*public void seleccionarHerramienta() {
-		herramientaDeTrabajo = inventario.extraerHerramienta();
-	}*/
+	public void seleccionarHachaMadera() {
+		herramientaDeTrabajo = inventario.extraerHachaMadera();
+	}
 	
-	/*public void cambiarHerramienta () {
-		herramientaDeTrabajo = ;
-	}*/
+	public void seleccionarHachaPiedra() {
+		herramientaDeTrabajo = inventario.extraerHachaPiedra();
+	}
+	
+	public void seleccionarHachaMetal() {
+		herramientaDeTrabajo = inventario.extraerHachaMetal();
+	}
+	
+	public void seleccionarPicoMadera() {
+		herramientaDeTrabajo = inventario.extraerPicoMadera();
+	}
+	
+	public void seleccionarPicoPiedra() {
+		herramientaDeTrabajo = inventario.extraerPicoPiedra();
+	}
+	
+	public void seleccionarPicoMetal() {
+		herramientaDeTrabajo = inventario.extraerPicoMetal();
+	}
+	
+	public void seleccionarPicoFino() {
+		herramientaDeTrabajo = inventario.extraerPicoFino();
+	}
+	
 	
 	public Herramienta herraminentaActual() {
 		return herramientaDeTrabajo;
 	}
 	
-	/*public int cantidadHerramientas() {
-		return inventario.cantidadHerramientas();
-	}*/
 }
