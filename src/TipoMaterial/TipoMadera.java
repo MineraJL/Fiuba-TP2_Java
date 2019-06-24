@@ -24,4 +24,5 @@ public class TipoMadera extends TipoMaterial{
 		herramienta.agregarAlInventario(inventario, this);
 		
 	}
+
 }

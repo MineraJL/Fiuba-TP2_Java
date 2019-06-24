@@ -4,8 +4,11 @@ import Desgastes.*;
 import Inventario.InventarioHerramienta;
 import Mapa.Casillero;
 import Mapa.Item;
+import MateriaPrima.MateriaPrima;
 import Recursos.*;
 import TipoMaterial.*;
+
+import java.util.ArrayList;
 
 public abstract class Herramienta {
 
@@ -71,7 +74,7 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
     public void golpear(Diamante material){
         this.desgaste.desgastarCon(this.fuerza);
     }
-    
+
     @Override
     public boolean equals(Object otraHerramienta){
         if (otraHerramienta.getClass() == this.getClass() ){
@@ -79,5 +82,6 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
             return paraComparar.material.equals(this.material);
         }
         return false;
-}
+
+    }
 }

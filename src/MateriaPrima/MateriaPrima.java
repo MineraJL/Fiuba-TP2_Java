@@ -2,17 +2,21 @@ package MateriaPrima;
 
 import Inventario.InventarioMateriaPrima;
 import Mapa.Casillero;
-import Mapa.Direccion;
+
 import Mapa.Item;
 import Mapa.Mapa;
 import Mapa.Posicion;
+import Mapa.Direccion;
+
 
 public abstract class MateriaPrima implements Item {
 	
+
     @Override
     public boolean equals(Object obj) {
         return this.getClass() == obj.getClass();
     }
+
     
 	protected Casillero casillero;
 	
@@ -43,6 +47,8 @@ public abstract class MateriaPrima implements Item {
 		// TODO Auto-generated method stub
 		
 	}
+
 	
 	public abstract void agregarAlInventario(InventarioMateriaPrima inventario);
+
 }
