@@ -24,6 +24,9 @@ public class Jugador implements Item {
 		inventario.agregarElemento(materiaPrima);
 	}
 
+	private Mapa mapa;
+	private Casillero casilleroSeleccionadoParaRomper;
+
 	public Jugador() {
 		TipoMadera madera = new TipoMadera();
 		Hacha unHacha = new Hacha(madera);
@@ -50,14 +53,29 @@ public class Jugador implements Item {
 		this.casillero.getCasilleroVecino(mapa, direccion).setItem(this);
 	}
 
-	public void ingresar(Mapa mapa, Posicion posicion){ mapa.getCasillero(posicion).setItem(this);}
+	public void mover(Direccion direccion){
+		this.mover(this.mapa,direccion);
+		this.casilleroSeleccionadoParaRomper=mapa.getCasillero(this.casillero.getPosicion(),direccion);
+	}
+
+
+	public void ingresar(Mapa mapa, Posicion posicion){
+		mapa.getCasillero(posicion).setItem(this);
+		this.mapa = mapa;
+	}
 	// Fin implementacion
 
 	/*public void construirHacha(TipoMaterial unMaterial) {
 		Hacha hacha = new Hacha(unMaterial);
 
+
 		inventario.agregarElemento(hacha);
-	}*/
+	}
+
+	public void golpear(){
+		this.golpearRecurso((Recurso) this.casilleroSeleccionadoParaRomper.getItem());
+	}
+	*/
 	
 	public void golpearRecurso(Recurso unRecurso) {
 		usarHerramienta(unRecurso);

@@ -21,4 +21,9 @@ public class Posicion {
     public int getY() {
         return this.coorY;
     }
+
+    //@Override
+    public boolean equals(Posicion otraPosicion){
+        return ((this.getX()==otraPosicion.getX()) && (this.getY() == otraPosicion.getY()));
+    }
 }
