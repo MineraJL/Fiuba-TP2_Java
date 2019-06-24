@@ -71,4 +71,13 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
     public void golpear(Diamante material){
         this.desgaste.desgastarCon(this.fuerza);
     }
+    
+    @Override
+    public boolean equals(Object otraHerramienta){
+        if (otraHerramienta.getClass() == this.getClass() ){
+            Herramienta paraComparar =  this.getClass().cast(otraHerramienta);
+            return paraComparar.material.equals(this.material);
+        }
+        return false;
+}
 }
