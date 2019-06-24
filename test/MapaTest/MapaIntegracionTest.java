@@ -9,6 +9,23 @@ import static junit.framework.TestCase.*;
 
 public class MapaIntegracionTest {
 
+
+    @Test
+    public void testItemJugadorSeMueveALaDerechaEnElMapaUnaVez() {
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero1 = new Casillero();
+        Jugador jugador = new Jugador();
+        jugador.setCasillero(casillero1);
+        Posicion posicionInicial = new Posicion(5,5);
+        jugador.ingresar(mapa, posicionInicial);
+        // Lo muevo a la derecha 2 veces
+        jugador.mover(Direccion.derecha());
+        jugador.mover(Direccion.derecha());
+        Posicion posicionFinal = new Posicion(7,5);
+
+        assertSame(mapa.getCasillero(posicionFinal),jugador.getCasillero());
+    }
+
     // MOVIMIENTO ITEM JUGADOR - MAPA VACIO
     // 2 movimientos a la derecha
     @Test

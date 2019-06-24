@@ -12,6 +12,9 @@ public class Jugador implements Item {
 	private Hacha herramientaDeTrabajo;
 	private Casillero casillero;
 
+	private Mapa mapa;
+	private Casillero casilleroSeleccionadoParaRomper;
+
 	public Jugador() {
 		TipoMadera madera = new TipoMadera();
 		Hacha hacha = new Hacha(madera);
@@ -37,7 +40,16 @@ public class Jugador implements Item {
 		this.casillero.getCasilleroVecino(mapa, direccion).setItem(this);
 	}
 
-	public void ingresar(Mapa mapa, Posicion posicion){ mapa.getCasillero(posicion).setItem(this);}
+	public void mover(Direccion direccion){
+		this.mover(this.mapa,direccion);
+		this.casilleroSeleccionadoParaRomper=mapa.getCasillero(this.casillero.getPosicion(),direccion);
+	}
+
+
+	public void ingresar(Mapa mapa, Posicion posicion){
+		mapa.getCasillero(posicion).setItem(this);
+		this.mapa = mapa;
+	}
 	// Fin implementacion
 
 
