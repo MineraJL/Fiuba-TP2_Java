@@ -2,6 +2,7 @@ package MapaTest;
 
 import Jugador.Jugador;
 import Mapa.*;
+import Recursos.Madera;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -81,5 +82,20 @@ public class EstadoCasilleroTest {
         estado.setItem(casillero1,item1);
 
         assertSame(casillero1,item1.getCasillero());
+    }
+
+
+
+    @Test
+    public void testEstadoDisponibleGuardaItemCorrectamente(){
+        EstadoCasillero estado = new EstadoDisponible();
+
+        Item item1 = new Madera();
+
+        Casillero c = new Casillero();
+
+        EstadoCasillero  nuevoEstado = estado.setItem(c,item1);
+
+        assertSame(nuevoEstado.getItem(),item1);
     }
 }

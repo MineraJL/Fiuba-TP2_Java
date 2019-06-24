@@ -53,6 +53,14 @@ public abstract class Recurso implements Item {
         }
         	
     }
+
+
+    @Override
+    public boolean equals(Object object){
+        return object.getClass() == this.getClass();
+    }
+
     
     public abstract Item liberarMateriaPrima();
+
 }

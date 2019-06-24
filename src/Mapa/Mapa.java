@@ -6,14 +6,42 @@ public class Mapa {
     private int filas;
     private int columnas;
     private Casillero[][] matriz;
+    private CasilleroEnlazado[][] matrizEnlazada;
 
     public Mapa(int filas, int columnas) {
         this.filas = filas;
         this.columnas = columnas;
         this.matriz = new Casillero[filas][columnas];
+        this.matrizEnlazada = new CasilleroEnlazado[filas][columnas];
         this.inicializarCasilleros();
+        this.inicializarCasillerosEnlazados();
         this.generarBordes();
 
+    }
+
+    private void inicializarCasillerosEnlazados() {
+        //genero la primer fila
+        CasilleroEnlazado cInicial = new CasilleroEnlazado();
+        matrizEnlazada[0][0] = cInicial;
+        for(int columna=1; columna < this.columnas; columna++){
+            CasilleroEnlazado cSiguiente = new CasilleroEnlazado();
+            matrizEnlazada[0][columna] = cSiguiente;
+            cSiguiente.enlazarAIzquierda(matrizEnlazada[0][columna-1]);
+        }
+
+        //genero el resto de filas
+        for(int fila=1; fila < this.filas; fila++){
+            CasilleroEnlazado cPrimero = new CasilleroEnlazado();
+            matrizEnlazada[fila][0] = cPrimero;
+            cPrimero.enlazarArriba(matrizEnlazada[fila-1][0]);
+
+            for(int columna=1; columna < this.columnas; columna++){
+                CasilleroEnlazado cSiguiente = new CasilleroEnlazado();
+                matrizEnlazada[fila][columna] = cSiguiente;
+                cSiguiente.enlazarAIzquierda(matrizEnlazada[fila][columna-1]);
+                cSiguiente.enlazarArriba(matrizEnlazada[fila-1][columna]);
+            }
+        }
     }
 
     // Get and Set Casilleros

@@ -17,4 +17,6 @@ public class TipoMadera extends TipoMaterial{
     public void definirValores(Herramienta herramienta) {
         herramienta.asignarMaterial(this);
     }
+
+
 }

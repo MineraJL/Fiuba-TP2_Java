@@ -2,6 +2,7 @@ package MapaTest;
 import Jugador.Jugador;
 import Mapa.*;
 import Recursos.*;
+import MateriaPrima.*;
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -175,6 +176,15 @@ public class CasilleroTest {
 
         assertNotSame(casillero1,item2.getCasillero());
 
+    }
+
+
+    @Test
+    public void testCasilleroGuardaItemCorrectamente(){
+        Casillero casillero1 = new Casillero();
+        Item item1 = new Madera();
+        casillero1.setItem(item1);
+        assertEquals(casillero1.getItem(),item1);
     }
 
 
