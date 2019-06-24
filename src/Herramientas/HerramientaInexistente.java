@@ -1,6 +1,7 @@
 package Herramientas;
 
 import Desgastes.Desgaste;
+import Inventario.InventarioHerramienta;
 import Recursos.*;
 import TipoMaterial.TipoMaterial;
 import TipoMaterial.*;
@@ -49,4 +50,9 @@ public class HerramientaInexistente extends Herramienta {
     public void golpear(Piedra material){}
     public void golpear(Metal material){}
     public void golpear(Diamante material){}
+
+	@Override
+	public void agregarAlInventario(InventarioHerramienta inventario) {
+
+	}
 }
