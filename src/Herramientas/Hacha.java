@@ -1,6 +1,7 @@
 package Herramientas;
 
 import Desgastes.DesgasteSegunMultiplicador;
+import Inventario.*;
 import Recursos.Madera;
 import TipoMaterial.*;
 
@@ -10,6 +11,24 @@ public class Hacha extends Herramienta {
     public Hacha(TipoMaterial material){
         super(material);
         this.material.definirValores(this);
+    }
+    
+    
+    
+    public void agregarAlInventario(InventarioHerramienta inventario) {
+    	this.material.agregarAlInventario(inventario, this);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMadera madera) {
+    	inventario.agregarHerramienta(this, madera);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoPiedra piedra) {
+    	inventario.agregarHerramienta(this, piedra);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMetal metal) {
+    	inventario.agregarHerramienta(this, metal);
     }
 
 

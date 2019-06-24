@@ -2,6 +2,7 @@ package Herramientas;
 
 import Desgastes.DesgastePorUsos;
 import Desgastes.DesgasteSegunMultiplicador;
+import Inventario.InventarioHerramienta;
 import Recursos.Metal;
 import Recursos.Piedra;
 import TipoMaterial.TipoMadera;
@@ -16,7 +17,21 @@ public class Pico extends Herramienta {
         this.material.definirValores(this);
     }
 
-
+    public void agregarAlInventario(InventarioHerramienta inventario) {
+    	this.material.agregarAlInventario(inventario, this);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMadera madera) {
+    	inventario.agregarHerramienta(this, madera);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoPiedra piedra) {
+    	inventario.agregarHerramienta(this, piedra);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMetal metal) {
+    	inventario.agregarHerramienta(this, metal);
+    }
 
 
     // Asignar valores por material - Dispatch

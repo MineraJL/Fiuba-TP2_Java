@@ -1,10 +1,14 @@
 package Herramientas;
 
 import Desgastes.*;
+import Inventario.InventarioHerramienta;
 import Mapa.Casillero;
 import Mapa.Item;
+import MateriaPrima.MateriaPrima;
 import Recursos.*;
 import TipoMaterial.*;
+
+import java.util.ArrayList;
 
 public abstract class Herramienta {
 
@@ -18,7 +22,12 @@ public abstract class Herramienta {
     }
 
 
+public abstract void agregarAlInventario(InventarioHerramienta inventario);
 
+public void agregarAlInventario(InventarioHerramienta inventario, TipoMadera madera){}
+public void agregarAlInventario(InventarioHerramienta inventario, TipoPiedra piedra){}
+public void agregarAlInventario(InventarioHerramienta inventario, TipoMetal metal){}
+public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPiedra metalYPiedra){}
 
     public void asignarMaterial(TipoMaterial material){material.definirValores(this);}
     public void asignarMaterial(TipoMadera madera){}
@@ -64,5 +73,15 @@ public abstract class Herramienta {
     }
     public void golpear(Diamante material){
         this.desgaste.desgastarCon(this.fuerza);
+    }
+
+    @Override
+    public boolean equals(Object otraHerramienta){
+        if (otraHerramienta.getClass() == this.getClass() ){
+            Herramienta paraComparar =  this.getClass().cast(otraHerramienta);
+            return paraComparar.material.equals(this.material);
+        }
+        return false;
+
     }
 }

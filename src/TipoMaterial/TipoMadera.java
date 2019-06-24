@@ -1,6 +1,7 @@
 package TipoMaterial;
 
 import Herramientas.Herramienta;
+import Inventario.InventarioHerramienta;
 import Recursos.Madera;
 import Recursos.Piedra;
 
@@ -17,4 +18,11 @@ public class TipoMadera extends TipoMaterial{
     public void definirValores(Herramienta herramienta) {
         herramienta.asignarMaterial(this);
     }
+
+	@Override
+	public void agregarAlInventario(InventarioHerramienta inventario, Herramienta herramienta) {
+		herramienta.agregarAlInventario(inventario, this);
+		
+	}
+
 }

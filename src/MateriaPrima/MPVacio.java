@@ -2,11 +2,14 @@ package MateriaPrima;
 
 import Inventario.InventarioMateriaPrima;
 
-public class MPPiedra extends MateriaPrima {
-	
+public class MPVacio extends MateriaPrima {
+
+    public MPVacio(){}
+
 	@Override
 	public void agregarAlInventario(InventarioMateriaPrima inventario) {
-	    	inventario.agregarMateriaPrima(this);
 		
 	}
+
+
 }

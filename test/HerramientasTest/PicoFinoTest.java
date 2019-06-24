@@ -66,7 +66,7 @@ public class PicoFinoTest {
             TipoMaterial materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
             picoFino.golpear(recursoDiamante);
-            assertEquals(998, picoFino.durabilidad());
+            assertEquals(1000-(int)(1000*0.1), picoFino.durabilidad());
         }
 
 
