@@ -18,7 +18,19 @@ public class Pico extends Herramienta {
     }
 
     public void agregarAlInventario(InventarioHerramienta inventario) {
-    	inventario.agregarHerramienta(this);
+    	this.material.agregarAlInventario(inventario, this);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMadera madera) {
+    	inventario.agregarHerramienta(this, madera);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoPiedra piedra) {
+    	inventario.agregarHerramienta(this, piedra);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMetal metal) {
+    	inventario.agregarHerramienta(this, metal);
     }
 
 

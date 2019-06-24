@@ -2,21 +2,19 @@ package Inventario;
 
 import Herramientas.*;
 import MateriaPrima.*;
+import TipoMaterial.*;
 
 public class Inventario {
 	private InventarioHerramienta herramienta;
 	private InventarioMateriaPrima materiaPrima;
 	
-	public Inventario(Hacha unaHacha) {
+	public Inventario() {
 		herramienta = new InventarioHerramienta();
 		materiaPrima = new InventarioMateriaPrima();
-		
-		herramienta.agregarHerramienta(unaHacha);
 	}
 	
 	public void agregarElemento(Herramienta herramienta) {
 		herramienta.agregarAlInventario(this.herramienta);
-		//this.herramienta.agregarHerramienta(herramienta);
 	}
 	
 
@@ -24,12 +22,48 @@ public class Inventario {
 		materiaPrima.agregarAlInventario(this.materiaPrima);
 	}
 	
-	public MateriaPrima extraerMateriaPrima() {
-		return null;
+	public MPMadera extraerMateriaPrimaMadera() {
+		return materiaPrima.extraerMadera();
 	}
 	
-	public Herramienta extraerHerramienta() {
-		return null;
+	public MPPiedra extraerMateriaPrimaPiedra() {
+		return materiaPrima.extraerPiedra();
+	}
+	
+	public MPMetal extraerMateriaPrimaMetal() {
+		return materiaPrima.extraerMetal();
+	}
+	
+	public MPDiamante extraerMateriaPrimaDiamante() {
+		return materiaPrima.extraerDiamante();
+	}
+	
+	public Hacha extraerHachaMadera() {
+		return herramienta.extraerHachaMadera();
+	}
+	
+	public Hacha extraerHachaPiedra() {
+		return herramienta.extraerHachaPiedra();
+	}
+	
+	public Hacha extraerHachaMetal() {
+		return herramienta.extraerHachaMetal();
+	}
+	
+	public Pico extraerPicoMadera() {
+		return herramienta.extraerPicoMadera();
+	}
+	
+	public Pico extraerPicoPiedra() {
+		return herramienta.extraerPicoPiedra();
+	}
+	
+	public Pico extraerPicoMetal() {
+		return herramienta.extraerPicoMetal();
+	}
+	
+	public PicoFino extraerPicoFino() {
+		return herramienta.extraerPicoFino();
 	}
 	
 	/*public int cantidadHerramientas() {

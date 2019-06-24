@@ -12,10 +12,25 @@ public class Hacha extends Herramienta {
         super(material);
         this.material.definirValores(this);
     }
-
+    
+    
+    
     public void agregarAlInventario(InventarioHerramienta inventario) {
-    	inventario.agregarHerramienta(this);
+    	this.material.agregarAlInventario(inventario, this);
     }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMadera madera) {
+    	inventario.agregarHerramienta(this, madera);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoPiedra piedra) {
+    	inventario.agregarHerramienta(this, piedra);
+    }
+    
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMetal metal) {
+    	inventario.agregarHerramienta(this, metal);
+    }
+
 
     // Asignar valores por material - Dispatch
     public void asignarMaterial(TipoMadera madera){

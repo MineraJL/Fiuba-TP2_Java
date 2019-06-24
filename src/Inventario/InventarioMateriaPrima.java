@@ -6,17 +6,17 @@ import MateriaPrima.*;
 public class InventarioMateriaPrima {
 	
 	//Coleccion materias primas
-		protected ArrayList<MateriaPrima> mpMadera = 
-				new ArrayList<MateriaPrima>();
+		protected ArrayList<MPMadera> mpMadera = 
+				new ArrayList<MPMadera>();
 		
-		protected ArrayList<MateriaPrima> mpPiedra = 
-				new ArrayList<MateriaPrima>();
+		protected ArrayList<MPPiedra> mpPiedra = 
+				new ArrayList<MPPiedra>();
 		
-		protected ArrayList<MateriaPrima> mpMetal =
-				new ArrayList<MateriaPrima>();
+		protected ArrayList<MPMetal> mpMetal =
+				new ArrayList<MPMetal>();
 		
-		protected ArrayList<MateriaPrima> mpDiamante =
-				new ArrayList<MateriaPrima>();
+		protected ArrayList<MPDiamante> mpDiamante =
+				new ArrayList<MPDiamante>();
 		
 		
 		
@@ -34,6 +34,34 @@ public class InventarioMateriaPrima {
 		
 		public void agregarMateriaPrima(MPDiamante diamante) {
 			mpDiamante.add(diamante);
+		}
+		
+		public MPMadera extraerMadera() {
+			MPMadera madera = mpMadera.get(0);
+			mpMadera.remove(0);
+			
+			return madera;
+		}
+		
+		public MPPiedra extraerPiedra() {
+			MPPiedra piedra = mpPiedra.get(0);
+			mpPiedra.remove(0);
+			
+			return piedra;
+		}
+		
+		public MPMetal extraerMetal() {
+			MPMetal metal = mpMetal.get(0);
+			mpMetal.remove(0);
+			
+			return metal;
+		}
+		
+		public MPDiamante extraerDiamante() {
+			MPDiamante diamante = mpDiamante.get(0);
+			mpDiamante.remove(0);
+			
+			return diamante;
 		}
 
 }

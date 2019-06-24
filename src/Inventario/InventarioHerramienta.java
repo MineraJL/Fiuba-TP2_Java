@@ -3,45 +3,113 @@ package Inventario;
 import java.util.ArrayList;
 
 import Herramientas.*;
+import TipoMaterial.*;
 
 public class InventarioHerramienta {
 	
 	//Colección de hachas
-	protected ArrayList<Herramienta> hachaMadera = 
-			new ArrayList<Herramienta>();
+	protected ArrayList<Hacha> hachaMadera = 
+			new ArrayList<Hacha>();
 	
-	protected ArrayList<Herramienta> hachaPiedra = 
-			new ArrayList<Herramienta>();
+	protected ArrayList<Hacha> hachaPiedra = 
+			new ArrayList<Hacha>();
 	
-	protected ArrayList<Herramienta> hachaMetal = 
-			new ArrayList<Herramienta>();
+	protected ArrayList<Hacha> hachaMetal = 
+			new ArrayList<Hacha>();
 	
 	//Colección de picos simples
-	protected ArrayList<Herramienta> picoMadera = 
-			new ArrayList<Herramienta>();
+	protected ArrayList<Pico> picoMadera = 
+			new ArrayList<Pico>();
 	
-	protected ArrayList<Herramienta> picoPiedra = 
-			new ArrayList<Herramienta>();
+	protected ArrayList<Pico> picoPiedra = 
+			new ArrayList<Pico>();
 	
-	protected ArrayList<Herramienta> picoMetal = 
-			new ArrayList<Herramienta>();
+	protected ArrayList<Pico> picoMetal = 
+			new ArrayList<Pico>();
 	
 	//Colección picos finos
-	protected ArrayList<Herramienta> picoFino = 
-			new ArrayList<Herramienta>();
+	protected ArrayList<PicoFino> picoFino = 
+			new ArrayList<PicoFino>();
 	
 	
-	
-	public void agregarHerramienta(Hacha unaHacha) {
+	//Se almacenan hachas
+	public void agregarHerramienta(Hacha unaHacha, TipoMadera madera) {
 		hachaMadera.add(unaHacha);
 	}
 	
-	public void agregarHerramienta(Pico unPico) {
+	public void agregarHerramienta(Hacha unaHacha, TipoPiedra piedra) {
+		hachaPiedra.add(unaHacha);
+	}
+	
+	public void agregarHerramienta(Hacha unaHacha, TipoMetal metal) {
+		hachaMetal.add(unaHacha);
+	}
+	
+	//Se almacenan picos simples
+	public void agregarHerramienta(Pico unPico, TipoMadera madera) {
 		picoMadera.add(unPico);
 	}
 	
+	public void agregarHerramienta(Pico unPico, TipoPiedra piedra) {
+		picoPiedra.add(unPico);
+	}
+	
+	public void agregarHerramienta(Pico unPico, TipoMetal metal) {
+		picoMetal.add(unPico);
+	}
+	
+	//Se almacenan picos finos
 	public void agregarHerramienta(PicoFino unaPicoFino) {
 		picoFino.add(unaPicoFino);
+	}
+	
+	public Hacha extraerHachaMadera() {
+		Hacha hacha = hachaMadera.get(0);
+		hachaMadera.remove(0);
+		
+		return hacha;
+	}
+	
+	public Hacha extraerHachaPiedra() {
+		Hacha hacha = hachaPiedra.get(0);
+		hachaPiedra.remove(0);
+		
+		return hacha;
+	}
+	
+	public Hacha extraerHachaMetal() {
+		Hacha hacha = hachaMetal.get(0);
+		hachaMetal.remove(0);
+		
+		return hacha;
+	}
+	
+	public Pico extraerPicoMadera() {
+		Pico pico = picoMadera.get(0);
+		picoMadera.remove(0);
+		
+		return pico;
+	}
+	
+	public Pico extraerPicoPiedra() {
+		Pico pico = picoPiedra.get(0);
+		picoPiedra.remove(0);
+		
+		return pico;
+	}
+	
+	public Pico extraerPicoMetal() {
+		Pico pico = picoMetal.get(0);
+		picoMetal.remove(0);
+		
+		return pico;
+	}
+	
+	public PicoFino extraerPicoFino() {
+		PicoFino pico = picoFino.get(0);
+		picoFino.remove(0);
+		
+		return pico;
 	}
 	
 	/*public Hacha extraerHerramienta() {

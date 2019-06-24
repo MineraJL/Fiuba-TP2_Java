@@ -21,6 +21,11 @@ public abstract class Herramienta {
 
 public abstract void agregarAlInventario(InventarioHerramienta inventario);
 
+public void agregarAlInventario(InventarioHerramienta inventario, TipoMadera madera){}
+public void agregarAlInventario(InventarioHerramienta inventario, TipoPiedra piedra){}
+public void agregarAlInventario(InventarioHerramienta inventario, TipoMetal metal){}
+public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPiedra metalYPiedra){}
+
     public void asignarMaterial(TipoMaterial material){material.definirValores(this);}
     public void asignarMaterial(TipoMadera madera){}
     public void asignarMaterial(TipoPiedra piedra){}
