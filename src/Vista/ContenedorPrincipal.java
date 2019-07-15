@@ -10,7 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import Vista.BarraDeMenu;
-import Eventos.BotonMoverHaciaElNorteHandler;
+import Eventos.*;
 
 public class ContenedorPrincipal extends BorderPane {
 	
@@ -35,12 +35,36 @@ public class ContenedorPrincipal extends BorderPane {
         return menuBar;
     }
     
+    private void setMapa(Jugador jugador) {
+    	
+    }
+    
     private void setBotoneraJugador(Jugador jugador) {
 
+        Button botonGolpearRecurso = new Button();
+        botonGolpearRecurso.setText("Golpear Recurso");
+        BotonGolpearRecursoHandler botonGolpearRecursoHandler = new BotonGolpearRecursoHandler(jugador);
+        botonGolpearRecurso.setOnAction(botonGolpearRecursoHandler);
+        
         Button botonMoverHaciaElNorte = new Button();
-        botonMoverHaciaElNorte.setText("Mover");
-        BotonMoverHaciaElNorteHandler moveButtonHandler = new BotonMoverHaciaElNorteHandler(jugador);
-        botonMoverHaciaElNorte.setOnAction(moveButtonHandler);
+        botonMoverHaciaElNorte.setText("Mover Al Norte");
+        BotonMoverHaciaElNorteHandler botonMoverAlNorteHandler = new BotonMoverHaciaElNorteHandler(jugador);
+        botonMoverHaciaElNorte.setOnAction(botonMoverAlNorteHandler);
+        
+        Button botonMoverHaciaElSur = new Button();
+        botonMoverHaciaElSur.setText("Mover al Sur");
+        BotonMoverHaciaElSurHandler botonMoverAlSurHandler = new BotonMoverHaciaElSurHandler(jugador);
+        botonMoverHaciaElSur.setOnAction(botonMoverAlSurHandler);
+        
+        Button botonMoverHaciaElEste = new Button();
+        botonMoverHaciaElEste.setText("Mover al Este");
+        BotonMoverHaciaElEsteHandler botonMoverAlEsteHandler = new BotonMoverHaciaElEsteHandler(jugador);
+        botonMoverHaciaElEste.setOnAction(botonMoverAlEsteHandler);
+        
+        Button botonMoverHaciaElOeste = new Button();
+        botonMoverHaciaElOeste.setText("Mover al Oeste");
+        BotonMoverHaciaElOesteHandler botonMoverAlOesteHandler = new BotonMoverHaciaElOesteHandler(jugador);
+        botonMoverHaciaElOeste.setOnAction(botonMoverAlOesteHandler);
 
 
         VBox contenedor = new VBox(botonGolpearRecurso, botonMoverHaciaElNorte, botonMoverHaciaElSur, 
