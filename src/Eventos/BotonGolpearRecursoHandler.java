@@ -14,7 +14,7 @@ public class BotonGolpearRecursoHandler implements EventHandler<ActionEvent> {
 	
 	@Override
 	public void handle(ActionEvent event) {
-		//this.jugador.golpearRecurso(recurso);
+		this.jugador.golpear();
 	}
 
 }

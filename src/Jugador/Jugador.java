@@ -71,11 +71,11 @@ public class Jugador implements Item {
 
 		inventario.agregarElemento(hacha);
 	}
-
+*/
 	public void golpear(){
 		this.golpearRecurso((Recurso) this.casilleroSeleccionadoParaRomper.getItem());
 	}
-	*/
+	
 	
 	public void golpearRecurso(Recurso unRecurso) {
 		usarHerramienta(unRecurso);
