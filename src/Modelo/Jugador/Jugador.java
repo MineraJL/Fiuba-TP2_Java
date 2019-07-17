@@ -8,7 +8,7 @@ import Modelo.TipoMaterial.*;
 import Modelo.Recursos.*;
 
 
-public class Jugador implements Ocupante {
+public class Jugador implements OcupanteMovible {
 	private Inventario inventario;
 	private Herramienta herramientaDeTrabajo;
 	private Casillero casillero;
@@ -38,7 +38,7 @@ public class Jugador implements Ocupante {
 	}
 
 
-	// Implementacion interface item
+	// Implementacion interface ocupanteMovible
 	public void setCasillero(Casillero casillero){
 		this.casillero= casillero;
 	}
