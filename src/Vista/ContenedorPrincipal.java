@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.*;
 import CreadorDeMapa.CreadorDeMapa;
 import Jugador.Jugador;
 import MesaDeTrabajo.Mesa;
@@ -10,7 +11,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import Vista.BarraDeMenu;
-import Eventos.*;
 
 public class ContenedorPrincipal extends BorderPane {
 	

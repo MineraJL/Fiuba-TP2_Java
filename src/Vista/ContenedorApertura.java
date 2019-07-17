@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.BotonComenzarEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,7 +17,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import Eventos.BotonComenzarEventHandler;
 
 public class ContenedorApertura extends VBox {
 

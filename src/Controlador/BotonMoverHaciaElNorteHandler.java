@@ -1,4 +1,4 @@
-package Eventos;
+package Controlador;
 
 import Jugador.Jugador;
 import Mapa.Direccion;
