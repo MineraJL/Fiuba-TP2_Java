@@ -15,8 +15,6 @@ public class OcupanteVacio implements Ocupante {
     @Override
     public Posicion getPosicion(){return new Posicion(0,0);}
     @Override
-    public void mover(Mapa mapa, Direccion direccion){}
-    @Override
     public void ingresar(Mapa mapa, Posicion posicion){}
     // fin implementacion de interfaz que no deberia implementar
 }
