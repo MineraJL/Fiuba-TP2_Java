@@ -8,7 +8,7 @@ import Modelo.TipoMaterial.*;
 import Modelo.Recursos.*;
 
 
-public class Jugador implements Item {
+public class Jugador implements Ocupante {
 	private Inventario inventario;
 	private Herramienta herramientaDeTrabajo;
 	private Casillero casillero;

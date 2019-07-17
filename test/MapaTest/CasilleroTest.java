@@ -122,28 +122,28 @@ public class CasilleroTest {
 
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
-        Item item = new Jugador();
+        Ocupante ocupante = new Jugador();
 
-        item.setCasillero(casillero2);
+        ocupante.setCasillero(casillero2);
         casillero1.setEstado(new EstadoDisponible());
 
-        casillero1.setItem(item);
+        casillero1.setItem(ocupante);
 
-        assertSame(casillero1,item.getCasillero());
+        assertSame(casillero1, ocupante.getCasillero());
     }
     @Test
     public void testCasilleroConEstadoOcupadoNoAceptaItem(){
 
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero2);
+        Ocupante ocupante = new Jugador();
+        ocupante.setCasillero(casillero2);
 
         casillero1.setEstado(new EstadoOcupado());
 
-        casillero1.setItem(item);
+        casillero1.setItem(ocupante);
 
-        assertNotSame(casillero1,item.getCasillero());
+        assertNotSame(casillero1, ocupante.getCasillero());
     }
 
 
@@ -154,11 +154,11 @@ public class CasilleroTest {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
 
-        Item item = new Jugador();
-        item.setCasillero(casillero2);
-        casillero1.setItem(item);
+        Ocupante ocupante = new Jugador();
+        ocupante.setCasillero(casillero2);
+        casillero1.setItem(ocupante);
 
-        assertSame(casillero1,item.getCasillero());
+        assertSame(casillero1, ocupante.getCasillero());
     }
     // Casillero oeste
     @Test
@@ -166,14 +166,14 @@ public class CasilleroTest {
 
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
-        Item item1 = new Jugador();
-        Item item2 = new Jugador();
+        Ocupante ocupante1 = new Jugador();
+        Ocupante ocupante2 = new Jugador();
 
-        item1.setCasillero(casillero2); // Le asigno al item un casillero.
-        casillero1.setItem(item1);
-        casillero1.setItem(item2);
+        ocupante1.setCasillero(casillero2); // Le asigno al item un casillero.
+        casillero1.setItem(ocupante1);
+        casillero1.setItem(ocupante2);
 
-        assertNotSame(casillero1,item2.getCasillero());
+        assertNotSame(casillero1, ocupante2.getCasillero());
 
     }
 
@@ -181,9 +181,9 @@ public class CasilleroTest {
     @Test
     public void testCasilleroGuardaItemCorrectamente(){
         Casillero casillero1 = new Casillero();
-        Item item1 = new Madera();
-        casillero1.setItem(item1);
-        assertEquals(casillero1.getItem(),item1);
+        Ocupante ocupante1 = new Madera();
+        casillero1.setItem(ocupante1);
+        assertEquals(casillero1.getItem(), ocupante1);
     }
 
 

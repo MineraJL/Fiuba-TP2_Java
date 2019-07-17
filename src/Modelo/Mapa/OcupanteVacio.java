@@ -1,6 +1,6 @@
 package Modelo.Mapa;
 
-public class ItemVacio implements Item {
+public class OcupanteVacio implements Ocupante {
 
     private Casillero casillero;
 

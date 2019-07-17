@@ -1,6 +1,6 @@
 package Modelo.Fabricas;
 
-import Modelo.Mapa.Item;
+import Modelo.Mapa.Ocupante;
 import Modelo.MateriaPrima.MPMadera;
 import Modelo.TipoMaterial.TipoMaterialInexistente;
 import Modelo.TipoMaterial.TipoMaterial;
@@ -12,7 +12,7 @@ public class FabricaMaterialTipoMadera implements IFabricaMaterial {
 
     public FabricaMaterialTipoMadera(){}
 
-    public TipoMaterial fabricarMaterial(List<Item> materiaPrima){
+    public TipoMaterial fabricarMaterial(List<Ocupante> materiaPrima){
         TipoMaterial materialCreado = new TipoMaterialInexistente();
         MPMadera materia = new MPMadera();
         for (int i = 0; i < materiaPrima.size() ; i++) {

@@ -1,7 +1,7 @@
 package Modelo.Recursos;
 
 import Modelo.Herramientas.*;
-import Modelo.Mapa.Item;
+import Modelo.Mapa.Ocupante;
 import Modelo.MateriaPrima.MPMetal;
 
 public class Metal extends Recurso {
@@ -14,7 +14,7 @@ public class Metal extends Recurso {
         herramienta.golpear(this);
     }
     
-    public Item liberarMateriaPrima() {
+    public Ocupante liberarMateriaPrima() {
     	return new MPMetal();
     }
 

@@ -31,13 +31,13 @@ public class Casillero {
         return mapa.getCasillero(this.getPosicion(),direccion);
     }
 
-    // Manejo del item
-    public void setItem(Item item){
-        this.estado=this.estado.setItem(this,item);
+    // Manejo del ocupante
+    public void setItem(Ocupante ocupante){
+        this.estado=this.estado.setItem(this, ocupante);
     }
 
-    public Item getItem(){
-        return estado.getItem();
+    public Ocupante getItem(){
+        return estado.getOcupante();
     }
 
     public void quitarItem(){

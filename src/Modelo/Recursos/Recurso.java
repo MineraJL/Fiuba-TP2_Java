@@ -4,7 +4,7 @@ package Modelo.Recursos;
 import Modelo.Herramientas.*;
 import Modelo.Mapa.*;
 
-public abstract class Recurso implements Item {
+public abstract class Recurso implements Ocupante {
 
     protected int durabilidad;
     protected Casillero casillero;
@@ -46,7 +46,7 @@ public abstract class Recurso implements Item {
         
         if (durabilidad <= 0) {
         	casillero.quitarItem();
-        	Item materiaPrima = this.liberarMateriaPrima();
+        	Ocupante materiaPrima = this.liberarMateriaPrima();
         	casillero.setItem(materiaPrima);
         }
         	
@@ -59,6 +59,6 @@ public abstract class Recurso implements Item {
     }
 
     
-    public abstract Item liberarMateriaPrima();
+    public abstract Ocupante liberarMateriaPrima();
 
 }

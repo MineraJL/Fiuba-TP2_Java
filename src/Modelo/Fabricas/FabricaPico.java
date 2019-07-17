@@ -3,7 +3,7 @@ package Modelo.Fabricas;
 import Modelo.Herramientas.Herramienta;
 import Modelo.Herramientas.HerramientaInexistente;
 import Modelo.Herramientas.Pico;
-import Modelo.Mapa.Item;
+import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.Posicion;
 import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.TipoMaterial.TipoMaterial;
@@ -44,7 +44,7 @@ public class FabricaPico implements IFabricaHerramienta {
         }
 
 
-        private List<Item> obtenerElementosComponentes(Mesa mesa){
+        private List<Ocupante> obtenerElementosComponentes(Mesa mesa){
             return mesa.obtenerItemsEn(this.modeloForma);
         }
 }

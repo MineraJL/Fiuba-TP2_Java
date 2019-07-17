@@ -1,7 +1,7 @@
 package Modelo.Fabricas;
 
 
-import Modelo.Mapa.Item;
+import Modelo.Mapa.Ocupante;
 import Modelo.TipoMaterial.*;
 
 import java.util.*;
@@ -19,7 +19,7 @@ public class FabricaTipoMaterial {
     }
 
 
-    public TipoMaterial fabricarMaterial(List<Item> materiaPrima){
+    public TipoMaterial fabricarMaterial(List<Ocupante> materiaPrima){
         TipoMaterial vacio = new TipoMaterialInexistente();
         TipoMaterial materialCreado = new TipoMaterialInexistente();
         int i = 0;

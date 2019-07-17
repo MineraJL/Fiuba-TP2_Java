@@ -1,6 +1,6 @@
 package Modelo.Fabricas;
 
-import Modelo.Mapa.Item;
+import Modelo.Mapa.Ocupante;
 import Modelo.MateriaPrima.MPMadera;
 import Modelo.MateriaPrima.MPMetal;
 import Modelo.TipoMaterial.TipoMaterial;
@@ -12,7 +12,7 @@ import java.util.List;
 public class FabricaMaterialTipoMetal implements IFabricaMaterial {
 
     @Override
-    public TipoMaterial fabricarMaterial(List<Item> materiaPrima) {
+    public TipoMaterial fabricarMaterial(List<Ocupante> materiaPrima) {
         TipoMaterial materialCreado = new TipoMaterialInexistente();
         MPMetal materia = new MPMetal();
         MPMadera materiaMango = new MPMadera();

@@ -1,6 +1,6 @@
 package Modelo.Recursos;
 import Modelo.Herramientas.*;
-import Modelo.Mapa.Item;
+import Modelo.Mapa.Ocupante;
 import Modelo.MateriaPrima.MPDiamante;
 
 public class Diamante extends Recurso {
@@ -13,7 +13,7 @@ public class Diamante extends Recurso {
             herramienta.golpear(this);
     }
         
-        public Item liberarMateriaPrima() {
+        public Ocupante liberarMateriaPrima() {
         	return new MPDiamante();
         }
 

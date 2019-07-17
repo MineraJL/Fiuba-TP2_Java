@@ -3,13 +3,13 @@ package Modelo.MateriaPrima;
 import Modelo.Inventario.InventarioMateriaPrima;
 import Modelo.Mapa.Casillero;
 
-import Modelo.Mapa.Item;
+import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Posicion;
 import Modelo.Mapa.Direccion;
 
 
-public abstract class MateriaPrima implements Item {
+public abstract class MateriaPrima implements Ocupante {
 	
 
     @Override

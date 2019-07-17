@@ -15,33 +15,33 @@ public class ItemTest {
     public void testItemTieneLaMismaFilaDelCasilleroSeteadoEnCero() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 0);
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        assertEquals(0, item.getPosicion().getX());
+        Ocupante ocupante = new Jugador();
+        ocupante.setCasillero(casillero1);
+        assertEquals(0, ocupante.getPosicion().getX());
     }
     @Test
     public void testItemTieneLaMismaColumnaDelCasilleroSeteadoEnCero() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 0);
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        assertEquals(0,  item.getPosicion().getY());
+        Ocupante ocupante = new Jugador();
+        ocupante.setCasillero(casillero1);
+        assertEquals(0,  ocupante.getPosicion().getY());
     }
     @Test
     public void testItemTieneLaMismaFilaDelCasilleroSeteadoEnUno() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(1, 0);
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        assertEquals(1, item.getPosicion().getX());
+        Ocupante ocupante = new Jugador();
+        ocupante.setCasillero(casillero1);
+        assertEquals(1, ocupante.getPosicion().getX());
     }
     @Test
     public void testItemTieneLaMismaColumnaDelCasilleroSeteadoEnUno() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 1);
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        assertEquals(1, item.getPosicion().getY());
+        Ocupante ocupante = new Jugador();
+        ocupante.setCasillero(casillero1);
+        assertEquals(1, ocupante.getPosicion().getY());
     }
     //
 
@@ -51,54 +51,54 @@ public class ItemTest {
     public void testItemTieneElCasilleroSeteado() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 0);
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        assertSame(casillero1,item.getCasillero());
+        Ocupante ocupante = new Jugador();
+        ocupante.setCasillero(casillero1);
+        assertSame(casillero1, ocupante.getCasillero());
     }
     @Test
     public void testItemTieneElUltimoCasilleroSeteado() {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
         casillero1.setPosicion(0, 0);
-        Item item1 = new Jugador();
-        item1.setCasillero(casillero2);
-        item1.setCasillero(casillero1);
-        assertSame(casillero1,item1.getCasillero());
+        Ocupante ocupante1 = new Jugador();
+        ocupante1.setCasillero(casillero2);
+        ocupante1.setCasillero(casillero1);
+        assertSame(casillero1, ocupante1.getCasillero());
     }
 
-    // Item al ingresar al mapa en una posicion, se le asigna casillero de la posicion
+    // Ocupante al ingresar al mapa en una posicion, se le asigna casillero de la posicion
     @Test
     public void testItemIngresaAlMapaEnCasilleroLibre() {
         Mapa mapa = new Mapa(10,10);
 
         Casillero casillero1 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
+        Ocupante ocupante = new Jugador();
+        ocupante.setCasillero(casillero1);
 
         Posicion posicion = new Posicion(3,3);
 
-        item.ingresar(mapa,posicion);
+        ocupante.ingresar(mapa,posicion);
 
-        assertSame(mapa.getCasillero(posicion),item.getCasillero());
+        assertSame(mapa.getCasillero(posicion), ocupante.getCasillero());
     }
-    // Item no ingresa al mapa si en la posicion ya hay un item.
+    // Ocupante no ingresa al mapa si en la posicion ya hay un item.
     @Test
     public void testItemNoIngresaAlMapaEnCasilleroOcupado() {
         Mapa mapa = new Mapa(10,10);
 
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
-        Item item1 = new Jugador();
-        Item item2 = new Jugador();
-        item1.setCasillero(casillero1);
-        item2.setCasillero(casillero2);
+        Ocupante ocupante1 = new Jugador();
+        Ocupante ocupante2 = new Jugador();
+        ocupante1.setCasillero(casillero1);
+        ocupante2.setCasillero(casillero2);
 
         Posicion posicion = new Posicion(3,3);
 
-        item1.ingresar(mapa,posicion);
-        item2.ingresar(mapa,posicion);
+        ocupante1.ingresar(mapa,posicion);
+        ocupante2.ingresar(mapa,posicion);
 
-        assertNotSame(mapa.getCasillero(posicion),item2.getCasillero());
+        assertNotSame(mapa.getCasillero(posicion), ocupante2.getCasillero());
     }
 
 

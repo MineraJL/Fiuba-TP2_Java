@@ -6,13 +6,13 @@ public class EstadoDisponible implements EstadoCasillero{
 
     }
 
-    public EstadoCasillero setItem(Casillero casilleroDelQueSoyEstado, Item item) {
-        return new EstadoOcupado(casilleroDelQueSoyEstado,item);
+    public EstadoCasillero setItem(Casillero casilleroDelQueSoyEstado, Ocupante ocupante) {
+        return new EstadoOcupado(casilleroDelQueSoyEstado, ocupante);
 
     }
 
-    public Item getItem(){
-        return new ItemVacio();
+    public Ocupante getOcupante(){
+        return new OcupanteVacio();
     }
 
     public EstadoCasillero quitarItem(){

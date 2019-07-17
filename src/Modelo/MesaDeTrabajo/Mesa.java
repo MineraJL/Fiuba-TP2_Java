@@ -3,7 +3,7 @@ package Modelo.MesaDeTrabajo;
 import Modelo.Fabricas.FabricaHerramientas;
 import Modelo.Herramientas.Herramienta;
 import Modelo.Mapa.Casillero;
-import Modelo.Mapa.Item;
+import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.Posicion;
 
 import java.util.ArrayList;
@@ -28,15 +28,15 @@ public class Mesa {
 
     }
 
-    public void guardarMateriaPrimaEn(Item materiaPrima, int filaCasillero, int colunmaCasillero){
+    public void guardarMateriaPrimaEn(Ocupante materiaPrima, int filaCasillero, int colunmaCasillero){
         this.grilla[filaCasillero][colunmaCasillero].setItem(materiaPrima);
     }
 
-    public Item obtenerItemEn(int filaCasillero, int colunmaCasillero){
+    public Ocupante obtenerItemEn(int filaCasillero, int colunmaCasillero){
         return this.grilla[filaCasillero][colunmaCasillero].getItem();
     }
-    public ArrayList<Item> obtenerItemsEn(ArrayList<Posicion> posiciones){
-        ArrayList<Item> itemsObtenidos = new ArrayList<Item>();
+    public ArrayList<Ocupante> obtenerItemsEn(ArrayList<Posicion> posiciones){
+        ArrayList<Ocupante> itemsObtenidos = new ArrayList<Ocupante>();
         for (int i = 0; i < posiciones.size(); i++) {
             int x = posiciones.get(i).getX();
             int y = posiciones.get(i).getY();

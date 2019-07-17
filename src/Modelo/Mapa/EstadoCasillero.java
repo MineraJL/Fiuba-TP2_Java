@@ -2,9 +2,9 @@ package Modelo.Mapa;
 
 public interface EstadoCasillero {
 
-    EstadoCasillero setItem(Casillero casillero, Item item);
+    EstadoCasillero setItem(Casillero casillero, Ocupante ocupante);
 
-    Item getItem();
+    Ocupante getOcupante();
 
     EstadoCasillero quitarItem();
 

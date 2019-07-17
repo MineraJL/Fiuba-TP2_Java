@@ -1,6 +1,6 @@
 package Modelo.Mapa;
 
-public interface Item {
+public interface Ocupante {
 
     void setCasillero(Casillero casillero);
     Casillero getCasillero();
