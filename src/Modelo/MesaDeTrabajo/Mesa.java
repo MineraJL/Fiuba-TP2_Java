@@ -29,11 +29,11 @@ public class Mesa {
     }
 
     public void guardarMateriaPrimaEn(Ocupante materiaPrima, int filaCasillero, int colunmaCasillero){
-        this.grilla[filaCasillero][colunmaCasillero].setItem(materiaPrima);
+        this.grilla[filaCasillero][colunmaCasillero].ocuparPor(materiaPrima);
     }
 
     public Ocupante obtenerItemEn(int filaCasillero, int colunmaCasillero){
-        return this.grilla[filaCasillero][colunmaCasillero].getItem();
+        return this.grilla[filaCasillero][colunmaCasillero].getOcupante();
     }
     public ArrayList<Ocupante> obtenerItemsEn(ArrayList<Posicion> posiciones){
         ArrayList<Ocupante> itemsObtenidos = new ArrayList<Ocupante>();

@@ -9,7 +9,7 @@ public class EstadoOcupado implements EstadoCasillero {
 
     }
 
-    public EstadoCasillero setItem(Casillero casilleroDelQueSoyEstado, Ocupante ocupanteQueNoSeVaAGuardar) {
+    public EstadoCasillero ocuparPor(Casillero casilleroDelQueSoyEstado, Ocupante ocupanteQueNoSeVaAGuardar) {
         return this;
     }
 
@@ -17,7 +17,7 @@ public class EstadoOcupado implements EstadoCasillero {
         return this.ocupante;
     }
 
-    public EstadoCasillero quitarItem(){
+    public EstadoCasillero desocupar(){
         return new EstadoDisponible();
     }
 

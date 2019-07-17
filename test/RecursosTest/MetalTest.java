@@ -105,6 +105,6 @@ public class MetalTest {
         	while (metal.durabilidad() > 0)
         		metal.reducirDurabilidadEn(10);
         	
-        	assertEquals(mpMetal, metal.getCasillero().getItem());
+        	assertEquals(mpMetal, metal.getCasillero().getOcupante());
         }
     }

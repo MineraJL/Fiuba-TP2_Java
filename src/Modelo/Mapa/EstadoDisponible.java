@@ -6,7 +6,7 @@ public class EstadoDisponible implements EstadoCasillero{
 
     }
 
-    public EstadoCasillero setItem(Casillero casilleroDelQueSoyEstado, Ocupante ocupante) {
+    public EstadoCasillero ocuparPor(Casillero casilleroDelQueSoyEstado, Ocupante ocupante) {
         return new EstadoOcupado(casilleroDelQueSoyEstado, ocupante);
 
     }
@@ -15,7 +15,7 @@ public class EstadoDisponible implements EstadoCasillero{
         return new OcupanteVacio();
     }
 
-    public EstadoCasillero quitarItem(){
+    public EstadoCasillero desocupar(){
         return this;
     }
 

@@ -49,8 +49,8 @@ public class Jugador implements Ocupante {
 	public Posicion getPosicion(){return this.casillero.getPosicion();}
 
 	public void mover(Mapa mapa, Direccion direccion){
-		this.casillero.quitarItem();
-		this.casillero.getCasilleroVecino(mapa, direccion).setItem(this);
+		this.casillero.desocupar();
+		this.casillero.getCasilleroVecino(mapa, direccion).ocuparPor(this);
 	}
 
 	public void mover(Direccion direccion){
@@ -60,7 +60,7 @@ public class Jugador implements Ocupante {
 
 
 	public void ingresar(Mapa mapa, Posicion posicion){
-		mapa.getCasillero(posicion).setItem(this);
+		mapa.getCasillero(posicion).ocuparPor(this);
 		this.mapa = mapa;
 	}
 	// Fin implementacion
@@ -73,13 +73,13 @@ public class Jugador implements Ocupante {
 	}
 */
 	public void golpear(){
-		this.golpearRecurso((Recurso) this.casilleroSeleccionadoParaRomper.getItem());
+		this.golpearRecurso((Recurso) this.casilleroSeleccionadoParaRomper.getOcupante());
 	}
 	
 	
 	public void golpearRecurso(Recurso unRecurso) {
 		usarHerramienta(unRecurso);
-		recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getItem());
+		recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getOcupante());
 	}
 	
 	public void seleccionarHachaMadera() {

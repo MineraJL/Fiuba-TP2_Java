@@ -110,7 +110,7 @@ public class PiedraTest {
     	while (piedra.durabilidad() > 0)
     		piedra.reducirDurabilidadEn(10);
     	
-    	assertEquals(mpPiedra, piedra.getCasillero().getItem());
+    	assertEquals(mpPiedra, piedra.getCasillero().getOcupante());
     }
 }
         

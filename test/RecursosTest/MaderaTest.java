@@ -111,6 +111,6 @@ public class MaderaTest {
         	while (madera.durabilidad() > 0)
         		madera.reducirDurabilidadEn(7);
         	
-        	assertEquals(mpMadera, madera.getCasillero().getItem());
+        	assertEquals(mpMadera, madera.getCasillero().getOcupante());
         }
 }

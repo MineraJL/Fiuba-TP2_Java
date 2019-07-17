@@ -26,7 +26,7 @@ public abstract class Recurso implements Ocupante {
 
     public void mover(Mapa mapa, Direccion direccion){
     }
-    public void ingresar(Mapa mapa, Posicion posicion){ mapa.getCasillero(posicion).setItem(this);}
+    public void ingresar(Mapa mapa, Posicion posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
     // Fin implementacion
 
 
@@ -45,9 +45,9 @@ public abstract class Recurso implements Ocupante {
         this.durabilidad = this.durabilidad - cantidadAReducir;
         
         if (durabilidad <= 0) {
-        	casillero.quitarItem();
+        	casillero.desocupar();
         	Ocupante materiaPrima = this.liberarMateriaPrima();
-        	casillero.setItem(materiaPrima);
+        	casillero.ocuparPor(materiaPrima);
         }
         	
     }

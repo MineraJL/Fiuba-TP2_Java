@@ -104,6 +104,6 @@ public class DiamanteTest {
         	while (diamante.durabilidad() > 0)
         		diamante.reducirDurabilidadEn(10);
         	
-        	assertEquals(mpDiamante, diamante.getCasillero().getItem());
+        	assertEquals(mpDiamante, diamante.getCasillero().getOcupante());
         }
     }

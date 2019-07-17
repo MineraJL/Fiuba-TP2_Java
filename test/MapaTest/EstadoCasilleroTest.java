@@ -24,8 +24,8 @@ public class EstadoCasilleroTest {
         ocupante1.setCasillero(casillero2);
 
 
-        estado.setItem(casillero1, ocupante1);
-        casillero1.setItem(ocupante2);
+        estado.ocuparPor(casillero1, ocupante1);
+        casillero1.ocuparPor(ocupante2);
 
         assertSame(casillero1, ocupante2.getCasillero());
     }
@@ -40,7 +40,7 @@ public class EstadoCasilleroTest {
         Ocupante ocupante1 = new Jugador();
         ocupante1.setCasillero(casillero2);
 
-        estado.setItem(casillero1, ocupante1);
+        estado.ocuparPor(casillero1, ocupante1);
 
         assertSame(casillero2, ocupante1.getCasillero());
     }
@@ -60,8 +60,8 @@ public class EstadoCasilleroTest {
         ocupante1.setCasillero(casillero2);
 
 
-        estado.setItem(casillero1, ocupante1);
-        casillero1.setItem(ocupante2);
+        estado.ocuparPor(casillero1, ocupante1);
+        casillero1.ocuparPor(ocupante2);
 
         assertSame(casillero1, ocupante1.getCasillero());
     }
@@ -77,7 +77,7 @@ public class EstadoCasilleroTest {
         Ocupante ocupante1 = new Jugador();
         ocupante1.setCasillero(casillero2);
 
-        estado.setItem(casillero1, ocupante1);
+        estado.ocuparPor(casillero1, ocupante1);
 
         assertSame(casillero1, ocupante1.getCasillero());
     }
@@ -92,7 +92,7 @@ public class EstadoCasilleroTest {
 
         Casillero c = new Casillero();
 
-        EstadoCasillero  nuevoEstado = estado.setItem(c, ocupante1);
+        EstadoCasillero  nuevoEstado = estado.ocuparPor(c, ocupante1);
 
         assertSame(nuevoEstado.getOcupante(), ocupante1);
     }

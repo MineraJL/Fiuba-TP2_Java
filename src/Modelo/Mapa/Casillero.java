@@ -32,16 +32,16 @@ public class Casillero {
     }
 
     // Manejo del ocupante
-    public void setItem(Ocupante ocupante){
-        this.estado=this.estado.setItem(this, ocupante);
+    public void ocuparPor(Ocupante ocupante){
+        this.estado=this.estado.ocuparPor(this, ocupante);
     }
 
-    public Ocupante getItem(){
+    public Ocupante getOcupante(){
         return estado.getOcupante();
     }
 
-    public void quitarItem(){
-        this.estado=this.estado.quitarItem();
+    public void desocupar(){
+        this.estado=this.estado.desocupar();
     }
 
 }
