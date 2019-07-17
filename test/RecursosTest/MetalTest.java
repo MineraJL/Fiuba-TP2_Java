@@ -1,9 +1,9 @@
 package RecursosTest;
-import Herramientas.*;
-import MateriaPrima.MPMetal;
-import MateriaPrima.MateriaPrima;
-import Recursos.*;
-import TipoMaterial.*;
+import Modelo.Herramientas.*;
+import Modelo.MateriaPrima.MPMetal;
+import Modelo.MateriaPrima.MateriaPrima;
+import Modelo.Recursos.*;
+import Modelo.TipoMaterial.*;
 import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
 

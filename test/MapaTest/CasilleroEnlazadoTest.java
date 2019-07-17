@@ -1,6 +1,6 @@
 package MapaTest;
 
-import Mapa.CasilleroEnlazado;
+import Modelo.Mapa.CasilleroEnlazado;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

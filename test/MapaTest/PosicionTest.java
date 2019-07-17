@@ -1,7 +1,7 @@
 package MapaTest;
 
-import Mapa.Direccion;
-import Mapa.Posicion;
+import Modelo.Mapa.Direccion;
+import Modelo.Mapa.Posicion;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

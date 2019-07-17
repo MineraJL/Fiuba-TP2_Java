@@ -1,6 +1,6 @@
 package MapaTest;
-import Jugador.Jugador;
-import Mapa.*;
+import Modelo.Jugador.Jugador;
+import Modelo.Mapa.*;
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -8,7 +8,7 @@ import static junit.framework.TestCase.*;
 public class MapaTest{
 
     // CREACION MAPA
-    // Mapa instancia los Casilleros con ubicacion correcta
+    // Modelo.Mapa instancia los Casilleros con ubicacion correcta
     // X igual a 0
     @Test
     public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnXIgualACero(){
@@ -42,7 +42,7 @@ public class MapaTest{
         assertEquals(1, casillero.getPosicion().getY());
     }
 
-    // Mapa devuelve casillero con la direccion pedida
+    // Modelo.Mapa devuelve casillero con la direccion pedida
     // Casillero norte
     @Test
     public void testMapaDevuelveCasilleroEnLaDireccionNorte(){

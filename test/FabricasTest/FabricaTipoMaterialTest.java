@@ -1,9 +1,9 @@
 package FabricasTest;
 
-import Fabricas.FabricaTipoMaterial;
-import Mapa.Item;
-import MateriaPrima.*;
-import TipoMaterial.*;
+import Modelo.Fabricas.FabricaTipoMaterial;
+import Modelo.Mapa.Item;
+import Modelo.MateriaPrima.*;
+import Modelo.TipoMaterial.*;
 import org.junit.Test;
 
 import java.util.ArrayList;

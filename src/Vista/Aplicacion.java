@@ -4,11 +4,8 @@ package Vista;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import Vista.ContenedorApertura;
-import Vista.ContenedorPrincipal;
-import CreadorDeMapa.CreadorDeMapa;
-import Jugador.Jugador;
-import MesaDeTrabajo.Mesa;
+import Modelo.Jugador.Jugador;
+import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.CreadorDeModelo;
 
 public class Aplicacion extends Application {
@@ -24,7 +21,7 @@ public class Aplicacion extends Application {
 		
 		Jugador jugador = new Jugador();
 		Mesa    mesaDeTrabajo = new Mesa();
-	//	CreadorDeMapa mapa = new CreadorDeMapa(jugador);
+	//	Modelo.CreadorDeMapa mapa = new Modelo.CreadorDeMapa(jugador);
 		CreadorDeModelo modelito = new CreadorDeModelo();
 		
 		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, jugador, mesaDeTrabajo);

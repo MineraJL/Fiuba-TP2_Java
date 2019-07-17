@@ -1,6 +1,6 @@
 package MapaTest;
 
-import Mapa.*;
+import Modelo.Mapa.*;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

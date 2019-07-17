@@ -1,14 +1,12 @@
 package FabricasTest;
 
-import Fabricas.FabricaHerramientas;
-import Herramientas.Hacha;
-import Herramientas.Herramienta;
-import MateriaPrima.MPMadera;
-import MateriaPrima.MPPiedra;
-import MateriaPrima.MPVacio;
-import MesaDeTrabajo.Mesa;
-import Recursos.Madera;
-import TipoMaterial.TipoMadera;
+import Modelo.Fabricas.FabricaHerramientas;
+import Modelo.Herramientas.Herramienta;
+import Modelo.MateriaPrima.MPMadera;
+import Modelo.MateriaPrima.MPPiedra;
+import Modelo.MateriaPrima.MPVacio;
+import Modelo.MesaDeTrabajo.Mesa;
+import Modelo.Recursos.Madera;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

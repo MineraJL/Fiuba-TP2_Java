@@ -1,7 +1,7 @@
 package Controlador;
 
-import Jugador.Jugador;
-import Mapa.Direccion;
+import Modelo.Jugador.Jugador;
+import Modelo.Mapa.Direccion;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

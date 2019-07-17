@@ -1,14 +1,12 @@
 package JugadorTest;
 
-import Herramientas.*;
-import Inventario.Inventario;
-import Jugador.*;
-import Mapa.Casillero;
-import Mapa.Direccion;
-import Mapa.Item;
-import Mapa.Mapa;
-import Mapa.Posicion;
-import TipoMaterial.*;
+import Modelo.Herramientas.*;
+import Modelo.Jugador.*;
+import Modelo.Mapa.Casillero;
+import Modelo.Mapa.Direccion;
+import Modelo.Mapa.Mapa;
+import Modelo.Mapa.Posicion;
+import Modelo.TipoMaterial.*;
 
 import org.junit.Test;
 
@@ -58,7 +56,7 @@ public class JugadorTest {
 	/*@Test
 	public void testJugadorConstruyeHachaDeMadera() {
 		TipoMadera unaMadera = new TipoMadera();
-		Jugador jugador = new Jugador();
+		Modelo.Jugador jugador = new Modelo.Jugador();
 		
 		jugador.construirHacha(unaMadera);
 		

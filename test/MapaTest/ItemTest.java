@@ -1,7 +1,6 @@
 package MapaTest;
-import Jugador.Jugador;
-import Mapa.*;
-import Recursos.*;
+import Modelo.Jugador.Jugador;
+import Modelo.Mapa.*;
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;

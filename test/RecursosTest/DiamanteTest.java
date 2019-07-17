@@ -1,8 +1,8 @@
 package RecursosTest;
-import Herramientas.*;
-import Recursos.*;
-import MateriaPrima.*;
-import TipoMaterial.*;
+import Modelo.Herramientas.*;
+import Modelo.Recursos.*;
+import Modelo.MateriaPrima.*;
+import Modelo.TipoMaterial.*;
 import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
 

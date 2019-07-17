@@ -1,7 +1,7 @@
 package DegastesTest;
 
 import org.junit.Test;
-import Desgastes.*;
+import Modelo.Desgastes.*;
 
 import static junit.framework.TestCase.assertEquals;
 

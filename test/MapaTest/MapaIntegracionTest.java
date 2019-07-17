@@ -1,8 +1,8 @@
 package MapaTest;
 
-import Jugador.Jugador;
-import Recursos.*;
-import Mapa.*;
+import Modelo.Jugador.Jugador;
+import Modelo.Recursos.*;
+import Modelo.Mapa.*;
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -534,7 +534,7 @@ public class MapaIntegracionTest {
         Item item1 = new Jugador();
         Item item2 = new Madera();
         item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Jugador
+        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Modelo.Jugador
         Posicion posicion2 = new Posicion(6,5); // No puede moverse mas
         Posicion posicion3 = new Posicion(7,5); // Aca pongo a la Madera
 
@@ -556,7 +556,7 @@ public class MapaIntegracionTest {
         Item item1 = new Jugador();
         Item item2 = new Madera();
         item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Jugador
+        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Modelo.Jugador
         Posicion posicion2 = new Posicion(7,5); // Aca pongo a la Madera
 
         Posicion posicionFinal = new Posicion(6,6); // No puede moverse mas
@@ -581,7 +581,7 @@ public class MapaIntegracionTest {
         Item item1 = new Jugador();
         Item item2 = new Madera();
         item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Jugador
+        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Modelo.Jugador
         Posicion posicion2 = new Posicion(7,5); // Aca pongo a la Madera
 
         Posicion posicionFinal = new Posicion(6,4); // No puede moverse mas
@@ -606,7 +606,7 @@ public class MapaIntegracionTest {
         Item item1 = new Jugador();
         Item item2 = new Madera();
         item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Jugador
+        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Modelo.Jugador
         Posicion posicion2 = new Posicion(7,5); // Aca pongo a la Madera
 
         Posicion posicionFinal = new Posicion(7,4); // No puede moverse mas
@@ -636,7 +636,7 @@ public class MapaIntegracionTest {
         Item item4 = new Madera();
         Item item5 = new Madera();
         item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Jugador
+        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Modelo.Jugador
         Posicion posicion2 = new Posicion(6,5); // Aca pongo a la Madera
         Posicion posicion3 = new Posicion(4,5); // Aca pongo a la Madera
         Posicion posicion4 = new Posicion(5,6); // Aca pongo a la Madera
@@ -676,7 +676,7 @@ public class MapaIntegracionTest {
         Item item4 = new Madera();
         Item item5 = new Madera();
         item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(3,3); // Aca pongo al Jugador
+        Posicion posicion1 = new Posicion(3,3); // Aca pongo al Modelo.Jugador
         Posicion posicion2 = new Posicion(5,3); // Aca pongo a la Madera
         Posicion posicion3 = new Posicion(6,3); // Aca pongo a la Madera
         Posicion posicion4 = new Posicion(6,4); // Aca pongo a la Madera

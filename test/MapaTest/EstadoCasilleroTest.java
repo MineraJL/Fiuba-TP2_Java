@@ -1,8 +1,8 @@
 package MapaTest;
 
-import Jugador.Jugador;
-import Mapa.*;
-import Recursos.Madera;
+import Modelo.Jugador.Jugador;
+import Modelo.Mapa.*;
+import Modelo.Recursos.Madera;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

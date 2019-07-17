@@ -1,11 +1,11 @@
 package CreadorDeMapaTest;
 
-import CreadorDeMapa.CreadorDeMapa;
-import Herramientas.PicoFino;
-import Jugador.Jugador;
-import Mapa.Direccion;
-import Mapa.Posicion;
-import TipoMaterial.TipoMetalYPiedra;
+import Modelo.CreadorDeMapa.CreadorDeMapa;
+import Modelo.Herramientas.PicoFino;
+import Modelo.Jugador.Jugador;
+import Modelo.Mapa.Direccion;
+import Modelo.Mapa.Posicion;
+import Modelo.TipoMaterial.TipoMetalYPiedra;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
