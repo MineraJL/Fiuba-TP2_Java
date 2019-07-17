@@ -2,11 +2,9 @@ package Modelo.MateriaPrima;
 
 import Modelo.Inventario.InventarioMateriaPrima;
 import Modelo.Mapa.Casillero;
-
-import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.Mapa;
+import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.Posicion;
-import Modelo.Mapa.Direccion;
 
 
 public abstract class MateriaPrima implements Ocupante {
@@ -19,7 +17,7 @@ public abstract class MateriaPrima implements Ocupante {
 
     
 	protected Casillero casillero;
-	
+
 	public MateriaPrima() {
 		this.setCasillero(casillero);
 	}
@@ -40,15 +38,9 @@ public abstract class MateriaPrima implements Ocupante {
 	}
 
 	@Override
-	public void mover(Mapa mapa, Direccion direccion) {}
+	public void ingresar(Mapa mapa, Posicion posicion) {}
 
-	@Override
-	public void ingresar(Mapa mapa, Posicion posicion) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	
 	public abstract void agregarAlInventario(InventarioMateriaPrima inventario);
 
 }
