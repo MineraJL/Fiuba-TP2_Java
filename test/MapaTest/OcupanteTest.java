@@ -7,12 +7,12 @@ import static junit.framework.TestCase.*;
 
 
 
-public class ItemTest {
+public class OcupanteTest {
 
 
-    // UBICACION ITEM
+    // UBICACION OCUPANTE
     @Test
-    public void testItemTieneLaMismaFilaDelCasilleroSeteadoEnCero() {
+    public void testOcupanteTieneLaMismaFilaDelCasilleroSeteadoEnCero() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 0);
         Ocupante ocupante = new Jugador();
@@ -20,7 +20,7 @@ public class ItemTest {
         assertEquals(0, ocupante.getPosicion().getX());
     }
     @Test
-    public void testItemTieneLaMismaColumnaDelCasilleroSeteadoEnCero() {
+    public void testOcupanteTieneLaMismaColumnaDelCasilleroSeteadoEnCero() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 0);
         Ocupante ocupante = new Jugador();
@@ -28,7 +28,7 @@ public class ItemTest {
         assertEquals(0,  ocupante.getPosicion().getY());
     }
     @Test
-    public void testItemTieneLaMismaFilaDelCasilleroSeteadoEnUno() {
+    public void testOcupanteTieneLaMismaFilaDelCasilleroSeteadoEnUno() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(1, 0);
         Ocupante ocupante = new Jugador();
@@ -36,7 +36,7 @@ public class ItemTest {
         assertEquals(1, ocupante.getPosicion().getX());
     }
     @Test
-    public void testItemTieneLaMismaColumnaDelCasilleroSeteadoEnUno() {
+    public void testOcupanteTieneLaMismaColumnaDelCasilleroSeteadoEnUno() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 1);
         Ocupante ocupante = new Jugador();
@@ -46,9 +46,9 @@ public class ItemTest {
     //
 
 
-    // ITEM TIENE EL CASILLERO SETEADO
+    // OCUPANTE TIENE EL CASILLERO SETEADO
     @Test
-    public void testItemTieneElCasilleroSeteado() {
+    public void testOcupanteTieneElCasilleroSeteado() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 0);
         Ocupante ocupante = new Jugador();
@@ -56,7 +56,7 @@ public class ItemTest {
         assertSame(casillero1, ocupante.getCasillero());
     }
     @Test
-    public void testItemTieneElUltimoCasilleroSeteado() {
+    public void testOcupanteTieneElUltimoCasilleroSeteado() {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
         casillero1.setPosicion(0, 0);
@@ -68,7 +68,7 @@ public class ItemTest {
 
     // Ocupante al ingresar al mapa en una posicion, se le asigna casillero de la posicion
     @Test
-    public void testItemIngresaAlMapaEnCasilleroLibre() {
+    public void testOcupanteIngresaAlMapaEnCasilleroLibre() {
         Mapa mapa = new Mapa(10,10);
 
         Casillero casillero1 = new Casillero();
@@ -81,9 +81,9 @@ public class ItemTest {
 
         assertSame(mapa.getCasillero(posicion), ocupante.getCasillero());
     }
-    // Ocupante no ingresa al mapa si en la posicion ya hay un item.
+    // Ocupante no ingresa al mapa si en la posicion ya hay un ocupante.
     @Test
-    public void testItemNoIngresaAlMapaEnCasilleroOcupado() {
+    public void testOcupanteNoIngresaAlMapaEnCasilleroOcupado() {
         Mapa mapa = new Mapa(10,10);
 
         Casillero casillero1 = new Casillero();
