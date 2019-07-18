@@ -6,40 +6,45 @@ public class Mapa {
     private int filas;
     private int columnas;
     private Casillero[][] matriz;
-    private CasilleroEnlazado[][] matrizEnlazada;
+    private PosicionEnlazada[][] matrizPosicionesEnlazadas;
 
     public Mapa(int filas, int columnas) {
         this.filas = filas;
         this.columnas = columnas;
         this.matriz = new Casillero[filas][columnas];
-        this.matrizEnlazada = new CasilleroEnlazado[filas][columnas];
+        this.matrizPosicionesEnlazadas = new PosicionEnlazada[filas][columnas];
         this.inicializarCasilleros();
-        this.inicializarCasillerosEnlazados();
-        this.generarBordes();
+        //this.inicializarCasillerosEnlazados();
+        //this.generarBordes();
 
     }
 
-    private void inicializarCasillerosEnlazados() {
+    private void inicializarCasilleros() { // enlazadas
         //genero la primer fila
-        CasilleroEnlazado cInicial = new CasilleroEnlazado();
-        matrizEnlazada[0][0] = cInicial;
+        PosicionEnlazada pInicial = new PosicionEnlazada(0,0);
+        matrizPosicionesEnlazadas[0][0] = pInicial;
+        matriz[0][0] = new Casillero(pInicial);
+
         for(int columna=1; columna < this.columnas; columna++){
-            CasilleroEnlazado cSiguiente = new CasilleroEnlazado();
-            matrizEnlazada[0][columna] = cSiguiente;
-            cSiguiente.enlazarAIzquierda(matrizEnlazada[0][columna-1]);
+            PosicionEnlazada pSiguiente = new PosicionEnlazada(0,columna);
+            matrizPosicionesEnlazadas[0][columna] = pSiguiente;
+            pSiguiente.enlazarAIzquierda(matrizPosicionesEnlazadas[0][columna-1]);
+            matriz[0][columna] = new Casillero(pSiguiente);
         }
 
         //genero el resto de filas
         for(int fila=1; fila < this.filas; fila++){
-            CasilleroEnlazado cPrimero = new CasilleroEnlazado();
-            matrizEnlazada[fila][0] = cPrimero;
-            cPrimero.enlazarArriba(matrizEnlazada[fila-1][0]);
+            PosicionEnlazada pPrimero = new PosicionEnlazada(fila,0);
+            matrizPosicionesEnlazadas[fila][0] = pPrimero;
+            pPrimero.enlazarArriba(matrizPosicionesEnlazadas[fila-1][0]);
+            matriz[fila][0] = new Casillero(pPrimero);
 
             for(int columna=1; columna < this.columnas; columna++){
-                CasilleroEnlazado cSiguiente = new CasilleroEnlazado();
-                matrizEnlazada[fila][columna] = cSiguiente;
-                cSiguiente.enlazarAIzquierda(matrizEnlazada[fila][columna-1]);
-                cSiguiente.enlazarArriba(matrizEnlazada[fila-1][columna]);
+                PosicionEnlazada pSiguiente = new PosicionEnlazada(fila,columna);
+                matrizPosicionesEnlazadas[fila][columna] = pSiguiente;
+                pSiguiente.enlazarAIzquierda(matrizPosicionesEnlazadas[fila][columna-1]);
+                pSiguiente.enlazarArriba(matrizPosicionesEnlazadas[fila-1][columna]);
+                matriz[fila][columna] = new Casillero(pSiguiente);
             }
         }
     }
@@ -52,23 +57,11 @@ public class Mapa {
         return this.matriz[posicion.getX()][posicion.getY()];
     }
 
-    private void setCasillero(Casillero casillero, Posicion posicion) {
+    private void setCasillero(Casillero casillero, PosicionEnlazada posicion) {
         this.matriz[posicion.getX()][posicion.getY()] = casillero;
-        casillero.setPosicion(posicion);
     }
     //
-
-    private void inicializarCasilleros(){
-
-        for(int fila=0; fila < this.filas; fila++){
-            for(int columna=0; columna < this.columnas; columna++){
-                Posicion posicion= new Posicion(fila, columna);
-                Casillero casillero= new Casillero();
-                this.setCasillero(casillero, posicion);
-            }
-        }
-
-    }
+    
 
     private void generarBordes(){
         for(int fila=0; fila < this.filas; fila++){
