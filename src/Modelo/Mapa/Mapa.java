@@ -14,9 +14,6 @@ public class Mapa {
         this.matriz = new Casillero[filas][columnas];
         this.matrizPosicionesEnlazadas = new PosicionEnlazada[filas][columnas];
         this.inicializarCasilleros();
-        //this.inicializarCasillerosEnlazados();
-        //this.generarBordes();
-
     }
 
     private void inicializarCasilleros() { // enlazadas
@@ -61,18 +58,5 @@ public class Mapa {
         this.matriz[posicion.getX()][posicion.getY()] = casillero;
     }
     //
-    
-
-    private void generarBordes(){
-        for(int fila=0; fila < this.filas; fila++){
-            this.matriz[fila][0].setEstado(new EstadoOcupado());
-            this.matriz[fila][this.columnas-1].setEstado(new EstadoOcupado());
-        }
-        for(int columna=0; columna< this.columnas; columna++){
-            this.matriz[0][columna].setEstado(new EstadoOcupado());
-            this.matriz[this.filas-1][columna].setEstado(new EstadoOcupado());
-        }
-
-    }
 
 }
