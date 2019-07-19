@@ -84,7 +84,7 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicionInicial);
 
         for(int i=0; i < 10; i++){
-            jugador.mover(mapa, new DireccionDerecha());}
+            jugador.mover(new DireccionDerecha());}
         PosicionEnlazada posicionFinal = new PosicionEnlazada(9,5);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
@@ -100,7 +100,7 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicionInicial);
 
         for(int i=0; i < 10; i++){
-            jugador.mover(mapa, new DireccionIzquierda());}
+            jugador.mover(new DireccionIzquierda());}
         PosicionEnlazada posicionFinal = new PosicionEnlazada(0,5);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
@@ -116,7 +116,7 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicionInicial);
 
         for(int i=0; i < 10; i++){
-            jugador.mover(mapa, new DireccionArriba());}
+            jugador.mover(new DireccionArriba());}
         PosicionEnlazada posicionFinal = new PosicionEnlazada(5,9);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
@@ -132,7 +132,7 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicionInicial);
 
         for(int i=0; i < 10; i++){
-            jugador.mover(mapa, new DireccionAbajo());}
+            jugador.mover(new DireccionAbajo());}
         PosicionEnlazada posicionFinal = new PosicionEnlazada(5,0);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
@@ -156,10 +156,10 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicion1);
         madera.ingresar(mapa, posicion3);
         // Lo muevo a la derecha 2 veces
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
         assertSame(mapa.getCasillero(posicion2), jugador.getCasillero());
     }
@@ -179,12 +179,12 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicion1);
         ocupante2.ingresar(mapa, posicion2);
         // Lo muevo a la derecha 2 veces
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        jugador.mover(mapa, new DireccionArriba());
+        jugador.mover(new DireccionArriba());
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
@@ -204,12 +204,12 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicion1);
         ocupante2.ingresar(mapa, posicion2);
         // Lo muevo a la derecha 2 veces
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        jugador.mover(mapa, new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
@@ -229,14 +229,14 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicion1);
         ocupante2.ingresar(mapa, posicion2);
         // Lo muevo a la derecha 2 veces
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        jugador.mover(mapa, new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
 
-        jugador.mover(mapa, new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
@@ -265,18 +265,18 @@ public class MapaIntegracionTest {
         ocupante4.ingresar(mapa, posicion4);
         ocupante5.ingresar(mapa, posicion5);
         // Lo muevo a la derecha 2 veces
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        jugador.mover(mapa, new DireccionAbajo());
-        jugador.mover(mapa, new DireccionAbajo());
-        jugador.mover(mapa, new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
 
-        jugador.mover(mapa, new DireccionIzquierda());
-        jugador.mover(mapa, new DireccionIzquierda());
-        jugador.mover(mapa, new DireccionIzquierda());
+        jugador.mover(new DireccionIzquierda());
+        jugador.mover(new DireccionIzquierda());
+        jugador.mover(new DireccionIzquierda());
 
         assertSame(mapa.getCasillero(posicion1), jugador.getCasillero());
     }
@@ -305,27 +305,27 @@ public class MapaIntegracionTest {
         ocupante4.ingresar(mapa, posicion4);
         ocupante5.ingresar(mapa, posicion5);
         // Lo muevo a la derecha 2 veces
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        jugador.mover(mapa, new DireccionArriba());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
+        jugador.mover(new DireccionArriba());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        jugador.mover(mapa, new DireccionArriba());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
+        jugador.mover(new DireccionArriba());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        jugador.mover(mapa, new DireccionArriba());
-        jugador.mover(mapa, new DireccionDerecha());
-        jugador.mover(mapa, new DireccionDerecha());
+        jugador.mover(new DireccionArriba());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        jugador.mover(mapa, new DireccionAbajo());
-        jugador.mover(mapa, new DireccionAbajo());
-        jugador.mover(mapa, new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
 
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
@@ -344,7 +344,7 @@ public class MapaIntegracionTest {
 
         Mapa mapa = new Mapa(10,10);
         jugador.ingresar(mapa,new PosicionEnlazada(4,4));
-        jugador.mover(mapa, new DireccionIzquierda());
+        jugador.mover(new DireccionIzquierda());
 
         // ahora el casillero origen debe estar disponible
         Jugador otroJugador = new Jugador();
@@ -353,9 +353,4 @@ public class MapaIntegracionTest {
         assertEquals(casilleroOrigen,otroJugador.getCasillero());
     }
 
-
-
-
 }
-
-
