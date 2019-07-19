@@ -1,6 +1,9 @@
 package MapaTest;
+import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.*;
+import Modelo.MesaDeTrabajo.Mesa;
+
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -88,7 +91,9 @@ public class MapaTest{
     public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreXIgualCero(){
         Mapa mapa = new Mapa(10,10);
         Casillero casillero2= new Casillero();
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero2);
         Posicion posicion = new Posicion(0,7);
 
@@ -103,7 +108,9 @@ public class MapaTest{
     public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreXMaxima(){
         Mapa mapa = new Mapa(10,10);
         Casillero casillero2= new Casillero();
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero2);
         Posicion posicion = new Posicion(9,7);
 
@@ -118,7 +125,9 @@ public class MapaTest{
     public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreYIgualCero(){
         Mapa mapa = new Mapa(10,10);
         Casillero casillero2= new Casillero();
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero2);
         Posicion posicion = new Posicion(7,0);
 
@@ -133,7 +142,9 @@ public class MapaTest{
     public void testMapaGeneraUnBordeConCasilleroConEstadoOcupadoSobreYMaxima(){
         Mapa mapa = new Mapa(10,10);
         Casillero casillero2= new Casillero();
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero2);
         Posicion posicion = new Posicion(7,9);
 

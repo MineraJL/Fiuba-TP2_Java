@@ -1,8 +1,11 @@
 package MapaTest;
 
+import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
 import Modelo.Recursos.*;
 import Modelo.Mapa.*;
+import Modelo.MesaDeTrabajo.Mesa;
+
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -14,7 +17,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorSeMueveALaDerechaEnElMapaDosVeces() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -32,7 +37,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorSeMueveALaDerechaEnElMapaDosVeces_sinEspecificarMapa() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -48,7 +55,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorSeMueveALaDerechaEnElMapaCienVeces() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -65,7 +74,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorSeMueveALaIzquierdaEnElMapaDosVeces() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -81,7 +92,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorSeMueveALaIzquierdaEnElMapaCienVeces() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -98,7 +111,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorSeMueveParaArribaEnElMapaDosVeces() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -114,7 +129,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorSeMueveParaArribaEnElMapaCienVeces() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -131,7 +148,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorSeMueveParaAbajoEnElMapaDosVeces() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -147,7 +166,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorSeMueveParaAbajoEnElMapaCienVeces() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -165,7 +186,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorSeMueveALaDerechaHastaChocarConOtroOcupante() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         Madera madera = new Madera();
         jugador.setCasillero(casillero1);
         Posicion posicion1 = new Posicion(5,5); // Aca pongo al Modelo.Jugador
@@ -187,7 +210,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorNoPuedeMoverseDerechaPorOtroOcupantePeroSiParaArriba() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         Ocupante ocupante2 = new Madera();
         jugador.setCasillero(casillero1);
         Posicion posicion1 = new Posicion(5,5); // Aca pongo al Modelo.Jugador
@@ -212,7 +237,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorNoPuedeMoverseDerechaPorOtroOcupantePeroSiParaAbajo() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         Ocupante ocupante2 = new Madera();
         jugador.setCasillero(casillero1);
         Posicion posicion1 = new Posicion(5,5); // Aca pongo al Modelo.Jugador
@@ -237,7 +264,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorNoPuedeMoverseDerechaPorOtroOcupantePeroSiParaArribaYDerechaDeNuevo() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         Ocupante ocupante2 = new Madera();
         jugador.setCasillero(casillero1);
         Posicion posicion1 = new Posicion(5,5); // Aca pongo al Modelo.Jugador
@@ -264,7 +293,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorEncerradoPorRecursos() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         Ocupante ocupante2 = new Madera();
         Ocupante ocupante3 = new Madera();
         Ocupante ocupante4 = new Madera();
@@ -304,7 +335,9 @@ public class MapaIntegracionTest {
     public void testOcupanteJugadorEsquivaOcupanteEnMapa() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         Ocupante ocupante2 = new Madera();
         Ocupante ocupante3 = new Madera();
         Ocupante ocupante4 = new Madera();
@@ -356,7 +389,9 @@ public class MapaIntegracionTest {
 
         Casillero casilleroOrigen = new Casillero();
 
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casilleroOrigen);
 
         Mapa mapa = new Mapa(10,10);
@@ -364,7 +399,7 @@ public class MapaIntegracionTest {
         jugador.mover(Direccion.izquierda());
 
         // ahora el casillero origen debe estar disponible
-        Jugador otroJugador = new Jugador();
+        Jugador otroJugador = new Jugador(inventario, mesa);
         otroJugador.setCasillero(casilleroOrigen);
 
         assertEquals(casilleroOrigen,otroJugador.getCasillero());

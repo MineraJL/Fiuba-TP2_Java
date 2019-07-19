@@ -1,11 +1,13 @@
 package JugadorTest;
 
 import Modelo.Herramientas.*;
+import Modelo.Inventario.Inventario;
 import Modelo.Jugador.*;
 import Modelo.Mapa.Casillero;
 import Modelo.Mapa.Direccion;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Posicion;
+import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.TipoMaterial.*;
 
 import org.junit.Test;
@@ -16,7 +18,9 @@ import static junit.framework.TestCase.assertSame;
 public class JugadorTest {
 	@Test
 	public void testJugadorSeCreaConHerramientaHachaDeMaderaPorDefecto() {
-		Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+		Jugador jugador = new Jugador(inventario, mesa);
 		TipoMadera madera = new TipoMadera();
 		Hacha hacha = new Hacha(madera);
 		
@@ -27,7 +31,9 @@ public class JugadorTest {
     public void testItemJugadorSeCreaEInicializaEnElMapa() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -41,7 +47,9 @@ public class JugadorTest {
     public void testItemJugadorSeMueveALaDerechaEnElMapaDosVeces() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);

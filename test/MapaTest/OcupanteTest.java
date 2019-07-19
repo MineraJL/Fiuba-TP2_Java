@@ -1,6 +1,9 @@
 package MapaTest;
+import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.*;
+import Modelo.MesaDeTrabajo.Mesa;
+
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -15,7 +18,9 @@ public class OcupanteTest {
     public void testOcupanteTieneLaMismaFilaDelCasilleroSeteadoEnCero() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 0);
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero1);
         assertEquals(0, ocupante.getPosicion().getX());
     }
@@ -23,7 +28,9 @@ public class OcupanteTest {
     public void testOcupanteTieneLaMismaColumnaDelCasilleroSeteadoEnCero() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 0);
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero1);
         assertEquals(0,  ocupante.getPosicion().getY());
     }
@@ -31,7 +38,9 @@ public class OcupanteTest {
     public void testOcupanteTieneLaMismaFilaDelCasilleroSeteadoEnUno() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(1, 0);
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero1);
         assertEquals(1, ocupante.getPosicion().getX());
     }
@@ -39,7 +48,9 @@ public class OcupanteTest {
     public void testOcupanteTieneLaMismaColumnaDelCasilleroSeteadoEnUno() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 1);
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero1);
         assertEquals(1, ocupante.getPosicion().getY());
     }
@@ -51,7 +62,9 @@ public class OcupanteTest {
     public void testOcupanteTieneElCasilleroSeteado() {
         Casillero casillero1 = new Casillero();
         casillero1.setPosicion(0, 0);
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero1);
         assertSame(casillero1, ocupante.getCasillero());
     }
@@ -60,7 +73,9 @@ public class OcupanteTest {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
         casillero1.setPosicion(0, 0);
-        Ocupante ocupante1 = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
         ocupante1.setCasillero(casillero2);
         ocupante1.setCasillero(casillero1);
         assertSame(casillero1, ocupante1.getCasillero());
@@ -72,7 +87,9 @@ public class OcupanteTest {
         Mapa mapa = new Mapa(10,10);
 
         Casillero casillero1 = new Casillero();
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero1);
 
         Posicion posicion = new Posicion(3,3);
@@ -88,8 +105,10 @@ public class OcupanteTest {
 
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
-        Ocupante ocupante1 = new Jugador();
-        Ocupante ocupante2 = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Jugador(inventario, mesa);
         ocupante1.setCasillero(casillero1);
         ocupante2.setCasillero(casillero2);
 

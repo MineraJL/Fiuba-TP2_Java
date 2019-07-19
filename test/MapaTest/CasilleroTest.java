@@ -1,6 +1,8 @@
 package MapaTest;
+import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.*;
+import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.Recursos.*;
 import org.junit.Test;
 
@@ -122,7 +124,10 @@ public class CasilleroTest {
 
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
-        Ocupante ocupante = new Jugador();
+        
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
 
         ocupante.setCasillero(casillero2);
         casillero1.setEstado(new EstadoDisponible());
@@ -136,7 +141,9 @@ public class CasilleroTest {
 
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero2);
 
         casillero1.setEstado(new EstadoOcupado());
@@ -154,7 +161,9 @@ public class CasilleroTest {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
 
-        Ocupante ocupante = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero2);
         casillero1.ocuparPor(ocupante);
 
@@ -166,8 +175,11 @@ public class CasilleroTest {
 
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
-        Ocupante ocupante1 = new Jugador();
-        Ocupante ocupante2 = new Jugador();
+        
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Jugador(inventario, mesa);
 
         ocupante1.setCasillero(casillero2); // Le asigno al item un casillero.
         casillero1.ocuparPor(ocupante1);

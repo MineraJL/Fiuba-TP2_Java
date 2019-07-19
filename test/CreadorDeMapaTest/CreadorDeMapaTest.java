@@ -2,9 +2,11 @@ package CreadorDeMapaTest;
 
 import Modelo.CreadorDeMapa.CreadorDeMapa;
 import Modelo.Herramientas.PicoFino;
+import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.Direccion;
 import Modelo.Mapa.Posicion;
+import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.TipoMaterial.TipoMetalYPiedra;
 import org.junit.Test;
 
@@ -16,7 +18,9 @@ public class CreadorDeMapaTest {
 
     @Test
     public void testJugadorIngresaAMapaEnLaPosicion1_1(){
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa(jugador);
 
         Posicion posicionEsperada = new Posicion(1,1);
@@ -29,7 +33,9 @@ public class CreadorDeMapaTest {
 
     @Test
     public void testMapaSeInicializaCon20RecursosMaderaEnPosicionesConocidas(){
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa(jugador);
 
         jugador.mover(Direccion.derecha());

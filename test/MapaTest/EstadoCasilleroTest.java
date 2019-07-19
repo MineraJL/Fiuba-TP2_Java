@@ -1,7 +1,9 @@
 package MapaTest;
 
+import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.*;
+import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.Recursos.Madera;
 import org.junit.Test;
 
@@ -18,8 +20,10 @@ public class EstadoCasilleroTest {
         Casillero casillero2 = new Casillero();
         Casillero casillero3 = new Casillero();
 
-        Ocupante ocupante1 = new Jugador();
-        Ocupante ocupante2 = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Jugador(inventario, mesa);
         ocupante2.setCasillero(casillero3);
         ocupante1.setCasillero(casillero2);
 
@@ -37,7 +41,9 @@ public class EstadoCasilleroTest {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
 
-        Ocupante ocupante1 = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
         ocupante1.setCasillero(casillero2);
 
         estado.ocuparPor(casillero1, ocupante1);
@@ -54,8 +60,10 @@ public class EstadoCasilleroTest {
         Casillero casillero2 = new Casillero();
         Casillero casillero3 = new Casillero();
 
-        Ocupante ocupante1 = new Jugador();
-        Ocupante ocupante2 = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Jugador(inventario, mesa);
         ocupante2.setCasillero(casillero3);
         ocupante1.setCasillero(casillero2);
 
@@ -74,7 +82,9 @@ public class EstadoCasilleroTest {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
 
-        Ocupante ocupante1 = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
         ocupante1.setCasillero(casillero2);
 
         estado.ocuparPor(casillero1, ocupante1);

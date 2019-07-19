@@ -4,6 +4,7 @@ import Modelo.Herramientas.*;
 import Modelo.Inventario.Inventario;
 import Modelo.Mapa.*;
 import Modelo.MateriaPrima.MateriaPrima;
+import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.TipoMaterial.*;
 import Modelo.Recursos.*;
 
@@ -12,6 +13,7 @@ public class Jugador implements OcupanteMovible {
 	private Mapa mapa;
 	private Casillero casilleroSeleccionadoParaRomper;
 	private Inventario inventario;
+	private Mesa mesa;
 	private Herramienta herramientaDeTrabajo;
 	private Casillero casillero;
 	
@@ -38,13 +40,14 @@ public class Jugador implements OcupanteMovible {
 	}
 	
 	
-	public Jugador() {
+	public Jugador(Inventario inventario, Mesa mesa) {
 		TipoMadera madera = new TipoMadera();
 		Hacha unHacha = new Hacha(madera);
-		inventario = new Inventario();
+		this.inventario = inventario;
+		this.mesa = mesa;
 		
-		inventario.agregarElemento(unHacha);
-		herramientaDeTrabajo = inventario.extraerHachaMadera();
+		this.inventario.agregarElemento(unHacha);
+		herramientaDeTrabajo = this.inventario.extraerHachaMadera();
 		this.setCasillero(new Casillero());
 	}
 
