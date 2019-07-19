@@ -7,65 +7,51 @@ import static junit.framework.TestCase.assertEquals;
 
 public class DireccionTest {
 
-    // DIRECCIONES
-    // Direccion norte
     @Test
-    public void testDireccionNorteDevuelvePosicionConMasUnoEnY(){
-        Posicion posicion = new Posicion(1,1);
-        Direccion direccion= Direccion.arriba();
-        Posicion posicion1= direccion.proximaPosicion(posicion);
-        assertEquals(2, posicion1.getY());
+    public void testSiguienteDeDireccionIzquierdaDevuelveElSiguienteHaciaLaIzquierda(){
+        PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
+        PosicionEnlazada posicionA12 = new PosicionEnlazada(1,2);
+        posicionA12.enlazarAIzquierda(posicionA11);
+
+        Direccion direccion = new DireccionIzquierda();
+        PosicionEnlazada pSiguiente = direccion.siguiente(posicionA12);
+
+        assertEquals(posicionA11,pSiguiente);
     }
+
     @Test
-    public void testDireccionNorteDevuelvePosicionConMismoValorEnX(){
-        Posicion posicion = new Posicion(1,1);
-        Direccion direccion= Direccion.arriba();
-        Posicion posicion1= direccion.proximaPosicion(posicion);
-        assertEquals(1, posicion1.getX());
+    public void testSiguienteDeDireccionDerechaDevuelveElSiguienteHaciaLaDerecha(){
+        PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
+        PosicionEnlazada posicionA12 = new PosicionEnlazada(1,2);
+        posicionA12.enlazarAIzquierda(posicionA11);
+
+        Direccion direccion = new DireccionDerecha();
+        PosicionEnlazada pSiguiente = direccion.siguiente(posicionA11);
+
+        assertEquals(posicionA12,pSiguiente);
     }
-    // Direccion sur
+
     @Test
-    public void testDireccionSurDevuelvePosicionConMenosUnoEnY(){
-        Posicion posicion = new Posicion(1,1);
-        Direccion direccion= Direccion.abajo();
-        Posicion posicion1= direccion.proximaPosicion(posicion);
-        assertEquals(0, posicion1.getY());
+    public void testSiguienteDeDireccionArribaDevuelveElSiguienteHaciaArriba(){
+        PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
+        PosicionEnlazada posicionA21 = new PosicionEnlazada(2,1);
+        posicionA21.enlazarArriba(posicionA11);
+
+        Direccion direccion = new DireccionArriba();
+        PosicionEnlazada pSiguiente = direccion.siguiente(posicionA21);
+
+        assertEquals(posicionA11,pSiguiente);
     }
+
     @Test
-    public void testDireccionSurDevuelvePosicionConMismoValorEnX(){
-        Posicion posicion = new Posicion(1,1);
-        Direccion direccion= Direccion.abajo();
-        Posicion posicion1= direccion.proximaPosicion(posicion);
-        assertEquals(1, posicion1.getX());
-    }
-    // Direccion este
-    @Test
-    public void testDireccionEsteDevuelvePosicionConMasUnoEnX(){
-        Posicion posicion = new Posicion(1,1);
-        Direccion direccion= Direccion.derecha();
-        Posicion posicion1= direccion.proximaPosicion(posicion);
-        assertEquals(2, posicion1.getX());
-    }
-    @Test
-    public void testDireccionEsteDevuelvePosicionConMismoValorEnY(){
-        Posicion posicion = new Posicion(1,1);
-        Direccion direccion= Direccion.derecha();
-        Posicion posicion1= direccion.proximaPosicion(posicion);
-        assertEquals(1, posicion1.getY());
-    }
-    // Direccion Oeste
-    @Test
-    public void testDireccionOesteDevuelvePosicionConMenosUnoEnX(){
-        Posicion posicion = new Posicion(1,1);
-        Direccion direccion= Direccion.izquierda();
-        Posicion posicion1= direccion.proximaPosicion(posicion);
-        assertEquals(0, posicion1.getX());
-    }
-    @Test
-    public void testDireccionOesteDevuelvePosicionConMismoValorEnY(){
-        Posicion posicion = new Posicion(1,1);
-        Direccion direccion= Direccion.izquierda();
-        Posicion posicion1= direccion.proximaPosicion(posicion);
-        assertEquals(1, posicion1.getY());
+    public void testSiguienteDeDireccionAbajoDevuelveElSiguienteHaciaAbajo(){
+        PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
+        PosicionEnlazada posicionA21 = new PosicionEnlazada(2,1);
+        posicionA21.enlazarArriba(posicionA11);
+
+        Direccion direccion = new DireccionAbajo();
+        PosicionEnlazada pSiguiente = direccion.siguiente(posicionA11);
+
+        assertEquals(posicionA21,pSiguiente);
     }
 }
