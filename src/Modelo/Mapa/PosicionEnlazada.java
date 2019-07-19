@@ -22,7 +22,7 @@ public class PosicionEnlazada {
         return this.coorY;
     }
 
-    public boolean equals(Posicion otraPosicion){
+    public boolean equals(PosicionEnlazada otraPosicion){
         return ((this.getX()==otraPosicion.getX()) && (this.getY() == otraPosicion.getY()));
     }
 

@@ -5,6 +5,7 @@ import Modelo.Herramientas.PicoFino;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.Direccion;
 import Modelo.Mapa.Posicion;
+import Modelo.Mapa.PosicionEnlazada;
 import Modelo.TipoMaterial.TipoMetalYPiedra;
 import org.junit.Test;
 
@@ -19,7 +20,7 @@ public class CreadorDeMapaTest {
         Jugador jugador = new Jugador();
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa(jugador);
 
-        Posicion posicionEsperada = new Posicion(1,1);
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(1,1);
 
         boolean posicionesIguales = jugador.getPosicion().equals(posicionEsperada);
         assertTrue(posicionesIguales);
