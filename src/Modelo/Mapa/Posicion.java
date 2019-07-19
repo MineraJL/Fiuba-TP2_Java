@@ -10,10 +10,6 @@ public class Posicion {
         this.coorY = coorY;
     }
 
-    public Posicion siguientePosicion(Direccion direccion) {
-        return direccion.proximaPosicion(this);
-    }
-
     public int getX() {
         return this.coorX;
     }
