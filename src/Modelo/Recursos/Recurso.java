@@ -22,9 +22,9 @@ public abstract class Recurso implements Ocupante {
         return this.casillero;
     }
 
-    public Posicion getPosicion(){return this.casillero.getPosicion();}
+    public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}
 
-    public void ingresar(Mapa mapa, Posicion posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
+    public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
     // Fin implementacion
 
 

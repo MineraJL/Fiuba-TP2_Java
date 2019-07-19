@@ -5,7 +5,7 @@ public interface Ocupante {
     void setCasillero(Casillero casillero);
     Casillero getCasillero();
 
-    Posicion getPosicion();
+    PosicionEnlazada getPosicion();
 
-    void ingresar(Mapa mapa, Posicion posicion);
+    void ingresar(Mapa mapa, PosicionEnlazada posicion);
 }

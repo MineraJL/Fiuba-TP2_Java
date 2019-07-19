@@ -50,7 +50,7 @@ public class Mapa {
     public Casillero getCasillero(Posicion posicion, Direccion direccion) {
         return matriz[posicion.siguientePosicion(direccion).getX()][posicion.siguientePosicion(direccion).getY()];
     }
-    public Casillero getCasillero(Posicion posicion){
+    public Casillero getCasillero(PosicionEnlazada posicion){
         return this.matriz[posicion.getX()][posicion.getY()];
     }
 
