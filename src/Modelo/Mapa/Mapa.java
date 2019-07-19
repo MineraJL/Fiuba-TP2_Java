@@ -6,17 +6,17 @@ public class Mapa {
     private int filas;
     private int columnas;
     private Casillero[][] matriz;
-    private PosicionEnlazada[][] matrizPosicionesEnlazadas;
 
     public Mapa(int filas, int columnas) {
         this.filas = filas;
         this.columnas = columnas;
         this.matriz = new Casillero[filas][columnas];
-        this.matrizPosicionesEnlazadas = new PosicionEnlazada[filas][columnas];
         this.inicializarCasilleros();
     }
 
     private void inicializarCasilleros() { // enlazadas
+        PosicionEnlazada[][] matrizPosicionesEnlazadas = new PosicionEnlazada[filas][columnas];
+
         //genero la primer fila
         PosicionEnlazada pInicial = new PosicionEnlazada(0,0);
         matrizPosicionesEnlazadas[0][0] = pInicial;
