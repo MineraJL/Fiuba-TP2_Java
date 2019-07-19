@@ -4,6 +4,7 @@ import Modelo.Jugador.Jugador;
 import Modelo.Mapa.*;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertSame;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
@@ -20,7 +21,7 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionIzquierda());
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(2,4);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(1,5);
 
         assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
     }
@@ -35,7 +36,8 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionDerecha());
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(2,6);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(3,5);
+
 
         assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
     }
@@ -50,7 +52,7 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionArriba());
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(1,5);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(2,6);
 
         assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
     }
@@ -65,83 +67,76 @@ public class MapaIntegracionTest {
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionAbajo());
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(3,5);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(2,4);
 
         assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
     }
 
-    //
-
-
-
-    /*
+    // Jugador se mueve y queda contenido en el mapa al llegar a sus bordes
     @Test
-    public void testOcupanteJugadorSeMueveALaDerechaEnElMapaCienVeces() {
+    public void testJugadorSeMueveALaDerechaUnaCantidadDeVecesMayorALaDimensionDelMapaYSeQuedaEnSuUltimoCasillero() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
         Jugador jugador = new Jugador();
         jugador.setCasillero(casillero1);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
-        // Lo muevo a la derecha 100 veces
-        for(int i=0; i < 100; i++){
+
+        for(int i=0; i < 10; i++){
             jugador.mover(mapa, new DireccionDerecha());}
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(8,5);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(9,5);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
 
-    // 100 movimientos a la izquierda
     @Test
-    public void testOcupanteJugadorSeMueveALaIzquierdaEnElMapaCienVeces() {
+    public void testJugadorSeMueveALaIzquierdaUnaCantidadDeVecesMayorALaDimensionDelMapaYSeQuedaEnSuUltimoCasillero() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
         Jugador jugador = new Jugador();
         jugador.setCasillero(casillero1);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
-        // Lo muevo a la izquierda 100 veces
-        for(int i=0; i < 100; i++){
+
+        for(int i=0; i < 10; i++){
             jugador.mover(mapa, new DireccionIzquierda());}
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(1,5);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(0,5);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
 
-    // 100 movimientos para arriba
     @Test
-    public void testOcupanteJugadorSeMueveParaArribaEnElMapaCienVeces() {
+    public void testJugadorSeMueveArribaUnaCantidadDeVecesMayorALaDimensionDelMapaYSeQuedaEnSuUltimoCasillero() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
         Jugador jugador = new Jugador();
         jugador.setCasillero(casillero1);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 100 veces
-        for(int i=0; i < 100; i++){
+
+        for(int i=0; i < 10; i++){
             jugador.mover(mapa, new DireccionArriba());}
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,8);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,9);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
 
-    // 100 movimientos para abajo
     @Test
-    public void testOcupanteJugadorSeMueveParaAbajoEnElMapaCienVeces() {
+    public void testJugadorSeMueveAbajoUnaCantidadDeVecesMayorALaDimensionDelMapaYSeQuedaEnSuUltimoCasillero() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
         Jugador jugador = new Jugador();
         jugador.setCasillero(casillero1);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 100 veces
-        for(int i=0; i < 100; i++){
+
+        for(int i=0; i < 10; i++){
             jugador.mover(mapa, new DireccionAbajo());}
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,1);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,0);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
-    */
+    
 
     /* // temp: hay que "trasponer" los movimientos (direccion -> posicion).
     // MOVIMIENTO OCUPANTE JUGADOR - MAPA CON OCUPANTES RECURSOS
