@@ -13,7 +13,7 @@ public class MapaTest{
     @Test
     public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnXIgualACero(){
         Mapa mapa = new Mapa(10,10);
-        Posicion posicion = new Posicion(0,2);
+        PosicionEnlazada posicion = new PosicionEnlazada(0,2);
         Casillero casillero= mapa.getCasillero(posicion);
         assertEquals(0, casillero.getPosicion().getX());
     }
@@ -21,7 +21,7 @@ public class MapaTest{
     @Test
     public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnXIgualAUno(){
         Mapa mapa = new Mapa(10,10);
-        Posicion posicion = new Posicion(1,2);
+        PosicionEnlazada posicion = new PosicionEnlazada(1,2);
         Casillero casillero= mapa.getCasillero(posicion);
         assertEquals(1, casillero.getPosicion().getX());
     }
@@ -29,7 +29,7 @@ public class MapaTest{
     @Test
     public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnYIgualACero(){
         Mapa mapa = new Mapa(10,10);
-        Posicion posicion = new Posicion(2,0);
+        PosicionEnlazada posicion = new PosicionEnlazada(2,0);
         Casillero casillero= mapa.getCasillero(posicion);
         assertEquals(0, casillero.getPosicion().getY());
     }
@@ -37,7 +37,7 @@ public class MapaTest{
     @Test
     public void testMapaSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnYIgualAUno(){
         Mapa mapa = new Mapa(10,10);
-        Posicion posicion = new Posicion(2,1);
+        PosicionEnlazada posicion = new PosicionEnlazada(2,1);
         Casillero casillero= mapa.getCasillero(posicion);
         assertEquals(1, casillero.getPosicion().getY());
     }
@@ -47,7 +47,7 @@ public class MapaTest{
     @Test
     public void testMapaDevuelveCasilleroEnLaDireccionNorte(){
         Mapa mapa = new Mapa(10,10);
-        Posicion posicion = new Posicion(2,2);
+        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
         Direccion direccion = Direccion.arriba();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
         assertEquals(3, casillero.getPosicion().getY());
@@ -56,7 +56,7 @@ public class MapaTest{
     @Test
     public void testMapaDevuelveCasilleroEnLaDireccionSur(){
         Mapa mapa = new Mapa(10,10);
-        Posicion posicion = new Posicion(2,2);
+        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
         Direccion direccion = Direccion.abajo();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
         assertEquals(1, casillero.getPosicion().getY());
@@ -66,7 +66,7 @@ public class MapaTest{
     @Test
     public void testMapaDevuelveCasilleroEnLaDireccionEste(){
         Mapa mapa = new Mapa(10,10);
-        Posicion posicion = new Posicion(2,2);
+        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
         Direccion direccion = Direccion.derecha();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
         assertEquals(3, casillero.getPosicion().getX());
@@ -76,7 +76,7 @@ public class MapaTest{
     @Test
     public void testMapaDevuelveCasilleroEnLaDireccionOeste(){
         Mapa mapa = new Mapa(10,10);
-        Posicion posicion = new Posicion(2,2);
+        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
         Direccion direccion = Direccion.izquierda();
         Casillero casillero= mapa.getCasillero(posicion, direccion);
         assertEquals(1, casillero.getPosicion().getX());
@@ -90,7 +90,7 @@ public class MapaTest{
         Casillero casillero2= new Casillero();
         Ocupante ocupante = new Jugador();
         ocupante.setCasillero(casillero2);
-        Posicion posicion = new Posicion(0,7);
+        PosicionEnlazada posicion = new PosicionEnlazada(0,7);
 
         ocupante.ingresar(mapa,posicion);
         Casillero casillero= mapa.getCasillero(posicion);
@@ -105,7 +105,7 @@ public class MapaTest{
         Casillero casillero2= new Casillero();
         Ocupante ocupante = new Jugador();
         ocupante.setCasillero(casillero2);
-        Posicion posicion = new Posicion(9,7);
+        PosicionEnlazada posicion = new PosicionEnlazada(9,7);
 
         ocupante.ingresar(mapa,posicion);
         Casillero casillero= mapa.getCasillero(posicion);
@@ -120,7 +120,7 @@ public class MapaTest{
         Casillero casillero2= new Casillero();
         Ocupante ocupante = new Jugador();
         ocupante.setCasillero(casillero2);
-        Posicion posicion = new Posicion(7,0);
+        PosicionEnlazada posicion = new PosicionEnlazada(7,0);
 
         ocupante.ingresar(mapa,posicion);
         Casillero casillero= mapa.getCasillero(posicion);
@@ -135,7 +135,7 @@ public class MapaTest{
         Casillero casillero2= new Casillero();
         Ocupante ocupante = new Jugador();
         ocupante.setCasillero(casillero2);
-        Posicion posicion = new Posicion(7,9);
+        PosicionEnlazada posicion = new PosicionEnlazada(7,9);
 
         ocupante.ingresar(mapa,posicion);
         Casillero casillero= mapa.getCasillero(posicion);

@@ -75,7 +75,7 @@ public class OcupanteTest {
         Ocupante ocupante = new Jugador();
         ocupante.setCasillero(casillero1);
 
-        Posicion posicion = new Posicion(3,3);
+        PosicionEnlazada posicion = new PosicionEnlazada(3,3);
 
         ocupante.ingresar(mapa,posicion);
 
@@ -93,7 +93,7 @@ public class OcupanteTest {
         ocupante1.setCasillero(casillero1);
         ocupante2.setCasillero(casillero2);
 
-        Posicion posicion = new Posicion(3,3);
+        PosicionEnlazada posicion = new PosicionEnlazada(3,3);
 
         ocupante1.ingresar(mapa,posicion);
         ocupante2.ingresar(mapa,posicion);
