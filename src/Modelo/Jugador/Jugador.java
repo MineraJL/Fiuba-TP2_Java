@@ -9,9 +9,12 @@ import Modelo.Recursos.*;
 
 
 public class Jugador implements OcupanteMovible {
+	private Mapa mapa;
+	private Casillero casilleroSeleccionadoParaRomper;
 	private Inventario inventario;
 	private Herramienta herramientaDeTrabajo;
 	private Casillero casillero;
+	
 	
 	private void usarHerramienta(Recurso unRecurso) {
 		
@@ -24,9 +27,17 @@ public class Jugador implements OcupanteMovible {
 		inventario.agregarElemento(materiaPrima);
 	}
 
-	private Mapa mapa;
-	private Casillero casilleroSeleccionadoParaRomper;
-
+	private void mover(Mapa mapa, Direccion direccion){
+		this.casillero.desocupar();
+		this.casillero.getCasilleroVecino(mapa, direccion).ocuparPor(this);
+	}
+	
+	private void golpearRecurso(Recurso unRecurso) {
+		usarHerramienta(unRecurso);
+		recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getOcupante());
+	}
+	
+	
 	public Jugador() {
 		TipoMadera madera = new TipoMadera();
 		Hacha unHacha = new Hacha(madera);
@@ -46,12 +57,8 @@ public class Jugador implements OcupanteMovible {
 	public Casillero getCasillero(){
 		return this.casillero;
 	}
+	
 	public Posicion getPosicion(){return this.casillero.getPosicion();}
-
-	public void mover(Mapa mapa, Direccion direccion){
-		this.casillero.desocupar();
-		this.casillero.getCasilleroVecino(mapa, direccion).ocuparPor(this);
-	}
 
 	public void mover(Direccion direccion){
 		this.mover(this.mapa,direccion);
@@ -74,12 +81,6 @@ public class Jugador implements OcupanteMovible {
 */
 	public void golpear(){
 		this.golpearRecurso((Recurso) this.casilleroSeleccionadoParaRomper.getOcupante());
-	}
-	
-	
-	public void golpearRecurso(Recurso unRecurso) {
-		usarHerramienta(unRecurso);
-		recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getOcupante());
 	}
 	
 	public void seleccionarHachaMadera() {

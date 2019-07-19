@@ -46,8 +46,8 @@ public class JugadorTest {
         Posicion posicionInicial = new Posicion(5,5);
         jugador.ingresar(mapa, posicionInicial);
         // Lo muevo a la derecha 2 veces
-        jugador.mover(mapa, Direccion.derecha());
-        jugador.mover(mapa, Direccion.derecha());
+        jugador.mover(Direccion.derecha());
+        jugador.mover(Direccion.derecha());
         Posicion posicionFinal = new Posicion(7,5);
 
         assertSame(mapa.getCasillero(posicionFinal),jugador.getCasillero());
