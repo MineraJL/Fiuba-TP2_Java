@@ -56,6 +56,18 @@ public class PosicionEnlazadaTest {
         assertEquals(posicionA21, posicionA22.posicionAIzquierda());
     }
 
+    // casos borde
+    @Test
+    public void testUnaPosicionEstaEnlazadaConsigoMismaAMenosQueSeLaEnlaceConOtra(){
+        PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
+
+        assertEquals(posicionA11,posicionA11.posicionAIzquierda());
+        assertEquals(posicionA11,posicionA11.posicionADerecha());
+        assertEquals(posicionA11,posicionA11.posicionArriba());
+        assertEquals(posicionA11,posicionA11.posicionAbajo());
+
+    }
+
     // coordenadas
 
     @Test
@@ -88,6 +100,5 @@ public class PosicionEnlazadaTest {
         assertFalse(posicion1.equals(posicion2));
 
     }
-
 
 }
