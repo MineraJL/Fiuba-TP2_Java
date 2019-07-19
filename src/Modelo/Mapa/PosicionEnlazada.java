@@ -55,16 +55,16 @@ public class PosicionEnlazada {
         this.abajo = vecino;
     }
 
-    public PosicionEnlazada casilleroAIzquierda() {
+    public PosicionEnlazada posicionAIzquierda() {
         return this.izquierda;
     }
-    public PosicionEnlazada casilleroADerecha() {
+    public PosicionEnlazada posicionADerecha() {
         return this.derecha;
     }
-    public PosicionEnlazada casilleroArriba() {
+    public PosicionEnlazada posicionArriba() {
         return this.arriba;
     }
-    public PosicionEnlazada casilleroAbajo() {
+    public PosicionEnlazada posicionAbajo() {
         return this.abajo;
     }
 

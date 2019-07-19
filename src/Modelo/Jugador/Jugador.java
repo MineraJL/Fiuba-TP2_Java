@@ -50,12 +50,12 @@ public class Jugador implements OcupanteMovible {
 
 	public void mover(Mapa mapa, Direccion direccion){
 		this.casillero.desocupar();
-		//this.casillero.getCasilleroVecino(mapa, direccion).ocuparPor(this);
+		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this);
 	}
 
 	public void mover(Direccion direccion){
 		this.mover(this.mapa,direccion);
-		//this.casilleroSeleccionadoParaRomper=mapa.getCasillero(this.casillero.getPosicion(),direccion); // temp: ESTO
+		this.casilleroSeleccionadoParaRomper=this.casillero.obtenerCasilleroVecino(this.mapa,direccion);
 	}
 
 
