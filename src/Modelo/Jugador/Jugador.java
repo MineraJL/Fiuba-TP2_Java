@@ -57,16 +57,15 @@ public class Jugador implements OcupanteMovible {
 	public Casillero getCasillero(){
 		return this.casillero;
 	}
-	
-	public Posicion getPosicion(){return this.casillero.getPosicion();}
+	public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}
 
 	public void mover(Direccion direccion){
 		this.mover(this.mapa,direccion);
-		this.casilleroSeleccionadoParaRomper=mapa.getCasillero(this.casillero.getPosicion(),direccion);
+		this.casilleroSeleccionadoParaRomper=this.casillero.obtenerCasilleroVecino(this.mapa,direccion);
 	}
 
 
-	public void ingresar(Mapa mapa, Posicion posicion){
+	public void ingresar(Mapa mapa, PosicionEnlazada posicion){
 		mapa.getCasillero(posicion).ocuparPor(this);
 		this.mapa = mapa;
 	}

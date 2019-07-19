@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Jugador.Jugador;
-import Modelo.Mapa.Direccion;
+import Modelo.Mapa.DireccionArriba;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -14,7 +14,7 @@ public class BotonMoverHaciaElNorteHandler implements EventHandler<ActionEvent> 
 	
 	@Override
 	public void handle(ActionEvent event) {
-		this.jugador.mover(Direccion.arriba());	
+		this.jugador.mover(new DireccionArriba());
 	}
 
 }

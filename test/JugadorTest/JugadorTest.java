@@ -1,13 +1,9 @@
 package JugadorTest;
 
-import Modelo.Herramientas.*;
-import Modelo.Jugador.*;
-import Modelo.Mapa.Casillero;
-import Modelo.Mapa.Direccion;
-import Modelo.Mapa.Mapa;
-import Modelo.Mapa.Posicion;
-import Modelo.TipoMaterial.*;
-
+import Modelo.Herramientas.Hacha;
+import Modelo.Jugador.Jugador;
+import Modelo.Mapa.*;
+import Modelo.TipoMaterial.TipoMadera;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -24,35 +20,19 @@ public class JugadorTest {
 	}
 	
     @Test
-    public void testItemJugadorSeCreaEInicializaEnElMapa() {
+    public void testOcupanteJugadorSeCreaEInicializaEnElMapa() {
         Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
+        Casillero casillero = new Casillero();
         Jugador jugador = new Jugador();
-        jugador.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
+        jugador.setCasillero(casillero);
+        PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
 
-        Posicion posicionFinal = new Posicion(5,5);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,5);
 
         assertSame(mapa.getCasillero(posicionFinal),jugador.getCasillero());
     }
-	
-    @Test
-    public void testItemJugadorSeMueveALaDerechaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
-        jugador.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        jugador.ingresar(mapa, posicionInicial);
-        // Lo muevo a la derecha 2 veces
-        jugador.mover(Direccion.derecha());
-        jugador.mover(Direccion.derecha());
-        Posicion posicionFinal = new Posicion(7,5);
 
-        assertSame(mapa.getCasillero(posicionFinal),jugador.getCasillero());
-    }
-	
 	/*@Test
 	public void testJugadorConstruyeHachaDeMadera() {
 		TipoMadera unaMadera = new TipoMadera();

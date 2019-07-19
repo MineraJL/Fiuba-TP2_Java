@@ -3,8 +3,8 @@ package CreadorDeMapaTest;
 import Modelo.CreadorDeMapa.CreadorDeMapa;
 import Modelo.Herramientas.PicoFino;
 import Modelo.Jugador.Jugador;
-import Modelo.Mapa.Direccion;
-import Modelo.Mapa.Posicion;
+import Modelo.Mapa.DireccionDerecha;
+import Modelo.Mapa.PosicionEnlazada;
 import Modelo.TipoMaterial.TipoMetalYPiedra;
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class CreadorDeMapaTest {
         Jugador jugador = new Jugador();
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa(jugador);
 
-        Posicion posicionEsperada = new Posicion(1,1);
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(1,1);
 
         boolean posicionesIguales = jugador.getPosicion().equals(posicionEsperada);
         assertTrue(posicionesIguales);
@@ -32,7 +32,7 @@ public class CreadorDeMapaTest {
         Jugador jugador = new Jugador();
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa(jugador);
 
-        jugador.mover(Direccion.derecha());
+        jugador.mover(new DireccionDerecha());
 
         PicoFino picoFino = new PicoFino(new TipoMetalYPiedra());
         // a la herramienta la tendria que tener el jugador. Pero empieza con un hacha de madera.

@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Jugador.Jugador;
-import Modelo.Mapa.Direccion;
+import Modelo.Mapa.DireccionIzquierda;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -14,7 +14,7 @@ public class BotonMoverHaciaElOesteHandler implements EventHandler<ActionEvent> 
 	
 	@Override
 	public void handle(ActionEvent event) {
-		this.jugador.mover(Direccion.izquierda());	
+		this.jugador.mover(new DireccionIzquierda());
 	}
 
 }

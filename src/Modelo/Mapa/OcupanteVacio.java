@@ -13,8 +13,8 @@ public class OcupanteVacio implements Ocupante {
     @Override
     public Casillero getCasillero(){return new Casillero();}
     @Override
-    public Posicion getPosicion(){return new Posicion(0,0);}
+    public PosicionEnlazada getPosicion(){return new PosicionEnlazada(0,0);}
     @Override
-    public void ingresar(Mapa mapa, Posicion posicion){}
+    public void ingresar(Mapa mapa, PosicionEnlazada posicion){}
     // fin implementacion de interfaz que no deberia implementar
 }

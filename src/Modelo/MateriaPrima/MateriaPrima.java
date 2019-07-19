@@ -1,10 +1,7 @@
 package Modelo.MateriaPrima;
 
 import Modelo.Inventario.InventarioMateriaPrima;
-import Modelo.Mapa.Casillero;
-import Modelo.Mapa.Mapa;
-import Modelo.Mapa.Ocupante;
-import Modelo.Mapa.Posicion;
+import Modelo.Mapa.*;
 
 
 public abstract class MateriaPrima implements Ocupante {
@@ -33,12 +30,12 @@ public abstract class MateriaPrima implements Ocupante {
 	}
 
 	@Override
-	public Posicion getPosicion() {
+	public PosicionEnlazada getPosicion() {
 		return this.casillero.getPosicion();
 	}
 
 	@Override
-	public void ingresar(Mapa mapa, Posicion posicion) {}
+	public void ingresar(Mapa mapa, PosicionEnlazada posicion) {}
 
 
 	public abstract void agregarAlInventario(InventarioMateriaPrima inventario);
