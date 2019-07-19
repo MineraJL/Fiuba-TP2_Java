@@ -2,6 +2,7 @@ package MapaTest;
 
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.*;
+import Modelo.Recursos.Madera;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertSame;
@@ -136,9 +137,9 @@ public class MapaIntegracionTest {
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
-    
 
-    /* // temp: hay que "trasponer" los movimientos (direccion -> posicion).
+
+
     // MOVIMIENTO OCUPANTE JUGADOR - MAPA CON OCUPANTES RECURSOS
     //
     @Test
@@ -329,7 +330,7 @@ public class MapaIntegracionTest {
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
-    */
+
 
 
     // Casillero ocupado / desocupado

@@ -1,7 +1,6 @@
 package MapaTest;
-import Modelo.Mapa.Casillero;
-import Modelo.Mapa.Mapa;
-import Modelo.Mapa.PosicionEnlazada;
+
+import Modelo.Mapa.*;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -59,45 +58,5 @@ public class MapaTest{
         assertEquals(4, casillero.getPosicion().getY());
     }
 
-    // Modelo.Mapa devuelve casillero con la direccion pedida
-    // Casillero norte
-    /* // temp: probando esto
-    @Test
-    public void testMapaDevuelveCasilleroEnLaDireccionNorte(){
-        Mapa mapa = new Mapa(10,10);
-        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
-        Direccion direccion = Direccion.arriba();
-        Casillero casillero= mapa.getCasillero(posicion, direccion);
-        assertEquals(3, casillero.getPosicion().getY());
-    }
-    // Casillero sur
-    @Test
-    public void testMapaDevuelveCasilleroEnLaDireccionSur(){
-        Mapa mapa = new Mapa(10,10);
-        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
-        Direccion direccion = Direccion.abajo();
-        Casillero casillero= mapa.getCasillero(posicion, direccion);
-        assertEquals(1, casillero.getPosicion().getY());
-    }
-
-    // Casillero este
-    @Test
-    public void testMapaDevuelveCasilleroEnLaDireccionEste(){
-        Mapa mapa = new Mapa(10,10);
-        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
-        Direccion direccion = Direccion.derecha();
-        Casillero casillero= mapa.getCasillero(posicion, direccion);
-        assertEquals(3, casillero.getPosicion().getX());
-    }
-
-    // Casillero oeste
-    @Test
-    public void testMapaDevuelveCasilleroEnLaDireccionOeste(){
-        Mapa mapa = new Mapa(10,10);
-        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
-        Direccion direccion = Direccion.izquierda();
-        Casillero casillero= mapa.getCasillero(posicion, direccion);
-        assertEquals(1, casillero.getPosicion().getX());
-    }*/
 
 }
