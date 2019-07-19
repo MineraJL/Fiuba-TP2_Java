@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Jugador.Jugador;
-import Modelo.Mapa.Direccion;
+import Modelo.Mapa.DireccionAbajo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -14,7 +14,7 @@ public class BotonMoverHaciaElSurHandler implements EventHandler<ActionEvent> {
 	
 	@Override
 	public void handle(ActionEvent event) {
-		this.jugador.mover(Direccion.abajo());	
+		this.jugador.mover(new DireccionAbajo());
 	}
 
 }
