@@ -1,13 +1,18 @@
 package Modelo.Recursos;
 
 
-import Modelo.Herramientas.*;
-import Modelo.Mapa.*;
+import Modelo.Herramientas.Herramienta;
+import Modelo.Mapa.Casillero;
+import Modelo.Mapa.Mapa;
+import Modelo.Mapa.Ocupante;
+import Modelo.Mapa.PosicionEnlazada;
+import Modelo.MateriaPrima.MateriaPrima;
 
 public abstract class Recurso implements Ocupante {
 
-    protected int durabilidad;
+    protected DurabilidadRecurso durabilidad;
     protected Casillero casillero;
+    protected MateriaPrima MPaLiberar;
 
     protected Recurso() {
         this.setCasillero(new Casillero());
@@ -28,26 +33,15 @@ public abstract class Recurso implements Ocupante {
     // Fin implementacion
 
 
-
     public abstract void golpearCon(Herramienta herramienta);
 
-    protected void setDurabilidad(int durabilidad){
-        this.durabilidad = durabilidad;
-    }
 
     public int durabilidad(){
-        return this.durabilidad;
+        return this.durabilidad.durabilidad();
     }
 
     public void reducirDurabilidadEn(int cantidadAReducir) {
-        this.durabilidad = this.durabilidad - cantidadAReducir;
-        
-        if (durabilidad <= 0) {
-        	casillero.desocupar();
-        	Ocupante materiaPrima = this.liberarMateriaPrima();
-        	casillero.ocuparPor(materiaPrima);
-        }
-        	
+        this.durabilidad.reducirDurabilidadEn(cantidadAReducir,this.MPaLiberar,this.casillero);
     }
 
 
@@ -55,8 +49,5 @@ public abstract class Recurso implements Ocupante {
     public boolean equals(Object object){
         return object.getClass() == this.getClass();
     }
-
-    
-    public abstract Ocupante liberarMateriaPrima();
 
 }

@@ -2,7 +2,7 @@ package Modelo.Mapa;
 
 public class Casillero {
 
-    private PosicionEnlazada posicion; // temp: esto siendo enlazado va a romper tests
+    private PosicionEnlazada posicion;
     private EstadoCasillero estado;
 
 
@@ -30,9 +30,6 @@ public class Casillero {
         this.estado=estado;
     }
 
-    /*public Casillero obtenerCasilleroVecino(Mapa mapa, Direccion direccion){ // temp: este método no debería existir
-        return mapa.getCasillero(this.getPosicion(),direccion);
-    }*/
     public Casillero obtenerCasilleroVecino(Mapa mapa, Direccion direccion){
         PosicionEnlazada posSiguiente = direccion.siguiente(this.posicion);
         return mapa.getCasillero(posSiguiente);
