@@ -29,7 +29,7 @@ public class Jugador implements OcupanteMovible {
 
 	private void mover(Mapa mapa, Direccion direccion){
 		this.casillero.desocupar();
-		this.casillero.getCasilleroVecino(mapa, direccion).ocuparPor(this);
+		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this);
 	}
 	
 	private void golpearRecurso(Recurso unRecurso) {
