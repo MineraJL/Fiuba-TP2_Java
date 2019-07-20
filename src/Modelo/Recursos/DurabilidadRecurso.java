@@ -15,9 +15,11 @@ public class DurabilidadRecurso {
 
     public void reducirDurabilidadEn(int cantidadAReducir, MateriaPrima MPaLiberar, Casillero casADesocupar){
 
-        this.durabilidad = this.durabilidad - cantidadAReducir;
+        if (this.durabilidad>0) {
+            this.durabilidad = this.durabilidad - cantidadAReducir;
+        }
 
-        if (this.durabilidad <= 0) {
+        if (this.durabilidad<=0){           // (parece un else pero no lo es)
             casADesocupar.desocupar();
             casADesocupar.ocuparPor(MPaLiberar);
         }

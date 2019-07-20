@@ -56,7 +56,7 @@ public class PosicionEnlazadaTest {
         assertEquals(posicionA21, posicionA22.posicionAIzquierda());
     }
 
-    // casos borde
+    // borde
     @Test
     public void testUnaPosicionEstaEnlazadaConsigoMismaAMenosQueSeLaEnlaceConOtra(){
         PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
