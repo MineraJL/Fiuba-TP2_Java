@@ -40,4 +40,8 @@ public abstract class MateriaPrima implements Ocupante {
 
 	public abstract void agregarAlInventario(InventarioMateriaPrima inventario);
 
+
+	@Override
+	public void serGolpeadoCon(int fuerza){}
+
 }

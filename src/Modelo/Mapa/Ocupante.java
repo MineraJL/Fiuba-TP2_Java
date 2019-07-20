@@ -1,8 +1,12 @@
 package Modelo.Mapa;
 
-public interface Ocupante {
+public interface Ocupante extends Golpeable {
+
+    void serGolpeadoCon(int fuerza);
+
 
     void setCasillero(Casillero casillero);
+
     Casillero getCasillero();
 
     PosicionEnlazada getPosicion();

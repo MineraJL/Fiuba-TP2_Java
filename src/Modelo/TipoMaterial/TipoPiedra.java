@@ -16,10 +16,15 @@ public class TipoPiedra extends TipoMaterial{
         herramienta.asignarMaterial(this);
     }
 
-    public void golpear(Madera recurso, int fuerza){ recurso.reducirDurabilidadEn(fuerza);}
+
+    public void golpear(Madera recurso, int fuerza){ recurso.serGolpeadoCon(fuerza);}
+    //public void golpear(Piedra recurso, int fuerza){recurso.serGolpeadoCon(fuerza);}
+    //public void golpear(Metal recurso, int fuerza){recurso.serGolpeadoCon(fuerza);}
+
+//    public void golpear(Madera recurso, int fuerza){ recurso.reducirDurabilidadEn(fuerza);}
     public void golpear(Piedra recurso, int fuerza){recurso.reducirDurabilidadEn(fuerza);}
     public void golpear(Metal recurso, int fuerza){recurso.reducirDurabilidadEn(fuerza);}
-    
+
     @Override
 	public void agregarAlInventario(InventarioHerramienta inventario, Herramienta herramienta) {
 		herramienta.agregarAlInventario(inventario, this);
