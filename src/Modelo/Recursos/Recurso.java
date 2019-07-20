@@ -18,7 +18,11 @@ public abstract class Recurso implements Ocupante {
         this.setCasillero(new Casillero());
     }
 
-    // Implementacion interface item
+    private void reducirDurabilidadEn(int cantidadAReducir) {
+        this.durabilidad.reducirDurabilidadEn(cantidadAReducir,this.MPaLiberar,this.casillero);
+    }
+
+    // Implementacion interface Ocupante
     public void setCasillero(Casillero casillero){
         this.casillero= casillero;
     }
@@ -32,27 +36,20 @@ public abstract class Recurso implements Ocupante {
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
     // Fin implementacion
 
-
-    public abstract void golpearCon(Herramienta herramienta);
+    public void serGolpeadoCon(int fuerza){ // implementacion interfaz Golpeable
+        this.reducirDurabilidadEn(fuerza);
+    }
 
 
     public int durabilidad(){
         return this.durabilidad.durabilidad();
     }
 
-    public void reducirDurabilidadEn(int cantidadAReducir) {
-        this.durabilidad.reducirDurabilidadEn(cantidadAReducir,this.MPaLiberar,this.casillero);
-    }
-
+    public abstract void golpearCon(Herramienta herramienta);
 
     @Override
     public boolean equals(Object object){
         return object.getClass() == this.getClass();
-    }
-
-
-    public void serGolpeadoCon(int fuerza){
-        this.reducirDurabilidadEn(fuerza);
     }
 
 }
