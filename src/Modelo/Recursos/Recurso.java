@@ -50,4 +50,9 @@ public abstract class Recurso implements Ocupante {
         return object.getClass() == this.getClass();
     }
 
+
+    public void serGolpeadoCon(int fuerza){
+        this.reducirDurabilidadEn(fuerza);
+    }
+
 }

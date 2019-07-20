@@ -114,5 +114,7 @@ public class Jugador implements OcupanteMovible {
 	public Herramienta herraminentaActual() {
 		return herramientaDeTrabajo;
 	}
+
+	public void serGolpeadoCon(int fuerza){} // implementacion de interfaz Golpeable
 	
 }
