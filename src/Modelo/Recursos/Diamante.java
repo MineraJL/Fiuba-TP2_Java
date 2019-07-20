@@ -1,20 +1,16 @@
 package Modelo.Recursos;
-import Modelo.Herramientas.*;
-import Modelo.Mapa.Ocupante;
+import Modelo.Herramientas.Herramienta;
 import Modelo.MateriaPrima.MPDiamante;
 
 public class Diamante extends Recurso {
 
     public Diamante() {
-        super.setDurabilidad(100);
+        this.durabilidad = new DurabilidadRecurso(100);
+        this.MPaLiberar = new MPDiamante();
     }
 
-        public void golpearCon(Herramienta herramienta){
+    public void golpearCon(Herramienta herramienta){
             herramienta.golpear(this);
     }
-        
-        public Ocupante liberarMateriaPrima() {
-        	return new MPDiamante();
-        }
 
 }
