@@ -9,23 +9,21 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-
-
 public class PiedraTest {
     // Piedra Durabilidad
     @Test
-    public void testPiedraSeCreaConLaDurabilidadIndicada() {
-        Recurso piedraTest = new Piedra();
-        assertEquals(30, piedraTest.durabilidad());
+    public void testPiedraSeCreaConDurabilidad30() {
+        Recurso piedra = new Piedra();
+        assertEquals(30, piedra.durabilidad());
 
     }
 
     // Piedra reduce durabilidad
     @Test
-    public void testPiedraReduceSuDurabilidadEn4() {
-        Recurso piedraTest = new Piedra();
-        piedraTest.reducirDurabilidadEn(4);
-        assertEquals(26, piedraTest.durabilidad());
+    public void testPiedraAlSerGolpeadoReduceSuDurabilidadEn4() {
+        Recurso piedra = new Piedra();
+        piedra.serGolpeadoCon(4);
+        assertEquals(26, piedra.durabilidad());
     }
 
 
@@ -36,9 +34,9 @@ public class PiedraTest {
     public void testPiedraNoReduceSuDurabilidadSiEsGolpeadoPorHachaDeMadera() {
         TipoMadera materialMadera = new TipoMadera();
         Herramienta hacha = new Hacha(materialMadera);
-        Recurso piedraTest = new Piedra();
-        hacha.golpear(piedraTest);
-        assertEquals(30, piedraTest.durabilidad());
+        Recurso piedra = new Piedra();
+        hacha.golpear(piedra);
+        assertEquals(30, piedra.durabilidad());
     }
 
     // Golpe hacha de Piedra
@@ -46,9 +44,9 @@ public class PiedraTest {
     public void testPiedraNoReduceSuDurabilidadSiEsGolpeadoPorHachaDePiedra() {
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
-        Recurso piedraTest = new Piedra();
-        hacha.golpear(piedraTest);
-        assertEquals(30, piedraTest.durabilidad());
+        Recurso piedra = new Piedra();
+        hacha.golpear(piedra);
+        assertEquals(30, piedra.durabilidad());
     }
 
     // Golpe hacha de Metal
@@ -56,40 +54,40 @@ public class PiedraTest {
     public void testPiedraNoReduceSuDurabilidadEnDosSiEsGolpeadoPorHachaDeMetal() {
         TipoMetal materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
-        Recurso piedraTest = new Piedra();
-        hacha.golpear(piedraTest);
-        assertEquals(30, piedraTest.durabilidad());
+        Recurso piedra = new Piedra();
+        hacha.golpear(piedra);
+        assertEquals(30, piedra.durabilidad());
     }
 
     // GOLPES PICO
     // Golpe Pico de Madera
     @Test
-    public void testPiedraReduceSuDurabilidadSiEsGolpeadoPorPicoMadera() {
+    public void testPiedraReduceSuDurabilidadEn2SiEsGolpeadoPorPicoMadera() {
         TipoMadera materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
-        Recurso piedraTest = new Piedra();
-        pico.golpear(piedraTest);
-        assertEquals(28, piedraTest.durabilidad());
+        Recurso piedra = new Piedra();
+        pico.golpear(piedra);
+        assertEquals(28, piedra.durabilidad());
     }
 
     // Golpe Pico de Piedra
     @Test
-    public void testPiedraReduceSuDurabilidadSiEsGolpeadoPorPicoPiedra() {
+    public void testPiedraReduceSuDurabilidadEn4SiEsGolpeadoPorPicoPiedra() {
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
-        Recurso piedraTest = new Piedra();
-        pico.golpear(piedraTest);
-        assertEquals(26, piedraTest.durabilidad());
+        Recurso piedra = new Piedra();
+        pico.golpear(piedra);
+        assertEquals(26, piedra.durabilidad());
     }
 
     // Golpe Pico de Metal
     @Test
-    public void testPiedraReduceSuDurabilidadSiEsGolpeadoPorPicoMetal() {
+    public void testPiedraReduceSuDurabilidadEn12SiEsGolpeadoPorPicoMetal() {
         TipoMetal materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
-        Recurso piedraTest = new Piedra();
-        pico.golpear(piedraTest);
-        assertEquals(18, piedraTest.durabilidad());
+        Recurso piedra = new Piedra();
+        pico.golpear(piedra);
+        assertEquals(18, piedra.durabilidad());
     }
 
     // GOLPES PICO FINO
@@ -97,9 +95,9 @@ public class PiedraTest {
     public void testPiedraNoReduceSuDurabilidadSiEsGolpeadoPorPicoFino() {
         TipoMetalYPiedra materialMetalYPiedra = new TipoMetalYPiedra();
         Herramienta pico = new PicoFino(materialMetalYPiedra);
-        Recurso piedraTest = new Piedra();
-        pico.golpear(piedraTest);
-        assertEquals(30, piedraTest.durabilidad());
+        Recurso piedra = new Piedra();
+        pico.golpear(piedra);
+        assertEquals(30, piedra.durabilidad());
     }
     
     @Test
@@ -107,8 +105,7 @@ public class PiedraTest {
     	Recurso piedra = new Piedra();
     	MateriaPrima mpPiedra = new MPPiedra();
     	
-    	while (piedra.durabilidad() > 0)
-    		piedra.reducirDurabilidadEn(10);
+    	piedra.serGolpeadoCon(30);
     	
     	assertEquals(mpPiedra, piedra.getCasillero().getOcupante());
     }
