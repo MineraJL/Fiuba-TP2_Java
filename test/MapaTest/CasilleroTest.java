@@ -1,6 +1,8 @@
 package MapaTest;
+import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.*;
+import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.Recursos.*;
 import org.junit.Test;
 
@@ -115,7 +117,10 @@ public class CasilleroTest {
     public void testCasilleroAceptaOcupanteSiNoTieneOcupante(){
 
         Casillero casillero = new Casillero();
-        Ocupante ocupante = new Jugador();
+        
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
 
         casillero.ocuparPor(ocupante);
 
@@ -125,8 +130,11 @@ public class CasilleroTest {
     public void testCasilleroNoAceptaOcupanteSiYaTieneOcupante(){
 
         Casillero casillero = new Casillero();
-        Ocupante ocupante1 = new Jugador();
-        Ocupante ocupante2 = new Jugador();
+        
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Jugador(inventario, mesa);
 
         casillero.ocuparPor(ocupante1);
         casillero.ocuparPor(ocupante2);
