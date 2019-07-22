@@ -2,6 +2,7 @@ package Modelo.Herramientas;
 
 import Modelo.Desgastes.DesgasteSegunMultiplicador;
 import Modelo.Inventario.*;
+import Modelo.Mapa.Ocupante;
 import Modelo.Recursos.Madera;
 import Modelo.TipoMaterial.*;
 
@@ -51,9 +52,9 @@ public class Hacha extends Herramienta {
 
 
     @Override
-    public void golpear(Madera recursoMadera){
-        super.golpear(recursoMadera);
-        this.material.golpear(recursoMadera, this.fuerza);
+    public void golpear(Ocupante unOcupante){
+        super.golpear(unOcupante);
+        this.material.golpear(unOcupante, this.fuerza);
     }
 
 

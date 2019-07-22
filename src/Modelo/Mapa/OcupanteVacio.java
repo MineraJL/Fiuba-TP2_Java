@@ -1,5 +1,7 @@
 package Modelo.Mapa;
 
+import Modelo.Herramientas.Herramienta;
+
 public class OcupanteVacio implements Ocupante {
 
     private Casillero casillero;
@@ -17,7 +19,6 @@ public class OcupanteVacio implements Ocupante {
     @Override
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){}
 
-
-    @Override
-    public void serGolpeadoCon(int fuerza){}
+	@Override
+	public void serGolpeadoCon(Herramienta unaHerramienta) {}
 }

@@ -1,5 +1,6 @@
 package Modelo.MateriaPrima;
 
+import Modelo.Herramientas.Herramienta;
 import Modelo.Inventario.InventarioMateriaPrima;
 import Modelo.Mapa.*;
 
@@ -42,6 +43,6 @@ public abstract class MateriaPrima implements Ocupante {
 
 
 	@Override
-	public void serGolpeadoCon(int fuerza){}
+	public void serGolpeadoCon(Herramienta unaHerramineta){}
 
 }

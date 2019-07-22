@@ -22,7 +22,7 @@ public class PiedraTest {
     @Test
     public void testPiedraAlSerGolpeadoReduceSuDurabilidadEn4() {
         Recurso piedra = new Piedra();
-        piedra.serGolpeadoCon(4);
+        piedra.reducirDurabilidadEn(4);
         assertEquals(26, piedra.durabilidad());
     }
 
@@ -105,7 +105,7 @@ public class PiedraTest {
     	Recurso piedra = new Piedra();
     	MateriaPrima mpPiedra = new MPPiedra();
     	
-    	piedra.serGolpeadoCon(30);
+    	piedra.reducirDurabilidadEn(30);
     	
     	assertEquals(mpPiedra, piedra.getCasillero().getOcupante());
     }

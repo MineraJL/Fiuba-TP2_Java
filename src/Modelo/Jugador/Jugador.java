@@ -82,6 +82,7 @@ public class Jugador implements OcupanteMovible {
 	}
 */
 	public void golpear(){
+		this.herramientaDeTrabajo.golpear((Ocupante)this.casilleroSeleccionadoParaRomper.getOcupante());
 		this.golpearRecurso((Recurso) this.casilleroSeleccionadoParaRomper.getOcupante());
 	}
 	
@@ -118,6 +119,10 @@ public class Jugador implements OcupanteMovible {
 		return herramientaDeTrabajo;
 	}
 
-	public void serGolpeadoCon(int fuerza){} // implementacion de interfaz Golpeable
+	@Override
+	public void serGolpeadoCon(Herramienta unaHerramienta) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

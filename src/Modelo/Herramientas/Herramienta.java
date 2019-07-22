@@ -2,6 +2,7 @@ package Modelo.Herramientas;
 
 import Modelo.Desgastes.*;
 import Modelo.Inventario.InventarioHerramienta;
+import Modelo.Mapa.Ocupante;
 import Modelo.Recursos.*;
 import Modelo.TipoMaterial.*;
 
@@ -54,7 +55,7 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
 
 
     // Dispatch
-    public void golpear(Recurso recurso) { recurso.golpearCon(this);}
+    public void golpear(Ocupante unOcupante) { unOcupante.serGolpeadoCon(this);}
     // Fin dispatch
 
     public void golpear(Madera material){

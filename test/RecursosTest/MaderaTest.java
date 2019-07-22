@@ -21,7 +21,7 @@ public class MaderaTest {
     @Test
     public void testMaderaAlSerGolpeadoReduceSuDurabilidadEn4(){
         Recurso madera =  new Madera();
-        madera.serGolpeadoCon(4);
+        madera.reducirDurabilidadEn(4);
         assertEquals(6, madera.durabilidad());
     }
 
@@ -108,7 +108,7 @@ public class MaderaTest {
         Recurso madera = new Madera();
         MateriaPrima mpMadera = new MPMadera();
 
-        madera.serGolpeadoCon(10);
+        madera.reducirDurabilidadEn(10);
 
         assertEquals(mpMadera, madera.getCasillero().getOcupante());
     }

@@ -10,8 +10,8 @@ public class TipoMadera extends TipoMaterial{
     public TipoMadera(){
     }
 
-    public void golpear(Madera recurso, int fuerza){ recurso.serGolpeadoCon(fuerza);}
-    public void golpear(Piedra recurso, int fuerza){recurso.serGolpeadoCon(fuerza);}
+    public void golpear(Madera recurso, int fuerza){ recurso.reducirDurabilidadEn(fuerza);}
+    public void golpear(Piedra recurso, int fuerza){recurso.reducirDurabilidadEn(fuerza);}
 
 
     @Override
