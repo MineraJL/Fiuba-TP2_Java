@@ -1,13 +1,12 @@
 package Modelo.Herramientas;
 
 import Modelo.Desgastes.DesgasteSegunMultiplicador;
-import Modelo.Inventario.*;
+import Modelo.Inventario.InventarioHerramienta;
 import Modelo.Mapa.Ocupante;
-import Modelo.Recursos.Diamante;
-import Modelo.Recursos.Madera;
-import Modelo.Recursos.Metal;
-import Modelo.Recursos.Piedra;
-import Modelo.TipoMaterial.*;
+import Modelo.TipoMaterial.TipoMadera;
+import Modelo.TipoMaterial.TipoMaterial;
+import Modelo.TipoMaterial.TipoMetal;
+import Modelo.TipoMaterial.TipoPiedra;
 
 public class Hacha extends Herramienta {
 
@@ -16,8 +15,6 @@ public class Hacha extends Herramienta {
         super(material);
         this.material.definirValores(this);
     }
-    
-    
     
     public void agregarAlInventario(InventarioHerramienta inventario) {
     	this.material.agregarAlInventario(inventario, this);
@@ -59,11 +56,5 @@ public class Hacha extends Herramienta {
         super.golpear(unOcupante);
         this.material.golpear(unOcupante, this.fuerza);
     }
-
-    public void golpear(Piedra material){}
-    
-    public void golpear(Metal material){}
-    
-    public void golpear(Diamante material){}
 
 }
