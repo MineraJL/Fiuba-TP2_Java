@@ -18,15 +18,15 @@ public class Jugador implements OcupanteMovible {
 	private Casillero casillero;
 	
 	
-	private void usarHerramienta(Recurso unRecurso) {
-		
-		while(herramientaDeTrabajo.durabilidad() > 0 
+	/*private void usarHerramienta(Recurso unRecurso) {
+
+		while(herramientaDeTrabajo.durabilidad() > 0 // este while no va
 				&& unRecurso.durabilidad() > 0)
 			herramientaDeTrabajo.golpear(unRecurso);
-	}
+	}*/
 	
 	private void recolectarMateriaPrima(MateriaPrima materiaPrima) {
-		inventario.agregarElemento(materiaPrima);
+		inventario.agregarElemento(materiaPrima); // esto no va a ser así, en el futuro hay interfaz recolectable
 	}
 
 	private void mover(Mapa mapa, Direccion direccion){
@@ -35,10 +35,15 @@ public class Jugador implements OcupanteMovible {
 	}
 	
 	private void golpearRecurso(Recurso unRecurso) {
-		usarHerramienta(unRecurso);
-		recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getOcupante());
+		//usarHerramienta(unRecurso);
+		herramientaDeTrabajo.golpear(unRecurso);
+		//recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getOcupante()); // esto no va
 	}
-	
+
+	public void golpear(){
+		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaRomper.getOcupante());
+		//this.golpearRecurso((Recurso) this.casilleroSeleccionadoParaRomper.getOcupante());
+	}
 	
 	public Jugador(Inventario inventario, Mesa mesa) {
 		TipoMadera madera = new TipoMadera();
@@ -81,10 +86,6 @@ public class Jugador implements OcupanteMovible {
 		inventario.agregarElemento(hacha);
 	}
 */
-	public void golpear(){
-		this.herramientaDeTrabajo.golpear((Ocupante)this.casilleroSeleccionadoParaRomper.getOcupante());
-		this.golpearRecurso((Recurso) this.casilleroSeleccionadoParaRomper.getOcupante());
-	}
 	
 	public void seleccionarHachaMadera() {
 		herramientaDeTrabajo = inventario.extraerHachaMadera();
@@ -120,10 +121,7 @@ public class Jugador implements OcupanteMovible {
 	}
 
 	@Override
-	public void serGolpeadoCon(Herramienta unaHerramienta) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void serGolpeadoCon(Herramienta unaHerramienta) {}
 
 	@Override
 	public void serGolpeadoCon(TipoMaterial material, int fuerza) {}
