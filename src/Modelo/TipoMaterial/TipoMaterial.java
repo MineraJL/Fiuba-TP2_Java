@@ -15,7 +15,7 @@ public abstract class TipoMaterial {
     public abstract void definirValores(Herramienta herramienta);
     public abstract void agregarAlInventario(InventarioHerramienta inventario, Herramienta herramienta);
 
-    public void golpear(Ocupante unOcupante, int fuerza) {}
+    public void golpear(Ocupante unOcupante, int fuerza) {unOcupante.serGolpeadoCon(this, fuerza);}
     public void golpear(Madera madera, int fuerza){}
     public void golpear(Piedra piedra, int fuerza){}
     public void golpear(Metal metal,int fuerza ){}

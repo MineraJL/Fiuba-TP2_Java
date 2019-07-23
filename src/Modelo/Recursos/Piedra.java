@@ -2,6 +2,7 @@ package Modelo.Recursos;
 
 import Modelo.Herramientas.Herramienta;
 import Modelo.MateriaPrima.MPPiedra;
+import Modelo.TipoMaterial.*;
 
 public class Piedra extends Recurso {
     public Piedra() {
@@ -11,6 +12,10 @@ public class Piedra extends Recurso {
 
     public void golpearCon(Herramienta herramienta){
         herramienta.golpear(this);
+    }
+    
+    public void golpearCon(TipoMaterial material, int fuerza){
+        material.golpear(this, fuerza);
     }
 
 }

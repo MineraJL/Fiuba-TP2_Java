@@ -3,7 +3,10 @@ package Modelo.Herramientas;
 import Modelo.Desgastes.DesgasteSegunMultiplicador;
 import Modelo.Inventario.*;
 import Modelo.Mapa.Ocupante;
+import Modelo.Recursos.Diamante;
 import Modelo.Recursos.Madera;
+import Modelo.Recursos.Metal;
+import Modelo.Recursos.Piedra;
 import Modelo.TipoMaterial.*;
 
 public class Hacha extends Herramienta {
@@ -57,5 +60,10 @@ public class Hacha extends Herramienta {
         this.material.golpear(unOcupante, this.fuerza);
     }
 
+    public void golpear(Piedra material){}
+    
+    public void golpear(Metal material){}
+    
+    public void golpear(Diamante material){}
 
 }

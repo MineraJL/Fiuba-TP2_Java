@@ -124,5 +124,8 @@ public class Jugador implements OcupanteMovible {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void serGolpeadoCon(TipoMaterial material, int fuerza) {}
 	
 }

@@ -3,6 +3,7 @@ package Modelo.MateriaPrima;
 import Modelo.Herramientas.Herramienta;
 import Modelo.Inventario.InventarioMateriaPrima;
 import Modelo.Mapa.*;
+import Modelo.TipoMaterial.TipoMaterial;
 
 
 public abstract class MateriaPrima implements Ocupante {
@@ -44,5 +45,8 @@ public abstract class MateriaPrima implements Ocupante {
 
 	@Override
 	public void serGolpeadoCon(Herramienta unaHerramineta){}
+	
+	@Override
+	public void serGolpeadoCon(TipoMaterial material, int fuerza){}
 
 }

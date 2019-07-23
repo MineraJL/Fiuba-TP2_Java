@@ -3,8 +3,8 @@ package Modelo.Herramientas;
 import Modelo.Desgastes.DesgastePorUsos;
 import Modelo.Desgastes.DesgasteSegunMultiplicador;
 import Modelo.Inventario.InventarioHerramienta;
-import Modelo.Recursos.Metal;
-import Modelo.Recursos.Piedra;
+import Modelo.Mapa.Ocupante;
+import Modelo.Recursos.*;
 import Modelo.TipoMaterial.TipoMadera;
 import Modelo.TipoMaterial.TipoMaterial;
 import Modelo.TipoMaterial.TipoMetal;
@@ -50,17 +50,10 @@ public class Pico extends Herramienta {
         this.asignarDesgaste(new DesgastePorUsos(10, 400));
     }
     // Fin Dispatch
-
-
+    
     @Override
-    public void golpear(Piedra recursoPiedra) {
-        super.golpear(recursoPiedra);
-        this.material.golpear(recursoPiedra, this.fuerza);
-    }
-
-    @Override
-    public void golpear(Metal recursoMetal) {
-        super.golpear(recursoMetal);
-        this.material.golpear(recursoMetal, this.fuerza);
+    public void golpear(Ocupante unOcupante){
+        super.golpear(unOcupante);
+        this.material.golpear(unOcupante, this.fuerza);
     }
 }

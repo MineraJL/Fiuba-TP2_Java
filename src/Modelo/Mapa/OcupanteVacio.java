@@ -1,6 +1,7 @@
 package Modelo.Mapa;
 
 import Modelo.Herramientas.Herramienta;
+import Modelo.TipoMaterial.TipoMaterial;
 
 public class OcupanteVacio implements Ocupante {
 
@@ -21,4 +22,8 @@ public class OcupanteVacio implements Ocupante {
 
 	@Override
 	public void serGolpeadoCon(Herramienta unaHerramienta) {}
+
+
+	@Override
+	public void serGolpeadoCon(TipoMaterial material, int fuerza) {}
 }
