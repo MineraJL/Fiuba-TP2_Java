@@ -5,12 +5,8 @@ import Modelo.Inventario.InventarioHerramienta;
 
 public class TipoMaterialInexistente extends TipoMaterial {
     @Override
-    public void definirValores(Herramienta herramienta) {
-
-    }
+    public void definirValores(Herramienta herramienta) {}
 
 	@Override
-	public void agregarAlInventario(InventarioHerramienta inventario, Herramienta herramienta) {
-		
-	}
+	public void agregarAlInventario(InventarioHerramienta inventario, Herramienta herramienta) {}
 }

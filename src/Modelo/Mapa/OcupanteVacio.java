@@ -19,10 +19,6 @@ public class OcupanteVacio implements Ocupante {
     @Override
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){}
 
-
-	//@Override //temp: comento esto temporalmente
-	//public void serGolpeadoCon(TipoMaterial material, int fuerza, Herramienta herramienta) {}
-
     @Override
     public void golpeateCon(Herramienta herramienta){}
 }

@@ -10,7 +10,6 @@ import Modelo.TipoMaterial.*;
 public class HerramientaInexistente extends Herramienta {
 
 
-
     public HerramientaInexistente(TipoMaterial material){
         super(material);
     }
@@ -18,8 +17,6 @@ public class HerramientaInexistente extends Herramienta {
     public HerramientaInexistente(){
         super(new TipoMaterialInexistente());
     }
-
-
 
 
     public void asignarMaterial(TipoMaterial material){}
@@ -32,9 +29,6 @@ public class HerramientaInexistente extends Herramienta {
     // Set
     public void asignarFuerza(int fuerza){}
     public void asignarDesgaste(Desgaste desgaste){}
-
-
-
 
 
     // Get

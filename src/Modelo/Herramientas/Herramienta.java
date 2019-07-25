@@ -18,12 +18,12 @@ public abstract class Herramienta {
     }
 
 
-public abstract void agregarAlInventario(InventarioHerramienta inventario);
+    public abstract void agregarAlInventario(InventarioHerramienta inventario);
 
-public void agregarAlInventario(InventarioHerramienta inventario, TipoMadera madera){}
-public void agregarAlInventario(InventarioHerramienta inventario, TipoPiedra piedra){}
-public void agregarAlInventario(InventarioHerramienta inventario, TipoMetal metal){}
-public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPiedra metalYPiedra){}
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMadera madera){}
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoPiedra piedra){}
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMetal metal){}
+    public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPiedra metalYPiedra){}
 
     public void asignarMaterial(TipoMaterial material){material.definirValores(this);}
     public void asignarMaterial(TipoMadera madera){}
@@ -41,9 +41,6 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
     }
 
 
-
-
-
     // Get
     public int fuerza() {
         return this.fuerza;
@@ -53,6 +50,7 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
         return this.desgaste.durabilidad();
     }
 
+    public abstract void golpear(Ocupante ocupante);
 
     // Dispatch
     public void golpear(Recurso recurso) { recurso.golpearCon(this);}
@@ -81,6 +79,5 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
 
     }
 
-    public abstract void golpear(Ocupante ocupante);
 
 }
