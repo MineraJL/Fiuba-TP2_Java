@@ -1,8 +1,7 @@
 package Modelo.TipoMaterial;
 
-import Modelo.Herramientas.*;
+import Modelo.Herramientas.Herramienta;
 import Modelo.Inventario.InventarioHerramienta;
-import Modelo.Mapa.Ocupante;
 import Modelo.Recursos.Diamante;
 import Modelo.Recursos.Madera;
 import Modelo.Recursos.Metal;
@@ -14,7 +13,7 @@ public abstract class TipoMaterial {
     public abstract void definirValores(Herramienta herramienta);
     public abstract void agregarAlInventario(InventarioHerramienta inventario, Herramienta herramienta);
 
-    public void golpear(Ocupante unOcupante, int fuerza, Hacha herramienta) {
+    /*public void golpear(Ocupante unOcupante, int fuerza, Hacha herramienta) {
     	unOcupante.serGolpeadoCon(this, fuerza, herramienta);
     }
     
@@ -24,7 +23,7 @@ public abstract class TipoMaterial {
     
     public void golpear(Ocupante unOcupante, int fuerza, PicoFino herramienta) {
     	unOcupante.serGolpeadoCon(this, fuerza, herramienta);
-    }
+    }*/ // temp: comento esto temporalmente
     
     public void golpear(Madera madera, int fuerza){}
     public void golpear(Piedra piedra, int fuerza){}

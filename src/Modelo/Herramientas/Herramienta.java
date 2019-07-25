@@ -1,6 +1,6 @@
 package Modelo.Herramientas;
 
-import Modelo.Desgastes.*;
+import Modelo.Desgastes.Desgaste;
 import Modelo.Inventario.InventarioHerramienta;
 import Modelo.Mapa.Ocupante;
 import Modelo.Recursos.*;
@@ -55,7 +55,7 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
 
 
     // Dispatch
-    public void golpear(Ocupante unOcupante) { unOcupante.serGolpeadoCon(this);}
+    public void golpear(Recurso recurso) { recurso.golpearCon(this);}
     // Fin dispatch
 
     public void golpear(Madera material){
@@ -70,11 +70,6 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
     public void golpear(Diamante material){
         this.desgaste.desgastarCon(this.fuerza);
     }
-    
-    public void golpearCon(TipoMaterial material, int fuerza, Madera madera) {}
-    public void golpearCon(TipoMaterial material, int fuerza, Piedra piedra) {}
-    public void golpearCon(TipoMaterial material, int fuerza, Metal metal) {}
-    public void golpearCon(TipoMaterial material, int fuerza, Diamante diamante) {}
 
     @Override
     public boolean equals(Object otraHerramienta){
@@ -85,4 +80,7 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
         return false;
 
     }
+
+    public abstract void golpear(Ocupante ocupante);
+
 }

@@ -4,7 +4,8 @@ import Modelo.Desgastes.DesgastePorUsos;
 import Modelo.Desgastes.DesgasteSegunMultiplicador;
 import Modelo.Inventario.InventarioHerramienta;
 import Modelo.Mapa.Ocupante;
-import Modelo.Recursos.*;
+import Modelo.Recursos.Metal;
+import Modelo.Recursos.Piedra;
 import Modelo.TipoMaterial.TipoMadera;
 import Modelo.TipoMaterial.TipoMaterial;
 import Modelo.TipoMaterial.TipoMetal;
@@ -52,19 +53,20 @@ public class Pico extends Herramienta {
     // Fin Dispatch
     
     @Override
-    public void golpear(Ocupante unOcupante){
-        super.golpear(unOcupante);
-        this.material.golpear(unOcupante, this.fuerza, this);
+    public void golpear(Piedra recursoPiedra) {
+        super.golpear(recursoPiedra);
+        this.material.golpear(recursoPiedra, this.fuerza);
     }
-    
-    public void golpearCon(TipoMaterial material, int fuerza, Madera madera) {}
-    
-    public void golpearCon(TipoMaterial material, int fuerza, Piedra piedra) {
-   	 material.golpear(piedra, fuerza);
-   }
-    
-    public void golpearCon(TipoMaterial material, int fuerza, Metal metal) {
-    	material.golpear(metal, fuerza);
+
+    @Override
+    public void golpear(Metal recursoMetal) {
+        super.golpear(recursoMetal);
+        this.material.golpear(recursoMetal, this.fuerza);
     }
-    public void golpearCon(TipoMaterial material, int fuerza, Diamante diamante) {}
+
+
+    @Override
+    public void golpear(Ocupante ocupante){
+        ocupante.golpeateCon(this);
+    }
 }

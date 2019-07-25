@@ -2,6 +2,7 @@ package Modelo.Herramientas;
 
 import Modelo.Desgastes.Desgaste;
 import Modelo.Inventario.InventarioHerramienta;
+import Modelo.Mapa.Ocupante;
 import Modelo.Recursos.*;
 import Modelo.TipoMaterial.TipoMaterial;
 import Modelo.TipoMaterial.*;
@@ -55,4 +56,7 @@ public class HerramientaInexistente extends Herramienta {
 	public void agregarAlInventario(InventarioHerramienta inventario) {
 
 	}
+
+	@Override
+    public void golpear(Ocupante ocupante){}
 }

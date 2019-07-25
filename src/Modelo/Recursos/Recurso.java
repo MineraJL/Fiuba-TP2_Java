@@ -7,7 +7,6 @@ import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.PosicionEnlazada;
 import Modelo.MateriaPrima.MateriaPrima;
-import Modelo.TipoMaterial.TipoMaterial;
 
 public abstract class Recurso implements Ocupante {
 
@@ -42,23 +41,10 @@ public abstract class Recurso implements Ocupante {
     }
 
     public abstract void golpearCon(Herramienta herramienta);
-    public abstract void golpearCon(TipoMaterial meterial, int fuerza, Herramienta herramienta);
 
     @Override
     public boolean equals(Object object){
         return object.getClass() == this.getClass();
     }
-    
-	@Override
-	public void serGolpeadoCon(Herramienta unaHerramienta) {
-		this.golpearCon(unaHerramienta);
-		
-	}
-	
-	@Override
-	public void serGolpeadoCon(TipoMaterial material, int fuerza, Herramienta herramienta) {
-		this.golpearCon(material, fuerza, herramienta);
-		
-	}
 
 }
