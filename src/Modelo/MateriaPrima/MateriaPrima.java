@@ -1,6 +1,7 @@
 package Modelo.MateriaPrima;
 
 import Modelo.Herramientas.Herramienta;
+import Modelo.Inventario.Inventario;
 import Modelo.Inventario.InventarioMateriaPrima;
 import Modelo.Mapa.Casillero;
 import Modelo.Mapa.Mapa;
@@ -46,5 +47,10 @@ public abstract class MateriaPrima implements Ocupante {
 
 	@Override
 	public void golpeateCon(Herramienta herramienta){}
+
+	@Override
+	public void serRecolectadoEn(Inventario inventario){
+		inventario.agregarElemento(this);
+	}
 
 }

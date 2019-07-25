@@ -1,6 +1,7 @@
 package Modelo.Mapa;
 
 import Modelo.Herramientas.Herramienta;
+import Modelo.Inventario.Inventario;
 
 public class OcupanteVacio implements Ocupante {
 
@@ -21,4 +22,7 @@ public class OcupanteVacio implements Ocupante {
 
     @Override
     public void golpeateCon(Herramienta herramienta){}
+    @Override
+    public void serRecolectadoEn(Inventario inventario){}
+
 }

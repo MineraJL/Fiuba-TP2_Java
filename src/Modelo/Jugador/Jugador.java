@@ -4,21 +4,20 @@ import Modelo.Herramientas.Hacha;
 import Modelo.Herramientas.Herramienta;
 import Modelo.Inventario.Inventario;
 import Modelo.Mapa.*;
-import Modelo.MateriaPrima.MateriaPrima;
 import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.TipoMaterial.TipoMadera;
 
 
 public class Jugador implements OcupanteMovible {
 	private Mapa mapa;
-	private Casillero casilleroSeleccionadoParaRomper;
+	private Casillero casilleroSeleccionadoParaGolpear;
 	private Inventario inventario;
 	private Mesa mesa;
 	private Herramienta herramientaDeTrabajo;
 	private Casillero casillero;
 
-	private void recolectarMateriaPrima(MateriaPrima materiaPrima) {
-		inventario.agregarElemento(materiaPrima); // esto no va a ser así, en el futuro hay interfaz recolectable
+	public void recolectar(){
+		this.casilleroSeleccionadoParaGolpear.getOcupante().serRecolectadoEn(this.inventario);
 	}
 
 	private void mover(Mapa mapa, Direccion direccion){
@@ -27,7 +26,7 @@ public class Jugador implements OcupanteMovible {
 	}
 
 	public void golpear(){
-		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaRomper.getOcupante());
+		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaGolpear.getOcupante());
 	}
 	
 	public Jugador(Inventario inventario, Mesa mesa) {
@@ -54,7 +53,7 @@ public class Jugador implements OcupanteMovible {
 
 	public void mover(Direccion direccion){
 		this.mover(this.mapa,direccion);
-		this.casilleroSeleccionadoParaRomper=this.casillero.obtenerCasilleroVecino(this.mapa,direccion);
+		this.casilleroSeleccionadoParaGolpear =this.casillero.obtenerCasilleroVecino(this.mapa,direccion);
 	}
 
 
@@ -107,4 +106,6 @@ public class Jugador implements OcupanteMovible {
 
 	@Override
 	public void golpeateCon(Herramienta herramienta){}
+	@Override
+	public void serRecolectadoEn(Inventario inventario){}
 }
