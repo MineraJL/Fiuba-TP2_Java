@@ -7,6 +7,7 @@ import Modelo.TipoMaterial.TipoMadera;
 import Modelo.TipoMaterial.TipoMaterial;
 import Modelo.TipoMaterial.TipoMetal;
 import Modelo.TipoMaterial.TipoPiedra;
+import Modelo.Recursos.*;
 
 public class Hacha extends Herramienta {
 
@@ -54,7 +55,16 @@ public class Hacha extends Herramienta {
     @Override
     public void golpear(Ocupante unOcupante){
         super.golpear(unOcupante);
-        this.material.golpear(unOcupante, this.fuerza);
+        this.material.golpear(unOcupante, this.fuerza, this);
     }
 
+    public void golpearCon(TipoMaterial material, int fuerza, Madera madera) {
+    	 material.golpear(madera, fuerza);
+    }
+    
+    public void golpearCon(TipoMaterial material, int fuerza, Piedra piedra) {}
+    public void golpearCon(TipoMaterial material, int fuerza, Metal metal) {}
+    public void golpearCon(TipoMaterial material, int fuerza, Diamante diamante) {}
+    
+    
 }

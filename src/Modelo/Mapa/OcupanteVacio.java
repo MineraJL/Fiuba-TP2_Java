@@ -22,8 +22,7 @@ public class OcupanteVacio implements Ocupante {
 
 	@Override
 	public void serGolpeadoCon(Herramienta unaHerramienta) {}
-
-
+	
 	@Override
-	public void serGolpeadoCon(TipoMaterial material, int fuerza) {}
+	public void serGolpeadoCon(TipoMaterial material, int fuerza, Herramienta herramienta) {}
 }

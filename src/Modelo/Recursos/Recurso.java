@@ -42,7 +42,7 @@ public abstract class Recurso implements Ocupante {
     }
 
     public abstract void golpearCon(Herramienta herramienta);
-    public abstract void golpearCon(TipoMaterial meterial, int fuerza);
+    public abstract void golpearCon(TipoMaterial meterial, int fuerza, Herramienta herramienta);
 
     @Override
     public boolean equals(Object object){
@@ -56,8 +56,8 @@ public abstract class Recurso implements Ocupante {
 	}
 	
 	@Override
-	public void serGolpeadoCon(TipoMaterial material, int fuerza) {
-		this.golpearCon(material, fuerza);
+	public void serGolpeadoCon(TipoMaterial material, int fuerza, Herramienta herramienta) {
+		this.golpearCon(material, fuerza, herramienta);
 		
 	}
 

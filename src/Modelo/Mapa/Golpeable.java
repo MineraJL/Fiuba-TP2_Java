@@ -7,5 +7,5 @@ public interface Golpeable {
 
     void serGolpeadoCon(Herramienta unaHerramienta);
 
-    void serGolpeadoCon(TipoMaterial material, int fuerza);
+    void serGolpeadoCon(TipoMaterial material, int fuerza, Herramienta herramienta);
 }

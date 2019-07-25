@@ -47,6 +47,6 @@ public abstract class MateriaPrima implements Ocupante {
 	public void serGolpeadoCon(Herramienta unaHerramineta){}
 	
 	@Override
-	public void serGolpeadoCon(TipoMaterial material, int fuerza){}
+	public void serGolpeadoCon(TipoMaterial material, int fuerza, Herramienta herramienta){}
 
 }

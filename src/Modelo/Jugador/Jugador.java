@@ -124,6 +124,6 @@ public class Jugador implements OcupanteMovible {
 	public void serGolpeadoCon(Herramienta unaHerramienta) {}
 
 	@Override
-	public void serGolpeadoCon(TipoMaterial material, int fuerza) {}
+	public void serGolpeadoCon(TipoMaterial material, int fuerza, Herramienta herramienta) {}
 	
 }

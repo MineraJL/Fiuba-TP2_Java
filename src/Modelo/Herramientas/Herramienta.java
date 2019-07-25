@@ -70,6 +70,11 @@ public void agregarAlInventario(InventarioHerramienta inventario, TipoMetalYPied
     public void golpear(Diamante material){
         this.desgaste.desgastarCon(this.fuerza);
     }
+    
+    public void golpearCon(TipoMaterial material, int fuerza, Madera madera) {}
+    public void golpearCon(TipoMaterial material, int fuerza, Piedra piedra) {}
+    public void golpearCon(TipoMaterial material, int fuerza, Metal metal) {}
+    public void golpearCon(TipoMaterial material, int fuerza, Diamante diamante) {}
 
     @Override
     public boolean equals(Object otraHerramienta){

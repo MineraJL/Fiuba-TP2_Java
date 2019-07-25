@@ -4,7 +4,6 @@ import Modelo.Recursos.*;
 import Modelo.Desgastes.DesgasteSegunMultiplicador;
 import Modelo.Inventario.InventarioHerramienta;
 import Modelo.Mapa.Ocupante;
-import Modelo.Recursos.Diamante;
 import Modelo.TipoMaterial.*;
 
 public class PicoFino extends Herramienta {
@@ -39,14 +38,18 @@ public class PicoFino extends Herramienta {
     public void golpear(Ocupante unOcupante) {
         //super.golpear(recursoDiamante);
         this.desgaste.desgastarCon(this.durabilidad());
-        this.material.golpear(unOcupante, this.fuerza);
+        this.material.golpear(unOcupante, this.fuerza, this);
     }
     
-    public void golpear(Madera material){
-    }
-    public void golpear(Piedra material){
-    }
-    public void golpear(Metal material){
-    }
+    public void golpear(Madera material){}
+    public void golpear(Piedra material){}
+    public void golpear(Metal material){}
+    
+    public void golpearCon(TipoMaterial material, int fuerza, Madera madera) {}
+    public void golpearCon(TipoMaterial material, int fuerza, Piedra piedra) {}
+    public void golpearCon(TipoMaterial material, int fuerza, Metal metal) {}
+    public void golpearCon(TipoMaterial material, int fuerza, Diamante diamante) {
+   	 material.golpear(diamante, fuerza);
+   }
 
 }

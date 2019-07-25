@@ -54,6 +54,17 @@ public class Pico extends Herramienta {
     @Override
     public void golpear(Ocupante unOcupante){
         super.golpear(unOcupante);
-        this.material.golpear(unOcupante, this.fuerza);
+        this.material.golpear(unOcupante, this.fuerza, this);
     }
+    
+    public void golpearCon(TipoMaterial material, int fuerza, Madera madera) {}
+    
+    public void golpearCon(TipoMaterial material, int fuerza, Piedra piedra) {
+   	 material.golpear(piedra, fuerza);
+   }
+    
+    public void golpearCon(TipoMaterial material, int fuerza, Metal metal) {
+    	material.golpear(metal, fuerza);
+    }
+    public void golpearCon(TipoMaterial material, int fuerza, Diamante diamante) {}
 }

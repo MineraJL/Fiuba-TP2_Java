@@ -15,8 +15,8 @@ public class Madera extends Recurso {
         herramienta.golpear(this);
     }
     
-    public void golpearCon(TipoMaterial material, int fuerza){
-        material.golpear(this, fuerza);
+    public void golpearCon(TipoMaterial material, int fuerza, Herramienta herramienta){
+        herramienta.golpearCon(material, fuerza, this);
     }
 
 }
