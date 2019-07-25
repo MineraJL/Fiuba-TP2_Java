@@ -1,12 +1,12 @@
 package Modelo.Jugador;
 
-import Modelo.Herramientas.*;
+import Modelo.Herramientas.Hacha;
+import Modelo.Herramientas.Herramienta;
 import Modelo.Inventario.Inventario;
 import Modelo.Mapa.*;
 import Modelo.MateriaPrima.MateriaPrima;
 import Modelo.MesaDeTrabajo.Mesa;
-import Modelo.TipoMaterial.*;
-import Modelo.Recursos.*;
+import Modelo.TipoMaterial.TipoMadera;
 
 
 public class Jugador implements OcupanteMovible {
@@ -16,15 +16,7 @@ public class Jugador implements OcupanteMovible {
 	private Mesa mesa;
 	private Herramienta herramientaDeTrabajo;
 	private Casillero casillero;
-	
-	
-	/*private void usarHerramienta(Recurso unRecurso) {
 
-		while(herramientaDeTrabajo.durabilidad() > 0 // este while no va
-				&& unRecurso.durabilidad() > 0)
-			herramientaDeTrabajo.golpear(unRecurso);
-	}*/
-	
 	private void recolectarMateriaPrima(MateriaPrima materiaPrima) {
 		inventario.agregarElemento(materiaPrima); // esto no va a ser así, en el futuro hay interfaz recolectable
 	}
@@ -33,16 +25,9 @@ public class Jugador implements OcupanteMovible {
 		this.casillero.desocupar();
 		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this);
 	}
-	
-	private void golpearRecurso(Recurso unRecurso) {
-		//usarHerramienta(unRecurso);
-		herramientaDeTrabajo.golpear(unRecurso);
-		//recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getOcupante()); // esto no va
-	}
 
 	public void golpear(){
 		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaRomper.getOcupante());
-		//this.golpearRecurso((Recurso) this.casilleroSeleccionadoParaRomper.getOcupante());
 	}
 	
 	public Jugador(Inventario inventario, Mesa mesa) {

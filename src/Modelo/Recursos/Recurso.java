@@ -34,6 +34,8 @@ public abstract class Recurso implements Ocupante {
     public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}
 
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
+
+    public abstract void golpeateCon(Herramienta herramienta);
     // Fin implementacion
 
     public int durabilidad(){
