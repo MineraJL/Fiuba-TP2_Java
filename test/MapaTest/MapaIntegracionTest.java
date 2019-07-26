@@ -1,10 +1,12 @@
 package MapaTest;
 
+import Modelo.Herramientas.Hacha;
 import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.*;
 import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.Recursos.Madera;
+import Modelo.TipoMaterial.TipoMadera;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertSame;
@@ -314,4 +316,130 @@ public class MapaIntegracionTest {
         assertEquals(casilleroOrigen,otroJugador.getCasillero());
     }
 
+
+
+    // Jugador golpea distintos Ocupantes
+    // Jugador golpea en casillero siguiente en distintas direcciones
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteAbajo_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // J * *
+        // * * *
+        // * * M
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(2, 2);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 0));
+
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionAbajo());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteArriba_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // M * *
+        // * * *
+        // J * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(2, 0));
+
+        jugador.mover(new DireccionArriba());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteDerecha_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // J * M
+        // * * *
+        // * * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 2);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 0));
+
+        jugador.mover(new DireccionDerecha());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteIzquierda_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // M * J
+        // * * *
+        // * * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 2));
+
+        jugador.mover(new DireccionIzquierda());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+
+    //
+
+    @Test
+    public void testHachaDeMaderaGolpeaOcupanteRecursoMaderaYSeDisminuyenSusDurabilidades() {
+        TipoMadera maderaHerramienta = new TipoMadera();
+        Hacha hacha = new Hacha(maderaHerramienta);
+        Madera madera = new Madera();
+
+        madera.golpeateCon(hacha);
+
+        assertEquals(10 - 2, madera.durabilidad());
+        assertEquals(100 - 2, hacha.durabilidad());
+
+    }
 }
