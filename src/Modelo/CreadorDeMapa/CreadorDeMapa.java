@@ -11,23 +11,21 @@ import Modelo.Recursos.Piedra;
 public class CreadorDeMapa {
     private Mapa mapa;
 
-    public CreadorDeMapa(Jugador jugador){
+    public CreadorDeMapa(){
         this.mapa = new Mapa(60,80);
-        this.inicializarMapa(jugador);
+        this.inicializarMapaConRecursos();
 
     }
 
-    private void inicializarMapa(Jugador jugador){
-        this.ingresarJugadorAMapa(jugador);
+    private void inicializarMapaConRecursos(){
         this.inicializarMapaConMadera();
         this.inicializarMapaConPiedra();
         this.inicializarMapaConMetal();
         this.inicializarMapaConDiamante();
-
     }
 
-    private void ingresarJugadorAMapa(Jugador jugador){
-        PosicionEnlazada posicion = new PosicionEnlazada(1,1);
+    public void ingresarJugadorAMapa(Jugador jugador){
+        PosicionEnlazada posicion = new PosicionEnlazada(0,0);
         jugador.ingresar(mapa,posicion);
     }
 
@@ -86,5 +84,8 @@ public class CreadorDeMapa {
 
     }
 
+    public Mapa obtenerMapaConRecursos(){
+        return this.mapa;
+    }
 
 }

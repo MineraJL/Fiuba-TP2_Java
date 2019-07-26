@@ -1,13 +1,10 @@
 package Vista;
 
 
+import Modelo.Modelo;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import Modelo.Jugador.Jugador;
-import Modelo.MesaDeTrabajo.Mesa;
-import Modelo.CreadorDeModelo;
-import Modelo.Inventario.Inventario;
 
 public class Aplicacion extends Application {
 
@@ -20,13 +17,9 @@ public class Aplicacion extends Application {
 	public void start(Stage stage) throws Exception {
 		stage.setTitle("TP2 AlgoCraft");
 		
-    	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-		Jugador jugador = new Jugador(inventario, mesa);
-	//	Modelo.CreadorDeMapa mapa = new Modelo.CreadorDeMapa(jugador);
-		CreadorDeModelo modelito = new CreadorDeModelo();
+		Modelo modelo = new Modelo();
 		
-		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, jugador, mesa);
+		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, modelo.jugador(), modelo.mesa());
         Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
         
         ContenedorApertura contenedorApertura = new ContenedorApertura(stage, escenaJuego);
