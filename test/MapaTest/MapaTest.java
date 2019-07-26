@@ -71,7 +71,7 @@ public class MapaTest{
 
         madera.ingresar(mapa,posicionMadera);
 
-        Ocupante maderaEnMapa = mapa.ocupante(2,3);
+        Ocupante maderaEnMapa = mapa.ocupante(posicionMadera);
 
         assertEquals(madera,maderaEnMapa);
     }

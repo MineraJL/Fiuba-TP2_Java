@@ -52,8 +52,8 @@ public class Mapa {
 
 
     // obtener ocupante para vista
-    public Ocupante ocupante(int i, int j){
-        return matriz[i][j].getOcupante();
+    public Ocupante ocupante(PosicionEnlazada posicion){
+        return matriz[posicion.geti()][posicion.getj()].getOcupante();
     }
     // fin método para vista
 
