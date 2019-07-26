@@ -50,4 +50,11 @@ public class Mapa {
         return this.matriz[posicion.geti()][posicion.getj()];
     }
 
+
+    // obtener ocupante para vista
+    public Ocupante ocupante(int i, int j){
+        return matriz[i][j].getOcupante();
+    }
+    // fin método para vista
+
 }
