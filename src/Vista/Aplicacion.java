@@ -20,7 +20,7 @@ public class Aplicacion extends Application {
 		Modelo modelo = new Modelo();
 
 		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, modelo);
-        Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
+        Scene escenaJuego = new Scene(contenedorPrincipal, 720, 600);
         
         ContenedorApertura contenedorApertura = new ContenedorApertura(stage, escenaJuego);
         Scene escenaInicial = new Scene(contenedorApertura, 640, 480);

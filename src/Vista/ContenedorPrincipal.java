@@ -43,7 +43,7 @@ public class ContenedorPrincipal extends BorderPane {
 
     public void setCentro(Modelo modelo){
 
-	    canvasCentral = new Canvas(460,220);
+	    canvasCentral = new Canvas(512,480);
 	    VistaModelo vistaModelo = new VistaModelo(modelo,canvasCentral);
 	    vistaModelo.dibujar();
 
@@ -54,7 +54,12 @@ public class ContenedorPrincipal extends BorderPane {
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedorCentral.setBackground(new Background(imagenDeFondo));
 
-	    this.setCenter(contenedorCentral);
+        Text textoPuntos = new Text("Tenés muchos puntos y maderitas");
+        VBox contenedorConPuntos = new VBox(textoPuntos,contenedorCentral);
+        contenedorConPuntos.setSpacing(30);
+
+        this.setCenter(contenedorConPuntos);
+	    //this.setCenter(contenedorCentral); // rmplazo esta linea x cont con puntos.
 
     }
 

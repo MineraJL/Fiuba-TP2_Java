@@ -124,7 +124,7 @@ public class JugadorTest {
     public void ocupanteJugadorDevuelveSuNombre(){
         Inventario inventario = new Inventario();
         Mesa mesa = new Mesa();
-        
+
         Jugador jugador = new Jugador(inventario, mesa);
         String nombre = jugador.obtenerNombreOcupante();
         assertEquals("Jugador",nombre);
