@@ -3,7 +3,9 @@ package Modelo.CreadorDeMapa;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.PosicionEnlazada;
+import Modelo.Recursos.Diamante;
 import Modelo.Recursos.Madera;
+import Modelo.Recursos.Metal;
 import Modelo.Recursos.Piedra;
 
 public class CreadorDeMapa {
@@ -20,6 +22,7 @@ public class CreadorDeMapa {
         this.inicializarMapaConMadera();
         this.inicializarMapaConPiedra();
         this.inicializarMapaConMetal();
+        this.inicializarMapaConDiamante();
 
     }
 
@@ -57,15 +60,29 @@ public class CreadorDeMapa {
 
     private void inicializarMapaConMetal(){
         // ubico 9 metales en el mapa
-        Piedra piedra = new Piedra();
+        Metal metal = new Metal();
         for (int i=10;i<12;i++) {
             for (int j = 4; j < 9; j++) {
                 PosicionEnlazada posicion = new PosicionEnlazada(i,j);
-                piedra.ingresar(mapa,posicion);
+                metal.ingresar(mapa,posicion);
             }
         }
         PosicionEnlazada posicion = new PosicionEnlazada(12,4);
-        piedra.ingresar(mapa,posicion);
+        metal.ingresar(mapa,posicion);
+
+    }
+
+    private void inicializarMapaConDiamante(){
+        // ubico 9 diamantes en el mapa
+        Diamante diamante = new Diamante();
+        for (int i=45;i<48;i++) {
+            for (int j = 50; j < 53; j++) {
+                PosicionEnlazada posicion = new PosicionEnlazada(i,j);
+                diamante.ingresar(mapa,posicion);
+            }
+        }
+        PosicionEnlazada posicion = new PosicionEnlazada(12,4);
+        diamante.ingresar(mapa,posicion);
 
     }
 
