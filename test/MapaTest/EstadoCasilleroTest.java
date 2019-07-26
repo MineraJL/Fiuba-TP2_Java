@@ -1,13 +1,13 @@
 package MapaTest;
 
-import Jugador.Jugador;
-import Mapa.*;
-import Recursos.Madera;
+import Modelo.Inventario.Inventario;
+import Modelo.Jugador.Jugador;
+import Modelo.Mapa.*;
+import Modelo.MesaDeTrabajo.Mesa;
+import Modelo.Recursos.Madera;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertSame;
-import static org.junit.Assert.assertNotSame;
 
 public class EstadoCasilleroTest {
 
@@ -20,16 +20,18 @@ public class EstadoCasilleroTest {
         Casillero casillero2 = new Casillero();
         Casillero casillero3 = new Casillero();
 
-        Item item1 = new Jugador();
-        Item item2 = new Jugador();
-        item2.setCasillero(casillero3);
-        item1.setCasillero(casillero2);
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Jugador(inventario, mesa);
+        ocupante2.setCasillero(casillero3);
+        ocupante1.setCasillero(casillero2);
 
 
-        estado.setItem(casillero1,item1);
-        casillero1.setItem(item2);
+        estado.ocuparPor(casillero1, ocupante1);
+        casillero1.ocuparPor(ocupante2);
 
-        assertSame(casillero1,item2.getCasillero());
+        assertSame(casillero1, ocupante2.getCasillero());
     }
 
     // Estado no tiene que setear ocupado al casillero
@@ -39,12 +41,14 @@ public class EstadoCasilleroTest {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
 
-        Item item1 = new Jugador();
-        item1.setCasillero(casillero2);
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        ocupante1.setCasillero(casillero2);
 
-        estado.setItem(casillero1,item1);
+        estado.ocuparPor(casillero1, ocupante1);
 
-        assertSame(casillero2,item1.getCasillero());
+        assertSame(casillero2, ocupante1.getCasillero());
     }
 
     // CASILLERO DISPONIBLE
@@ -56,16 +60,18 @@ public class EstadoCasilleroTest {
         Casillero casillero2 = new Casillero();
         Casillero casillero3 = new Casillero();
 
-        Item item1 = new Jugador();
-        Item item2 = new Jugador();
-        item2.setCasillero(casillero3);
-        item1.setCasillero(casillero2);
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Jugador(inventario, mesa);
+        ocupante2.setCasillero(casillero3);
+        ocupante1.setCasillero(casillero2);
 
 
-        estado.setItem(casillero1,item1);
-        casillero1.setItem(item2);
+        estado.ocuparPor(casillero1, ocupante1);
+        casillero1.ocuparPor(ocupante2);
 
-        assertSame(casillero1,item1.getCasillero());
+        assertSame(casillero1, ocupante1.getCasillero());
     }
 
 
@@ -76,12 +82,14 @@ public class EstadoCasilleroTest {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
 
-        Item item1 = new Jugador();
-        item1.setCasillero(casillero2);
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        ocupante1.setCasillero(casillero2);
 
-        estado.setItem(casillero1,item1);
+        estado.ocuparPor(casillero1, ocupante1);
 
-        assertSame(casillero1,item1.getCasillero());
+        assertSame(casillero1, ocupante1.getCasillero());
     }
 
 
@@ -90,12 +98,12 @@ public class EstadoCasilleroTest {
     public void testEstadoDisponibleGuardaItemCorrectamente(){
         EstadoCasillero estado = new EstadoDisponible();
 
-        Item item1 = new Madera();
+        Ocupante ocupante1 = new Madera();
 
         Casillero c = new Casillero();
 
-        EstadoCasillero  nuevoEstado = estado.setItem(c,item1);
+        EstadoCasillero  nuevoEstado = estado.ocuparPor(c, ocupante1);
 
-        assertSame(nuevoEstado.getItem(),item1);
+        assertSame(nuevoEstado.getOcupante(), ocupante1);
     }
 }

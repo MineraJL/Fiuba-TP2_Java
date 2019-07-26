@@ -1,11 +1,13 @@
 package CreadorDeMapaTest;
 
-import CreadorDeMapa.CreadorDeMapa;
-import Herramientas.PicoFino;
-import Jugador.Jugador;
-import Mapa.Direccion;
-import Mapa.Posicion;
-import TipoMaterial.TipoMetalYPiedra;
+import Modelo.CreadorDeMapa.CreadorDeMapa;
+import Modelo.Herramientas.PicoFino;
+import Modelo.Inventario.Inventario;
+import Modelo.Jugador.Jugador;
+import Modelo.Mapa.DireccionDerecha;
+import Modelo.Mapa.PosicionEnlazada;
+import Modelo.MesaDeTrabajo.Mesa;
+import Modelo.TipoMaterial.TipoMetalYPiedra;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -16,10 +18,12 @@ public class CreadorDeMapaTest {
 
     @Test
     public void testJugadorIngresaAMapaEnLaPosicion1_1(){
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa(jugador);
 
-        Posicion posicionEsperada = new Posicion(1,1);
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(1,1);
 
         boolean posicionesIguales = jugador.getPosicion().equals(posicionEsperada);
         assertTrue(posicionesIguales);
@@ -29,10 +33,12 @@ public class CreadorDeMapaTest {
 
     @Test
     public void testMapaSeInicializaCon20RecursosMaderaEnPosicionesConocidas(){
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa(jugador);
 
-        jugador.mover(Direccion.derecha());
+        jugador.mover(new DireccionDerecha());
 
         PicoFino picoFino = new PicoFino(new TipoMetalYPiedra());
         // a la herramienta la tendria que tener el jugador. Pero empieza con un hacha de madera.

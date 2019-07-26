@@ -1,9 +1,9 @@
 package InventarioTest;
 
-import Herramientas.*;
-import Inventario.Inventario;
-import MateriaPrima.*;
-import TipoMaterial.*;
+import Modelo.Herramientas.*;
+import Modelo.Inventario.Inventario;
+import Modelo.MateriaPrima.*;
+import Modelo.TipoMaterial.*;
 
 import org.junit.Test;
 

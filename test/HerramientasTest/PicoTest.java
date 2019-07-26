@@ -1,8 +1,8 @@
 package HerramientasTest;
 
-import Herramientas.*;
-import Recursos.*;
-import TipoMaterial.*;
+import Modelo.Herramientas.*;
+import Modelo.Recursos.*;
+import Modelo.TipoMaterial.*;
 
 import org.junit.Test;
 
@@ -186,7 +186,7 @@ public class PicoTest {
         for(int i=1; i<11; i++){
             pico.golpear(recursoDiamante);
         }
-;
+
         assertEquals(0, pico.durabilidad());
     }
 

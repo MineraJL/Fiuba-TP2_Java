@@ -1,8 +1,8 @@
 package HerramientasTest;
 
-import Herramientas.*;
-import Recursos.*;
-import TipoMaterial.*;
+import Modelo.Herramientas.*;
+import Modelo.Recursos.*;
+import Modelo.TipoMaterial.*;
 
 import org.junit.Test;
 

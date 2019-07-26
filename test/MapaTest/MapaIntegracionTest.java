@@ -1,742 +1,445 @@
 package MapaTest;
 
-import Jugador.Jugador;
-import Recursos.*;
-import Mapa.*;
+import Modelo.Herramientas.Hacha;
+import Modelo.Inventario.Inventario;
+import Modelo.Jugador.Jugador;
+import Modelo.Mapa.*;
+import Modelo.MesaDeTrabajo.Mesa;
+import Modelo.Recursos.Madera;
+import Modelo.TipoMaterial.TipoMadera;
 import org.junit.Test;
 
-import static junit.framework.TestCase.*;
+import static junit.framework.TestCase.assertSame;
+import static org.junit.Assert.assertEquals;
 
 public class MapaIntegracionTest {
 
-
+    // Jugador se mueve y queda contenido en el mapa al llegar a sus bordes
     @Test
-    public void testItemJugadorSeMueveALaDerechaEnElMapaDosVeces() {
+    public void testJugadorSeMueveALaDerechaUnaCantidadDeVecesMayorALaDimensionDelMapaYSeQuedaEnSuUltimoCasillero() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Jugador jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
+        PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
+
+        for(int i=0; i < 10; i++){
+            jugador.mover(new DireccionDerecha());}
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,9);
+
+        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
+    }
+
+    @Test
+    public void testJugadorSeMueveALaIzquierdaUnaCantidadDeVecesMayorALaDimensionDelMapaYSeQuedaEnSuUltimoCasillero() {
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero1 = new Casillero();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.setCasillero(casillero1);
+        PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
+        jugador.ingresar(mapa, posicionInicial);
+
+        for(int i=0; i < 10; i++){
+            jugador.mover(new DireccionIzquierda());}
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,0);
+
+        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
+    }
+
+    @Test
+    public void testJugadorSeMueveArribaUnaCantidadDeVecesMayorALaDimensionDelMapaYSeQuedaEnSuUltimoCasillero() {
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero1 = new Casillero();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.setCasillero(casillero1);
+        PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
+        jugador.ingresar(mapa, posicionInicial);
+
+        for(int i=0; i < 10; i++){
+            jugador.mover(new DireccionArriba());}
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(0,5);
+
+        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
+    }
+
+    @Test
+    public void testJugadorSeMueveAbajoUnaCantidadDeVecesMayorALaDimensionDelMapaYSeQuedaEnSuUltimoCasillero() {
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero1 = new Casillero();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.setCasillero(casillero1);
+        PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
+        jugador.ingresar(mapa, posicionInicial);
+
+        for(int i=0; i < 10; i++){
+            jugador.mover(new DireccionAbajo());}
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(9,5);
+
+        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
+    }
+
+    @Test
+    public void testOcupanteJugadorEncerradoPorRecursos() {
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero1 = new Casillero();
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Madera();
+        Ocupante ocupante3 = new Madera();
+        Ocupante ocupante4 = new Madera();
+        Ocupante ocupante5 = new Madera();
+        jugador.setCasillero(casillero1);
+        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
+        PosicionEnlazada posicion2 = new PosicionEnlazada(6,5); // Aca pongo a la Madera
+        PosicionEnlazada posicion3 = new PosicionEnlazada(4,5); // Aca pongo a la Madera
+        PosicionEnlazada posicion4 = new PosicionEnlazada(5,6); // Aca pongo a la Madera
+        PosicionEnlazada posicion5 = new PosicionEnlazada(5,4); // Aca pongo a la Madera
+
+
+
+        jugador.ingresar(mapa, posicion1);
+        ocupante2.ingresar(mapa, posicion2);
+        ocupante3.ingresar(mapa, posicion3);
+        ocupante4.ingresar(mapa, posicion4);
+        ocupante5.ingresar(mapa, posicion5);
         // Lo muevo a la derecha 2 veces
-        jugador.mover(Direccion.derecha());
-        jugador.mover(Direccion.derecha());
-        Posicion posicionFinal = new Posicion(7,5);
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        assertSame(mapa.getCasillero(posicionFinal),jugador.getCasillero());
+        jugador.mover(new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
+
+        jugador.mover(new DireccionIzquierda());
+        jugador.mover(new DireccionIzquierda());
+        jugador.mover(new DireccionIzquierda());
+
+        assertSame(mapa.getCasillero(posicion1), jugador.getCasillero());
     }
 
-    // MOVIMIENTO ITEM JUGADOR - MAPA VACIO
-    // 2 movimientos a la derecha
-    @Test
-    public void testItemJugadorSeMueveALaDerechaEnElMapaDosVeces_sinEspecificarMapa() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la derecha 2 veces
-        item.mover(mapa, Direccion.derecha());
-        item.mover(mapa, Direccion.derecha());
-        Posicion posicionFinal = new Posicion(7,5);
-
-        assertSame(mapa.getCasillero(posicionFinal),item.getCasillero());
-    }
-    // 100 movimientos a la derecha
-    @Test
-    public void testItemJugadorSeMueveALaDerechaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la derecha 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.derecha());}
-        Posicion posicionFinal = new Posicion(8,5);
-
-        assertSame(mapa.getCasillero(posicionFinal),item.getCasillero());
-    }
-    //////
-    // 2 movimientos a la izquierda
-    @Test
-    public void testItemJugadorSeMueveALaIzquierdaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la izquierda 2 veces
-        item.mover(mapa, Direccion.izquierda());
-        item.mover(mapa, Direccion.izquierda());
-        Posicion posicionFinal = new Posicion(3,5);
-
-        assertSame(mapa.getCasillero(posicionFinal),item.getCasillero());
-    }
-    // 100 movimientos a la izquierda
-    @Test
-    public void testItemJugadorSeMueveALaIzquierdaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la izquierda 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.izquierda());}
-        Posicion posicionFinal = new Posicion(1,5);
-
-        assertSame(mapa.getCasillero(posicionFinal),item.getCasillero());
-    }
-    //////
-    // 2 movimientos a arriba
-    @Test
-    public void testItemJugadorSeMueveParaArribaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 2 veces
-        item.mover(mapa, Direccion.arriba());
-        item.mover(mapa, Direccion.arriba());
-        Posicion posicionFinal = new Posicion(5,7);
-
-        assertSame(mapa.getCasillero(posicionFinal),item.getCasillero());
-    }
-    // 100 movimientos para arriba
-    @Test
-    public void testItemJugadorSeMueveParaArribaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.arriba());}
-        Posicion posicionFinal = new Posicion(5,8);
-
-        assertSame(mapa.getCasillero(posicionFinal),item.getCasillero());
-    }
-    //////
-    // 2 movimientos a abajo
-    @Test
-    public void testItemJugadorSeMueveParaAbajoEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 2 veces
-        item.mover(mapa, Direccion.abajo());
-        item.mover(mapa, Direccion.abajo());
-        Posicion posicionFinal = new Posicion(5,3);
-
-        assertSame(mapa.getCasillero(posicionFinal),item.getCasillero());
-    }
-    // 100 movimientos para abajo
-    @Test
-    public void testItemJugadorSeMueveParaAbajoEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.abajo());}
-        Posicion posicionFinal = new Posicion(5,1);
-
-        assertSame(mapa.getCasillero(posicionFinal),item.getCasillero());
-    }
-
-    // MOVIMIENTO ITEM RECURSO NO SE MUEVE - MAPA VACIO
-    // ITEM MADERA - NO SE MUEVE
-    // 2 movimientos a la derecha
-    @Test
-    public void testItemMaderaSeMueveALaDerechaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Madera();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la derecha 2 veces
-        item.mover(mapa, Direccion.derecha());
-        item.mover(mapa, Direccion.derecha());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos a la derecha
-    @Test
-    public void testItemMaderaSeMueveALaDerechaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Madera();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la derecha 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.derecha());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    //////
-    // 2 movimientos a la izquierda
-    @Test
-    public void testItemMaderaSeMueveALaIzquierdaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Madera();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la izquierda 2 veces
-        item.mover(mapa, Direccion.izquierda());
-        item.mover(mapa, Direccion.izquierda());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos a la izquierda
-    @Test
-    public void testItemMaderaSeMueveALaIzquierdaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Madera();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la izquierda 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.izquierda());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    //////
-    // 2 movimientos a arriba
-    @Test
-    public void testItemMaderaSeMueveParaArribaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Madera();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 2 veces
-        item.mover(mapa, Direccion.arriba());
-        item.mover(mapa, Direccion.arriba());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos para arriba
-    @Test
-    public void testItemMaderaSeMueveParaArribaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Madera();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.arriba());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    //////
-    // 2 movimientos a abajo
-    @Test
-    public void testItemMaderaSeMueveParaAbajoEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Madera();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 2 veces
-        item.mover(mapa, Direccion.abajo());
-        item.mover(mapa, Direccion.abajo());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos para abajo
-    @Test
-    public void testItemMaderaSeMueveParaAbajoEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Madera();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.abajo());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-
-
-    // MOVIMIENTO ITEM RECURSO NO SE MUEVE - MAPA VACIO
-    // ITEM METAL - NO SE MUEVE
-    // 2 movimientos a la derecha
-    @Test
-    public void testItemMetalSeMueveALaDerechaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Metal();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la derecha 2 veces
-        item.mover(mapa, Direccion.derecha());
-        item.mover(mapa, Direccion.derecha());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos a la derecha
-    @Test
-    public void testItemMetalSeMueveALaDerechaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Metal();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la derecha 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.derecha());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    //////
-    // 2 movimientos a la izquierda
-    @Test
-    public void testItemMetalSeMueveALaIzquierdaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Metal();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la izquierda 2 veces
-        item.mover(mapa, Direccion.izquierda());
-        item.mover(mapa, Direccion.izquierda());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos a la izquierda
-    @Test
-    public void testItemMetalSeMueveALaIzquierdaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Metal();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la izquierda 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.izquierda());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    //////
-    // 2 movimientos a arriba
-    @Test
-    public void testItemMetalSeMueveParaArribaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Metal();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 2 veces
-        item.mover(mapa, Direccion.arriba());
-        item.mover(mapa, Direccion.arriba());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos para arriba
-    @Test
-    public void testItemMetalSeMueveParaArribaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Metal();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.arriba());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-
-    //////
-    // 2 movimientos a abajo
-    @Test
-    public void testItemMetalSeMueveParaAbajoEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Metal();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 2 veces
-        item.mover(mapa, Direccion.abajo());
-        item.mover(mapa, Direccion.abajo());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos para abajo
-    @Test
-    public void testItemMetalSeMueveParaAbajoEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Metal();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.abajo());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-
-    // MOVIMIENTO ITEM RECURSO NO SE MUEVE - MAPA VACIO
-    // ITEM PIEDRA - NO SE MUEVE
-    // 2 movimientos a la derecha
-    @Test
-    public void testItemPiedraSeMueveALaDerechaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Piedra();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la derecha 2 veces
-        item.mover(mapa, Direccion.derecha());
-        item.mover(mapa, Direccion.derecha());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos a la derecha
-    @Test
-    public void testItemPiedraSeMueveALaDerechaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Piedra();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la derecha 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.derecha());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    //////
-    // 2 movimientos a la izquierda
-    @Test
-    public void testItemPiedraSeMueveALaIzquierdaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Piedra();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la izquierda 2 veces
-        item.mover(mapa, Direccion.izquierda());
-        item.mover(mapa, Direccion.izquierda());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos a la izquierda
-    @Test
-    public void testItemPiedraSeMueveALaIzquierdaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Piedra();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo a la izquierda 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.izquierda());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    //////
-    // 2 movimientos a arriba
-    @Test
-    public void testItemPiedraSeMueveParaArribaEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Piedra();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 2 veces
-        item.mover(mapa, Direccion.arriba());
-        item.mover(mapa, Direccion.arriba());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos para arriba
-    @Test
-    public void testItemPiedraSeMueveParaArribaEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Piedra();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.arriba());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-
-    //////
-    // 2 movimientos a abajo
-    @Test
-    public void testItemPiedraSeMueveParaAbajoEnElMapaDosVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Piedra();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 2 veces
-        item.mover(mapa, Direccion.abajo());
-        item.mover(mapa, Direccion.abajo());
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-    // 100 movimientos para abajo
-    @Test
-    public void testItemPiedraSeMueveParaAbajoEnElMapaCienVeces() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item = new Piedra();
-        item.setCasillero(casillero1);
-        Posicion posicionInicial = new Posicion(5,5);
-        item.ingresar(mapa, posicionInicial);
-        // Lo muevo para arriba 100 veces
-        for(int i=0; i < 100; i++){item.mover(mapa, Direccion.abajo());}
-
-        assertSame(mapa.getCasillero(posicionInicial),item.getCasillero());
-    }
-
-
-    // MOVIMIENTO ITEM JUGADOR - MAPA CON ITEMS RECURSOS
+    // MOVIMIENTO OCUPANTE JUGADOR - MAPA CON OCUPANTES RECURSOS
     //
-    @Test
-    public void testItemJugadorSeMueveALaDerechaHastaChocarConOtroItem() {
+    /*@Test
+    public void testOcupanteJugadorSeMueveALaDerechaHastaChocarConOtroOcupante() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Item item1 = new Jugador();
-        Item item2 = new Madera();
-        item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Jugador
-        Posicion posicion2 = new Posicion(6,5); // No puede moverse mas
-        Posicion posicion3 = new Posicion(7,5); // Aca pongo a la Madera
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
+        Madera madera = new Madera();
+        jugador.setCasillero(casillero1);
+        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
+        PosicionEnlazada posicion2 = new PosicionEnlazada(6,5); // No puede moverse mas
+        PosicionEnlazada posicion3 = new PosicionEnlazada(7,5); // Aca pongo a la Madera
 
-        item1.ingresar(mapa, posicion1);
-        item2.ingresar(mapa, posicion3);
+        jugador.ingresar(mapa, posicion1);
+        madera.ingresar(mapa, posicion3);
         // Lo muevo a la derecha 2 veces
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        assertSame(mapa.getCasillero(posicion2),item1.getCasillero());
+        assertSame(mapa.getCasillero(posicion2), jugador.getCasillero());
     }
 
     @Test
-    public void testItemJugadorNoPuedeMoverseDerechaPorOtroItemPeroSiParaArriba() {
+    public void testOcupanteJugadorNoPuedeMoverseDerechaPorOtroOcupantePeroSiParaArriba() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Item item1 = new Jugador();
-        Item item2 = new Madera();
-        item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Jugador
-        Posicion posicion2 = new Posicion(7,5); // Aca pongo a la Madera
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Madera();
+        jugador.setCasillero(casillero1);
+        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
+        PosicionEnlazada posicion2 = new PosicionEnlazada(7,5); // Aca pongo a la Madera
 
-        Posicion posicionFinal = new Posicion(6,6); // No puede moverse mas
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(6,6); // No puede moverse mas
 
-        item1.ingresar(mapa, posicion1);
-        item2.ingresar(mapa, posicion2);
+        jugador.ingresar(mapa, posicion1);
+        ocupante2.ingresar(mapa, posicion2);
         // Lo muevo a la derecha 2 veces
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        item1.mover(mapa, Direccion.arriba());
+        jugador.mover(new DireccionArriba());
 
-        assertSame(mapa.getCasillero(posicionFinal),item1.getCasillero());
+        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
 
     @Test
-    public void testItemJugadorNoPuedeMoverseDerechaPorOtroItemPeroSiParaAbajo() {
+    public void testOcupanteJugadorNoPuedeMoverseDerechaPorOtroOcupantePeroSiParaAbajo() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Item item1 = new Jugador();
-        Item item2 = new Madera();
-        item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Jugador
-        Posicion posicion2 = new Posicion(7,5); // Aca pongo a la Madera
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Madera();
+        jugador.setCasillero(casillero1);
+        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
+        PosicionEnlazada posicion2 = new PosicionEnlazada(7,5); // Aca pongo a la Madera
 
-        Posicion posicionFinal = new Posicion(6,4); // No puede moverse mas
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(6,4); // No puede moverse mas
 
-        item1.ingresar(mapa, posicion1);
-        item2.ingresar(mapa, posicion2);
+        jugador.ingresar(mapa, posicion1);
+        ocupante2.ingresar(mapa, posicion2);
         // Lo muevo a la derecha 2 veces
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        item1.mover(mapa, Direccion.abajo());
+        jugador.mover(new DireccionAbajo());
 
-        assertSame(mapa.getCasillero(posicionFinal),item1.getCasillero());
+        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
 
     @Test
-    public void testItemJugadorNoPuedeMoverseDerechaPorOtroItemPeroSiParaArribaYDerechaDeNuevo() {
+    public void testOcupanteJugadorNoPuedeMoverseDerechaPorOtroOcupantePeroSiParaArribaYDerechaDeNuevo() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Item item1 = new Jugador();
-        Item item2 = new Madera();
-        item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Jugador
-        Posicion posicion2 = new Posicion(7,5); // Aca pongo a la Madera
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Madera();
+        jugador.setCasillero(casillero1);
+        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
+        PosicionEnlazada posicion2 = new PosicionEnlazada(7,5); // Aca pongo a la Madera
 
-        Posicion posicionFinal = new Posicion(7,4); // No puede moverse mas
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(7,4); // No puede moverse mas
 
-        item1.ingresar(mapa, posicion1);
-        item2.ingresar(mapa, posicion2);
+        jugador.ingresar(mapa, posicion1);
+        ocupante2.ingresar(mapa, posicion2);
         // Lo muevo a la derecha 2 veces
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        item1.mover(mapa, Direccion.abajo());
+        jugador.mover(new DireccionAbajo());
 
-        item1.mover(mapa, Direccion.derecha());
+        jugador.mover(new DireccionDerecha());
 
-        assertSame(mapa.getCasillero(posicionFinal),item1.getCasillero());
-    }
+        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
+    }*/
 
-    @Test
-    public void testItemJugadorEncerradoPorRecursos() {
+
+
+    /*@Test
+    public void testOcupanteJugadorEsquivaOcupanteEnMapa() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
-        Item item1 = new Jugador();
-        Item item2 = new Madera();
-        Item item3 = new Madera();
-        Item item4 = new Madera();
-        Item item5 = new Madera();
-        item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(5,5); // Aca pongo al Jugador
-        Posicion posicion2 = new Posicion(6,5); // Aca pongo a la Madera
-        Posicion posicion3 = new Posicion(4,5); // Aca pongo a la Madera
-        Posicion posicion4 = new Posicion(5,6); // Aca pongo a la Madera
-        Posicion posicion5 = new Posicion(5,4); // Aca pongo a la Madera
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Madera();
+        Ocupante ocupante3 = new Madera();
+        Ocupante ocupante4 = new Madera();
+        Ocupante ocupante5 = new Madera();
+        jugador.setCasillero(casillero1);
+        PosicionEnlazada posicion1 = new PosicionEnlazada(3,3); // Aca pongo al Modelo.Jugador
+        PosicionEnlazada posicion2 = new PosicionEnlazada(5,3); // Aca pongo a la Madera
+        PosicionEnlazada posicion3 = new PosicionEnlazada(6,3); // Aca pongo a la Madera
+        PosicionEnlazada posicion4 = new PosicionEnlazada(6,4); // Aca pongo a la Madera
+        PosicionEnlazada posicion5 = new PosicionEnlazada(6,5); // Aca pongo a la Madera
 
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(7,3); // Donde quiero llegar
 
-
-        item1.ingresar(mapa, posicion1);
-        item2.ingresar(mapa, posicion2);
-        item3.ingresar(mapa, posicion3);
-        item4.ingresar(mapa, posicion4);
-        item5.ingresar(mapa, posicion5);
+        jugador.ingresar(mapa, posicion1);
+        ocupante2.ingresar(mapa, posicion2);
+        ocupante3.ingresar(mapa, posicion3);
+        ocupante4.ingresar(mapa, posicion4);
+        ocupante5.ingresar(mapa, posicion5);
         // Lo muevo a la derecha 2 veces
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        item1.mover(mapa, Direccion.abajo());
-        item1.mover(mapa, Direccion.abajo());
-        item1.mover(mapa, Direccion.abajo());
+        jugador.mover(new DireccionArriba());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        item1.mover(mapa, Direccion.izquierda());
-        item1.mover(mapa, Direccion.izquierda());
-        item1.mover(mapa, Direccion.izquierda());
+        jugador.mover(new DireccionArriba());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
-        assertSame(mapa.getCasillero(posicion1),item1.getCasillero());
-    }
+        jugador.mover(new DireccionArriba());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
 
+        jugador.mover(new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
+
+
+        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
+    }*/
+
+
+
+    // Casillero ocupado / desocupado
     @Test
-    public void testItemJugadorEsquivaItemEnMapa() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-        Item item1 = new Jugador();
-        Item item2 = new Madera();
-        Item item3 = new Madera();
-        Item item4 = new Madera();
-        Item item5 = new Madera();
-        item1.setCasillero(casillero1);
-        Posicion posicion1 = new Posicion(3,3); // Aca pongo al Jugador
-        Posicion posicion2 = new Posicion(5,3); // Aca pongo a la Madera
-        Posicion posicion3 = new Posicion(6,3); // Aca pongo a la Madera
-        Posicion posicion4 = new Posicion(6,4); // Aca pongo a la Madera
-        Posicion posicion5 = new Posicion(6,5); // Aca pongo a la Madera
-
-        Posicion posicionFinal = new Posicion(7,3); // Donde quiero llegar
-
-        item1.ingresar(mapa, posicion1);
-        item2.ingresar(mapa, posicion2);
-        item3.ingresar(mapa, posicion3);
-        item4.ingresar(mapa, posicion4);
-        item5.ingresar(mapa, posicion5);
-        // Lo muevo a la derecha 2 veces
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-
-        item1.mover(mapa, Direccion.arriba());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-
-        item1.mover(mapa, Direccion.arriba());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-
-        item1.mover(mapa, Direccion.arriba());
-        item1.mover(mapa, Direccion.derecha());
-        item1.mover(mapa, Direccion.derecha());
-
-        item1.mover(mapa, Direccion.abajo());
-        item1.mover(mapa, Direccion.abajo());
-        item1.mover(mapa, Direccion.abajo());
-
-
-        assertSame(mapa.getCasillero(posicionFinal),item1.getCasillero());
-    }
-
-
-    @Test
-    public void testLuegoDeMoverItemAOtroCasilleroElCasilleroOrigenQuedaDisponibleParaSerOcupado(){
+    public void testLuegoDeMoverOcupanteAOtroCasilleroElCasilleroOrigenQuedaDisponibleParaSerOcupado(){
 
         Casillero casilleroOrigen = new Casillero();
 
-        Item jugador = new Jugador();
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
         jugador.setCasillero(casilleroOrigen);
 
         Mapa mapa = new Mapa(10,10);
-        jugador.ingresar(mapa,new Posicion(4,4));
-        jugador.mover(mapa, Direccion.izquierda());
+        jugador.ingresar(mapa,new PosicionEnlazada(4,4));
+        jugador.mover(new DireccionIzquierda());
 
         // ahora el casillero origen debe estar disponible
-        Item otroJugador = new Jugador();
+        Jugador otroJugador = new Jugador(inventario, mesa);
         otroJugador.setCasillero(casilleroOrigen);
 
         assertEquals(casilleroOrigen,otroJugador.getCasillero());
     }
 
 
+
+    // Jugador golpea distintos Ocupantes
+    // Jugador golpea en casillero siguiente en distintas direcciones
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteAbajo_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // J * *
+        // * * *
+        // * * M
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(2, 2);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 0));
+
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionAbajo());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteArriba_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // M * *
+        // * * *
+        // J * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(2, 0));
+
+        jugador.mover(new DireccionArriba());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteDerecha_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // J * M
+        // * * *
+        // * * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 2);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 0));
+
+        jugador.mover(new DireccionDerecha());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteIzquierda_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // M * J
+        // * * *
+        // * * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 2));
+
+        jugador.mover(new DireccionIzquierda());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+
+    //
+
+    @Test
+    public void testHachaDeMaderaGolpeaOcupanteRecursoMaderaYSeDisminuyenSusDurabilidades() {
+        TipoMadera maderaHerramienta = new TipoMadera();
+        Hacha hacha = new Hacha(maderaHerramienta);
+        Madera madera = new Madera();
+
+        madera.golpeateCon(hacha);
+
+        assertEquals(10 - 2, madera.durabilidad());
+        assertEquals(100 - 2, hacha.durabilidad());
+
+    }
 }
-
-

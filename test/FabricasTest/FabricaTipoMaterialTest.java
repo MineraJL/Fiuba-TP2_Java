@@ -1,9 +1,9 @@
 package FabricasTest;
 
-import Fabricas.FabricaTipoMaterial;
-import Mapa.Item;
-import MateriaPrima.*;
-import TipoMaterial.*;
+import Modelo.Fabricas.FabricaTipoMaterial;
+import Modelo.Mapa.Ocupante;
+import Modelo.MateriaPrima.*;
+import Modelo.TipoMaterial.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class FabricaTipoMaterialTest {
     @Test
     public void testCreacionTipoMadera() {
         FabricaTipoMaterial fabricaMaterial = new FabricaTipoMaterial();
-        ArrayList<Item> trozosDeHerramienta = new ArrayList<Item>();
+        ArrayList<Ocupante> trozosDeHerramienta = new ArrayList<Ocupante>();
         trozosDeHerramienta.add(new MPMadera());
         trozosDeHerramienta.add(new MPMadera());
         trozosDeHerramienta.add(new MPMadera());
@@ -29,7 +29,7 @@ public class FabricaTipoMaterialTest {
     @Test
     public void testCreacionTipoMetal() {
         FabricaTipoMaterial fabricaMaterial = new FabricaTipoMaterial();
-        ArrayList<Item> trozosDeHerramienta = new ArrayList<Item>();
+        ArrayList<Ocupante> trozosDeHerramienta = new ArrayList<Ocupante>();
         trozosDeHerramienta.add(new MPMetal());
         trozosDeHerramienta.add(new MPMetal());
         trozosDeHerramienta.add(new MPMetal());
@@ -45,7 +45,7 @@ public class FabricaTipoMaterialTest {
     @Test
     public void testCreacionTipoPiedra() {
         FabricaTipoMaterial fabricaMaterial = new FabricaTipoMaterial();
-        ArrayList<Item> trozosDeHerramienta = new ArrayList<Item>();
+        ArrayList<Ocupante> trozosDeHerramienta = new ArrayList<Ocupante>();
         trozosDeHerramienta.add(new MPPiedra());
         trozosDeHerramienta.add(new MPPiedra());
         trozosDeHerramienta.add(new MPPiedra());
@@ -60,7 +60,7 @@ public class FabricaTipoMaterialTest {
     @Test
     public void testCreacionTipoMetalYPiedra() {
         FabricaTipoMaterial fabricaMaterial = new FabricaTipoMaterial();
-        ArrayList<Item> trozosDeHerramienta = new ArrayList<Item>();
+        ArrayList<Ocupante> trozosDeHerramienta = new ArrayList<Ocupante>();
         trozosDeHerramienta.add(new MPPiedra());
         trozosDeHerramienta.add(new MPMetal());
         trozosDeHerramienta.add(new MPMetal());

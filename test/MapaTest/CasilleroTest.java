@@ -1,8 +1,9 @@
 package MapaTest;
-import Jugador.Jugador;
-import Mapa.*;
-import Recursos.*;
-import MateriaPrima.*;
+import Modelo.Inventario.Inventario;
+import Modelo.Jugador.Jugador;
+import Modelo.Mapa.*;
+import Modelo.MesaDeTrabajo.Mesa;
+import Modelo.Recursos.*;
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -17,25 +18,25 @@ public class CasilleroTest {
     public void testCasilleroSeteaPosicionFilaEnCero(){
         Casillero casillero = new Casillero();
         casillero.setPosicion(0,0);
-        assertEquals(0, casillero.getPosicion().getX());
+        assertEquals(0, casillero.getPosicion().geti());
     }
     @Test
     public void testCasilleroSeteaPosicionColumnaEnCero(){
         Casillero casillero = new Casillero();
         casillero.setPosicion(0,0);
-        assertEquals(0, casillero.getPosicion().getY());
+        assertEquals(0, casillero.getPosicion().getj());
     }
     @Test
     public void testCasilleroSeteaPosicionFilaEnUno(){
         Casillero casillero = new Casillero();
         casillero.setPosicion(1,1);
-        assertEquals(1, casillero.getPosicion().getX());
+        assertEquals(1, casillero.getPosicion().geti());
     }
     @Test
     public void testCasilleroSeteaPosicionColumnaEnUno(){
         Casillero casillero = new Casillero();
         casillero.setPosicion(1,1);
-        assertEquals(1, casillero.getPosicion().getY());
+        assertEquals(1, casillero.getPosicion().getj());
     }
     //
 
@@ -43,148 +44,115 @@ public class CasilleroTest {
     public void testCasilleroDevuelvePosicionAsignadaFilaEnCero(){
         Casillero casillero = new Casillero();
         casillero.setPosicion(0,0);
-        Posicion posicion = casillero.getPosicion();
-        assertEquals(0, posicion.getX());
+        PosicionEnlazada posicion = casillero.getPosicion();
+        assertEquals(0, posicion.geti());
     }
     @Test
     public void testCasilleroDevuelvePosicionAsignadaColumnaEnCero(){
         Casillero casillero = new Casillero();
         casillero.setPosicion(0,0);
-        Posicion posicion = casillero.getPosicion();
-        assertEquals(0, posicion.getY());
+        PosicionEnlazada posicion = casillero.getPosicion();
+        assertEquals(0, posicion.getj());
     }
     @Test
     public void testCasilleroDevuelvePosicionAsignadaFilaEnUno(){
         Casillero casillero = new Casillero();
         casillero.setPosicion(1,1);
-        Posicion posicion = casillero.getPosicion();
-        assertEquals(1, posicion.getX());
+        PosicionEnlazada posicion = casillero.getPosicion();
+        assertEquals(1, posicion.geti());
     }
     @Test
     public void testCasilleroDevuelvePosicionAsignadaColumnaEnUno(){
         Casillero casillero = new Casillero();
         casillero.setPosicion(1,1);
-        Posicion posicion = casillero.getPosicion();
-        assertEquals(1, posicion.getY());
+        PosicionEnlazada posicion = casillero.getPosicion();
+        assertEquals(1, posicion.getj());
     }
 
 
     // CASILLERO SIGUIENTE
-    // Casillero norte
+
     @Test
-    public void testCasilleroDevuelveCasilleroEnLaDireccionNorte(){
+    public void testCasilleroDevuelveCasilleroEnDireccionArriba(){
 
         Mapa mapa = new Mapa(5,5);
-        Posicion posicion = new Posicion(2,2);
-        Casillero casillero1= mapa.getCasillero(posicion);
-        Direccion direccion= Direccion.arriba();
-        Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
-        assertEquals(3,casillero2.getPosicion().getY());
+        Casillero casillero = mapa.getCasillero(new PosicionEnlazada(2,2));
+        Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionArriba());
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(1,2);
+        assertTrue(posicionEsperada.equals(casilleroVecino.getPosicion()));
     }
-    // Casillero sur
+
     @Test
-    public void testCasilleroDevuelveCasilleroEnLaDireccionSur(){
+    public void testCasilleroDevuelveCasilleroEnDireccionAbajo(){
 
         Mapa mapa = new Mapa(5,5);
-        Posicion posicion = new Posicion(2,2);
-        Casillero casillero1= mapa.getCasillero(posicion);
-        Direccion direccion= Direccion.abajo();
-        Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
-        assertEquals(1,casillero2.getPosicion().getY());
+        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionAbajo());
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(3,2);
+        assertTrue(posicionEsperada.equals(casilleroVecino.getPosicion()));
     }
-    // Casillero este
+
     @Test
-    public void testCasilleroDevuelveCasilleroEnLaDireccionEste(){
+    public void testCasilleroDevuelveCasilleroEnLaDireccionDerecha(){
 
         Mapa mapa = new Mapa(5,5);
-        Posicion posicion = new Posicion(2,2);
-        Casillero casillero1= mapa.getCasillero(posicion);
-        Direccion direccion= Direccion.derecha();
-        Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
-        assertEquals(3,casillero2.getPosicion().getX());
+        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionDerecha());
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(2,3);
+        assertTrue(posicionEsperada.equals(casilleroVecino.getPosicion()));
     }
-    // Casillero oeste
+
     @Test
-    public void testCasilleroDevuelveCasilleroEnLaDireccionOeste(){
+    public void testCasilleroDevuelveCasilleroEnLaDireccionIzquierda(){
 
         Mapa mapa = new Mapa(5,5);
-        Posicion posicion = new Posicion(2,2);
-        Casillero casillero1= mapa.getCasillero(posicion);
-        Direccion direccion= Direccion.izquierda();
-        Casillero casillero2 = casillero1.getCasilleroVecino(mapa,direccion);
-        assertEquals(1,casillero2.getPosicion().getX());
-    }
-    //
-
-    // CASILLERO ESTADO
-
-    @Test
-    public void testCasilleroConEstadoDisponibleAceptaItem(){
-
-        Casillero casillero1 = new Casillero();
-        Casillero casillero2 = new Casillero();
-        Item item = new Jugador();
-
-        item.setCasillero(casillero2);
-        casillero1.setEstado(new EstadoDisponible());
-
-        casillero1.setItem(item);
-
-        assertSame(casillero1,item.getCasillero());
-    }
-    @Test
-    public void testCasilleroConEstadoOcupadoNoAceptaItem(){
-
-        Casillero casillero1 = new Casillero();
-        Casillero casillero2 = new Casillero();
-        Item item = new Jugador();
-        item.setCasillero(casillero2);
-
-        casillero1.setEstado(new EstadoOcupado());
-
-        casillero1.setItem(item);
-
-        assertNotSame(casillero1,item.getCasillero());
+        PosicionEnlazada posicion = new PosicionEnlazada(2,2);
+        Casillero casillero= mapa.getCasillero(posicion);
+        Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionIzquierda());
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(2,1);
+        assertTrue(posicionEsperada.equals(casilleroVecino.getPosicion()));
     }
 
+    // Casillero acepta o no ocupante
 
-    // Casillero acepta item si no tiene item
     @Test
-    public void testCasilleroAceptaItemSiNoTieneItem(){
+    public void testCasilleroAceptaOcupanteSiNoTieneOcupante(){
 
-        Casillero casillero1 = new Casillero();
-        Casillero casillero2 = new Casillero();
+        Casillero casillero = new Casillero();
+        
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante = new Jugador(inventario, mesa);
 
-        Item item = new Jugador();
-        item.setCasillero(casillero2);
-        casillero1.setItem(item);
+        casillero.ocuparPor(ocupante);
 
-        assertSame(casillero1,item.getCasillero());
+        assertSame(casillero, ocupante.getCasillero());
     }
-    // Casillero oeste
     @Test
-    public void testCasilleroNoAceptaItemSiYaTieneItem(){
+    public void testCasilleroNoAceptaOcupanteSiYaTieneOcupante(){
 
-        Casillero casillero1 = new Casillero();
-        Casillero casillero2 = new Casillero();
-        Item item1 = new Jugador();
-        Item item2 = new Jugador();
+        Casillero casillero = new Casillero();
+        
+    	Inventario inventario = new Inventario();
+    	Mesa mesa = new Mesa();
+        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Jugador(inventario, mesa);
 
-        item1.setCasillero(casillero2); // Le asigno al item un casillero.
-        casillero1.setItem(item1);
-        casillero1.setItem(item2);
+        casillero.ocuparPor(ocupante1);
+        casillero.ocuparPor(ocupante2);
 
-        assertNotSame(casillero1,item2.getCasillero());
+        assertNotSame(casillero, ocupante2.getCasillero());
 
     }
 
-
     @Test
-    public void testCasilleroGuardaItemCorrectamente(){
-        Casillero casillero1 = new Casillero();
-        Item item1 = new Madera();
-        casillero1.setItem(item1);
-        assertEquals(casillero1.getItem(),item1);
+    public void testCasilleroGuardaOcupanteCorrectamente(){
+        Casillero casillero = new Casillero();
+        Ocupante ocupante = new Madera();
+        casillero.ocuparPor(ocupante);
+        assertEquals(casillero.getOcupante(), ocupante);
     }
 
 

@@ -1,11 +1,9 @@
 package MesaDeTrabajoTest;
 
-import Herramientas.Hacha;
-import Herramientas.Herramienta;
-import MateriaPrima.MateriaPrima;
-import MesaDeTrabajo.Mesa;
-import MateriaPrima.*;
-import Recursos.Madera;
+import Modelo.Herramientas.Herramienta;
+import Modelo.MesaDeTrabajo.Mesa;
+import Modelo.MateriaPrima.*;
+import Modelo.Recursos.Madera;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

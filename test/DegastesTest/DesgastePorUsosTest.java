@@ -1,6 +1,6 @@
 package DegastesTest;
 
-import Desgastes.DesgastePorUsos;
+import Modelo.Desgastes.DesgastePorUsos;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
