@@ -33,8 +33,8 @@ public class MapaModeloIntegracionTest {
     @Test
     public void testModeloMapaSeCreaCon60FilasY80Columnas(){
         Modelo modelo = new Modelo();
-        Assert.assertEquals(60,modelo.cantFilasMapa());
-        Assert.assertEquals(80,modelo.cantColumnasMapa());
+        Assert.assertEquals(15,modelo.cantFilasMapa());
+        Assert.assertEquals(16,modelo.cantColumnasMapa());
     }
 
 

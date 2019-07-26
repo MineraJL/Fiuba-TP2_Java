@@ -14,7 +14,7 @@ import static junit.framework.TestCase.assertTrue;
 
 public class JugadorTest {
 	@Test
-	public void testJugadorSeCreaConHerramientaHachaDeMaderaPorDefecto() {
+	public void jugadorSeCreaConHerramientaHachaDeMaderaPorDefecto() {
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
 		Jugador jugador = new Jugador(inventario, mesa);
@@ -25,7 +25,7 @@ public class JugadorTest {
 	}
 	
     @Test
-    public void testOcupanteJugadorSeCreaEInicializaEnElMapa() {
+    public void ocupanteJugadorSeCreaEInicializaEnElMapa() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero = new Casillero();
     	Inventario inventario = new Inventario();
@@ -41,7 +41,7 @@ public class JugadorTest {
     }
     
     @Test
-    public void testJugadorSeMueveHaciaLaIzquierdaEnElMapaUnaVez() {
+    public void jugadorSeMueveHaciaLaIzquierdaEnElMapaUnaVez() {
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(2,5);
         Casillero casillero = new Casillero(posicionInicial);
@@ -58,7 +58,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void testOcupanteJugadorSeMueveHaciaLaDerechaEnElMapaUnaVez() {
+    public void ocupanteJugadorSeMueveHaciaLaDerechaEnElMapaUnaVez() {
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(2,5);
         Casillero casillero = new Casillero(posicionInicial);
@@ -76,7 +76,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void testJugadorSeMueveHaciaArribaEnElMapaUnaVez() {
+    public void jugadorSeMueveHaciaArribaEnElMapaUnaVez() {
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(2,5);
         Casillero casillero = new Casillero(posicionInicial);
@@ -93,7 +93,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void testJugadorSeMueveHaciaAbajoEnElMapaUnaVez() {
+    public void jugadorSeMueveHaciaAbajoEnElMapaUnaVez() {
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(2,5);
         Casillero casillero = new Casillero(posicionInicial);
@@ -118,4 +118,16 @@ public class JugadorTest {
 		
 		assertEquals(2, jugador.cantidadHerramientas());
 	}*/
+
+
+    @Test
+    public void ocupanteJugadorDevuelveSuNombre(){
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa();
+        
+        Jugador jugador = new Jugador(inventario, mesa);
+        String nombre = jugador.obtenerNombreOcupante();
+        assertEquals("Jugador",nombre);
+    }
+
 }

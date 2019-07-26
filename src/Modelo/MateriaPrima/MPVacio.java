@@ -11,5 +11,10 @@ public class MPVacio extends MateriaPrima {
 		
 	}
 
+	@Override
+	public String obtenerNombreOcupante(){
+		return this.getClass().getSimpleName();
+	}
+
 
 }

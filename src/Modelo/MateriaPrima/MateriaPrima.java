@@ -42,6 +42,9 @@ public abstract class MateriaPrima implements Ocupante {
 	@Override
 	public void ingresar(Mapa mapa, PosicionEnlazada posicion) {}
 
+	@Override
+	public abstract String obtenerNombreOcupante();
+
 
 	public abstract void agregarAlInventario(InventarioMateriaPrima inventario);
 

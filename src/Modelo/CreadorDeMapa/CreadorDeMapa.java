@@ -12,7 +12,7 @@ public class CreadorDeMapa {
     private Mapa mapa;
 
     public CreadorDeMapa(){
-        this.mapa = new Mapa(60,80);
+        this.mapa = new Mapa(15,16);
         this.inicializarMapaConRecursos();
 
     }

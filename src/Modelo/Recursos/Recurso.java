@@ -36,6 +36,8 @@ public abstract class Recurso implements Ocupante {
 
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
 
+    public abstract String obtenerNombreOcupante();
+
     public abstract void golpeateCon(Herramienta herramienta);
 
     public void serRecolectadoEn(Inventario inventario){}

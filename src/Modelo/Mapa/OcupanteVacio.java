@@ -21,6 +21,9 @@ public class OcupanteVacio implements Ocupante {
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){}
 
     @Override
+    public String obtenerNombreOcupante(){return this.getClass().getSimpleName();}
+
+    @Override
     public void golpeateCon(Herramienta herramienta){}
     @Override
     public void serRecolectadoEn(Inventario inventario){}

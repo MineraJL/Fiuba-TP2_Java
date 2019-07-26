@@ -113,5 +113,12 @@ public class MaderaTest {
         assertEquals(mpMadera, madera.getCasillero().getOcupante());
     }
 
+    @Test
+    public void ocupanteMaderaDevuelveSuNombre(){
+        Madera madera = new Madera();
+        String nombre = madera.obtenerNombreOcupante();
+        assertEquals("Madera",nombre);
+    }
+
 
 }
