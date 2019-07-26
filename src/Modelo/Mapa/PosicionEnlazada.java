@@ -15,15 +15,15 @@ public class PosicionEnlazada {
         this.inicializarSiguientes();
     }
 
-    public int getX() {
+    public int geti() {
         return this.i;
     }
-    public int getY() {
+    public int getj() {
         return this.j;
     }
 
     public boolean equals(PosicionEnlazada otraPosicion){
-        return ((this.getX()==otraPosicion.getX()) && (this.getY() == otraPosicion.getY()));
+        return ((this.geti()==otraPosicion.geti()) && (this.getj() == otraPosicion.getj()));
     }
 
 

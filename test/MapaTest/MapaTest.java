@@ -15,7 +15,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicion = new PosicionEnlazada(0,2);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(0, casillero.getPosicion().getX());
+        assertEquals(0, casillero.getPosicion().geti());
     }
 
     @Test
@@ -23,7 +23,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicion = new PosicionEnlazada(1,2);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(1, casillero.getPosicion().getX());
+        assertEquals(1, casillero.getPosicion().geti());
     }
 
     @Test
@@ -31,7 +31,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicion = new PosicionEnlazada(2,0);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(0, casillero.getPosicion().getY());
+        assertEquals(0, casillero.getPosicion().getj());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicion = new PosicionEnlazada(2,1);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(1, casillero.getPosicion().getY());
+        assertEquals(1, casillero.getPosicion().getj());
     }
 
     // caso mapa rectangular
@@ -48,14 +48,14 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,5);
         PosicionEnlazada posicion = new PosicionEnlazada(9,4);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(9, casillero.getPosicion().getX());
+        assertEquals(9, casillero.getPosicion().geti());
     }
     @Test
     public void testMapaRectangularSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnYIgualACuatro(){
         Mapa mapa = new Mapa(10,5);
         PosicionEnlazada posicion = new PosicionEnlazada(9,4);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(4, casillero.getPosicion().getY());
+        assertEquals(4, casillero.getPosicion().getj());
     }
 
 
