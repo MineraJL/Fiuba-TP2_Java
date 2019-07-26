@@ -31,7 +31,7 @@ public class VistaModelo {
 
                 Image imagenOcupante = imagenes.getImage(nombreOcupante);
 
-                canvas.getGraphicsContext2D().drawImage(imagenOcupante, 0 + 32 * fila, 0+32*columna);
+                canvas.getGraphicsContext2D().drawImage(imagenOcupante, 32*columna, 32*fila);
             }
         }
 
