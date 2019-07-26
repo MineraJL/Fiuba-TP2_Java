@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class BotonMoverHaciaAbajoHandler implements EventHandler<ActionEvent> {
-	Jugador jugador;
+	private Jugador jugador;
 	
 	public BotonMoverHaciaAbajoHandler(Jugador jugador) {
 		this.jugador = jugador;
