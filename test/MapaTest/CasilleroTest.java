@@ -78,7 +78,8 @@ public class CasilleroTest {
         Mapa mapa = new Mapa(5,5);
         Casillero casillero = mapa.getCasillero(new PosicionEnlazada(2,2));
         Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionArriba());
-        assertEquals(3,casilleroVecino.getPosicion().getY());
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(1,2);
+        assertTrue(posicionEsperada.equals(casilleroVecino.getPosicion()));
     }
 
     @Test
@@ -88,7 +89,8 @@ public class CasilleroTest {
         PosicionEnlazada posicion = new PosicionEnlazada(2,2);
         Casillero casillero= mapa.getCasillero(posicion);
         Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionAbajo());
-        assertEquals(1,casilleroVecino.getPosicion().getY());
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(3,2);
+        assertTrue(posicionEsperada.equals(casilleroVecino.getPosicion()));
     }
 
     @Test
@@ -98,7 +100,8 @@ public class CasilleroTest {
         PosicionEnlazada posicion = new PosicionEnlazada(2,2);
         Casillero casillero= mapa.getCasillero(posicion);
         Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionDerecha());
-        assertEquals(3,casilleroVecino.getPosicion().getX());
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(2,3);
+        assertTrue(posicionEsperada.equals(casilleroVecino.getPosicion()));
     }
 
     @Test
@@ -108,7 +111,8 @@ public class CasilleroTest {
         PosicionEnlazada posicion = new PosicionEnlazada(2,2);
         Casillero casillero= mapa.getCasillero(posicion);
         Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionIzquierda());
-        assertEquals(1,casilleroVecino.getPosicion().getX());
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(2,1);
+        assertTrue(posicionEsperada.equals(casilleroVecino.getPosicion()));
     }
 
     // Casillero acepta o no ocupante
