@@ -23,14 +23,16 @@ public class VistaModelo {
 
         Imagenes imagenes = new Imagenes();
 
-        int columna = 0;
-        for (int fila=0; fila<modelo.cantColumnasMapa(); fila++){
-            PosicionEnlazada posActual = new PosicionEnlazada(fila,columna);
-            String nombreOcupante = modelo.mapa().ocupante(posActual).obtenerNombreOcupante();
+        //int columna = 0;
+        for (int columna=0; columna<modelo.cantColumnasMapa();columna++) {
+            for (int fila = 0; fila < modelo.cantFilasMapa(); fila++) {
+                PosicionEnlazada posActual = new PosicionEnlazada(fila, columna);
+                String nombreOcupante = modelo.mapa().ocupante(posActual).obtenerNombreOcupante();
 
-            Image imagenOcupante = imagenes.getImage(nombreOcupante);
+                Image imagenOcupante = imagenes.getImage(nombreOcupante);
 
-            canvas.getGraphicsContext2D().drawImage(imagenOcupante, 0 + 32 * fila, 0);
+                canvas.getGraphicsContext2D().drawImage(imagenOcupante, 0 + 32 * fila, 0+32*columna);
+            }
         }
 
     }
