@@ -1,45 +1,61 @@
 package Vista;
 
 import Controlador.*;
-import Modelo.CreadorDeMapa.CreadorDeMapa;
 import Modelo.Jugador.Jugador;
 import Modelo.MesaDeTrabajo.Mesa;
+import Modelo.Modelo;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ContenedorPrincipal extends BorderPane {
 	
     private BarraDeMenu menuBar;
-    private CreadorDeMapa mapa;
     private Canvas canvasCentral;
     private VBox contenedorCentral;
 
-	public ContenedorPrincipal(Stage stage, Jugador jugador, Mesa mesa) {
+
+	public ContenedorPrincipal(Stage stage, Modelo modelo) {
         this.setMenu(stage);
-        this.setMapa(jugador);
-        this.setBotoneraJugador(jugador);
-        this.setBotoneraMesaDeTrabajo(mesa);
+        this.setBotoneraJugador(modelo.jugador());
+        this.setBotoneraMesaDeTrabajo(modelo.mesa());
+        this.setCentro(modelo);
 	}
 	
     private void setMenu(Stage stage) {
         this.menuBar = new BarraDeMenu(stage);
         this.setTop(menuBar);
     }
-    
+
     public BarraDeMenu getBarraDeMenu() {
         return menuBar;
     }
-    
-    private void setMapa(Jugador jugador) {
-    	
+
+
+    public void setCentro(Modelo modelo){
+
+	    canvasCentral = new Canvas(460,220);
+	    VistaModelo vistaModelo = new VistaModelo(modelo,canvasCentral);
+	    vistaModelo.dibujar();
+
+	    contenedorCentral = new VBox(canvasCentral);
+	    contenedorCentral.setAlignment(Pos.CENTER);
+
+        Image imagen = new Image("file:src/Vista/Imagenes/unFondoCualquiera.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        contenedorCentral.setBackground(new Background(imagenDeFondo));
+
+	    this.setCenter(contenedorCentral);
+
     }
-    
+
+
+
     private void setBotoneraJugador(Jugador jugador) {
 
         Button botonGolpear = new Button();
@@ -73,13 +89,14 @@ public class ContenedorPrincipal extends BorderPane {
         HBox botonesMoverLateralmente = new HBox(botonMoverHaciaLaIzquierda,botonMoverHaciaLaDerecha);
         VBox botonesMover = new VBox(tituloMover, botonMoverHaciaArriba, botonesMoverLateralmente, botonMoverHaciaAbajo);
         botonesMover.setSpacing(5);
-        botonesMover.setPadding(new Insets(5));
+        botonesMover.setAlignment(Pos.CENTER);
 
-        VBox contenedor = new VBox(botonGolpear, botonesMover);
-        contenedor.setSpacing(10);
-        contenedor.setPadding(new Insets(15));
+        VBox botonera = new VBox(botonGolpear, botonesMover);
+        botonera.setSpacing(20);
+        botonera.setPadding(new Insets(15));
 
-        this.setBottom(contenedor);
+
+        this.setLeft(botonera);
 
     }
     

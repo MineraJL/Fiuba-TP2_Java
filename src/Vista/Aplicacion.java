@@ -18,8 +18,8 @@ public class Aplicacion extends Application {
 		stage.setTitle("TP2 AlgoCraft");
 
 		Modelo modelo = new Modelo();
-		
-		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, modelo.jugador(), modelo.mesa());
+
+		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, modelo);
         Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
         
         ContenedorApertura contenedorApertura = new ContenedorApertura(stage, escenaJuego);
