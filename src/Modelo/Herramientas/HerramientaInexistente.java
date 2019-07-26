@@ -2,12 +2,12 @@ package Modelo.Herramientas;
 
 import Modelo.Desgastes.Desgaste;
 import Modelo.Inventario.InventarioHerramienta;
+import Modelo.Mapa.Ocupante;
 import Modelo.Recursos.*;
 import Modelo.TipoMaterial.TipoMaterial;
 import Modelo.TipoMaterial.*;
 
 public class HerramientaInexistente extends Herramienta {
-
 
 
     public HerramientaInexistente(TipoMaterial material){
@@ -17,8 +17,6 @@ public class HerramientaInexistente extends Herramienta {
     public HerramientaInexistente(){
         super(new TipoMaterialInexistente());
     }
-
-
 
 
     public void asignarMaterial(TipoMaterial material){}
@@ -31,9 +29,6 @@ public class HerramientaInexistente extends Herramienta {
     // Set
     public void asignarFuerza(int fuerza){}
     public void asignarDesgaste(Desgaste desgaste){}
-
-
-
 
 
     // Get
@@ -55,4 +50,7 @@ public class HerramientaInexistente extends Herramienta {
 	public void agregarAlInventario(InventarioHerramienta inventario) {
 
 	}
+
+	@Override
+    public void golpear(Ocupante ocupante){}
 }

@@ -12,7 +12,7 @@ public class TipoMetalYPiedra extends TipoMaterial{
     public void definirValores(Herramienta herramienta) {
         herramienta.asignarMaterial(this);
     }
-    public void golpear(Diamante recurso, int fuerza){ recurso.serGolpeadoCon(fuerza);}
+    public void golpear(Diamante recurso, int fuerza){ recurso.reducirDurabilidadEn(fuerza);}
 
     @Override
 	public void agregarAlInventario(InventarioHerramienta inventario, Herramienta herramienta) {

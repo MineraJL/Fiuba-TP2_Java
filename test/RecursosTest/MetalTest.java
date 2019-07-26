@@ -23,7 +23,7 @@ public class MetalTest {
         @Test
         public void testMetalAlSerGolpeadoReduceSuDurabilidadEn4(){
             Recurso metal =  new Metal();
-            metal.serGolpeadoCon(4);
+            metal.reducirDurabilidadEn(4);
             assertEquals(46, metal.durabilidad());
         }
 
@@ -102,7 +102,7 @@ public class MetalTest {
         	Recurso metal = new Metal();
         	MateriaPrima mpMetal = new MPMetal();
         	
-        	metal.serGolpeadoCon(50);
+        	metal.reducirDurabilidadEn(50);
         	
         	assertEquals(mpMetal, metal.getCasillero().getOcupante());
         }

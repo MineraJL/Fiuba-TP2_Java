@@ -6,24 +6,24 @@ public class PosicionEnlazada {
     private PosicionEnlazada derecha;
     private PosicionEnlazada izquierda;
 
-    private int coorX;
-    private int coorY;
+    private int i;
+    private int j;
 
-    public PosicionEnlazada(int coorX, int coorY) {
-        this.coorX = coorX;
-        this.coorY = coorY;
+    public PosicionEnlazada(int i, int j) {
+        this.i = i;
+        this.j = j;
         this.inicializarSiguientes();
     }
 
-    public int getX() {
-        return this.coorX;
+    public int geti() {
+        return this.i;
     }
-    public int getY() {
-        return this.coorY;
+    public int getj() {
+        return this.j;
     }
 
     public boolean equals(PosicionEnlazada otraPosicion){
-        return ((this.getX()==otraPosicion.getX()) && (this.getY() == otraPosicion.getY()));
+        return ((this.geti()==otraPosicion.geti()) && (this.getj() == otraPosicion.getj()));
     }
 
 

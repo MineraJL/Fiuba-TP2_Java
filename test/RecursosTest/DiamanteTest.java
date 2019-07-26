@@ -20,7 +20,7 @@ public class DiamanteTest {
         @Test
         public void testDiamanteAlSerGolpeadoReduceSuDurabilidadEn10(){
             Diamante diamante =  new Diamante();
-            diamante.serGolpeadoCon(10);
+            diamante.reducirDurabilidadEn(10);
             assertEquals(90, diamante.durabilidad());
         }
 
@@ -99,7 +99,7 @@ public class DiamanteTest {
         	Recurso diamante = new Diamante();
         	MateriaPrima mpDiamante = new MPDiamante();
 
-        	diamante.serGolpeadoCon(100);
+        	diamante.reducirDurabilidadEn(100);
         	
         	assertEquals(mpDiamante, diamante.getCasillero().getOcupante());
         }

@@ -14,4 +14,7 @@ public class Madera extends Recurso {
         herramienta.golpear(this);
     }
 
+    @Override
+    public void golpeateCon(Herramienta herramienta){herramienta.golpear(this);}
+
 }

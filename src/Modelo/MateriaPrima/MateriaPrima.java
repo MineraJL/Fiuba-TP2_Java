@@ -1,7 +1,12 @@
 package Modelo.MateriaPrima;
 
+import Modelo.Herramientas.Herramienta;
+import Modelo.Inventario.Inventario;
 import Modelo.Inventario.InventarioMateriaPrima;
-import Modelo.Mapa.*;
+import Modelo.Mapa.Casillero;
+import Modelo.Mapa.Mapa;
+import Modelo.Mapa.Ocupante;
+import Modelo.Mapa.PosicionEnlazada;
 
 
 public abstract class MateriaPrima implements Ocupante {
@@ -40,8 +45,12 @@ public abstract class MateriaPrima implements Ocupante {
 
 	public abstract void agregarAlInventario(InventarioMateriaPrima inventario);
 
+	@Override
+	public void golpeateCon(Herramienta herramienta){}
 
 	@Override
-	public void serGolpeadoCon(int fuerza){}
+	public void serRecolectadoEn(Inventario inventario){
+		inventario.agregarElemento(this);
+	}
 
 }

@@ -2,6 +2,7 @@ package Modelo.Recursos;
 
 
 import Modelo.Herramientas.Herramienta;
+import Modelo.Inventario.Inventario;
 import Modelo.Mapa.Casillero;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Ocupante;
@@ -18,11 +19,11 @@ public abstract class Recurso implements Ocupante {
         this.setCasillero(new Casillero());
     }
 
-    private void reducirDurabilidadEn(int cantidadAReducir) {
+    public void reducirDurabilidadEn(int cantidadAReducir) {
         this.durabilidad.reducirDurabilidadEn(cantidadAReducir,this.MPaLiberar,this.casillero);
     }
 
-    // Implementacion interface Ocupante
+    // Implementacion interfaz Ocupante
     public void setCasillero(Casillero casillero){
         this.casillero= casillero;
     }
@@ -34,12 +35,12 @@ public abstract class Recurso implements Ocupante {
     public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}
 
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
+
+    public abstract void golpeateCon(Herramienta herramienta);
+
+    public void serRecolectadoEn(Inventario inventario){}
+
     // Fin implementacion
-
-    public void serGolpeadoCon(int fuerza){ // implementacion interfaz Golpeable
-        this.reducirDurabilidadEn(fuerza);
-    }
-
 
     public int durabilidad(){
         return this.durabilidad.durabilidad();

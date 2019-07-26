@@ -73,13 +73,13 @@ public class PosicionEnlazadaTest {
     @Test
     public void testPosicionTieneCoordenadaEnXConLaQueSeCreoIgualDos(){
         PosicionEnlazada posicion = new PosicionEnlazada(2,3);
-        assertEquals(2, posicion.getX());
+        assertEquals(2, posicion.geti());
     }
 
     @Test
     public void testPosicionTieneCoordenadaEnYConLaQueSeCreoIgualATres(){
         PosicionEnlazada posicion = new PosicionEnlazada(2,3);
-        assertEquals(3, posicion.getY());
+        assertEquals(3, posicion.getj());
     }
 
     // equals

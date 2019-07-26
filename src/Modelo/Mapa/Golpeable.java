@@ -1,7 +1,9 @@
 package Modelo.Mapa;
 
-public interface Golpeable {
+import Modelo.Herramientas.Herramienta;
 
-    void serGolpeadoCon(int fuerza);
+public interface Golpeable extends Recolectable {
+
+    void golpeateCon(Herramienta herramienta);
 
 }

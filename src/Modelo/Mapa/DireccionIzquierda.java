@@ -6,6 +6,6 @@ public class DireccionIzquierda implements Direccion {
 
     @Override
     public PosicionEnlazada siguiente(PosicionEnlazada posicionActual) {
-        return posicionActual.posicionArriba();
+        return posicionActual.posicionAIzquierda();
     }
 }

@@ -1,15 +1,15 @@
 package MapaTest;
 
+import Modelo.Herramientas.Hacha;
 import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.*;
-import Modelo.Recursos.Madera;
 import Modelo.MesaDeTrabajo.Mesa;
-
+import Modelo.Recursos.Madera;
+import Modelo.TipoMaterial.TipoMadera;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertSame;
-import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class MapaIntegracionTest {
@@ -28,7 +28,7 @@ public class MapaIntegracionTest {
 
         for(int i=0; i < 10; i++){
             jugador.mover(new DireccionDerecha());}
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(9,5);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,9);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
@@ -46,7 +46,7 @@ public class MapaIntegracionTest {
 
         for(int i=0; i < 10; i++){
             jugador.mover(new DireccionIzquierda());}
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(0,5);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,0);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
@@ -64,7 +64,7 @@ public class MapaIntegracionTest {
 
         for(int i=0; i < 10; i++){
             jugador.mover(new DireccionArriba());}
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,9);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(0,5);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
@@ -82,16 +82,56 @@ public class MapaIntegracionTest {
 
         for(int i=0; i < 10; i++){
             jugador.mover(new DireccionAbajo());}
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(5,0);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(9,5);
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
 
+    @Test
+    public void testOcupanteJugadorEncerradoPorRecursos() {
+        Mapa mapa = new Mapa(10,10);
+        Casillero casillero1 = new Casillero();
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa();
+        Jugador jugador = new Jugador(inventario, mesa);
+        Ocupante ocupante2 = new Madera();
+        Ocupante ocupante3 = new Madera();
+        Ocupante ocupante4 = new Madera();
+        Ocupante ocupante5 = new Madera();
+        jugador.setCasillero(casillero1);
+        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
+        PosicionEnlazada posicion2 = new PosicionEnlazada(6,5); // Aca pongo a la Madera
+        PosicionEnlazada posicion3 = new PosicionEnlazada(4,5); // Aca pongo a la Madera
+        PosicionEnlazada posicion4 = new PosicionEnlazada(5,6); // Aca pongo a la Madera
+        PosicionEnlazada posicion5 = new PosicionEnlazada(5,4); // Aca pongo a la Madera
 
+
+
+        jugador.ingresar(mapa, posicion1);
+        ocupante2.ingresar(mapa, posicion2);
+        ocupante3.ingresar(mapa, posicion3);
+        ocupante4.ingresar(mapa, posicion4);
+        ocupante5.ingresar(mapa, posicion5);
+        // Lo muevo a la derecha 2 veces
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+
+        jugador.mover(new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
+        jugador.mover(new DireccionAbajo());
+
+        jugador.mover(new DireccionIzquierda());
+        jugador.mover(new DireccionIzquierda());
+        jugador.mover(new DireccionIzquierda());
+
+        assertSame(mapa.getCasillero(posicion1), jugador.getCasillero());
+    }
 
     // MOVIMIENTO OCUPANTE JUGADOR - MAPA CON OCUPANTES RECURSOS
     //
-    @Test
+    /*@Test
     public void testOcupanteJugadorSeMueveALaDerechaHastaChocarConOtroOcupante() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
@@ -196,51 +236,11 @@ public class MapaIntegracionTest {
         jugador.mover(new DireccionDerecha());
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
-    }
-
-    @Test
-    public void testOcupanteJugadorEncerradoPorRecursos() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-    	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
-        Ocupante ocupante2 = new Madera();
-        Ocupante ocupante3 = new Madera();
-        Ocupante ocupante4 = new Madera();
-        Ocupante ocupante5 = new Madera();
-        jugador.setCasillero(casillero1);
-        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
-        PosicionEnlazada posicion2 = new PosicionEnlazada(6,5); // Aca pongo a la Madera
-        PosicionEnlazada posicion3 = new PosicionEnlazada(4,5); // Aca pongo a la Madera
-        PosicionEnlazada posicion4 = new PosicionEnlazada(5,6); // Aca pongo a la Madera
-        PosicionEnlazada posicion5 = new PosicionEnlazada(5,4); // Aca pongo a la Madera
+    }*/
 
 
 
-        jugador.ingresar(mapa, posicion1);
-        ocupante2.ingresar(mapa, posicion2);
-        ocupante3.ingresar(mapa, posicion3);
-        ocupante4.ingresar(mapa, posicion4);
-        ocupante5.ingresar(mapa, posicion5);
-        // Lo muevo a la derecha 2 veces
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-
-        jugador.mover(new DireccionAbajo());
-        jugador.mover(new DireccionAbajo());
-        jugador.mover(new DireccionAbajo());
-
-        jugador.mover(new DireccionIzquierda());
-        jugador.mover(new DireccionIzquierda());
-        jugador.mover(new DireccionIzquierda());
-
-        assertSame(mapa.getCasillero(posicion1), jugador.getCasillero());
-    }
-
-    @Test
+    /*@Test
     public void testOcupanteJugadorEsquivaOcupanteEnMapa() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
@@ -290,7 +290,7 @@ public class MapaIntegracionTest {
 
 
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
-    }
+    }*/
 
 
 
@@ -316,4 +316,130 @@ public class MapaIntegracionTest {
         assertEquals(casilleroOrigen,otroJugador.getCasillero());
     }
 
+
+
+    // Jugador golpea distintos Ocupantes
+    // Jugador golpea en casillero siguiente en distintas direcciones
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteAbajo_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // J * *
+        // * * *
+        // * * M
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(2, 2);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 0));
+
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionDerecha());
+        jugador.mover(new DireccionAbajo());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteArriba_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // M * *
+        // * * *
+        // J * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(2, 0));
+
+        jugador.mover(new DireccionArriba());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteDerecha_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // J * M
+        // * * *
+        // * * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 2);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 0));
+
+        jugador.mover(new DireccionDerecha());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+    @Test
+    public void testGolpeaMaderaEnSiguienteIzquierda_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+
+        // M * J
+        // * * *
+        // * * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 2));
+
+        jugador.mover(new DireccionIzquierda());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+    }
+
+
+    //
+
+    @Test
+    public void testHachaDeMaderaGolpeaOcupanteRecursoMaderaYSeDisminuyenSusDurabilidades() {
+        TipoMadera maderaHerramienta = new TipoMadera();
+        Hacha hacha = new Hacha(maderaHerramienta);
+        Madera madera = new Madera();
+
+        madera.golpeateCon(hacha);
+
+        assertEquals(10 - 2, madera.durabilidad());
+        assertEquals(100 - 2, hacha.durabilidad());
+
+    }
 }

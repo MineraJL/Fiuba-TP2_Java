@@ -1,44 +1,33 @@
 package Modelo.Jugador;
 
-import Modelo.Herramientas.*;
+import Modelo.Herramientas.Hacha;
+import Modelo.Herramientas.Herramienta;
 import Modelo.Inventario.Inventario;
 import Modelo.Mapa.*;
-import Modelo.MateriaPrima.MateriaPrima;
 import Modelo.MesaDeTrabajo.Mesa;
-import Modelo.TipoMaterial.*;
-import Modelo.Recursos.*;
+import Modelo.TipoMaterial.TipoMadera;
 
 
 public class Jugador implements OcupanteMovible {
 	private Mapa mapa;
-	private Casillero casilleroSeleccionadoParaRomper;
+	private Casillero casilleroSeleccionadoParaGolpear;
 	private Inventario inventario;
 	private Mesa mesa;
 	private Herramienta herramientaDeTrabajo;
 	private Casillero casillero;
-	
-	
-	private void usarHerramienta(Recurso unRecurso) {
-		
-		while(herramientaDeTrabajo.durabilidad() > 0 
-				&& unRecurso.durabilidad() > 0)
-			herramientaDeTrabajo.golpear(unRecurso);
-	}
-	
-	private void recolectarMateriaPrima(MateriaPrima materiaPrima) {
-		inventario.agregarElemento(materiaPrima);
+
+	public void recolectar(){
+		this.casilleroSeleccionadoParaGolpear.getOcupante().serRecolectadoEn(this.inventario);
 	}
 
 	private void mover(Mapa mapa, Direccion direccion){
 		this.casillero.desocupar();
 		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this);
 	}
-	
-	private void golpearRecurso(Recurso unRecurso) {
-		usarHerramienta(unRecurso);
-		recolectarMateriaPrima((MateriaPrima) unRecurso.getCasillero().getOcupante());
+
+	public void golpear(){
+		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaGolpear.getOcupante());
 	}
-	
 	
 	public Jugador(Inventario inventario, Mesa mesa) {
 		TipoMadera madera = new TipoMadera();
@@ -64,7 +53,7 @@ public class Jugador implements OcupanteMovible {
 
 	public void mover(Direccion direccion){
 		this.mover(this.mapa,direccion);
-		this.casilleroSeleccionadoParaRomper=this.casillero.obtenerCasilleroVecino(this.mapa,direccion);
+		this.casilleroSeleccionadoParaGolpear =this.casillero.obtenerCasilleroVecino(this.mapa,direccion);
 	}
 
 
@@ -81,9 +70,6 @@ public class Jugador implements OcupanteMovible {
 		inventario.agregarElemento(hacha);
 	}
 */
-	public void golpear(){
-		this.golpearRecurso((Recurso) this.casilleroSeleccionadoParaRomper.getOcupante());
-	}
 	
 	public void seleccionarHachaMadera() {
 		herramientaDeTrabajo = inventario.extraerHachaMadera();
@@ -118,6 +104,8 @@ public class Jugador implements OcupanteMovible {
 		return herramientaDeTrabajo;
 	}
 
-	public void serGolpeadoCon(int fuerza){} // implementacion de interfaz Golpeable
-	
+	@Override
+	public void golpeateCon(Herramienta herramienta){}
+	@Override
+	public void serRecolectadoEn(Inventario inventario){}
 }
