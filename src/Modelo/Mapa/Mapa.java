@@ -47,7 +47,7 @@ public class Mapa {
     }
 
     public Casillero getCasillero(PosicionEnlazada posicion){
-        return this.matriz[posicion.getX()][posicion.getY()];
+        return this.matriz[posicion.geti()][posicion.getj()];
     }
 
 }

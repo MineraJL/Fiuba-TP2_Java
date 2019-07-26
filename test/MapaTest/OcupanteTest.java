@@ -22,7 +22,7 @@ public class OcupanteTest {
     	Mesa mesa = new Mesa();
         Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero1);
-        assertEquals(0, ocupante.getPosicion().getX());
+        assertEquals(0, ocupante.getPosicion().geti());
     }
     @Test
     public void testOcupanteTieneLaMismaColumnaDelCasilleroSeteadoEnCero() {
@@ -32,7 +32,7 @@ public class OcupanteTest {
     	Mesa mesa = new Mesa();
         Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero1);
-        assertEquals(0,  ocupante.getPosicion().getY());
+        assertEquals(0,  ocupante.getPosicion().getj());
     }
     @Test
     public void testOcupanteTieneLaMismaFilaDelCasilleroSeteadoEnUno() {
@@ -42,7 +42,7 @@ public class OcupanteTest {
     	Mesa mesa = new Mesa();
         Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero1);
-        assertEquals(1, ocupante.getPosicion().getX());
+        assertEquals(1, ocupante.getPosicion().geti());
     }
     @Test
     public void testOcupanteTieneLaMismaColumnaDelCasilleroSeteadoEnUno() {
@@ -52,7 +52,7 @@ public class OcupanteTest {
     	Mesa mesa = new Mesa();
         Ocupante ocupante = new Jugador(inventario, mesa);
         ocupante.setCasillero(casillero1);
-        assertEquals(1, ocupante.getPosicion().getY());
+        assertEquals(1, ocupante.getPosicion().getj());
     }
     //
 

@@ -52,7 +52,7 @@ public class JugadorTest {
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionIzquierda());
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(1,5);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(2,4);
 
         assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
     }
@@ -69,7 +69,7 @@ public class JugadorTest {
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionDerecha());
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(3,5);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(2,6);
 
 
         assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
@@ -87,7 +87,7 @@ public class JugadorTest {
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionArriba());
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(2,6);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(1,5);
 
         assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
     }
@@ -104,7 +104,7 @@ public class JugadorTest {
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionAbajo());
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(2,4);
+        PosicionEnlazada posicionFinal = new PosicionEnlazada(3,5);
 
         assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
     }
