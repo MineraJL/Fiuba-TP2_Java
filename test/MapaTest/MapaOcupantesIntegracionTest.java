@@ -12,7 +12,7 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertSame;
 import static org.junit.Assert.assertEquals;
 
-public class MapaIntegracionTest {
+public class MapaOcupantesIntegracionTest {
 
     // Jugador se mueve y queda contenido en el mapa al llegar a sus bordes
     @Test
@@ -442,4 +442,5 @@ public class MapaIntegracionTest {
         assertEquals(100 - 2, hacha.durabilidad());
 
     }
+
 }

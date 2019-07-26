@@ -2,9 +2,7 @@ package MapaTest;
 
 import Modelo.Mapa.Casillero;
 import Modelo.Mapa.Mapa;
-import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.PosicionEnlazada;
-import Modelo.Recursos.Madera;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -61,20 +59,5 @@ public class MapaTest{
         Casillero casillero= mapa.getCasillero(posicion);
         assertEquals(4, casillero.getPosicion().getj());
     }
-
-    // Metodo para vista
-    @Test
-    public void testMetodoOcupanteDevuelveElOcupantePedido(){
-        Mapa mapa = new Mapa(5,5);
-        PosicionEnlazada posicionMadera = new PosicionEnlazada(2,3);
-        Madera madera = new Madera();
-
-        madera.ingresar(mapa,posicionMadera);
-
-        Ocupante maderaEnMapa = mapa.ocupante(posicionMadera);
-
-        assertEquals(madera,maderaEnMapa);
-    }
-
 
 }

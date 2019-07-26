@@ -51,10 +51,13 @@ public class Mapa {
     }
 
 
-    // obtener ocupante para vista
+    // métodos info para vista
     public Ocupante ocupante(PosicionEnlazada posicion){
         return matriz[posicion.geti()][posicion.getj()].getOcupante();
     }
-    // fin método para vista
+
+    public int cantidadFilas(){return this.filas;}
+    public int cantidadColumnas(){return this.columnas;}
+    // fin métodos para vista
 
 }

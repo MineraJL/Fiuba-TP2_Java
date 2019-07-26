@@ -31,4 +31,7 @@ public class Modelo {
     public Jugador jugador(){return jugador;}
     public Mapa mapa(){return mapa;}
 
+    public int cantFilasMapa(){return this.mapa.cantidadFilas();}
+    public int cantColumnasMapa(){return this.mapa.cantidadColumnas();}
+
 }
