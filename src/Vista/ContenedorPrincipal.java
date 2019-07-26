@@ -19,8 +19,12 @@ public class ContenedorPrincipal extends BorderPane {
     private Canvas canvasCentral;
     private VBox contenedorCentral;
 
+    private Stage stage; //
+
 
 	public ContenedorPrincipal(Stage stage, Modelo modelo) {
+	    this.stage = stage; //
+
         this.setMenu(stage);
         this.setBotoneraJugador(modelo.jugador());
         this.setBotoneraMesaDeTrabajo(modelo.mesa());
@@ -94,7 +98,6 @@ public class ContenedorPrincipal extends BorderPane {
         VBox botonera = new VBox(botonGolpear, botonesMover);
         botonera.setSpacing(20);
         botonera.setPadding(new Insets(15));
-
 
         this.setLeft(botonera);
 
