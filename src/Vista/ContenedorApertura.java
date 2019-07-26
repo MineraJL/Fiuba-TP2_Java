@@ -26,7 +26,7 @@ public class ContenedorApertura extends VBox {
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
         this.setPadding(new Insets(25));
-        Image imagen = new Image("Vista/ImagenInicio.jpg");
+        Image imagen = new Image("Vista/Imagenes/inicio2.png");
         System.out.println(imagen.getHeight());
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.ROUND, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
