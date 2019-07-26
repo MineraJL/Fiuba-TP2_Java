@@ -16,7 +16,7 @@ public class Aplicacion extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		stage.setTitle("TP2 AlgoCraft");
-		
+
 		Modelo modelo = new Modelo();
 		
 		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, modelo.jugador(), modelo.mesa());

@@ -45,29 +45,29 @@ public class ContenedorPrincipal extends BorderPane {
         BotonGolpearRecursoHandler botonGolpearRecursoHandler = new BotonGolpearRecursoHandler(jugador);
         botonGolpearRecurso.setOnAction(botonGolpearRecursoHandler);
         
-        Button botonMoverHaciaElNorte = new Button();
-        botonMoverHaciaElNorte.setText("Mover Al Norte");
-        BotonMoverHaciaElNorteHandler botonMoverAlNorteHandler = new BotonMoverHaciaElNorteHandler(jugador);
-        botonMoverHaciaElNorte.setOnAction(botonMoverAlNorteHandler);
+        Button botonMoverHaciaArriba = new Button();
+        botonMoverHaciaArriba.setText("Mover hacia arriba");
+        BotonMoverHaciaArribaHandler botonMoverHaciaArribaHandler = new BotonMoverHaciaArribaHandler(jugador);
+        botonMoverHaciaArriba.setOnAction(botonMoverHaciaArribaHandler);
         
-        Button botonMoverHaciaElSur = new Button();
-        botonMoverHaciaElSur.setText("Mover al Sur");
-        BotonMoverHaciaElSurHandler botonMoverAlSurHandler = new BotonMoverHaciaElSurHandler(jugador);
-        botonMoverHaciaElSur.setOnAction(botonMoverAlSurHandler);
+        Button botonMoverHaciaAbajo = new Button();
+        botonMoverHaciaAbajo.setText("Mover hacia abajo");
+        BotonMoverHaciaAbajoHandler botonMoverHaciaAbajoHandler = new BotonMoverHaciaAbajoHandler(jugador);
+        botonMoverHaciaAbajo.setOnAction(botonMoverHaciaAbajoHandler);
         
-        Button botonMoverHaciaElEste = new Button();
-        botonMoverHaciaElEste.setText("Mover al Este");
-        BotonMoverHaciaElEsteHandler botonMoverAlEsteHandler = new BotonMoverHaciaElEsteHandler(jugador);
-        botonMoverHaciaElEste.setOnAction(botonMoverAlEsteHandler);
+        Button botonMoverHaciaLaDerecha = new Button();
+        botonMoverHaciaLaDerecha.setText("Mover hacia la derecha");
+        BotonMoverHaciaLaDerechaHandler botonMoverHaciaLaDerechaHandler = new BotonMoverHaciaLaDerechaHandler(jugador);
+        botonMoverHaciaLaDerecha.setOnAction(botonMoverHaciaLaDerechaHandler);
         
-        Button botonMoverHaciaElOeste = new Button();
-        botonMoverHaciaElOeste.setText("Mover al Oeste");
-        BotonMoverHaciaElOesteHandler botonMoverAlOesteHandler = new BotonMoverHaciaElOesteHandler(jugador);
-        botonMoverHaciaElOeste.setOnAction(botonMoverAlOesteHandler);
+        Button botonMoverHaciaLaIzquierda = new Button();
+        botonMoverHaciaLaIzquierda.setText("Mover hacia la izquierda");
+        BotonMoverHaciaLaIzquierdaHandler botonMoverHaciaLaIzquierdaHandler = new BotonMoverHaciaLaIzquierdaHandler(jugador);
+        botonMoverHaciaLaIzquierda.setOnAction(botonMoverHaciaLaIzquierdaHandler);
 
 
-        VBox contenedor = new VBox(botonGolpearRecurso, botonMoverHaciaElNorte, botonMoverHaciaElSur, 
-        						   botonMoverHaciaElEste, botonMoverHaciaElOeste);
+        VBox contenedor = new VBox(botonGolpearRecurso, botonMoverHaciaArriba, botonMoverHaciaAbajo,
+        						   botonMoverHaciaLaDerecha, botonMoverHaciaLaIzquierda);
         contenedor.setSpacing(10);
         contenedor.setPadding(new Insets(15));
 

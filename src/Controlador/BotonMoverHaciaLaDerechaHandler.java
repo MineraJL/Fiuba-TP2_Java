@@ -1,20 +1,20 @@
 package Controlador;
 
 import Modelo.Jugador.Jugador;
-import Modelo.Mapa.DireccionAbajo;
+import Modelo.Mapa.DireccionDerecha;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonMoverHaciaElSurHandler implements EventHandler<ActionEvent> {
+public class BotonMoverHaciaLaDerechaHandler implements EventHandler<ActionEvent> {
 	Jugador jugador;
 	
-	public BotonMoverHaciaElSurHandler(Jugador jugador) {
+	public BotonMoverHaciaLaDerechaHandler(Jugador jugador) {
 		this.jugador = jugador;
 	}
 	
 	@Override
 	public void handle(ActionEvent event) {
-		this.jugador.mover(new DireccionAbajo());
+		this.jugador.mover(new DireccionDerecha());
 	}
 
 }
