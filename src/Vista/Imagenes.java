@@ -6,12 +6,24 @@ import java.util.HashMap;
 
 public class Imagenes {
 
-    HashMap<String, Image> coleccionImagenes;
+    private HashMap<String, Image> coleccionImagenes;
 
     public Imagenes(){
         this.coleccionImagenes = new HashMap<String,Image>();
         this.cargarImagenesRecursos();
         this.cargarImagenJugador();
+        this.cargarImagenesMateriaPrima();
+    }
+
+    private void cargarImagenesMateriaPrima() {
+        Image mpmadera = new Image("file:src/Vista/Imagenes/MateriaPrima/mpmadera.png");
+        Image mppiedra = new Image("file:src/Vista/Imagenes/MateriaPrima/mppiedra.png");
+        Image mpmetal = new Image("file:src/Vista/Imagenes/MateriaPrima/mpmetal.png");
+        Image mpdiamante = new Image("file:src/Vista/Imagenes/MateriaPrima/mpdiamante.png");
+        coleccionImagenes.put("MPMadera",mpmadera);
+        coleccionImagenes.put("MPPiedra",mppiedra);
+        coleccionImagenes.put("MPMetal",mpmetal);
+        coleccionImagenes.put("MPDiamante",mpdiamante);
     }
 
     private void cargarImagenJugador() {
@@ -22,6 +34,7 @@ public class Imagenes {
     private void cargarImagenesRecursos() {
 
         Image pasto = new Image("file:src/Vista/Imagenes/pasto.png");
+
         Image madera = new Image("file:src/Vista/Imagenes/madera.png");
         Image piedra = new Image("file:src/Vista/Imagenes/piedra.png");
         Image metal = new Image("file:src/Vista/Imagenes/metal.png");
