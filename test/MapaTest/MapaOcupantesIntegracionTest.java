@@ -491,4 +491,45 @@ public class MapaOcupantesIntegracionTest {
     }
 
 
+
+    ////////////////////////////////////
+    //////// jugador recolecta mp //////
+    ////////////////////////////////////
+
+    @Test
+    public void jugadorGolpeaMaderaRecolectaLaMateriaPrimaYElCasilleroEnElQueHabiaMPQuedaDisponible() {
+
+        // M * J
+        // * * *
+        // * * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionInicialMadera = new PosicionEnlazada(0, 0);
+        madera.ingresar(mapa, posicionInicialMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 2));
+
+        jugador.mover(new DireccionIzquierda());
+
+        jugador.golpear();
+        jugador.golpear();
+        jugador.golpear();
+        jugador.golpear();
+        jugador.golpear();
+
+        jugador.recolectar();
+
+        // Ahora el casillero está libre para ser ocupado, puede ser ocupado por ej por el jugador
+        jugador.mover(new DireccionIzquierda());
+
+        assertTrue(jugador.getPosicion().equals(posicionInicialMadera));
+
+    }
+
+
 }
