@@ -50,4 +50,14 @@ public class Mapa {
         return this.matriz[posicion.geti()][posicion.getj()];
     }
 
+
+    // métodos info para vista
+    public Ocupante ocupante(PosicionEnlazada posicion){
+        return matriz[posicion.geti()][posicion.getj()].getOcupante();
+    }
+
+    public int cantidadFilas(){return this.filas;}
+    public int cantidadColumnas(){return this.columnas;}
+    // fin métodos para vista
+
 }

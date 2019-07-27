@@ -16,4 +16,9 @@ public class Diamante extends Recurso {
     @Override
     public void golpeateCon(Herramienta herramienta){herramienta.golpear(this);}
 
+    @Override
+    public String obtenerNombreOcupante(){
+        return this.getClass().getSimpleName();
+    }
+
 }

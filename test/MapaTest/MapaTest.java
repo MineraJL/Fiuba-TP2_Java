@@ -1,6 +1,8 @@
 package MapaTest;
 
-import Modelo.Mapa.*;
+import Modelo.Mapa.Casillero;
+import Modelo.Mapa.Mapa;
+import Modelo.Mapa.PosicionEnlazada;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -57,6 +59,5 @@ public class MapaTest{
         Casillero casillero= mapa.getCasillero(posicion);
         assertEquals(4, casillero.getPosicion().getj());
     }
-
 
 }

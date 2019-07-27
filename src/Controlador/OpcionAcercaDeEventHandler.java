@@ -13,8 +13,8 @@ public class OpcionAcercaDeEventHandler implements EventHandler<ActionEvent> {
         alert.setTitle("Acerca de...");
         alert.setHeaderText("75.07 Algoritmos y  programación III.");
         String mensaje = "TP2 AlgoCraft - Grupo 12\n"+
-        				 "Aldana Lescano - PADRON\n"+
-        				 "Iván - PADRON\n"+
+        				 "Aldana Lescano Maier - 99839\n"+
+        				 "Iván Moreno - PADRON\n"+
         				 "José Luis Minera - 90781\n"+
         				 "Martín Dabat - PADRON";
         alert.setContentText(mensaje);

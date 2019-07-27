@@ -9,4 +9,9 @@ public class MPMetal extends MateriaPrima {
 	    	inventario.agregarMateriaPrima(this);
 		
 	}
+
+	@Override
+	public String obtenerNombreOcupante(){
+		return this.getClass().getSimpleName();
+	}
 }

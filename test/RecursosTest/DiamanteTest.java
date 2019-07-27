@@ -103,4 +103,12 @@ public class DiamanteTest {
         	
         	assertEquals(mpDiamante, diamante.getCasillero().getOcupante());
         }
+
+        @Test
+        public void ocupanteDiamanteDevuelveSuNombre(){
+            Diamante diamante = new Diamante();
+            String nombre = diamante.obtenerNombreOcupante();
+            assertEquals("Diamante",nombre);
+
+        }
     }

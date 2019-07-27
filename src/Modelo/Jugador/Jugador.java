@@ -61,6 +61,8 @@ public class Jugador implements OcupanteMovible {
 		mapa.getCasillero(posicion).ocuparPor(this);
 		this.mapa = mapa;
 	}
+
+	public String obtenerNombreOcupante(){return this.getClass().getSimpleName();}
 	// Fin implementacion
 
 	/*public void construirHacha(Modelo.TipoMaterial unMaterial) {

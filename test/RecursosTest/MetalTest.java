@@ -96,14 +96,23 @@ public class MetalTest {
             pico.golpear(metal);
             assertEquals(50, metal.durabilidad());
         }
-        
+
         @Test
         public void testRecursoMetalAlLlegarACeroSuDurabilidadSeTransformaEnMateriaPrimaMetal() {
         	Recurso metal = new Metal();
         	MateriaPrima mpMetal = new MPMetal();
-        	
+
         	metal.reducirDurabilidadEn(50);
-        	
+
         	assertEquals(mpMetal, metal.getCasillero().getOcupante());
         }
+
+        @Test
+        public void ocupanteMaderaDevuelveSuNombre(){
+            Metal metal = new Metal();
+            String nombre = metal.obtenerNombreOcupante();
+            assertEquals("Metal",nombre);
+        }
+        
+        
     }

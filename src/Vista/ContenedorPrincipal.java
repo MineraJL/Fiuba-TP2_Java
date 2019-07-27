@@ -1,77 +1,103 @@
 package Vista;
 
 import Controlador.*;
-import Modelo.CreadorDeMapa.CreadorDeMapa;
 import Modelo.Jugador.Jugador;
 import Modelo.MesaDeTrabajo.Mesa;
+import Modelo.Modelo;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ContenedorPrincipal extends BorderPane {
 	
-    BarraDeMenu menuBar;
-    CreadorDeMapa mapa;
-    Canvas canvasCentral;
-    VBox contenedorCentral;
+    private BarraDeMenu menuBar;
+    private Canvas canvasCentral;
+    private VBox contenedorCentral;
+    private VistaModelo vistaModelo;
 
-	public ContenedorPrincipal(Stage stage, Jugador jugador, Mesa mesa) {
+	public ContenedorPrincipal(Stage stage, Modelo modelo) {
+
         this.setMenu(stage);
-        this.setMapa(jugador);
-        this.setBotoneraJugador(jugador);
-        this.setBotoneraMesaDeTrabajo(mesa);
+        this.setCentro(modelo);
+        this.setBotoneraJugador(modelo.jugador());
+
+        //this.setBotoneraMesaDeTrabajo(modelo.mesa());
 	}
 	
     private void setMenu(Stage stage) {
         this.menuBar = new BarraDeMenu(stage);
         this.setTop(menuBar);
     }
-    
+
     public BarraDeMenu getBarraDeMenu() {
         return menuBar;
     }
-    
-    private void setMapa(Jugador jugador) {
-    	
+
+
+    private void setCentro(Modelo modelo){
+
+	    canvasCentral = new Canvas(512,480);
+	    this.vistaModelo = new VistaModelo(modelo,canvasCentral);
+	    vistaModelo.dibujar();
+
+	    contenedorCentral = new VBox(canvasCentral);
+	    contenedorCentral.setAlignment(Pos.CENTER);
+
+        Text textoPuntos = new Text("Tenés muchos puntos y maderitas");
+        VBox contenedorConPuntos = new VBox(textoPuntos,contenedorCentral);
+        contenedorConPuntos.setSpacing(30);
+
+        this.setCenter(contenedorConPuntos);
     }
-    
+
+
+
     private void setBotoneraJugador(Jugador jugador) {
 
-        Button botonGolpearRecurso = new Button();
-        botonGolpearRecurso.setText("Golpear Recurso");
-        BotonGolpearRecursoHandler botonGolpearRecursoHandler = new BotonGolpearRecursoHandler(jugador);
-        botonGolpearRecurso.setOnAction(botonGolpearRecursoHandler);
+        Button botonGolpear = new Button();
+        botonGolpear.setText("Golpear");
+        BotonGolpearHandler botonGolpearHandler = new BotonGolpearHandler(jugador,this.vistaModelo);
+        botonGolpear.setOnAction(botonGolpearHandler);
+
+        Text tituloMover = new Text("Mover");
+
+        Button botonMoverArriba = new Button();
+        botonMoverArriba.setText("arriba");
+        BotonMoverArribaHandler botonMoverArribaHandler = new BotonMoverArribaHandler(jugador,this.vistaModelo);
+        botonMoverArriba.setOnAction(botonMoverArribaHandler);
         
-        Button botonMoverHaciaElNorte = new Button();
-        botonMoverHaciaElNorte.setText("Mover Al Norte");
-        BotonMoverHaciaElNorteHandler botonMoverAlNorteHandler = new BotonMoverHaciaElNorteHandler(jugador);
-        botonMoverHaciaElNorte.setOnAction(botonMoverAlNorteHandler);
+        Button botonMoverAbajo = new Button();
+        botonMoverAbajo.setText("abajo");
+        BotonMoverAbajoHandler botonMoverAbajoHandler = new BotonMoverAbajoHandler(jugador,this.vistaModelo);
+        botonMoverAbajo.setOnAction(botonMoverAbajoHandler);
         
-        Button botonMoverHaciaElSur = new Button();
-        botonMoverHaciaElSur.setText("Mover al Sur");
-        BotonMoverHaciaElSurHandler botonMoverAlSurHandler = new BotonMoverHaciaElSurHandler(jugador);
-        botonMoverHaciaElSur.setOnAction(botonMoverAlSurHandler);
+        Button botonMoverDerecha = new Button();
+        botonMoverDerecha.setText("derecha");
+        BotonMoverDerechaHandler botonMoverDerechaHandler = new BotonMoverDerechaHandler(jugador,this.vistaModelo);
+        botonMoverDerecha.setOnAction(botonMoverDerechaHandler);
         
-        Button botonMoverHaciaElEste = new Button();
-        botonMoverHaciaElEste.setText("Mover al Este");
-        BotonMoverHaciaElEsteHandler botonMoverAlEsteHandler = new BotonMoverHaciaElEsteHandler(jugador);
-        botonMoverHaciaElEste.setOnAction(botonMoverAlEsteHandler);
-        
-        Button botonMoverHaciaElOeste = new Button();
-        botonMoverHaciaElOeste.setText("Mover al Oeste");
-        BotonMoverHaciaElOesteHandler botonMoverAlOesteHandler = new BotonMoverHaciaElOesteHandler(jugador);
-        botonMoverHaciaElOeste.setOnAction(botonMoverAlOesteHandler);
+        Button botonMoverIzquierda = new Button();
+        botonMoverIzquierda.setText("izquierda");
+        BotonMoverIzquierdaHandler botonMoverIzquierdaHandler = new BotonMoverIzquierdaHandler(jugador,this.vistaModelo);
+        botonMoverIzquierda.setOnAction(botonMoverIzquierdaHandler);
 
 
-        VBox contenedor = new VBox(botonGolpearRecurso, botonMoverHaciaElNorte, botonMoverHaciaElSur, 
-        						   botonMoverHaciaElEste, botonMoverHaciaElOeste);
-        contenedor.setSpacing(10);
-        contenedor.setPadding(new Insets(15));
+        HBox botonesMoverLateralmente = new HBox(botonMoverIzquierda,botonMoverDerecha);
+        VBox botonesMover = new VBox(tituloMover, botonMoverArriba, botonesMoverLateralmente, botonMoverAbajo);
+        botonesMover.setSpacing(5);
+        botonesMover.setAlignment(Pos.CENTER);
 
-        this.setBottom(contenedor);
+        VBox botonera = new VBox(botonGolpear, botonesMover);
+        botonera.setSpacing(20);
+        botonera.setPadding(new Insets(15));
+
+        this.setLeft(botonera);
 
     }
     

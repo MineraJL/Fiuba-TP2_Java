@@ -17,16 +17,16 @@ public class CreadorDeMapaTest {
 
 
     @Test
-    public void testJugadorIngresaAMapaEnLaPosicion1_1(){
+    public void testJugadorIngresaAMapaEnLaPosicion0_0(){
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Jugador jugador = new Jugador(inventario, mesa);
-        CreadorDeMapa creadorDeMapa = new CreadorDeMapa(jugador);
+        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
 
-        PosicionEnlazada posicionEsperada = new PosicionEnlazada(1,1);
+        creadorDeMapa.ingresarJugadorAMapa(jugador);
 
-        boolean posicionesIguales = jugador.getPosicion().equals(posicionEsperada);
-        assertTrue(posicionesIguales);
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(0,0);
+        assertTrue(jugador.getPosicion().equals(posicionEsperada));
 
     }
 
@@ -36,7 +36,8 @@ public class CreadorDeMapaTest {
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Jugador jugador = new Jugador(inventario, mesa);
-        CreadorDeMapa creadorDeMapa = new CreadorDeMapa(jugador);
+        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
+        creadorDeMapa.ingresarJugadorAMapa(jugador);
 
         jugador.mover(new DireccionDerecha());
 

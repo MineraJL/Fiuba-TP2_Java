@@ -9,4 +9,6 @@ public interface Ocupante extends Golpeable {
     PosicionEnlazada getPosicion();
 
     void ingresar(Mapa mapa, PosicionEnlazada posicion);
+
+    String obtenerNombreOcupante();
 }

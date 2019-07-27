@@ -4,15 +4,17 @@ import Modelo.Herramientas.Hacha;
 import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.*;
+import Modelo.MateriaPrima.MPMadera;
 import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.Recursos.Madera;
 import Modelo.TipoMaterial.TipoMadera;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertSame;
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-public class MapaIntegracionTest {
+public class MapaOcupantesIntegracionTest {
 
     // Jugador se mueve y queda contenido en el mapa al llegar a sus bordes
     @Test
@@ -442,4 +444,55 @@ public class MapaIntegracionTest {
         assertEquals(100 - 2, hacha.durabilidad());
 
     }
+
+    ////////////////////////////////////
+    // golpear hasta que se libera mp //
+    ////////////////////////////////////
+
+    @Test
+    public void jugadorGolpeaMaderaHastaQueSuDurabilidadLlegaACeroYSeLiberaMateriaPrima() {
+
+        // M * J
+        // * * *
+        // * * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
+        madera.ingresar(mapa, posicionMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 2));
+
+        jugador.mover(new DireccionIzquierda());
+
+        jugador.golpear();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+        assertEquals(10 - 2, maderaEnMapa.durabilidad());
+
+        jugador.golpear();
+        maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+        assertEquals(6, maderaEnMapa.durabilidad());
+
+        jugador.golpear();
+        maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+        assertEquals(4, maderaEnMapa.durabilidad());
+
+        jugador.golpear();
+        maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+        assertEquals(2, maderaEnMapa.durabilidad());
+
+        jugador.golpear();
+        MPMadera mpMadera = (MPMadera) mapa.getCasillero(posicionMadera).getOcupante();
+
+        MPMadera mpEsperada = new MPMadera();
+        assertTrue(mpMadera.equals(mpEsperada));
+
+    }
+
+
+
+
 }
