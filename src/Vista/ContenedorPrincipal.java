@@ -8,8 +8,9 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -20,16 +21,13 @@ public class ContenedorPrincipal extends BorderPane {
     private VBox contenedorCentral;
     private VistaModelo vistaModelo;
 
-    private Stage stage; //
-
-
 	public ContenedorPrincipal(Stage stage, Modelo modelo) {
-	    this.stage = stage; //
 
         this.setMenu(stage);
-        this.setBotoneraJugador(modelo.jugador());
-        this.setBotoneraMesaDeTrabajo(modelo.mesa());
         this.setCentro(modelo);
+        this.setBotoneraJugador(modelo.jugador());
+
+        //this.setBotoneraMesaDeTrabajo(modelo.mesa());
 	}
 	
     private void setMenu(Stage stage) {
@@ -51,17 +49,11 @@ public class ContenedorPrincipal extends BorderPane {
 	    contenedorCentral = new VBox(canvasCentral);
 	    contenedorCentral.setAlignment(Pos.CENTER);
 
-        Image imagen = new Image("file:src/Vista/Imagenes/unFondoCualquiera.jpg");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        contenedorCentral.setBackground(new Background(imagenDeFondo));
-
         Text textoPuntos = new Text("Tenés muchos puntos y maderitas");
         VBox contenedorConPuntos = new VBox(textoPuntos,contenedorCentral);
         contenedorConPuntos.setSpacing(30);
 
         this.setCenter(contenedorConPuntos);
-	    //this.setCenter(contenedorCentral); // rmplazo esta linea x cont con puntos.
-
     }
 
 
