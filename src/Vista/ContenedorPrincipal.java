@@ -18,6 +18,7 @@ public class ContenedorPrincipal extends BorderPane {
     private BarraDeMenu menuBar;
     private Canvas canvasCentral;
     private VBox contenedorCentral;
+    private VistaModelo vistaModelo;
 
     private Stage stage; //
 
@@ -41,10 +42,10 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
 
-    public void setCentro(Modelo modelo){
+    private void setCentro(Modelo modelo){
 
 	    canvasCentral = new Canvas(512,480);
-	    VistaModelo vistaModelo = new VistaModelo(modelo,canvasCentral);
+	    this.vistaModelo = new VistaModelo(modelo,canvasCentral);
 	    vistaModelo.dibujar();
 
 	    contenedorCentral = new VBox(canvasCentral);
@@ -84,10 +85,10 @@ public class ContenedorPrincipal extends BorderPane {
         BotonMoverHaciaAbajoHandler botonMoverHaciaAbajoHandler = new BotonMoverHaciaAbajoHandler(jugador);
         botonMoverHaciaAbajo.setOnAction(botonMoverHaciaAbajoHandler);
         
-        Button botonMoverHaciaLaDerecha = new Button();
-        botonMoverHaciaLaDerecha.setText("derecha");
-        BotonMoverHaciaLaDerechaHandler botonMoverHaciaLaDerechaHandler = new BotonMoverHaciaLaDerechaHandler(jugador);
-        botonMoverHaciaLaDerecha.setOnAction(botonMoverHaciaLaDerechaHandler);
+        Button botonMoverDerecha = new Button();
+        botonMoverDerecha.setText("derecha");
+        BotonMoverDerechaHandler botonMoverDerechaHandler = new BotonMoverDerechaHandler(jugador,this.vistaModelo);
+        botonMoverDerecha.setOnAction(botonMoverDerechaHandler);
         
         Button botonMoverHaciaLaIzquierda = new Button();
         botonMoverHaciaLaIzquierda.setText("izquierda");
@@ -95,7 +96,7 @@ public class ContenedorPrincipal extends BorderPane {
         botonMoverHaciaLaIzquierda.setOnAction(botonMoverHaciaLaIzquierdaHandler);
 
 
-        HBox botonesMoverLateralmente = new HBox(botonMoverHaciaLaIzquierda,botonMoverHaciaLaDerecha);
+        HBox botonesMoverLateralmente = new HBox(botonMoverHaciaLaIzquierda,botonMoverDerecha);
         VBox botonesMover = new VBox(tituloMover, botonMoverHaciaArriba, botonesMoverLateralmente, botonMoverHaciaAbajo);
         botonesMover.setSpacing(5);
         botonesMover.setAlignment(Pos.CENTER);
