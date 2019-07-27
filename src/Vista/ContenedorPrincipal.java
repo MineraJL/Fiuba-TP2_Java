@@ -65,6 +65,12 @@ public class ContenedorPrincipal extends BorderPane {
         BotonGolpearHandler botonGolpearHandler = new BotonGolpearHandler(jugador,this.vistaModelo);
         botonGolpear.setOnAction(botonGolpearHandler);
 
+        Button botonRecolectar = new Button();
+        botonRecolectar.setText("Recolectar");
+        BotonRecolectarHandler botonRecolectarHandler = new BotonRecolectarHandler(jugador,this.vistaModelo);
+        botonRecolectar.setOnAction(botonRecolectarHandler);
+
+
         Text tituloMover = new Text("Mover");
 
         Button botonMoverArriba = new Button();
@@ -93,7 +99,7 @@ public class ContenedorPrincipal extends BorderPane {
         botonesMover.setSpacing(5);
         botonesMover.setAlignment(Pos.CENTER);
 
-        VBox botonera = new VBox(botonGolpear, botonesMover);
+        VBox botonera = new VBox(botonRecolectar, botonGolpear, botonesMover);
         botonera.setSpacing(20);
         botonera.setPadding(new Insets(15));
 

@@ -53,7 +53,6 @@ public abstract class MateriaPrima implements Ocupante {
 
 	@Override
 	public void serRecolectadoEn(Inventario inventario){
-		inventario.agregarElemento(this);
-	}
+		inventario.agregarElemento(this);}
 
 }

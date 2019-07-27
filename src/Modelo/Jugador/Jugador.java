@@ -16,6 +16,8 @@ public class Jugador implements OcupanteMovible {
 	private Herramienta herramientaDeTrabajo;
 	private Casillero casillero;
 
+	public Casillero getTemporalBorrarEsto(){return this.casilleroSeleccionadoParaGolpear;}
+
 	public void recolectar(){
 		this.casilleroSeleccionadoParaGolpear.getOcupante().serRecolectadoEn(this.inventario);
 	}

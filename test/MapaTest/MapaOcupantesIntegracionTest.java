@@ -7,6 +7,7 @@ import Modelo.Mapa.*;
 import Modelo.MateriaPrima.MPMadera;
 import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.Recursos.Madera;
+import Modelo.Recursos.Piedra;
 import Modelo.TipoMaterial.TipoMadera;
 import org.junit.Test;
 
@@ -445,9 +446,9 @@ public class MapaOcupantesIntegracionTest {
 
     }
 
-    ////////////////////////////////////
-    // golpear hasta que se libera mp //
-    ////////////////////////////////////
+    ///////////////////////////////////////////
+    // jugador golpea hasta que se libera mp //
+    ///////////////////////////////////////////
 
     @Test
     public void jugadorGolpeaMaderaHastaQueSuDurabilidadLlegaACeroYSeLiberaMateriaPrima() {
@@ -458,6 +459,7 @@ public class MapaOcupantesIntegracionTest {
 
         Inventario inventario = new Inventario();
         Mesa mesa = new Mesa(); //
+
         Mapa mapa = new Mapa(3, 3);
         Madera madera = new Madera();
         PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
@@ -473,15 +475,12 @@ public class MapaOcupantesIntegracionTest {
         assertEquals(10 - 2, maderaEnMapa.durabilidad());
 
         jugador.golpear();
-        maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
         assertEquals(6, maderaEnMapa.durabilidad());
 
         jugador.golpear();
-        maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
         assertEquals(4, maderaEnMapa.durabilidad());
 
         jugador.golpear();
-        maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
         assertEquals(2, maderaEnMapa.durabilidad());
 
         jugador.golpear();
@@ -489,6 +488,55 @@ public class MapaOcupantesIntegracionTest {
 
         MPMadera mpEsperada = new MPMadera();
         assertTrue(mpMadera.equals(mpEsperada));
+
+    }
+
+
+    ////////////////////////////////////
+    //////// jugador recolecta mp //////
+    ////////////////////////////////////
+
+    @Test
+    public void jugadorGolpeaMaderaRecolectaLaMateriaPrimaYElCasilleroEnElQueHabiaMPQuedaDisponible() {
+
+        // M * J
+        // * * *
+        // * * *
+
+        Inventario inventario = new Inventario();
+        Mesa mesa = new Mesa(); //
+
+        Mapa mapa = new Mapa(3, 3);
+        Madera madera = new Madera();
+        PosicionEnlazada posicionInicialMadera = new PosicionEnlazada(0, 0);
+        madera.ingresar(mapa, posicionInicialMadera);
+
+        Jugador jugador = new Jugador(inventario, mesa);
+        jugador.ingresar(mapa, new PosicionEnlazada(0, 2));
+
+        jugador.mover(new DireccionIzquierda());
+
+        jugador.golpear();
+        jugador.golpear();
+        jugador.golpear();
+        jugador.golpear();
+        jugador.golpear();
+
+        //assertTrue(jugador.getTemporalBorrarEsto().getPosicion().equals(posicionInicialMadera));
+
+        // Ahora el casillero quedo disponible para ser ocupado, asi que puede ser ocupado por jugador
+        //jugador.mover(new DireccionIzquierda());
+
+        //assertTrue(jugador.getPosicion().equals(new PosicionEnlazada(0,1))); // esta mal que esto pase
+
+        // esto es lo que deberia pasar:
+        //jugador.mover(new DireccionIzquierda());
+        //assertTrue(jugador.getPosicion().equals(posicionInicialMadera));
+
+        Piedra piedra = new Piedra();
+        piedra.ingresar(mapa,posicionInicialMadera);
+
+        assertTrue(piedra.getPosicion().equals(posicionInicialMadera));
 
     }
 
