@@ -67,29 +67,29 @@ public class ContenedorPrincipal extends BorderPane {
 
         Text tituloMover = new Text("Mover");
 
-        Button botonMoverHaciaArriba = new Button();
-        botonMoverHaciaArriba.setText("arriba");
-        BotonMoverHaciaArribaHandler botonMoverHaciaArribaHandler = new BotonMoverHaciaArribaHandler(jugador);
-        botonMoverHaciaArriba.setOnAction(botonMoverHaciaArribaHandler);
+        Button botonMoverArriba = new Button();
+        botonMoverArriba.setText("arriba");
+        BotonMoverArribaHandler botonMoverArribaHandler = new BotonMoverArribaHandler(jugador,this.vistaModelo);
+        botonMoverArriba.setOnAction(botonMoverArribaHandler);
         
-        Button botonMoverHaciaAbajo = new Button();
-        botonMoverHaciaAbajo.setText("abajo");
-        BotonMoverHaciaAbajoHandler botonMoverHaciaAbajoHandler = new BotonMoverHaciaAbajoHandler(jugador);
-        botonMoverHaciaAbajo.setOnAction(botonMoverHaciaAbajoHandler);
+        Button botonMoverAbajo = new Button();
+        botonMoverAbajo.setText("abajo");
+        BotonMoverAbajoHandler botonMoverAbajoHandler = new BotonMoverAbajoHandler(jugador,this.vistaModelo);
+        botonMoverAbajo.setOnAction(botonMoverAbajoHandler);
         
         Button botonMoverDerecha = new Button();
         botonMoverDerecha.setText("derecha");
         BotonMoverDerechaHandler botonMoverDerechaHandler = new BotonMoverDerechaHandler(jugador,this.vistaModelo);
         botonMoverDerecha.setOnAction(botonMoverDerechaHandler);
         
-        Button botonMoverHaciaLaIzquierda = new Button();
-        botonMoverHaciaLaIzquierda.setText("izquierda");
-        BotonMoverHaciaLaIzquierdaHandler botonMoverHaciaLaIzquierdaHandler = new BotonMoverHaciaLaIzquierdaHandler(jugador);
-        botonMoverHaciaLaIzquierda.setOnAction(botonMoverHaciaLaIzquierdaHandler);
+        Button botonMoverIzquierda = new Button();
+        botonMoverIzquierda.setText("izquierda");
+        BotonMoverIzquierdaHandler botonMoverIzquierdaHandler = new BotonMoverIzquierdaHandler(jugador,this.vistaModelo);
+        botonMoverIzquierda.setOnAction(botonMoverIzquierdaHandler);
 
 
-        HBox botonesMoverLateralmente = new HBox(botonMoverHaciaLaIzquierda,botonMoverDerecha);
-        VBox botonesMover = new VBox(tituloMover, botonMoverHaciaArriba, botonesMoverLateralmente, botonMoverHaciaAbajo);
+        HBox botonesMoverLateralmente = new HBox(botonMoverIzquierda,botonMoverDerecha);
+        VBox botonesMover = new VBox(tituloMover, botonMoverArriba, botonesMoverLateralmente, botonMoverAbajo);
         botonesMover.setSpacing(5);
         botonesMover.setAlignment(Pos.CENTER);
 
