@@ -65,43 +65,61 @@ public class ContenedorPrincipal extends BorderPane {
         BotonGolpearHandler botonGolpearHandler = new BotonGolpearHandler(jugador,this.vistaModelo);
         botonGolpear.setOnAction(botonGolpearHandler);
 
+        Button botonRecolectar = new Button();
+        botonRecolectar.setText("Recolectar");
+        BotonRecolectarHandler botonRecolectarHandler = new BotonRecolectarHandler(jugador,this.vistaModelo);
+        botonRecolectar.setOnAction(botonRecolectarHandler);
+
+        VBox botonesMover = this.botonesMover(jugador);
+
+        VBox botoneraJugador = new VBox(botonesMover, botonGolpear, botonRecolectar);
+        botoneraJugador.setSpacing(20);
+        botoneraJugador.setPadding(new Insets(50));
+        botoneraJugador.setAlignment(Pos.TOP_CENTER);
+
+        this.setLeft(botoneraJugador);
+
+    }
+
+
+    private VBox botonesMover(Jugador jugador) {
+
         Text tituloMover = new Text("Mover");
 
         Button botonMoverArriba = new Button();
         botonMoverArriba.setText("arriba");
-        BotonMoverArribaHandler botonMoverArribaHandler = new BotonMoverArribaHandler(jugador,this.vistaModelo);
+        BotonMoverArribaHandler botonMoverArribaHandler = new BotonMoverArribaHandler(jugador, this.vistaModelo);
         botonMoverArriba.setOnAction(botonMoverArribaHandler);
-        
+
         Button botonMoverAbajo = new Button();
         botonMoverAbajo.setText("abajo");
-        BotonMoverAbajoHandler botonMoverAbajoHandler = new BotonMoverAbajoHandler(jugador,this.vistaModelo);
+        BotonMoverAbajoHandler botonMoverAbajoHandler = new BotonMoverAbajoHandler(jugador, this.vistaModelo);
         botonMoverAbajo.setOnAction(botonMoverAbajoHandler);
-        
+
         Button botonMoverDerecha = new Button();
         botonMoverDerecha.setText("derecha");
-        BotonMoverDerechaHandler botonMoverDerechaHandler = new BotonMoverDerechaHandler(jugador,this.vistaModelo);
+        BotonMoverDerechaHandler botonMoverDerechaHandler = new BotonMoverDerechaHandler(jugador, this.vistaModelo);
         botonMoverDerecha.setOnAction(botonMoverDerechaHandler);
-        
+
         Button botonMoverIzquierda = new Button();
         botonMoverIzquierda.setText("izquierda");
-        BotonMoverIzquierdaHandler botonMoverIzquierdaHandler = new BotonMoverIzquierdaHandler(jugador,this.vistaModelo);
+        BotonMoverIzquierdaHandler botonMoverIzquierdaHandler = new BotonMoverIzquierdaHandler(jugador, this.vistaModelo);
         botonMoverIzquierda.setOnAction(botonMoverIzquierdaHandler);
 
 
-        HBox botonesMoverLateralmente = new HBox(botonMoverIzquierda,botonMoverDerecha);
+        HBox botonesMoverLateralmente = new HBox(botonMoverIzquierda, botonMoverDerecha);
         VBox botonesMover = new VBox(tituloMover, botonMoverArriba, botonesMoverLateralmente, botonMoverAbajo);
         botonesMover.setSpacing(5);
         botonesMover.setAlignment(Pos.CENTER);
 
-        VBox botonera = new VBox(botonGolpear, botonesMover);
-        botonera.setSpacing(20);
-        botonera.setPadding(new Insets(15));
-
-        this.setLeft(botonera);
-
+        return botonesMover;
     }
-    
-    private void setBotoneraMesaDeTrabajo(Mesa mesa) {
+
+
+
+
+
+        private void setBotoneraMesaDeTrabajo(Mesa mesa) {
     	
     }
 

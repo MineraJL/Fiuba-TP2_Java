@@ -16,19 +16,6 @@ public class Jugador implements OcupanteMovible {
 	private Herramienta herramientaDeTrabajo;
 	private Casillero casillero;
 
-	public void recolectar(){
-		this.casilleroSeleccionadoParaGolpear.getOcupante().serRecolectadoEn(this.inventario);
-	}
-
-	private void mover(Mapa mapa, Direccion direccion){
-		this.casillero.desocupar();
-		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this);
-	}
-
-	public void golpear(){
-		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaGolpear.getOcupante());
-	}
-	
 	public Jugador(Inventario inventario, Mesa mesa) {
 		TipoMadera madera = new TipoMadera();
 		Hacha unHacha = new Hacha(madera);
@@ -40,6 +27,20 @@ public class Jugador implements OcupanteMovible {
 		this.setCasillero(new Casillero());
 	}
 
+
+	public void recolectar(){
+		this.casilleroSeleccionadoParaGolpear.getOcupante().serRecolectadoEn(this.inventario);
+	}
+
+	public void golpear(){
+		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaGolpear.getOcupante());
+	}
+
+
+	private void mover(Mapa mapa, Direccion direccion){
+		this.casillero.desocupar();
+		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this);
+	}
 
 	// Implementacion interface ocupanteMovible
 	public void setCasillero(Casillero casillero){

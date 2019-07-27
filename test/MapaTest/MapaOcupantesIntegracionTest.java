@@ -445,9 +445,9 @@ public class MapaOcupantesIntegracionTest {
 
     }
 
-    ////////////////////////////////////
-    // golpear hasta que se libera mp //
-    ////////////////////////////////////
+    ///////////////////////////////////////////
+    // jugador golpea hasta que se libera mp //
+    ///////////////////////////////////////////
 
     @Test
     public void jugadorGolpeaMaderaHastaQueSuDurabilidadLlegaACeroYSeLiberaMateriaPrima() {
@@ -458,6 +458,7 @@ public class MapaOcupantesIntegracionTest {
 
         Inventario inventario = new Inventario();
         Mesa mesa = new Mesa(); //
+
         Mapa mapa = new Mapa(3, 3);
         Madera madera = new Madera();
         PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
@@ -473,15 +474,12 @@ public class MapaOcupantesIntegracionTest {
         assertEquals(10 - 2, maderaEnMapa.durabilidad());
 
         jugador.golpear();
-        maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
         assertEquals(6, maderaEnMapa.durabilidad());
 
         jugador.golpear();
-        maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
         assertEquals(4, maderaEnMapa.durabilidad());
 
         jugador.golpear();
-        maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
         assertEquals(2, maderaEnMapa.durabilidad());
 
         jugador.golpear();
@@ -491,8 +489,6 @@ public class MapaOcupantesIntegracionTest {
         assertTrue(mpMadera.equals(mpEsperada));
 
     }
-
-
 
 
 }
