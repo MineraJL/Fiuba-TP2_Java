@@ -62,7 +62,7 @@ public class ContenedorPrincipal extends BorderPane {
 
         Button botonGolpear = new Button();
         botonGolpear.setText("Golpear");
-        BotonGolpearHandler botonGolpearHandler = new BotonGolpearHandler(jugador);
+        BotonGolpearHandler botonGolpearHandler = new BotonGolpearHandler(jugador,this.vistaModelo);
         botonGolpear.setOnAction(botonGolpearHandler);
 
         Text tituloMover = new Text("Mover");
