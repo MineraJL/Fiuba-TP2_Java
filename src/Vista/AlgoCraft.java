@@ -6,7 +6,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Aplicacion extends Application {
+public class AlgoCraft extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
