@@ -79,7 +79,7 @@ public class DurabilidadRecursoTest {
         durabilidadRecurso.reducirDurabilidadEn(9,materiaPrima, casillero);
         durabilidadRecurso.reducirDurabilidadEn(1,materiaPrima, casillero);
 
-        assertEquals(materiaPrima,casillero.getOcupante());
+        assertEquals(materiaPrima,casillero.ocupante());
 
     }
 

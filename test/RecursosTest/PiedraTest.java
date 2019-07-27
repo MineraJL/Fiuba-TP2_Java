@@ -107,7 +107,7 @@ public class PiedraTest {
 
             piedra.reducirDurabilidadEn(30);
 
-            assertEquals(mpPiedra, piedra.getCasillero().getOcupante());
+            assertEquals(mpPiedra, piedra.getCasillero().ocupante());
         }
 
         @Test

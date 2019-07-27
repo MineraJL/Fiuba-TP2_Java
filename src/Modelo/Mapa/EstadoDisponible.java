@@ -11,7 +11,7 @@ public class EstadoDisponible implements EstadoCasillero{
 
     }
 
-    public Ocupante getOcupante(){
+    public Ocupante ocupante(){
         return new OcupanteVacio();
     }
 

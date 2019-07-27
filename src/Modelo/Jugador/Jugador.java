@@ -29,11 +29,11 @@ public class Jugador implements OcupanteMovible {
 
 
 	public void recolectar(){
-		this.casilleroSeleccionadoParaGolpear.getOcupante().serRecolectadoEn(this.inventario);
+		this.casilleroSeleccionadoParaGolpear.ocupante().serRecolectadoEn(this.inventario);
 	}
 
 	public void golpear(){
-		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaGolpear.getOcupante());
+		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaGolpear.ocupante());
 	}
 
 

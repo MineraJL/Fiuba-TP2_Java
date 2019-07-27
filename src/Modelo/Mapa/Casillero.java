@@ -26,7 +26,7 @@ public class Casillero {
     }
 
     // Set estado
-    public void setEstado(EstadoCasillero estado){
+    private void setEstado(EstadoCasillero estado){
         this.estado=estado;
     }
 
@@ -40,8 +40,8 @@ public class Casillero {
         this.estado=this.estado.ocuparPor(this, ocupante);
     }
 
-    public Ocupante getOcupante(){
-        return estado.getOcupante();
+    public Ocupante ocupante(){
+        return estado.ocupante();
     }
 
     public void desocupar(){

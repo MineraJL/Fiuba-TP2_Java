@@ -4,7 +4,7 @@ public interface EstadoCasillero {
 
     EstadoCasillero ocuparPor(Casillero casillero, Ocupante ocupante);
 
-    Ocupante getOcupante();
+    Ocupante ocupante();
 
     EstadoCasillero desocupar();
 

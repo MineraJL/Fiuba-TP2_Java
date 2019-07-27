@@ -53,7 +53,7 @@ public class Mapa {
 
     // métodos info para vista
     public Ocupante ocupante(PosicionEnlazada posicion){
-        return matriz[posicion.geti()][posicion.getj()].getOcupante();
+        return matriz[posicion.geti()][posicion.getj()].ocupante();
     }
 
     public int cantidadFilas(){return this.filas;}

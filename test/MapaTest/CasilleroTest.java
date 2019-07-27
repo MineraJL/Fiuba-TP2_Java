@@ -152,7 +152,7 @@ public class CasilleroTest {
         Casillero casillero = new Casillero();
         Ocupante ocupante = new Madera();
         casillero.ocuparPor(ocupante);
-        assertEquals(casillero.getOcupante(), ocupante);
+        assertEquals(casillero.ocupante(), ocupante);
     }
 
 

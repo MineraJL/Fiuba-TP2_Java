@@ -104,6 +104,6 @@ public class EstadoCasilleroTest {
 
         EstadoCasillero  nuevoEstado = estado.ocuparPor(c, ocupante1);
 
-        assertSame(nuevoEstado.getOcupante(), ocupante1);
+        assertSame(nuevoEstado.ocupante(), ocupante1);
     }
 }

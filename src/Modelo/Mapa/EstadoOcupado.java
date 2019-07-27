@@ -13,7 +13,7 @@ public class EstadoOcupado implements EstadoCasillero {
         return this;
     }
 
-    public Ocupante getOcupante(){
+    public Ocupante ocupante(){
         return this.ocupante;
     }
 

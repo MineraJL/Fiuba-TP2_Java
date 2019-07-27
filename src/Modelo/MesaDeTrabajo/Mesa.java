@@ -33,7 +33,7 @@ public class Mesa {
     }
 
     public Ocupante obtenerItemEn(int filaCasillero, int colunmaCasillero){
-        return this.grilla[filaCasillero][colunmaCasillero].getOcupante();
+        return this.grilla[filaCasillero][colunmaCasillero].ocupante();
     }
     public ArrayList<Ocupante> obtenerItemsEn(ArrayList<Posicion> posiciones){
         ArrayList<Ocupante> itemsObtenidos = new ArrayList<Ocupante>();

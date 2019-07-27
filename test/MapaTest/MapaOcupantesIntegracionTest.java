@@ -345,7 +345,7 @@ public class MapaOcupantesIntegracionTest {
         jugador.mover(new DireccionAbajo());
 
         jugador.golpear();
-        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).ocupante();
 
         assertEquals(10 - 2, maderaEnMapa.durabilidad());
 
@@ -371,7 +371,7 @@ public class MapaOcupantesIntegracionTest {
         jugador.mover(new DireccionArriba());
 
         jugador.golpear();
-        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).ocupante();
 
         assertEquals(10 - 2, maderaEnMapa.durabilidad());
 
@@ -397,7 +397,7 @@ public class MapaOcupantesIntegracionTest {
         jugador.mover(new DireccionDerecha());
 
         jugador.golpear();
-        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).ocupante();
 
         assertEquals(10 - 2, maderaEnMapa.durabilidad());
 
@@ -423,7 +423,7 @@ public class MapaOcupantesIntegracionTest {
         jugador.mover(new DireccionIzquierda());
 
         jugador.golpear();
-        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).ocupante();
 
         assertEquals(10 - 2, maderaEnMapa.durabilidad());
 
@@ -470,7 +470,7 @@ public class MapaOcupantesIntegracionTest {
         jugador.mover(new DireccionIzquierda());
 
         jugador.golpear();
-        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).getOcupante();
+        Madera maderaEnMapa = (Madera) mapa.getCasillero(posicionMadera).ocupante();
         assertEquals(10 - 2, maderaEnMapa.durabilidad());
 
         jugador.golpear();
@@ -483,7 +483,7 @@ public class MapaOcupantesIntegracionTest {
         assertEquals(2, maderaEnMapa.durabilidad());
 
         jugador.golpear();
-        MPMadera mpMadera = (MPMadera) mapa.getCasillero(posicionMadera).getOcupante();
+        MPMadera mpMadera = (MPMadera) mapa.getCasillero(posicionMadera).ocupante();
 
         MPMadera mpEsperada = new MPMadera();
         assertTrue(mpMadera.equals(mpEsperada));
