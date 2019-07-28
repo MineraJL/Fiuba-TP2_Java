@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.*;
+import Controlador.ControladoresMesa.BotonAgregarMPMaderaHandler;
 import Modelo.Jugador.Jugador;
 import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.Modelo;
@@ -72,8 +73,8 @@ public class ContenedorPrincipal extends BorderPane {
 
         Button botonAgregarMPMadera = new Button();
         botonAgregarMPMadera.setText("madera");
-        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
-        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+        BotonAgregarMPMaderaHandler botonAgregarMPMaderaHandler = new BotonAgregarMPMaderaHandler(modelo,this.vistaMesa);
+        botonAgregarMPMadera.setOnAction(botonAgregarMPMaderaHandler);
 
         Button botonAgregarMPPiedra = new Button();
         botonAgregarMPPiedra.setText("piedra");
@@ -96,6 +97,11 @@ public class ContenedorPrincipal extends BorderPane {
         //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
 
 
+        Button botonLimpiarMesa = new Button();
+        botonLimpiarMesa.setText("Limpiar Mesa");
+        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
+        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+
         Button botonConstruirHerramienta = new Button();
         botonConstruirHerramienta.setText("Construir Herramienta");
         //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
@@ -110,7 +116,7 @@ public class ContenedorPrincipal extends BorderPane {
         agregarMP.setSpacing(10);
         agregarMP.setAlignment(Pos.CENTER);
 
-        VBox botonesMesa = new VBox(agregarMP,botonConstruirHerramienta);
+        VBox botonesMesa = new VBox(agregarMP,botonLimpiarMesa,botonConstruirHerramienta);
         botonesMesa.setAlignment(Pos.CENTER);
 
         return botonesMesa;
