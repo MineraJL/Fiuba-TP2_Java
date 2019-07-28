@@ -26,21 +26,44 @@ public class ContenedorPrincipal extends BorderPane {
 
         this.setMenu(stage);
         this.setCentro(modelo);
-        this.setBotoneraJugador(modelo.jugador());
+        this.setPanelIzquierdo(modelo);
 
-        this.setMesa(modelo);
 	}
 
-    private void setMesa(Modelo modelo) {
-        Canvas canvasMesa = new Canvas(100,100);
+    private void setMenu(Stage stage) {
+        this.menuBar = new BarraDeMenu(stage);
+        this.setTop(menuBar);
+    }
+
+    public BarraDeMenu getBarraDeMenu() {
+        return menuBar;
+    }
+
+
+    private void setPanelIzquierdo(Modelo modelo) {
+        VBox botonesJugador = this.botoneraJugador(modelo.jugador());
+        VBox panelMesa = this.mesa(modelo);
+        panelMesa.setAlignment(Pos.BOTTOM_CENTER);
+
+        VBox panelIzquierdo = new VBox(botonesJugador,panelMesa);
+
+        this.setLeft(panelIzquierdo);
+    }
+
+    private VBox mesa(Modelo modelo) {
+        Text tituloMesa = new Text("Mesa de Trabajo");
+
+        Canvas canvasMesa = new Canvas(50,50);
         this.vistaMesa = new VistaMesa(modelo,canvasMesa);
         vistaMesa.dibujar();
 
         VBox botonesMesa = this.botonesMesa(modelo);
+        botonesMesa.setSpacing(20);
 
-        VBox panelInferior = new VBox(canvasMesa,botonesMesa);
+        VBox panelMesa = new VBox(tituloMesa,canvasMesa,botonesMesa);
+        panelMesa.setAlignment(Pos.CENTER);
 
-        this.setBottom(panelInferior);
+        return panelMesa;
     }
 
     private VBox botonesMesa(Modelo modelo) {
@@ -74,25 +97,23 @@ public class ContenedorPrincipal extends BorderPane {
 
 
         Button botonConstruirHerramienta = new Button();
-        botonConstruirHerramienta.setText("ConstruirHerramienta");
+        botonConstruirHerramienta.setText("Construir Herramienta");
         //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
         //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
 
         HBox botonesAgregarMP1 = new HBox(botonAgregarMPMadera,botonAgregarMPPiedra,botonAgregarMPMetal);
         HBox botonesAgregarMP2 = new HBox(botonAgregarMPDiamante,botonAgregarMPVacio);
-        VBox botonesAgregarMP = new VBox(botonesAgregarMP1,botonesAgregarMP2);
+        botonesAgregarMP1.setAlignment(Pos.CENTER);
+        botonesAgregarMP2.setAlignment(Pos.CENTER);
 
-        return new VBox(botonesAgregarMP,botonConstruirHerramienta);
-    }
+        VBox agregarMP = new VBox(textoMP,botonesAgregarMP1,botonesAgregarMP2);
+        agregarMP.setSpacing(10);
+        agregarMP.setAlignment(Pos.CENTER);
 
+        VBox botonesMesa = new VBox(agregarMP,botonConstruirHerramienta);
+        botonesMesa.setAlignment(Pos.CENTER);
 
-    private void setMenu(Stage stage) {
-        this.menuBar = new BarraDeMenu(stage);
-        this.setTop(menuBar);
-    }
-
-    public BarraDeMenu getBarraDeMenu() {
-        return menuBar;
+        return botonesMesa;
     }
 
 
@@ -114,7 +135,8 @@ public class ContenedorPrincipal extends BorderPane {
 
 
 
-    private void setBotoneraJugador(Jugador jugador) {
+
+    private VBox botoneraJugador(Jugador jugador) {
 
         Button botonGolpear = new Button();
         botonGolpear.setText("Golpear");
@@ -133,7 +155,7 @@ public class ContenedorPrincipal extends BorderPane {
         botoneraJugador.setPadding(new Insets(50));
         botoneraJugador.setAlignment(Pos.TOP_CENTER);
 
-        this.setLeft(botoneraJugador);
+        return new VBox(botoneraJugador);
 
     }
 
