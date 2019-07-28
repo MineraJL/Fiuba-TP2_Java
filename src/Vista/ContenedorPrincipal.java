@@ -20,16 +20,72 @@ public class ContenedorPrincipal extends BorderPane {
     private Canvas canvasCentral;
     private VBox contenedorCentral;
     private VistaModelo vistaModelo;
+    private VistaMesa vistaMesa;
 
-	public ContenedorPrincipal(Stage stage, Modelo modelo) {
+    public ContenedorPrincipal(Stage stage, Modelo modelo) {
 
         this.setMenu(stage);
         this.setCentro(modelo);
         this.setBotoneraJugador(modelo.jugador());
 
-        //this.setBotoneraMesaDeTrabajo(modelo.mesa());
+        this.setMesa(modelo);
 	}
-	
+
+    private void setMesa(Modelo modelo) {
+        Canvas canvasMesa = new Canvas(100,100);
+        this.vistaMesa = new VistaMesa(modelo,canvasMesa);
+        vistaMesa.dibujar();
+
+        VBox botonesMesa = this.botonesMesa(modelo);
+
+        VBox panelInferior = new VBox(canvasMesa,botonesMesa);
+
+        this.setBottom(panelInferior);
+    }
+
+    private VBox botonesMesa(Modelo modelo) {
+
+        Text textoMP = new Text("Agregar materia prima");
+
+        Button botonAgregarMPMadera = new Button();
+        botonAgregarMPMadera.setText("madera");
+        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
+        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+
+        Button botonAgregarMPPiedra = new Button();
+        botonAgregarMPPiedra.setText("piedra");
+        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
+        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+
+        Button botonAgregarMPMetal = new Button();
+        botonAgregarMPMetal.setText("metal");
+        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
+        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+
+        Button botonAgregarMPDiamante = new Button();
+        botonAgregarMPDiamante.setText("diamante");
+        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
+        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+
+        Button botonAgregarMPVacio = new Button();
+        botonAgregarMPVacio.setText("dejar vacío");
+        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
+        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+
+
+        Button botonConstruirHerramienta = new Button();
+        botonConstruirHerramienta.setText("ConstruirHerramienta");
+        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
+        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+
+        HBox botonesAgregarMP1 = new HBox(botonAgregarMPMadera,botonAgregarMPPiedra,botonAgregarMPMetal);
+        HBox botonesAgregarMP2 = new HBox(botonAgregarMPDiamante,botonAgregarMPVacio);
+        VBox botonesAgregarMP = new VBox(botonesAgregarMP1,botonesAgregarMP2);
+
+        return new VBox(botonesAgregarMP,botonConstruirHerramienta);
+    }
+
+
     private void setMenu(Stage stage) {
         this.menuBar = new BarraDeMenu(stage);
         this.setTop(menuBar);
