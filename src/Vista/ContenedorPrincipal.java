@@ -53,7 +53,7 @@ public class ContenedorPrincipal extends BorderPane {
     private VBox mesa(Modelo modelo) {
         Text tituloMesa = new Text("Mesa de Trabajo");
 
-        Canvas canvasMesa = new Canvas(50,50);
+        Canvas canvasMesa = new Canvas(80,80);
         this.vistaMesa = new VistaMesa(modelo,canvasMesa);
         vistaMesa.dibujar();
 
