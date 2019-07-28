@@ -11,21 +11,33 @@ public class VistaMesa {
 
     private Modelo modelo;
     private Canvas canvasMesa;
+    private Imagenes imagenes;
 
     public VistaMesa(Modelo modelo, Canvas canvasMesa) {
         this.modelo = modelo;
+        this.imagenes = new Imagenes();
+        this.imagenes.cargarImagenesMesa();
+
         this.canvasMesa = canvasMesa;
         this.establecerTamanioDeCadaMateriaPrima(25);
+
+        this.inicializarMesa();
     }
+    // (sacar a "3" y "3" (cant filas y columnas) del modelo).
 
-    public void dibujar() {
-        //Image imagenRandom = new Image("Imagenes/unFondoCualquiera.png");
-        Imagenes imagenes = new Imagenes();
-        Image imagenRandomDePrueba = imagenes.getImage("Diamante");
-        canvasMesa.getGraphicsContext2D().drawImage(imagenRandomDePrueba,0*width, 0*height,width,height);
+    public void dibujar(){}
 
-        Image imagenDePrueba2 = new Image("file:src/Vista/Imagenes/MateriaPrima/mpmadera.png");
-        canvasMesa.getGraphicsContext2D().drawImage(imagenDePrueba2,1*width,1*width,width,height);
+    private void inicializarMesa() {
+
+        for (int i=0; i<3; i++){
+            for (int j=0;j<3;j++){
+
+                String vacio = "MPVacio";
+                Image imagenMPEnMesa = imagenes.getImage(vacio);
+                canvasMesa.getGraphicsContext2D().drawImage(imagenMPEnMesa,width*j,height*i,width,height);
+
+            }
+        }
 
     }
 

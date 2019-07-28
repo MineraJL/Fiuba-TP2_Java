@@ -12,8 +12,9 @@ public class VistaModelo {
 
     public VistaModelo(Modelo modelo, Canvas canvas){
         this.modelo = modelo;
-        this.canvas = canvas;
         this.imagenes = new Imagenes();
+        this.imagenes.cargarImagenesMapa();
+        this.canvas = canvas;
     }
 
     public void dibujar() {

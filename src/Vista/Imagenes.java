@@ -14,7 +14,7 @@ public class Imagenes {
         this.cargarImagenesMesa();
     }
 
-    private void cargarImagenesMesa() {
+    public void cargarImagenesMesa() {
         Image mpmadera = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPMadera.png");
         Image mppiedra = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPPiedra.png");
         Image mpmetal = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPMetal.png");
@@ -27,11 +27,16 @@ public class Imagenes {
         coleccionImagenes.put("MPVacio",mpvacio);
     }
 
-    private void cargarImagenesMapa() {
+    public void cargarImagenesMapa() {
         this.cargarImagenesRecursos();
         this.cargarImagenJugador();
         this.cargarImagenesMateriaPrima();
     }
+
+    public Image getImage(String nombreOcupante){
+        return coleccionImagenes.get(nombreOcupante);
+    }
+
 
     private void cargarImagenesMateriaPrima() {
         Image mpmadera = new Image("file:src/Vista/Imagenes/MateriaPrima/mpmadera.png");
@@ -65,10 +70,5 @@ public class Imagenes {
         coleccionImagenes.put("Diamante",diamante);
 
     }
-
-    public Image getImage(String nombreOcupante){
-        return coleccionImagenes.get(nombreOcupante);
-    }
-
 
 }
