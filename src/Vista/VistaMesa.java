@@ -25,7 +25,21 @@ public class VistaMesa {
     }
     // (sacar a "3" y "3" (cant filas y columnas) del modelo).
 
-    public void dibujar(){}
+    public void dibujar(){
+
+        for (int i=0; i<3; i++){
+            for (int j=0;j<3;j++){
+
+                //Posicion posActual = new Posicion(i,j);
+                String mpEnMesa = modelo.mesa().obtenerItemEn(i,j).obtenerNombreOcupante();
+                Image imagenMPEnMesa = imagenes.getImage(mpEnMesa);
+                canvasMesa.getGraphicsContext2D().drawImage(imagenMPEnMesa,width*j,height*i,width,height);
+
+            }
+        }
+
+
+    }
 
     private void inicializarMesa() {
 

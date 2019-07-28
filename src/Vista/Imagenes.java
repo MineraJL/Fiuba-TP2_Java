@@ -10,8 +10,8 @@ public class Imagenes {
 
     public Imagenes(){
         this.coleccionImagenes = new HashMap<String,Image>();
-        this.cargarImagenesMapa();
-        this.cargarImagenesMesa();
+        //this.cargarImagenesMapa();
+        //this.cargarImagenesMesa();
     }
 
     public void cargarImagenesMesa() {
