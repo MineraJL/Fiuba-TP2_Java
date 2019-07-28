@@ -19,7 +19,7 @@ public class DesgastePorUsos extends Desgaste {
         if (this.usos == this.usosMaximos){
             this.durabilidad = 0;
         }
-        if (this.usos > this.usos + 1)
+        if (this.usos > this.usosMaximos)
         		throw new DurabilidadDesgastadaExcepcion();
 
     }

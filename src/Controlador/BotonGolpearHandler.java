@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Jugador.Jugador;
 import Vista.VistaModelo;
 import javafx.event.ActionEvent;
@@ -16,7 +17,12 @@ public class BotonGolpearHandler implements EventHandler<ActionEvent> {
 	
 	@Override
 	public void handle(ActionEvent event) {
-		this.jugador.golpear();
+		try {
+			this.jugador.golpear();
+		} catch (HerramientaDesgastadaExcepcion e) {
+			//mostrar mensaje por pantalla que se rompio herramienta
+			e.printStackTrace();
+		}
 		this.vistaModelo.actualizar();
 	}
 

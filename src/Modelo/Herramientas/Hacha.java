@@ -61,7 +61,7 @@ public class Hacha extends Herramienta {
 
 
     @Override
-    public void golpear(Ocupante ocupante){
+    public void golpear(Ocupante ocupante) throws HerramientaDesgastadaExcepcion{
         ocupante.golpeateCon(this);
     }
     

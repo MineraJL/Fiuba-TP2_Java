@@ -52,10 +52,10 @@ public abstract class Herramienta {
         return this.desgaste.durabilidad();
     }
 
-    public abstract void golpear(Ocupante ocupante);
+    public abstract void golpear(Ocupante ocupante) throws HerramientaDesgastadaExcepcion;
 
     // Dispatch
-    public void golpear(Recurso recurso) { recurso.golpearCon(this);}
+    public void golpear(Recurso recurso) throws HerramientaDesgastadaExcepcion { recurso.golpearCon(this);}
     // Fin dispatch
 
     public void golpear(Madera material) throws HerramientaDesgastadaExcepcion{

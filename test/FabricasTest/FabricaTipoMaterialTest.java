@@ -12,7 +12,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class FabricaTipoMaterialTest {
     @Test
-    public void testCreacionTipoMadera() {
+    public void test01CreacionTipoMadera() {
         FabricaTipoMaterial fabricaMaterial = new FabricaTipoMaterial();
         ArrayList<Ocupante> trozosDeHerramienta = new ArrayList<Ocupante>();
         trozosDeHerramienta.add(new MPMadera());
@@ -27,7 +27,7 @@ public class FabricaTipoMaterialTest {
     }
 
     @Test
-    public void testCreacionTipoMetal() {
+    public void test02CreacionTipoMetal() {
         FabricaTipoMaterial fabricaMaterial = new FabricaTipoMaterial();
         ArrayList<Ocupante> trozosDeHerramienta = new ArrayList<Ocupante>();
         trozosDeHerramienta.add(new MPMetal());
@@ -43,7 +43,7 @@ public class FabricaTipoMaterialTest {
 
 
     @Test
-    public void testCreacionTipoPiedra() {
+    public void test03CreacionTipoPiedra() {
         FabricaTipoMaterial fabricaMaterial = new FabricaTipoMaterial();
         ArrayList<Ocupante> trozosDeHerramienta = new ArrayList<Ocupante>();
         trozosDeHerramienta.add(new MPPiedra());
@@ -58,7 +58,7 @@ public class FabricaTipoMaterialTest {
     }
 
     @Test
-    public void testCreacionTipoMetalYPiedra() {
+    public void test04CreacionTipoMetalYPiedra() {
         FabricaTipoMaterial fabricaMaterial = new FabricaTipoMaterial();
         ArrayList<Ocupante> trozosDeHerramienta = new ArrayList<Ocupante>();
         trozosDeHerramienta.add(new MPMetal());
