@@ -1,5 +1,6 @@
 package Vista;
 
+import Modelo.Mapa.PosicionEnlazada;
 import Modelo.Modelo;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
@@ -13,7 +14,7 @@ public class VistaMesa {
     private Canvas canvasMesa;
     private Imagenes imagenes;
 
-    private Canvas canvasBordeSeleccionado;
+    private PosicionEnlazada posicionActual;
 
     public VistaMesa(Modelo modelo, Canvas canvasMesa) {
         this.modelo = modelo;
@@ -24,9 +25,12 @@ public class VistaMesa {
         this.establecerTamanioCuadradoDeCadaMateriaPrima(25);
 
         this.inicializarMesa();
-    }
-    // (sacar a "3" y "3" (cant filas y columnas) del modelo).
 
+        this.inicializarPosicionActual();
+    }
+
+
+    // (sacar a "3" y "3" (cant filas y columnas) del modelo).
     public void dibujar(){
 
         for (int i=0; i<3; i++){
@@ -54,6 +58,15 @@ public class VistaMesa {
         this.inicializarMesa(); // TEMPORAL: borrar esta línea.
     }
 
+    public void dibujar(PosicionEnlazada posicionActual) {
+        // limpiarBorde de pos anterior
+
+        this.mostrarElemento(posicionActual.geti(),posicionActual.getj());
+        this.seleccionarConBorde(posicionActual.geti(),posicionActual.getj());
+
+        // avanzar a la siguiente posicion.
+    }
+
     private void inicializarMesa() {
 
         for (int i=0; i<3; i++){
@@ -68,11 +81,18 @@ public class VistaMesa {
 
     }
 
+    private void inicializarPosicionActual() {
+
+         this.posicionActual = modelo.mesa().obtenerItemEn(0,0).getPosicion();
+
+    }
 
     private void establecerTamanioCuadradoDeCadaMateriaPrima(int tamanio) {
         this.width = tamanio;
         this.height = tamanio;
     }
+
+    public PosicionEnlazada posicionActual(){return this.posicionActual;}
 
 
 
