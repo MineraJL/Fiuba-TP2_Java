@@ -2,6 +2,7 @@ package Modelo.Herramientas;
 
 import Modelo.Desgastes.DesgastePorUsos;
 import Modelo.Desgastes.DesgasteSegunMultiplicador;
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Inventario.InventarioHerramienta;
 import Modelo.Mapa.Ocupante;
 import Modelo.Recursos.Metal;
@@ -53,13 +54,13 @@ public class Pico extends Herramienta {
     // Fin Dispatch
     
     @Override
-    public void golpear(Piedra recursoPiedra) {
+    public void golpear(Piedra recursoPiedra) throws HerramientaDesgastadaExcepcion {
         super.golpear(recursoPiedra);
         this.material.golpear(recursoPiedra, this.fuerza);
     }
 
     @Override
-    public void golpear(Metal recursoMetal) {
+    public void golpear(Metal recursoMetal) throws HerramientaDesgastadaExcepcion {
         super.golpear(recursoMetal);
         this.material.golpear(recursoMetal, this.fuerza);
     }

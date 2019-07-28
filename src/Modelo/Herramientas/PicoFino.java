@@ -1,6 +1,8 @@
 package Modelo.Herramientas;
 import Modelo.Desgastes.DesgastePorUsos;
 import Modelo.Desgastes.DesgasteSegunMultiplicador;
+import Modelo.Excepciones.DurabilidadDesgastadaExcepcion;
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Inventario.InventarioHerramienta;
 import Modelo.Mapa.Ocupante;
 import Modelo.Recursos.Diamante;
@@ -41,8 +43,12 @@ public class PicoFino extends Herramienta {
     }
     // Fin Dispatch
 
-    public void golpear(Diamante recursoDiamante) {
-        this.desgaste.desgastarCon(this.durabilidad());
+    public void golpear(Diamante recursoDiamante) throws HerramientaDesgastadaExcepcion {
+        try {
+			this.desgaste.desgastarCon(this.durabilidad());
+		} catch (DurabilidadDesgastadaExcepcion e) {
+			throw new HerramientaDesgastadaExcepcion();
+		}
         this.material.golpear(recursoDiamante, this.fuerza);
     }
 
