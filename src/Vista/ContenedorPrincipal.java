@@ -44,7 +44,6 @@ public class ContenedorPrincipal extends BorderPane {
     private void setPanelIzquierdo(Modelo modelo) {
         VBox botonesJugador = this.botoneraJugador(modelo.jugador());
         VBox panelMesa = this.mesa(modelo);
-        panelMesa.setAlignment(Pos.BOTTOM_CENTER);
 
         VBox panelIzquierdo = new VBox(botonesJugador,panelMesa);
 

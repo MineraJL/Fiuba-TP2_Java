@@ -13,13 +13,15 @@ public class VistaMesa {
     private Canvas canvasMesa;
     private Imagenes imagenes;
 
+    private Canvas canvasBordeSeleccionado;
+
     public VistaMesa(Modelo modelo, Canvas canvasMesa) {
         this.modelo = modelo;
         this.imagenes = new Imagenes();
         this.imagenes.cargarImagenesMesa();
 
         this.canvasMesa = canvasMesa;
-        this.establecerTamanioDeCadaMateriaPrima(25);
+        this.establecerTamanioCuadradoDeCadaMateriaPrima(25);
 
         this.inicializarMesa();
     }
@@ -30,15 +32,26 @@ public class VistaMesa {
         for (int i=0; i<3; i++){
             for (int j=0;j<3;j++){
 
-                //Posicion posActual = new Posicion(i,j);
-                String mpEnMesa = modelo.mesa().obtenerItemEn(i,j).obtenerNombreOcupante();
-                Image imagenMPEnMesa = imagenes.getImage(mpEnMesa);
-                canvasMesa.getGraphicsContext2D().drawImage(imagenMPEnMesa,width*j,height*i,width,height);
+                this.mostrarElemento(i,j);
 
             }
         }
 
+    }
 
+    private void mostrarElemento(int i, int j){
+        String mpEnMesa = modelo.mesa().obtenerItemEn(i,j).obtenerNombreOcupante();
+        Image imagenMPEnMesa = imagenes.getImage(mpEnMesa);
+        canvasMesa.getGraphicsContext2D().drawImage(imagenMPEnMesa,width*j,height*i,width,height);
+    }
+
+    private void seleccionarConBorde(int i, int j){
+        canvasMesa.getGraphicsContext2D().strokeRect(width*j,height*i,width-1,height-1);
+    }
+    private void limpiarBorde(int i, int j){
+        canvasMesa.getGraphicsContext2D().clearRect(width*j,height*i,width-1,height-1);
+        this.mostrarElemento(i,j);
+        this.inicializarMesa(); // TEMPORAL: borrar esta línea.
     }
 
     private void inicializarMesa() {
@@ -56,7 +69,7 @@ public class VistaMesa {
     }
 
 
-    private void establecerTamanioDeCadaMateriaPrima(int tamanio) {
+    private void establecerTamanioCuadradoDeCadaMateriaPrima(int tamanio) {
         this.width = tamanio;
         this.height = tamanio;
     }
