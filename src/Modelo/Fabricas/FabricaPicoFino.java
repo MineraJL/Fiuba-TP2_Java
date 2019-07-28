@@ -11,22 +11,25 @@ import Modelo.TipoMaterial.TipoMaterial;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FabricaPicoFino implements IFabricaHerramienta {
-
-    private ArrayList<Posicion> modeloForma;
+public class FabricaPicoFino extends FabricaHerramienta {
 
     public FabricaPicoFino(){
         this.modeloForma = new ArrayList<Posicion>();
+        this.modeloFondo = new ArrayList<Posicion>();
         this.generarForma();
     }
 
     private void generarForma(){
-        this.modeloForma.add(new Posicion(1,0));
         this.modeloForma.add(new Posicion(0,0));
         this.modeloForma.add(new Posicion(0,1));
         this.modeloForma.add(new Posicion(0,2));
+        this.modeloForma.add(new Posicion(1,0));
         this.modeloForma.add(new Posicion(1,1));
         this.modeloForma.add(new Posicion(2,1));
+        
+        this.modeloFondo.add(new Posicion(1,2));
+        this.modeloFondo.add(new Posicion(2,0));
+        this.modeloFondo.add(new Posicion(2,2));
     }
 
     @Override
@@ -39,11 +42,6 @@ public class FabricaPicoFino implements IFabricaHerramienta {
         }
         return herramientaCreada;
     }
-
-    private boolean formaEsCorrecta(Mesa mesa){
-        return true;
-    }
-
 
     private List<Ocupante> obtenerElementosComponentes(Mesa mesa){
         return mesa.obtenerItemsEn(this.modeloForma);

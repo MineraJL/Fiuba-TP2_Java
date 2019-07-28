@@ -5,6 +5,7 @@ import Modelo.Herramientas.Herramienta;
 import Modelo.Herramientas.HerramientaInexistente;
 import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.Posicion;
+import Modelo.MateriaPrima.MPVacio;
 import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.TipoMaterial.TipoMaterial;
 
@@ -12,12 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FabricaHacha implements IFabricaHerramienta {
-
-    private ArrayList<Posicion> modeloForma;
+public class FabricaHacha extends FabricaHerramienta {
 
     public FabricaHacha(){
         this.modeloForma = new ArrayList<Posicion>();
+        this.modeloFondo = new ArrayList<Posicion>();
         this.generarForma();
     }
 
@@ -27,6 +27,11 @@ public class FabricaHacha implements IFabricaHerramienta {
         this.modeloForma.add(new Posicion(1,0));
         this.modeloForma.add(new Posicion(1,1));
         this.modeloForma.add(new Posicion(2,1));
+        
+        this.modeloFondo.add(new Posicion(0,2));
+        this.modeloFondo.add(new Posicion(1,2));
+        this.modeloFondo.add(new Posicion(2,0));
+        this.modeloFondo.add(new Posicion(2,2));
     }
 
     @Override
@@ -39,11 +44,6 @@ public class FabricaHacha implements IFabricaHerramienta {
         }
         return herramientaCreada;
     }
-
-    private boolean formaEsCorrecta(Mesa mesa){
-        return true;
-    }
-
 
     private List<Ocupante> obtenerElementosComponentes(Mesa mesa){
         return mesa.obtenerItemsEn(this.modeloForma);

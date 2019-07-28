@@ -18,14 +18,17 @@ public class FabricaMaterialTipoMetalYPiedra implements IFabricaMaterial {
         MPMetal materia = new MPMetal();
         MPMadera materiaMango = new MPMadera();
 
-        if (!materiaPrima.get(0).equals(new MPPiedra())){
-            return materialCreado;
-        }
-        for (int i = 1; i < 4 ; i++) {
+
+        for (int i = 0; i < 3 ; i++) {
             if (  !materiaPrima.get(i).equals(materia)){
                 return materialCreado;
             }
         }
+        
+        if (!materiaPrima.get(3).equals(new MPPiedra())){
+            return materialCreado;
+        }
+        
         for (int i = 4; i < materiaPrima.size() ; i++) {
             if (  !materiaPrima.get(i).equals(materiaMango)){
                 return materialCreado;
