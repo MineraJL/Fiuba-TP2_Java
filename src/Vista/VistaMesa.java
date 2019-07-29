@@ -48,13 +48,20 @@ public class VistaMesa {
     }
 
     private void mostrarElemento(int i, int j){
-        String mpEnMesa = modelo.mesa().obtenerOcupanteEn(i,j).obtenerNombreOcupante();
+
+        PosicionEnlazada pos = new PosicionEnlazada(i,j);
+        //int i = pos.geti();
+        //int j = pos.getj();
+
+        //String mpEnMesa = modelo.mesa().obtenerOcupanteEn(i,j).obtenerNombreOcupante();
+        String mpEnMesa = modelo.mesa().obtenerOcupanteEn(pos).obtenerNombreOcupante();
         Image imagenMPEnMesa = imagenes.getImage(mpEnMesa);
-        gc.drawImage(imagenMPEnMesa,width*j,height*i,width,height);
+        gc.drawImage(imagenMPEnMesa, width * pos.getj(), height * pos.geti(), width, height);
+
     }
 
-    private void seleccionarConBorde(int i, int j){
-        gc.strokeRect(width*j,height*i,width-1,height-1);
+    private void seleccionarConBorde(PosicionEnlazada pos){
+        gc.strokeRect(width*pos.getj(),height*pos.geti(),width-1,height-1);
     }
     private void limpiarBorde(int i, int j){
         gc.clearRect(width*j,height*i,width-1,height-1);
@@ -66,7 +73,7 @@ public class VistaMesa {
         // limpiarBorde de pos anterior
 
         this.mostrarElemento(posicionActual.geti(),posicionActual.getj());
-        this.seleccionarConBorde(posicionActual.geti(),posicionActual.getj());
+        this.seleccionarConBorde(posicionActual);
 
         // avanzar a la siguiente posicion.
     }
@@ -87,7 +94,8 @@ public class VistaMesa {
 
     private void inicializarPosicionActual() {
 
-         this.posicionActual = modelo.mesa().obtenerOcupanteEn(0,0).getPosicion();
+         //this.posicionActual = modelo.mesa().obtenerOcupanteEn(0,0).getPosicion();
+        this.posicionActual = new PosicionEnlazada(0,0);
 
     }
 

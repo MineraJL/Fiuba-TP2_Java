@@ -15,13 +15,13 @@ public class Mesa {
 
         this.mapa = new Mapa(3,3);
 
-
+/*
         grilla = new Casillero[3][3]; // viejo
         for (int i = 0; i < grilla.length; i++) {
             for (int j = 0; j < grilla[i].length; j++) {
                 grilla[i][j] = new Casillero();
             }
-        } // viejo
+        } // viejo*/
     }
 
 
@@ -31,12 +31,12 @@ public class Mesa {
 
     }
 
-    public void guardarMateriaPrimaEn(Ocupante materiaPrima, int filaCasillero, int colunmaCasillero){ // viejo
-        this.grilla[filaCasillero][colunmaCasillero].ocuparPor(materiaPrima); // viejo
+    public void guardarMateriaPrimaEn(Ocupante materiaPrima, int fila, int colunma){ // viejo
+        //this.grilla[fila][colunma].ocuparPor(materiaPrima); // viejo
+        materiaPrima.ingresar(this.mapa,new PosicionEnlazada(fila,colunma));
     }
     public void guardarMateriaPrimaEn(Ocupante materiaPrima, PosicionEnlazada posicion){
         materiaPrima.ingresar(this.mapa,posicion);
-        this.guardarMateriaPrimaEn(materiaPrima,posicion.geti(),posicion.getj()); // viejo
     }
 
 
@@ -51,9 +51,10 @@ public class Mesa {
     public ArrayList<Ocupante> obtenerOcupantesEn(ArrayList<PosicionEnlazada> posiciones){
         ArrayList<Ocupante> ocupantesObtenidos = new ArrayList<Ocupante>();
         for (int i = 0; i < posiciones.size(); i++) {
+            PosicionEnlazada pos = posiciones.get(i);
             int x = posiciones.get(i).geti();
             int y = posiciones.get(i).getj();
-            ocupantesObtenidos.add(this.obtenerOcupanteEn(x,y));
+            ocupantesObtenidos.add(this.obtenerOcupanteEn(pos));
         }
         return ocupantesObtenidos;
     }
