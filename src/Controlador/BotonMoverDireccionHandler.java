@@ -18,12 +18,10 @@ public abstract class BotonMoverDireccionHandler implements EventHandler<ActionE
 
     @Override
     public void handle(ActionEvent event) {
-        //this.jugador.mover();
         this.vistaModelo.actualizar();
     }
 
     public void handle(ActionEvent event, Direccion direccion){
-        //this.handle(event);
         this.jugador.mover(direccion);
         this.vistaModelo.actualizar();
     }

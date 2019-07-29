@@ -1,20 +1,19 @@
 package Controlador.ControladoresMesa;
 
-import Modelo.MateriaPrima.MPMadera;
+import Modelo.MateriaPrima.MPPiedra;
 import Modelo.Modelo;
 import Vista.VistaMesa;
 import javafx.event.ActionEvent;
 
-public class BotonAgregarMPMaderaHandler extends BotonAgregarMPHandler {
+public class BotonAgregarMPPiedraHandler extends BotonAgregarMPHandler {
 
-    public BotonAgregarMPMaderaHandler(Modelo modelo, VistaMesa vistaMesa) {
+    public BotonAgregarMPPiedraHandler(Modelo modelo, VistaMesa vistaMesa) {
         super(modelo,vistaMesa);
-        this.materiaPrima = new MPMadera();
+        this.materiaPrima = new MPPiedra();
     }
 
     @Override
     public void handle(ActionEvent event) {
         super.handle(event);
     }
-
 }
