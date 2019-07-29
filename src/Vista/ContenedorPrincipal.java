@@ -1,7 +1,7 @@
 package Vista;
 
 import Controlador.*;
-import Controlador.ControladoresMesa.BotonAgregarMPMaderaHandler;
+import Controlador.ControladoresMesa.*;
 import Modelo.Jugador.Jugador;
 import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.Modelo;
@@ -77,23 +77,23 @@ public class ContenedorPrincipal extends BorderPane {
 
         Button botonAgregarMPPiedra = new Button();
         botonAgregarMPPiedra.setText("piedra");
-        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
-        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+        BotonAgregarMPPiedraHandler botonAgregarMPPiedraHandler = new BotonAgregarMPPiedraHandler(modelo,this.vistaMesa);
+        botonAgregarMPPiedra.setOnAction(botonAgregarMPPiedraHandler);
 
         Button botonAgregarMPMetal = new Button();
         botonAgregarMPMetal.setText("metal");
-        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
-        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+        BotonAgregarMPMetalHandler botonAgregarMPMetalHandler = new BotonAgregarMPMetalHandler(modelo,this.vistaMesa);
+        botonAgregarMPMetal.setOnAction(botonAgregarMPMetalHandler);
 
         Button botonAgregarMPDiamante = new Button();
         botonAgregarMPDiamante.setText("diamante");
-        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
-        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+        BotonAgregarMPDiamanteHandler botonAgregarMPDiamanteHandler = new BotonAgregarMPDiamanteHandler(modelo,this.vistaMesa);
+        botonAgregarMPDiamante.setOnAction(botonAgregarMPDiamanteHandler);
 
         Button botonAgregarMPVacio = new Button();
         botonAgregarMPVacio.setText("dejar vacío");
-        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
-        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+        BotonAgregarMPVacioHandler botonAgregarMPVacioHandler = new BotonAgregarMPVacioHandler(modelo,this.vistaMesa);
+        botonAgregarMPVacio.setOnAction(botonAgregarMPVacioHandler);
 
 
         Button botonLimpiarMesa = new Button();
