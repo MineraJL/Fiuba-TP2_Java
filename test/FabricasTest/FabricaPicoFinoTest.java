@@ -1,5 +1,6 @@
 package FabricasTest;
 
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Fabricas.FabricaPicoFino;
 import Modelo.Fabricas.IFabricaHerramienta;
 import Modelo.Herramientas.Herramienta;
@@ -16,7 +17,7 @@ import static junit.framework.TestCase.assertEquals;
 public class FabricaPicoFinoTest {
 
     @Test
-    public void testSeCreaUnPicoFinoDeMAderaAPartirDeLaDisposicionCorrecta() {
+    public void test01SeCreaUnPicoFinoDeMAderaAPartirDeLaDisposicionCorrecta() throws HerramientaDesgastadaExcepcion {
         IFabricaHerramienta fabricaHerramientas = new FabricaPicoFino();
         Mesa mesa = new Mesa();
         MPMadera madera = new MPMadera();

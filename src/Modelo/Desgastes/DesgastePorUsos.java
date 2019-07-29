@@ -1,5 +1,7 @@
 package Modelo.Desgastes;
 
+import Modelo.Excepciones.DurabilidadDesgastadaExcepcion;
+
 public class DesgastePorUsos extends Desgaste {
     private int usos;
     private int usosMaximos;
@@ -12,11 +14,13 @@ public class DesgastePorUsos extends Desgaste {
 
     }
 
-    public void desgastarCon(int fuerza){
+    public void desgastarCon(int fuerza) throws DurabilidadDesgastadaExcepcion{
         this.usos = this.usos + 1;
         if (this.usos == this.usosMaximos){
             this.durabilidad = 0;
         }
+        if (this.usos > this.usosMaximos)
+        		throw new DurabilidadDesgastadaExcepcion();
 
     }
 

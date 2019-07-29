@@ -1,5 +1,6 @@
 package HerramientasTest;
 
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Herramientas.*;
 import Modelo.Recursos.*;
 import Modelo.TipoMaterial.*;
@@ -12,7 +13,7 @@ public class PicoTest {
 
     // Pico de madera Durabilidad
     @Test
-    public void testPicoDeMaderaSeCreaConDurabilidadCorrespondiente(){
+    public void test01PicoDeMaderaSeCreaConDurabilidadCorrespondiente(){
         TipoMaterial materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
         assertEquals(100, pico.durabilidad());
@@ -20,7 +21,7 @@ public class PicoTest {
     }
     // Pico de madera fuerza
     @Test
-    public void testPicoDeMaderaSeCreaConFuerzaCorrespondiente(){
+    public void test02PicoDeMaderaSeCreaConFuerzaCorrespondiente(){
         TipoMaterial materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
         assertEquals(2, pico.fuerza());
@@ -28,7 +29,7 @@ public class PicoTest {
     }
     // Pico de Piedra Durabilidad
     @Test
-    public void testPicoDePiedraSeCreaConDurabilidadCorrespondiente(){
+    public void test03PicoDePiedraSeCreaConDurabilidadCorrespondiente(){
         TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
         assertEquals(200, pico.durabilidad());
@@ -36,7 +37,7 @@ public class PicoTest {
     }
     // Pico de Piedra fuerza
     @Test
-    public void testPicoDePiedraSeCreaConFuerzaCorrespondiente(){
+    public void test04PicoDePiedraSeCreaConFuerzaCorrespondiente(){
         TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
         assertEquals(4, pico.fuerza());
@@ -44,7 +45,7 @@ public class PicoTest {
     }
     // Pico de Metal Durabilidad
     @Test
-    public void testPicoDeMetalSeCreaConDurabilidadCorrespondiente(){
+    public void test05PicoDeMetalSeCreaConDurabilidadCorrespondiente(){
         TipoMaterial materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
         assertEquals(400, pico.durabilidad());
@@ -52,7 +53,7 @@ public class PicoTest {
     }
     // Pico de Metal fuerza
     @Test
-    public void testPicoDeMetalSeCreaConFuerzaCorrespondiente(){
+    public void test06PicoDeMetalSeCreaConFuerzaCorrespondiente(){
         TipoMaterial materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
         assertEquals(12, pico.fuerza());
@@ -64,7 +65,7 @@ public class PicoTest {
 
     // Pico de Madera reduce durabilidad contra madera
     @Test
-    public void testPicoDeMaderaSeUsaContraRecursoMaderaYSeReduceSuDurabilidad(){
+    public void test07PicoDeMaderaSeUsaContraRecursoMaderaYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Madera recursoMadera = new Madera() ;
         TipoMaterial materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
@@ -73,7 +74,7 @@ public class PicoTest {
     }
     // Pico de Madera reduce durabilidad contra Metal
     @Test
-    public void testPicoDeMaderaSeUsaContraRecursoMetalYSeReduceSuDurabilidad(){
+    public void test08PicoDeMaderaSeUsaContraRecursoMetalYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Piedra recursoPiedra = new Piedra() ;
         TipoMaterial materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
@@ -82,7 +83,7 @@ public class PicoTest {
     }
     // Pico de Madera reduce durabilidad contra Piedra
     @Test
-    public void testPicoDeMaderaSeUsaContraRecursoPiedraYSeReduceSuDurabilidad(){
+    public void test09PicoDeMaderaSeUsaContraRecursoPiedraYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Metal recursoMetal = new Metal() ;
         TipoMaterial materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
@@ -91,7 +92,7 @@ public class PicoTest {
     }
     // Pico de Madera reduce durabilidad contra diamante
     @Test
-    public void testPicoDeMaderaSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad(){
+    public void test10PicoDeMaderaSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Diamante recursoDiamante = new Diamante() ;
         TipoMaterial materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
@@ -104,7 +105,7 @@ public class PicoTest {
 
     // Pico de Piedra reduce durabilidad contra Madera
     @Test
-    public void testPicoDePiedraSeUsaContraRecursoMaderaYSeReduceSuDurabilidad(){
+    public void test11PicoDePiedraSeUsaContraRecursoMaderaYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Madera recursoMadera = new Madera() ;
         TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
@@ -113,7 +114,7 @@ public class PicoTest {
     }
     // Pico de Piedra reduce durabilidad contra Piedra
     @Test
-    public void testPicoDePiedraSeUsaContraRecursoPiedraYSeReduceSuDurabilidad(){
+    public void test12PicoDePiedraSeUsaContraRecursoPiedraYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Piedra recursoPiedra = new Piedra() ;
         TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
@@ -122,7 +123,7 @@ public class PicoTest {
     }
     // Pico de Piedra reduce durabilidad contra Metal
     @Test
-    public void testPicoDePiedraSeUsaContraRecursoMetalYSeReduceSuDurabilidad(){
+    public void test13PicoDePiedraSeUsaContraRecursoMetalYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Metal recursoMetal = new Metal() ;
         TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
@@ -131,7 +132,7 @@ public class PicoTest {
     }
     // Pico de Piedra reduce durabilidad contra Diamante
     @Test
-    public void testPicoDePiedraSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad(){
+    public void test14PicoDePiedraSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Diamante recursoDiamante = new Diamante() ;
         TipoMaterial materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
@@ -143,7 +144,7 @@ public class PicoTest {
 
     // Pico de Metal no reduce durabilidad contra Madera
     @Test
-    public void testPicoDeMetalSeUsaContraRecursoMaderaYNoSeReduceSuDurabilidad(){
+    public void test15PicoDeMetalSeUsaContraRecursoMaderaYNoSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Madera recursoMadera = new Madera() ;
         TipoMaterial materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
@@ -152,7 +153,7 @@ public class PicoTest {
     }
     // Pico de Metal no reduce durabilidad contra Piedra
     @Test
-    public void testPicoDeMetalSeUsaContraRecursoPiedraYNoSeReduceSuDurabilidad(){
+    public void test16PicoDeMetalSeUsaContraRecursoPiedraYNoSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Piedra recursoPiedra = new Piedra() ;
         TipoMaterial materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
@@ -161,7 +162,7 @@ public class PicoTest {
     }
     // Pico de Metal no reduce durabilidad contra Metal
     @Test
-    public void testPicoDeMetalSeUsaContraRecursoMetalYNoSeReduceSuDurabilidad(){
+    public void test17PicoDeMetalSeUsaContraRecursoMetalYNoSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Metal recursoMetal = new Metal() ;
         TipoMaterial materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
@@ -170,7 +171,7 @@ public class PicoTest {
     }
     // Pico de Metal no reduce durabilidad contra Diamante
     @Test
-    public void testPicoDeMetalSeUsaContraRecursoDiamanteYNoSeReduceSuDurabilidad(){
+    public void test18PicoDeMetalSeUsaContraRecursoDiamanteYNoSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
         Diamante recursoDiamante = new Diamante() ;
         TipoMaterial materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
@@ -179,7 +180,7 @@ public class PicoTest {
     }
     // Pico de Metal reduce durabilidad contra Diamante
     @Test
-    public void testPicoDeMetalSeGastaAlGolpeNumero10(){
+    public void testPico19DeMetalSeGastaAlGolpeNumero10() throws HerramientaDesgastadaExcepcion{
         Diamante recursoDiamante = new Diamante() ;
         TipoMaterial materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
@@ -190,4 +191,34 @@ public class PicoTest {
         assertEquals(0, pico.durabilidad());
     }
 
+    
+    @Test(expected = HerramientaDesgastadaExcepcion.class)
+    public void test20PicoDeMaderaSeUsaContraRecursoDiamanteHastaAgotarSuDurabilidad() throws HerramientaDesgastadaExcepcion{
+        Diamante recursoDiamante = new Diamante() ;
+        TipoMaterial material = new TipoMadera();
+        Herramienta pico = new Pico(material);
+        
+        while(true)
+        	pico.golpear(recursoDiamante);
+    }
+    
+    @Test(expected = HerramientaDesgastadaExcepcion.class)
+    public void test21PicoDePiedraSeUsaContraRecursoDiamanteHastaAgotarSuDurabilidad() throws HerramientaDesgastadaExcepcion{
+        Diamante recursoDiamante = new Diamante() ;
+        TipoMaterial material = new TipoPiedra();
+        Herramienta pico = new Pico(material);
+        
+        while(true)
+        	pico.golpear(recursoDiamante);
+    }
+   
+    @Test(expected = HerramientaDesgastadaExcepcion.class)
+    public void test22PicoDeMetalSeUsaContraRecursoDiamanteHastaAgotarSuDurabilidad() throws HerramientaDesgastadaExcepcion{
+        Diamante recursoDiamante = new Diamante() ;
+        TipoMaterial material = new TipoMetal();
+        Herramienta pico = new Pico(material);
+        
+        while(true)
+        	pico.golpear(recursoDiamante);
+    }
 }

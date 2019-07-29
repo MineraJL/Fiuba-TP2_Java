@@ -1,6 +1,7 @@
 package Modelo.Herramientas;
 
 import Modelo.Desgastes.DesgasteSegunMultiplicador;
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Inventario.InventarioHerramienta;
 import Modelo.Mapa.Ocupante;
 import Modelo.Recursos.Madera;
@@ -53,14 +54,14 @@ public class Hacha extends Herramienta {
 
 
     @Override
-    public void golpear(Madera recursoMadera){
+    public void golpear(Madera recursoMadera) throws HerramientaDesgastadaExcepcion{
         super.golpear(recursoMadera);
         this.material.golpear(recursoMadera, this.fuerza);
     }
 
 
     @Override
-    public void golpear(Ocupante ocupante){
+    public void golpear(Ocupante ocupante) throws HerramientaDesgastadaExcepcion{
         ocupante.golpeateCon(this);
     }
     

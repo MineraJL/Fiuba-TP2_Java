@@ -1,6 +1,7 @@
 package Modelo.Recursos;
 
 
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Herramientas.Herramienta;
 import Modelo.Inventario.Inventario;
 import Modelo.Mapa.Casillero;
@@ -38,7 +39,7 @@ public abstract class Recurso implements Ocupante {
 
     public abstract String obtenerNombreOcupante();
 
-    public abstract void golpeateCon(Herramienta herramienta);
+    public abstract void golpeateCon(Herramienta herramienta) throws HerramientaDesgastadaExcepcion;
 
     public void serRecolectadoEn(Inventario inventario){}
 
@@ -48,7 +49,7 @@ public abstract class Recurso implements Ocupante {
         return this.durabilidad.durabilidad();
     }
 
-    public abstract void golpearCon(Herramienta herramienta);
+    public abstract void golpearCon(Herramienta herramienta) throws HerramientaDesgastadaExcepcion;
 
     @Override
     public boolean equals(Object object){

@@ -1,5 +1,6 @@
 package FabricasTest;
 
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Fabricas.FabricaHerramientas;
 import Modelo.Herramientas.Herramienta;
 import Modelo.MateriaPrima.MPMadera;
@@ -13,7 +14,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class FabricaHerramientaTest {
     @Test
-    public void testSeCreaUnHachaDeMaderaAPartirDeLaDisposicionCorrecta(){
+    public void test01SeCreaUnHachaDeMaderaAPartirDeLaDisposicionCorrecta() throws HerramientaDesgastadaExcepcion{
         FabricaHerramientas fabricaHerramientas = new FabricaHerramientas();
         Mesa mesa = new Mesa();
         MPMadera madera = new MPMadera();
@@ -41,7 +42,7 @@ public class FabricaHerramientaTest {
 
 
     @Test
-    public void testSeCreaUnHachaDePiedraAPartirDeLaDisposicionCorrecta(){
+    public void test02SeCreaUnHachaDePiedraAPartirDeLaDisposicionCorrecta() throws HerramientaDesgastadaExcepcion{
         FabricaHerramientas fabricaHerramientas = new FabricaHerramientas();
         Mesa mesa = new Mesa();
         MPPiedra piedra = new MPPiedra();

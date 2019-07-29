@@ -1,5 +1,7 @@
 package Modelo.Desgastes;
 
+import Modelo.Excepciones.DurabilidadDesgastadaExcepcion;
+
 public abstract class Desgaste {
 
     protected int durabilidad;
@@ -8,6 +10,6 @@ public abstract class Desgaste {
         return this.durabilidad;
     }
 
-    public abstract void desgastarCon(int fuerza);
+    public abstract void desgastarCon(int fuerza) throws DurabilidadDesgastadaExcepcion;
 
 }

@@ -1,5 +1,6 @@
 package FabricasTest;
 
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Fabricas.FabricaHacha;
 import Modelo.Herramientas.Herramienta;
 import Modelo.MateriaPrima.MPMadera;
@@ -16,7 +17,7 @@ public class FabricaHachaTest {
 
 
     @Test
-    public void testSeCreaUnHachaDeMAderaAPartirDeLaDisposicionCorrecta() {
+    public void test01SeCreaUnHachaDeMAderaAPartirDeLaDisposicionCorrecta() throws HerramientaDesgastadaExcepcion {
         FabricaHacha fabricaHerramientas = new FabricaHacha();
         Mesa mesa = new Mesa();
         MPMadera madera = new MPMadera();
@@ -43,7 +44,7 @@ public class FabricaHachaTest {
 
 
     @Test
-    public void testSeCreaUnHachaDePiedraAPartirDeLaDisposicionCorrecta() {
+    public void test02SeCreaUnHachaDePiedraAPartirDeLaDisposicionCorrecta() throws HerramientaDesgastadaExcepcion {
         FabricaHacha fabricaHerramientas = new FabricaHacha();
         Mesa mesa = new Mesa();
         MPPiedra piedra = new MPPiedra();
@@ -71,7 +72,7 @@ public class FabricaHachaTest {
 
 
     @Test
-    public void testSeCreaUnHachaDeMetalAPartirDeLaDisposicionCorrecta() {
+    public void test03SeCreaUnHachaDeMetalAPartirDeLaDisposicionCorrecta() throws HerramientaDesgastadaExcepcion {
         FabricaHacha fabricaHerramientas = new FabricaHacha();
         Mesa mesa = new Mesa();
         MPMetal metal = new MPMetal();

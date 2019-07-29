@@ -1,6 +1,8 @@
 package Modelo.Herramientas;
 
 import Modelo.Desgastes.Desgaste;
+import Modelo.Excepciones.DurabilidadDesgastadaExcepcion;
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Inventario.InventarioHerramienta;
 import Modelo.Mapa.Ocupante;
 import Modelo.Recursos.*;
@@ -50,23 +52,39 @@ public abstract class Herramienta {
         return this.desgaste.durabilidad();
     }
 
-    public abstract void golpear(Ocupante ocupante);
+    public abstract void golpear(Ocupante ocupante) throws HerramientaDesgastadaExcepcion;
 
     // Dispatch
-    public void golpear(Recurso recurso) { recurso.golpearCon(this);}
+    public void golpear(Recurso recurso) throws HerramientaDesgastadaExcepcion { recurso.golpearCon(this);}
     // Fin dispatch
 
-    public void golpear(Madera material){
-        this.desgaste.desgastarCon(this.fuerza);
+    public void golpear(Madera material) throws HerramientaDesgastadaExcepcion{
+        try {
+			this.desgaste.desgastarCon(this.fuerza);
+		} catch (DurabilidadDesgastadaExcepcion e) {
+			throw new HerramientaDesgastadaExcepcion();
+		}
     }
-    public void golpear(Piedra material){
-        this.desgaste.desgastarCon(this.fuerza);
+    public void golpear(Piedra material) throws HerramientaDesgastadaExcepcion{
+        try {
+			this.desgaste.desgastarCon(this.fuerza);
+		} catch (DurabilidadDesgastadaExcepcion e) {
+			throw new HerramientaDesgastadaExcepcion();
+		}
     }
-    public void golpear(Metal material){
-        this.desgaste.desgastarCon(this.fuerza);
+    public void golpear(Metal material) throws HerramientaDesgastadaExcepcion{
+        try {
+			this.desgaste.desgastarCon(this.fuerza);
+		} catch (DurabilidadDesgastadaExcepcion e) {
+			throw new HerramientaDesgastadaExcepcion();
+		}
     }
-    public void golpear(Diamante material){
-        this.desgaste.desgastarCon(this.fuerza);
+    public void golpear(Diamante material) throws HerramientaDesgastadaExcepcion{
+        try {
+			this.desgaste.desgastarCon(this.fuerza);
+		} catch (DurabilidadDesgastadaExcepcion e) {
+			throw new HerramientaDesgastadaExcepcion();
+		}
     }
 
     @Override

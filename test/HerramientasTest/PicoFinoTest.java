@@ -1,5 +1,6 @@
 package HerramientasTest;
 
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Herramientas.*;
 import Modelo.Recursos.*;
 import Modelo.TipoMaterial.*;
@@ -14,7 +15,7 @@ public class PicoFinoTest {
 
         // PicoFino de Metal y Piedra Durabilidad
         @Test
-        public void testHachaDeMaderaSeCreaConDurabilidadCorrespondiente(){
+        public void test01HachaDeMaderaSeCreaConDurabilidadCorrespondiente(){
             TipoMaterial materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
             assertEquals(1000, picoFino.durabilidad());
@@ -22,7 +23,7 @@ public class PicoFinoTest {
         }
         // PicoFino de Metal y Piedra fuerza
         @Test
-        public void testHachaDeMaderaSeCreaConFuerzaCorrespondiente(){
+        public void test02HachaDeMaderaSeCreaConFuerzaCorrespondiente(){
             TipoMaterial materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
             assertEquals(20, picoFino.fuerza());
@@ -34,7 +35,7 @@ public class PicoFinoTest {
 
         // Pico fino no reduce durabilidad contra madera
         @Test
-        public void testPicoFinoSeUsaContraRecursoMaderaYNoSeReduceSuDurabilidad(){
+        public void test03PicoFinoSeUsaContraRecursoMaderaYNoSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
             Madera recursoMadera = new Madera() ;
             TipoMaterial materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
@@ -43,7 +44,7 @@ public class PicoFinoTest {
         }
         // Pico fino no  reduce durabilidad contra Metal
         @Test
-        public void testPicoFinoSeUsaContraRecursoMetalYSeReduceSuDurabilidad(){
+        public void test04PicoFinoSeUsaContraRecursoMetalYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
             Piedra recursoPiedra = new Piedra() ;
             TipoMaterial materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
@@ -52,7 +53,7 @@ public class PicoFinoTest {
         }
         // Pico fino no reduce durabilidad contra Piedra
         @Test
-        public void testPicoFinoSeUsaContraRecursoPiedraYSeReduceSuDurabilidad(){
+        public void test05PicoFinoSeUsaContraRecursoPiedraYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
             Metal recursoMetal = new Metal() ;
             TipoMaterial materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
@@ -61,13 +62,22 @@ public class PicoFinoTest {
         }
         // Pico fino reduce durabilidad contra diamante
         @Test
-        public void testPicoFinoSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad(){
+        public void test06PicoFinoSeUsaContraRecursoDiamanteYSeReduceSuDurabilidad() throws HerramientaDesgastadaExcepcion{
             Diamante recursoDiamante = new Diamante() ;
             TipoMaterial materialTest = new TipoMetalYPiedra();
             Herramienta picoFino = new PicoFino(materialTest);
             picoFino.golpear(recursoDiamante);
             assertEquals(1000-(int)(1000*0.1), picoFino.durabilidad());
         }
-
-
+  /*
+         @Test(expected = HerramientaDesgastadaExcepcion.class)
+         public void test07PicoFinoSeUsaContraRecursoMaderaHastaAgotarSuDurabilidad() throws HerramientaDesgastadaExcepcion{
+             Madera recursoMadera= new Madera() ;
+             TipoMaterial materialTest = new TipoMetalYPiedra();
+             Herramienta picoFino = new PicoFino(materialTest);
+             
+             while(true)
+             	picoFino.golpear(recursoMadera);
+         }
+*/
     }
