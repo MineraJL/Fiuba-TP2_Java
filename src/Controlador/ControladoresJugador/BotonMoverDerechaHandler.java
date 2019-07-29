@@ -1,4 +1,4 @@
-package Controlador;
+package Controlador.ControladoresJugador;
 
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.DireccionDerecha;

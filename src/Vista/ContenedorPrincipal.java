@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.*;
+import Controlador.ControladoresJugador.*;
 import Controlador.ControladoresMesa.*;
 import Modelo.Jugador.Jugador;
 import Modelo.MesaDeTrabajo.Mesa;
@@ -98,13 +98,14 @@ public class ContenedorPrincipal extends BorderPane {
 
         Button botonLimpiarMesa = new Button();
         botonLimpiarMesa.setText("Limpiar Mesa");
-        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
-        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+        BotonLimpiarMesaHandler botonLimpiarMesaHandler = new BotonLimpiarMesaHandler(modelo,this.vistaMesa);
+        botonLimpiarMesa.setOnAction(botonLimpiarMesaHandler);
 
         Button botonConstruirHerramienta = new Button();
         botonConstruirHerramienta.setText("Construir Herramienta");
-        //BotonGolpearHandlerffvdffda botonGolpearHandler = new BotonGolpearHandlersdgbfdv(jugador,this.vistaModelo);
-        //botonConstruirHerramienta.setOnAction(botonGolpearHandlerrhbrwgtbnrg);
+        BotonConstruirHerramientaHandler botonConstruirHerramientaHandler = new BotonConstruirHerramientaHandler(modelo,this.vistaMesa);
+        botonConstruirHerramienta.setOnAction(botonConstruirHerramientaHandler);
+
 
         HBox botonesAgregarMP1 = new HBox(botonAgregarMPMadera,botonAgregarMPPiedra,botonAgregarMPMetal);
         HBox botonesAgregarMP2 = new HBox(botonAgregarMPDiamante,botonAgregarMPVacio);
