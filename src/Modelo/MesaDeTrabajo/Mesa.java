@@ -5,6 +5,7 @@ import Modelo.Herramientas.Herramienta;
 import Modelo.Mapa.Casillero;
 import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.Posicion;
+import Modelo.Mapa.PosicionEnlazada;
 
 import java.util.ArrayList;
 
@@ -30,6 +31,9 @@ public class Mesa {
 
     public void guardarMateriaPrimaEn(Ocupante materiaPrima, int filaCasillero, int colunmaCasillero){
         this.grilla[filaCasillero][colunmaCasillero].ocuparPor(materiaPrima);
+    }
+    public void guardarMateriaPrimaEn(Ocupante materiaPrima, PosicionEnlazada posicion){
+        this.guardarMateriaPrimaEn(materiaPrima,posicion.geti(),posicion.getj());
     }
 
     public Ocupante obtenerItemEn(int filaCasillero, int colunmaCasillero){
