@@ -9,17 +9,25 @@ import java.util.ArrayList;
 public class Mesa {
 
     private Mapa mapa;
+    private PosicionEnlazadaMesa posicionEnlazadaMesa;
 
     public Mesa(){
         this.mapa = new Mapa(3,3);
+        this.posicionEnlazadaMesa = new PosicionEnlazadaMesa(0,0);
     }
 
-
-    public Herramienta construiHerramienta(){
-        FabricaHerramientas fabrica = new FabricaHerramientas();
-        return fabrica.fabricarHerramienta(this);
-
+    public PosicionEnlazadaMesa posicionInicial(){
+        return this.posicionEnlazadaMesa;
     }
+
+    public PosicionEnlazadaMesa siguiente(){
+        return posicionEnlazadaMesa.siguiente();
+    }
+
+    private void enlazarPosicionesMesa(){
+        for ()
+    }
+
 
     public void guardarMateriaPrimaEn(Ocupante materiaPrima, int fila, int columna){
         this.guardarMateriaPrimaEn(materiaPrima,new PosicionEnlazada(fila,columna));
@@ -41,6 +49,13 @@ public class Mesa {
             ocupantesObtenidos.add(this.obtenerOcupanteEn(posicion));
         }
         return ocupantesObtenidos;
+    }
+
+
+    public Herramienta construiHerramienta(){
+        FabricaHerramientas fabrica = new FabricaHerramientas();
+        return fabrica.fabricarHerramienta(this);
+
     }
 
 }

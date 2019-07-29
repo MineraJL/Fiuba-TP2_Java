@@ -24,12 +24,12 @@ public class VistaMesa {
         this.imagenes.cargarImagenesMesa();
 
         this.canvasMesa = canvasMesa;
+        gc = this.canvasMesa.getGraphicsContext2D();
         this.establecerTamanioCuadradoDeCadaMateriaPrima(25);
 
         this.inicializarPosicionActual();
-        gc = this.canvasMesa.getGraphicsContext2D();
 
-        this.inicializarMesa();
+        this.inicializarVistaMesa();
 
     }
 
@@ -50,10 +50,6 @@ public class VistaMesa {
     private void mostrarElemento(int i, int j){
 
         PosicionEnlazada pos = new PosicionEnlazada(i,j);
-        //int i = pos.geti();
-        //int j = pos.getj();
-
-        //String mpEnMesa = modelo.mesa().obtenerOcupanteEn(i,j).obtenerNombreOcupante();
         String mpEnMesa = modelo.mesa().obtenerOcupanteEn(pos).obtenerNombreOcupante();
         Image imagenMPEnMesa = imagenes.getImage(mpEnMesa);
         gc.drawImage(imagenMPEnMesa, width * pos.getj(), height * pos.geti(), width, height);
@@ -66,19 +62,23 @@ public class VistaMesa {
     private void limpiarBorde(int i, int j){
         gc.clearRect(width*j,height*i,width-1,height-1);
         this.mostrarElemento(i,j);
-        this.inicializarMesa(); // TEMPORAL: borrar esta línea.
+        this.inicializarVistaMesa(); // TEMPORAL: borrar esta línea.
     }
 
-    public void dibujar(PosicionEnlazada posicionActual) {
+    public void dibujar(PosicionEnlazada posicionSiguiente) {
         // limpiarBorde de pos anterior
+        this.limpiarBorde(posicionActual.geti(),posicionActual.getj());
 
-        this.mostrarElemento(posicionActual.geti(),posicionActual.getj());
-        this.seleccionarConBorde(posicionActual);
+        this.mostrarElemento(posicionSiguiente.geti(),posicionSiguiente.getj());
+        this.seleccionarConBorde(posicionSiguiente);
 
+        this.posicionActual=posicionSiguiente;
         // avanzar a la siguiente posicion.
     }
 
-    private void inicializarMesa() {
+    public PosicionEnlazada posicionActual(){return this.posicionActual;}
+
+    private void inicializarVistaMesa() {
 
         for (int i=0; i<3; i++){
             for (int j=0;j<3;j++){
@@ -103,9 +103,6 @@ public class VistaMesa {
         this.width = tamanio;
         this.height = tamanio;
     }
-
-    public PosicionEnlazada posicionActual(){return this.posicionActual;}
-
 
 
 }
