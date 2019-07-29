@@ -26,12 +26,12 @@ public class MaderaTest {
     }
 
     //Igualdad
-    @Test
+    /*@Test // temp: borrar este equals.
     public void testUnaMaderaEsIgualAOtraMadera(){
         Madera unaMadera =  new Madera();
         Madera otraMadera =  new Madera();
         assertEquals(unaMadera, otraMadera);
-    }
+    }*/
 
 
     // GOLPES HACHA
