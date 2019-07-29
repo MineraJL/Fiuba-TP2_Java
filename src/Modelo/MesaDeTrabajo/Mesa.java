@@ -2,24 +2,26 @@ package Modelo.MesaDeTrabajo;
 
 import Modelo.Fabricas.FabricaHerramientas;
 import Modelo.Herramientas.Herramienta;
-import Modelo.Mapa.Casillero;
-import Modelo.Mapa.Ocupante;
-import Modelo.Mapa.Posicion;
-import Modelo.Mapa.PosicionEnlazada;
+import Modelo.Mapa.*;
 
 import java.util.ArrayList;
 
 public class Mesa {
 
-    Casillero[][] grilla;
+    Casillero[][] grilla; // viejo
+    private Mapa mapa;
 
     public Mesa(){
-        grilla = new Casillero[3][3];
+
+        this.mapa = new Mapa(3,3);
+
+
+        grilla = new Casillero[3][3]; // viejo
         for (int i = 0; i < grilla.length; i++) {
             for (int j = 0; j < grilla[i].length; j++) {
                 grilla[i][j] = new Casillero();
             }
-        }
+        } // viejo
     }
 
 
@@ -29,24 +31,31 @@ public class Mesa {
 
     }
 
-    public void guardarMateriaPrimaEn(Ocupante materiaPrima, int filaCasillero, int colunmaCasillero){
-        this.grilla[filaCasillero][colunmaCasillero].ocuparPor(materiaPrima);
+    public void guardarMateriaPrimaEn(Ocupante materiaPrima, int filaCasillero, int colunmaCasillero){ // viejo
+        this.grilla[filaCasillero][colunmaCasillero].ocuparPor(materiaPrima); // viejo
     }
     public void guardarMateriaPrimaEn(Ocupante materiaPrima, PosicionEnlazada posicion){
-        this.guardarMateriaPrimaEn(materiaPrima,posicion.geti(),posicion.getj());
+        materiaPrima.ingresar(this.mapa,posicion);
+        this.guardarMateriaPrimaEn(materiaPrima,posicion.geti(),posicion.getj()); // viejo
     }
 
-    public Ocupante obtenerItemEn(int filaCasillero, int colunmaCasillero){
-        return this.grilla[filaCasillero][colunmaCasillero].ocupante();
+
+
+    public Ocupante obtenerOcupanteEn(PosicionEnlazada posicionEnlazada){
+        return this.mapa.ocupante(posicionEnlazada);
     }
-    public ArrayList<Ocupante> obtenerItemsEn(ArrayList<Posicion> posiciones){
-        ArrayList<Ocupante> itemsObtenidos = new ArrayList<Ocupante>();
+
+    public Ocupante obtenerOcupanteEn(int filaCasillero, int colunmaCasillero){ // viejo
+        return this.grilla[filaCasillero][colunmaCasillero].ocupante(); // viejo
+    }
+    public ArrayList<Ocupante> obtenerOcupantesEn(ArrayList<Posicion> posiciones){
+        ArrayList<Ocupante> ocupantesObtenidos = new ArrayList<Ocupante>();
         for (int i = 0; i < posiciones.size(); i++) {
             int x = posiciones.get(i).getX();
             int y = posiciones.get(i).getY();
-            itemsObtenidos.add(this.obtenerItemEn(x,y));
+            ocupantesObtenidos.add(this.obtenerOcupanteEn(x,y));
         }
-        return itemsObtenidos;
+        return ocupantesObtenidos;
     }
 
 }

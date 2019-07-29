@@ -5,7 +5,6 @@ import Modelo.Herramientas.Herramienta;
 import Modelo.Herramientas.HerramientaInexistente;
 import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.Posicion;
-import Modelo.MateriaPrima.MPVacio;
 import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.TipoMaterial.TipoMaterial;
 
@@ -46,6 +45,6 @@ public class FabricaHacha extends FabricaHerramienta {
     }
 
     private List<Ocupante> obtenerElementosComponentes(Mesa mesa){
-        return mesa.obtenerItemsEn(this.modeloForma);
+        return mesa.obtenerOcupantesEn(this.modeloForma);
     }
 }

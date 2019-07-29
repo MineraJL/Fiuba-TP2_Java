@@ -3,6 +3,7 @@ package Vista;
 import Modelo.Mapa.PosicionEnlazada;
 import Modelo.Modelo;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class VistaMesa {
@@ -15,6 +16,7 @@ public class VistaMesa {
     private Imagenes imagenes;
 
     private PosicionEnlazada posicionActual;
+    private GraphicsContext gc;
 
     public VistaMesa(Modelo modelo, Canvas canvasMesa) {
         this.modelo = modelo;
@@ -27,6 +29,7 @@ public class VistaMesa {
         this.inicializarMesa();
 
         this.inicializarPosicionActual();
+        gc = canvasMesa.getGraphicsContext2D();
     }
 
 
@@ -44,16 +47,16 @@ public class VistaMesa {
     }
 
     private void mostrarElemento(int i, int j){
-        String mpEnMesa = modelo.mesa().obtenerItemEn(i,j).obtenerNombreOcupante();
+        String mpEnMesa = modelo.mesa().obtenerOcupanteEn(i,j).obtenerNombreOcupante();
         Image imagenMPEnMesa = imagenes.getImage(mpEnMesa);
-        canvasMesa.getGraphicsContext2D().drawImage(imagenMPEnMesa,width*j,height*i,width,height);
+        gc.drawImage(imagenMPEnMesa,width*j,height*i,width,height);
     }
 
     private void seleccionarConBorde(int i, int j){
-        canvasMesa.getGraphicsContext2D().strokeRect(width*j,height*i,width-1,height-1);
+        gc.strokeRect(width*j,height*i,width-1,height-1);
     }
     private void limpiarBorde(int i, int j){
-        canvasMesa.getGraphicsContext2D().clearRect(width*j,height*i,width-1,height-1);
+        gc.clearRect(width*j,height*i,width-1,height-1);
         this.mostrarElemento(i,j);
         this.inicializarMesa(); // TEMPORAL: borrar esta línea.
     }
@@ -74,7 +77,7 @@ public class VistaMesa {
 
                 String vacio = "MPVacio";
                 Image imagenMPEnMesa = imagenes.getImage(vacio);
-                canvasMesa.getGraphicsContext2D().drawImage(imagenMPEnMesa,width*j,height*i,width,height);
+                gc.drawImage(imagenMPEnMesa,width*j,height*i,width,height);
 
             }
         }
@@ -83,7 +86,7 @@ public class VistaMesa {
 
     private void inicializarPosicionActual() {
 
-         this.posicionActual = modelo.mesa().obtenerItemEn(0,0).getPosicion();
+         this.posicionActual = modelo.mesa().obtenerOcupanteEn(0,0).getPosicion();
 
     }
 

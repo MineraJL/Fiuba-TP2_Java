@@ -271,7 +271,7 @@ public class MesaTest {
         mesa.guardarMateriaPrimaEn(vacio,2,2);
 
 
-        assertEquals(mesa.obtenerItemEn(0,0),madera);
+        assertEquals(mesa.obtenerOcupanteEn(0,0),madera);
 
 
     }

@@ -44,6 +44,6 @@ public class FabricaPicoFino extends FabricaHerramienta {
     }
 
     private List<Ocupante> obtenerElementosComponentes(Mesa mesa){
-        return mesa.obtenerItemsEn(this.modeloForma);
+        return mesa.obtenerOcupantesEn(this.modeloForma);
     }
 }
