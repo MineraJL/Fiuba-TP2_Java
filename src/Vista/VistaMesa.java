@@ -105,4 +105,7 @@ public class VistaMesa {
     }
 
 
+    public void avanzarA(PosicionEnlazada posicionSiguiente) {
+        this.posicionActual = posicionSiguiente;
+    }
 }

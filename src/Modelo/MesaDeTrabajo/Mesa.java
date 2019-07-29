@@ -8,37 +8,33 @@ import java.util.ArrayList;
 
 public class Mesa {
 
-    private Mapa mapa;
-    private PosicionEnlazadaMesa posicionEnlazadaMesa;
+    //private Mapa mapa;
+    //private PosicionEnlazadaMesa posicionEnlazadaMesa;
+    private Disposicion disposicion;
 
     public Mesa(){
-        this.mapa = new Mapa(3,3);
-        this.posicionEnlazadaMesa = new PosicionEnlazadaMesa(0,0);
+        //this.mapa = new Mapa(3,3);
+        //this.posicionEnlazadaMesa = new PosicionEnlazadaMesa(0,0);
+        this.disposicion = new Disposicion(3,3);
     }
 
-    public PosicionEnlazadaMesa posicionInicial(){
-        return this.posicionEnlazadaMesa;
+    public PosicionEnlazada posicionInicial(){
+        return this.disposicion.posicionInicial();
     }
 
-    public PosicionEnlazadaMesa siguiente(){
-        return posicionEnlazadaMesa.siguiente();
-    }
-
-    private void enlazarPosicionesMesa(){
-        for ()
-    }
 
 
     public void guardarMateriaPrimaEn(Ocupante materiaPrima, int fila, int columna){
         this.guardarMateriaPrimaEn(materiaPrima,new PosicionEnlazada(fila,columna));
     }
     public void guardarMateriaPrimaEn(Ocupante materiaPrima, PosicionEnlazada posicion){
-        materiaPrima.ingresar(this.mapa,posicion);
+        //materiaPrima.ingresar(this.disposicion,posicion); // hacer que esta línea funcione
+        this.disposicion.getCasillero(posicion).ocuparPor(materiaPrima); // temp: línea temporal, debe funcionar la de arriba
     }
 
 
     public Ocupante obtenerOcupanteEn(PosicionEnlazada posicionEnlazada){
-        return this.mapa.ocupante(posicionEnlazada);
+        return this.disposicion.ocupante(posicionEnlazada);
     }
 
 
