@@ -40,7 +40,7 @@ public class MesaTest {
         assertTrue(posicionInicial.equals(posicionEsperada));
 
     }
-    
+
 
     ///// Creacion de Herramientas /////
 	
