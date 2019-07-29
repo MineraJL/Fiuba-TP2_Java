@@ -34,7 +34,6 @@ public class VistaMesa {
     }
 
 
-    // (sacar a "3" y "3" (cant filas y columnas) del modelo).
     public void dibujar(){
 
         for (int i=0; i<3; i++){

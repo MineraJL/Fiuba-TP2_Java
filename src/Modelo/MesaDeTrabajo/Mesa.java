@@ -22,6 +22,9 @@ public class Mesa {
         return this.disposicion.posicionInicial();
     }
 
+    public void limpiar(){
+        this.disposicion = new Disposicion(3,3);
+    }
 
 
     public void guardarMateriaPrimaEn(Ocupante materiaPrima, int fila, int columna){
@@ -48,7 +51,7 @@ public class Mesa {
     }
 
 
-    public Herramienta construiHerramienta(){
+    public Herramienta construiHerramienta(){ // deberia recibir disposicion, hay que cambiar lo que reciben fbrcs
         FabricaHerramientas fabrica = new FabricaHerramientas();
         return fabrica.fabricarHerramienta(this);
 
