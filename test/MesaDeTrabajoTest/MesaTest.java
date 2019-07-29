@@ -14,6 +14,7 @@ import Modelo.Recursos.Piedra;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertTrue;
 
 public class MesaTest {
 
@@ -28,6 +29,18 @@ public class MesaTest {
 
         assertEquals(madera,maderaEnMesa);
     }
+
+    @Test
+    public void mesaDevuelvePosicionInicial00(){
+        Mesa mesa = new Mesa();
+
+        PosicionEnlazada posicionInicial = mesa.posicionInicial();
+        PosicionEnlazada posicionEsperada = new PosicionEnlazada(0,0);
+
+        assertTrue(posicionInicial.equals(posicionEsperada));
+
+    }
+    
 
     ///// Creacion de Herramientas /////
 	

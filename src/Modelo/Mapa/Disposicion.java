@@ -49,7 +49,9 @@ public class Disposicion {
         // enlazo el primero de una fila con el ultimo de la fila anterior
         for (int fila = 1 ; fila < this.filas ; fila++){
             PosicionEnlazada ultimaPosFilaDeArriba = matrizPosicionesEnlazadas[fila-1][cantidadColumnas()-1];
-            matrizPosicionesEnlazadas[fila][0].enlazarAIzquierda(ultimaPosFilaDeArriba);
+            PosicionEnlazada primeraPosFilaSiguiente =matrizPosicionesEnlazadas[fila][0];
+
+            ultimaPosFilaDeArriba.enlazarADerecha(primeraPosFilaSiguiente);
         }
         this.posicionInicial = matrizPosicionesEnlazadas[0][0];
 
