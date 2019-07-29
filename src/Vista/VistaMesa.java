@@ -3,6 +3,7 @@ package Vista;
 import Modelo.Mapa.PosicionEnlazada;
 import Modelo.Modelo;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class VistaMesa {
@@ -15,6 +16,7 @@ public class VistaMesa {
     private Imagenes imagenes;
 
     private PosicionEnlazada posicionActual;
+    private GraphicsContext gc;
 
     public VistaMesa(Modelo modelo, Canvas canvasMesa) {
         this.modelo = modelo;
@@ -22,16 +24,19 @@ public class VistaMesa {
         this.imagenes.cargarImagenesMesa();
 
         this.canvasMesa = canvasMesa;
+        gc = this.canvasMesa.getGraphicsContext2D();
         this.establecerTamanioCuadradoDeCadaMateriaPrima(25);
 
-        this.inicializarMesa();
-
         this.inicializarPosicionActual();
+
+        this.inicializarVistaMesa();
+
     }
 
 
-    // (sacar a "3" y "3" (cant filas y columnas) del modelo).
     public void dibujar(){
+
+        this.inicializarVistaMesa();
 
         for (int i=0; i<3; i++){
             for (int j=0;j<3;j++){
@@ -44,37 +49,44 @@ public class VistaMesa {
     }
 
     private void mostrarElemento(int i, int j){
-        String mpEnMesa = modelo.mesa().obtenerItemEn(i,j).obtenerNombreOcupante();
+
+        PosicionEnlazada pos = new PosicionEnlazada(i,j);
+        String mpEnMesa = modelo.mesa().obtenerOcupanteEn(pos).obtenerNombreOcupante();
         Image imagenMPEnMesa = imagenes.getImage(mpEnMesa);
-        canvasMesa.getGraphicsContext2D().drawImage(imagenMPEnMesa,width*j,height*i,width,height);
+        gc.drawImage(imagenMPEnMesa, width * pos.getj(), height * pos.geti(), width, height);
+
     }
 
-    private void seleccionarConBorde(int i, int j){
-        canvasMesa.getGraphicsContext2D().strokeRect(width*j,height*i,width-1,height-1);
+    private void seleccionarConBorde(PosicionEnlazada pos){
+        gc.strokeRect(width*pos.getj(),height*pos.geti(),width-1,height-1);
     }
     private void limpiarBorde(int i, int j){
-        canvasMesa.getGraphicsContext2D().clearRect(width*j,height*i,width-1,height-1);
+        gc.clearRect(width*j,height*i,width-1,height-1);
         this.mostrarElemento(i,j);
-        this.inicializarMesa(); // TEMPORAL: borrar esta línea.
+        this.inicializarVistaMesa(); // TEMPORAL: borrar esta línea.
     }
 
-    public void dibujar(PosicionEnlazada posicionActual) {
+    public void dibujar(PosicionEnlazada posicionSiguiente) {
         // limpiarBorde de pos anterior
+        this.limpiarBorde(posicionActual.geti(),posicionActual.getj());
 
-        this.mostrarElemento(posicionActual.geti(),posicionActual.getj());
-        this.seleccionarConBorde(posicionActual.geti(),posicionActual.getj());
+        this.mostrarElemento(posicionSiguiente.geti(),posicionSiguiente.getj());
+        this.seleccionarConBorde(posicionSiguiente);
 
+        this.posicionActual=posicionSiguiente;
         // avanzar a la siguiente posicion.
     }
 
-    private void inicializarMesa() {
+    public PosicionEnlazada posicionActual(){return this.posicionActual;}
+
+    private void inicializarVistaMesa() {
 
         for (int i=0; i<3; i++){
             for (int j=0;j<3;j++){
 
                 String vacio = "MPVacio";
                 Image imagenMPEnMesa = imagenes.getImage(vacio);
-                canvasMesa.getGraphicsContext2D().drawImage(imagenMPEnMesa,width*j,height*i,width,height);
+                gc.drawImage(imagenMPEnMesa,width*j,height*i,width,height);
 
             }
         }
@@ -83,7 +95,8 @@ public class VistaMesa {
 
     private void inicializarPosicionActual() {
 
-         this.posicionActual = modelo.mesa().obtenerItemEn(0,0).getPosicion();
+         //this.posicionActual = modelo.mesa().obtenerOcupanteEn(0,0).getPosicion();
+        this.posicionActual = new PosicionEnlazada(0,0);
 
     }
 
@@ -92,8 +105,8 @@ public class VistaMesa {
         this.height = tamanio;
     }
 
-    public PosicionEnlazada posicionActual(){return this.posicionActual;}
 
-
-
+    public void avanzarA(PosicionEnlazada posicionSiguiente) {
+        this.posicionActual = posicionSiguiente;
+    }
 }

@@ -1,29 +1,29 @@
 package Modelo.Fabricas;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import Modelo.Herramientas.Herramienta;
 import Modelo.Mapa.Ocupante;
-import Modelo.Mapa.Posicion;
+import Modelo.Mapa.PosicionEnlazada;
 import Modelo.MateriaPrima.MPVacio;
 import Modelo.MesaDeTrabajo.Mesa;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class FabricaHerramienta implements IFabricaHerramienta {
 
 
-    protected ArrayList<Posicion> modeloForma;
-    protected ArrayList<Posicion> modeloFondo;
+    protected ArrayList<PosicionEnlazada> modeloForma;
+    protected ArrayList<PosicionEnlazada> modeloFondo;
 
     protected boolean formaEsCorrecta(Mesa mesa){
-    	List<Ocupante> elementosDeLaMesa = mesa.obtenerItemsEn(this.modeloForma);
+    	List<Ocupante> elementosDeLaMesa = mesa.obtenerOcupantesEn(this.modeloForma);
         MPVacio vacio = new MPVacio();
         
         for (int i = 0; i < elementosDeLaMesa.size(); i++)
         	if (elementosDeLaMesa.get(i).equals(vacio))
         		return false;
         
-        elementosDeLaMesa = mesa.obtenerItemsEn(this.modeloFondo);
+        elementosDeLaMesa = mesa.obtenerOcupantesEn(this.modeloFondo);
         for (int i = 0; i < elementosDeLaMesa.size(); i++)
         	if (!elementosDeLaMesa.get(i).equals(vacio))
         		return false;

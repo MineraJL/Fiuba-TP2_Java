@@ -17,6 +17,7 @@ public class BotonLimpiarMesaHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-
+        this.modelo.mesa().limpiar();
+        this.vistaMesa.dibujar();
     }
 }
