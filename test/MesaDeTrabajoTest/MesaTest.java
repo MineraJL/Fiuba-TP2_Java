@@ -1,53 +1,35 @@
 package MesaDeTrabajoTest;
 
 import Modelo.Herramientas.Herramienta;
-import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.PosicionEnlazada;
+import Modelo.MateriaPrima.MPMadera;
+import Modelo.MateriaPrima.MPMetal;
+import Modelo.MateriaPrima.MPPiedra;
+import Modelo.MateriaPrima.MPVacio;
 import Modelo.MesaDeTrabajo.Mesa;
-import Modelo.MateriaPrima.*;
-import Modelo.Recursos.*;
+import Modelo.Recursos.Diamante;
+import Modelo.Recursos.Madera;
+import Modelo.Recursos.Piedra;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
 public class MesaTest {
 
-
-
-    // Metodo para vista
     @Test
-    public void testMetodoOcupanteDevuelveElOcupantePedido(){
-        Mapa mapa = new Mapa(5,5);
-        PosicionEnlazada posicionMadera = new PosicionEnlazada(2,3);
-        Madera madera = new Madera();
-
-        madera.ingresar(mapa,posicionMadera);
-
-        Ocupante maderaEnMapa = mapa.ocupante(posicionMadera);
-
-        assertEquals(madera,maderaEnMapa);
-    }
-
-    @Test
-    public void test2MetodoOcupanteDevuelveElOcupantePedido(){ // falla y no encuentro el problema
+    public void MesaDevuelveElOcupantePedido(){
         Mesa mesa = new Mesa();
 
         MPMadera madera = new MPMadera();
         mesa.guardarMateriaPrimaEn(madera, 0, 0);
-        mesa.guardarMateriaPrimaEn(madera, 0, 1);
 
-        Ocupante maderaEnMesa = mesa.obtenerOcupanteEn(0,0);
-        //Ocupante maderaEnMesa = mesa.obtenerOcupanteEn(new PosicionEnlazada(0,0));
+        Ocupante maderaEnMesa = mesa.obtenerOcupanteEn(new PosicionEnlazada(0,0));
 
         assertEquals(madera,maderaEnMesa);
     }
 
-
-
-
-
-    ////////////////////////////////////////////7
+    ///// Creacion de Herramientas /////
 	
     @Test
     public void testMesaDeTrabajoRecibeFiguraCorrectaYCreaHachaDeMadera(){
@@ -311,7 +293,7 @@ public class MesaTest {
         mesa.guardarMateriaPrimaEn(vacio,2,2);
 
 
-        assertEquals(mesa.obtenerOcupanteEn(0,0),madera);
+        assertEquals(madera,mesa.obtenerOcupanteEn(new PosicionEnlazada(0,0)));
 
 
     }
