@@ -48,11 +48,11 @@ public class Mesa {
     public Ocupante obtenerOcupanteEn(int filaCasillero, int colunmaCasillero){ // viejo
         return this.grilla[filaCasillero][colunmaCasillero].ocupante(); // viejo
     }
-    public ArrayList<Ocupante> obtenerOcupantesEn(ArrayList<Posicion> posiciones){
+    public ArrayList<Ocupante> obtenerOcupantesEn(ArrayList<PosicionEnlazada> posiciones){
         ArrayList<Ocupante> ocupantesObtenidos = new ArrayList<Ocupante>();
         for (int i = 0; i < posiciones.size(); i++) {
-            int x = posiciones.get(i).getX();
-            int y = posiciones.get(i).getY();
+            int x = posiciones.get(i).geti();
+            int y = posiciones.get(i).getj();
             ocupantesObtenidos.add(this.obtenerOcupanteEn(x,y));
         }
         return ocupantesObtenidos;

@@ -26,10 +26,11 @@ public class VistaMesa {
         this.canvasMesa = canvasMesa;
         this.establecerTamanioCuadradoDeCadaMateriaPrima(25);
 
+        this.inicializarPosicionActual();
+        gc = this.canvasMesa.getGraphicsContext2D();
+
         this.inicializarMesa();
 
-        this.inicializarPosicionActual();
-        gc = canvasMesa.getGraphicsContext2D();
     }
 
 
