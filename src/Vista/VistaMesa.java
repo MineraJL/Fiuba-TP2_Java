@@ -18,6 +18,9 @@ public class VistaMesa {
     private PosicionEnlazada posicionActual;
     private GraphicsContext gc;
 
+    //private Canvas canvasBorde;
+    //private GraphicsContext gcBorde;
+
     public VistaMesa(Modelo modelo, Canvas canvasMesa) {
         this.modelo = modelo;
         this.imagenes = new Imagenes();
@@ -32,7 +35,6 @@ public class VistaMesa {
         this.inicializarVistaMesa();
 
     }
-
 
     public void dibujar(){
 
@@ -63,18 +65,16 @@ public class VistaMesa {
     private void limpiarBorde(int i, int j){
         gc.clearRect(width*j,height*i,width-1,height-1);
         this.mostrarElemento(i,j);
-        this.inicializarVistaMesa(); // TEMPORAL: borrar esta línea.
     }
 
-    public void dibujar(PosicionEnlazada actual) {
-        // limpiarBorde de pos anterior // mostrar siguiente // avanzar actual a siguiente
+    public void actualizar() {
         PosicionEnlazada anterior = this.posicionActual.posicionAIzquierda();
         this.limpiarBorde(anterior.geti(),anterior.getj());
 
-        this.mostrarElemento(actual.geti(),actual.getj());
-        this.seleccionarConBorde(actual);
+        this.dibujar();
+        this.seleccionarConBorde(this.posicionActual);
 
-        this.posicionActual=actual.posicionADerecha();
+        this.posicionActual=posicionActual.posicionADerecha();
     }
 
     public PosicionEnlazada posicionActual(){return this.posicionActual;}
@@ -102,8 +102,8 @@ public class VistaMesa {
         this.height = tamanio;
     }
 
-
-    public void avanzarA(PosicionEnlazada posicionSiguiente) {
-        this.posicionActual = posicionSiguiente;
+    public void limpiar() {
+        this.dibujar();
+        this.inicializarPosicionActual();
     }
 }

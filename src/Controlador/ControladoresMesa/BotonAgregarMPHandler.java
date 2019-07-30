@@ -23,7 +23,7 @@ public abstract class BotonAgregarMPHandler implements EventHandler<ActionEvent>
     public void handle(ActionEvent event) {
         this.posicionActual = this.vistaMesa.posicionActual();
         this.modelo.mesa().guardarMateriaPrimaEn(materiaPrima,posicionActual);
-        this.vistaMesa.dibujar(posicionActual);
+        this.vistaMesa.actualizar();
 
         //PosicionEnlazada posicionSiguiente = posicionActual.posicionADerecha();
         //this.vistaMesa.avanzarA(posicionSiguiente);
