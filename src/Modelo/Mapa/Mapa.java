@@ -1,20 +1,14 @@
 package Modelo.Mapa;
 
 
-public class Mapa {
-
-    private int filas;
-    private int columnas;
-    private Casillero[][] matriz;
+public class Mapa extends ConjuntoDeCasilleros {
 
     public Mapa(int filas, int columnas) {
-        this.filas = filas;
-        this.columnas = columnas;
-        this.matriz = new Casillero[filas][columnas];
-        this.inicializarCasilleros();
+        super(filas,columnas);
     }
 
-    private void inicializarCasilleros() { // enlazadas
+    @Override
+    protected void inicializarCasilleros() { // enlazadas
         PosicionEnlazada[][] matrizPosicionesEnlazadas = new PosicionEnlazada[filas][columnas];
 
         //genero la primer fila
@@ -45,19 +39,4 @@ public class Mapa {
             }
         }
     }
-
-    public Casillero getCasillero(PosicionEnlazada posicion){
-        return this.matriz[posicion.geti()][posicion.getj()];
-    }
-
-
-    // métodos info para vista
-    public Ocupante ocupante(PosicionEnlazada posicion){
-        return matriz[posicion.geti()][posicion.getj()].ocupante();
-    }
-
-    public int cantidadFilas(){return this.filas;}
-    public int cantidadColumnas(){return this.columnas;}
-    // fin métodos para vista
-
 }

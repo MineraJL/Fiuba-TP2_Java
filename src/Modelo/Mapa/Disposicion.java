@@ -1,22 +1,15 @@
 package Modelo.Mapa;
 
-public class Disposicion {
-
-
-    private int filas;
-    private int columnas;
-    private Casillero[][] matriz;
+public class Disposicion extends ConjuntoDeCasilleros {
 
     private PosicionEnlazada posicionInicial;
 
     public Disposicion(int filas, int columnas) {
-        this.filas = filas;
-        this.columnas = columnas;
-        this.matriz = new Casillero[filas][columnas];
-        this.inicializarCasilleros();
+        super(filas,columnas);
     }
 
-    private void inicializarCasilleros() { // enlazadas
+    @Override
+    protected void inicializarCasilleros() { // enlazadas
         PosicionEnlazada[][] matrizPosicionesEnlazadas = new PosicionEnlazada[filas][columnas];
 
         //genero la primer fila
@@ -45,34 +38,20 @@ public class Disposicion {
             }
         }
 
+        this.enlazarLinealmente(matrizPosicionesEnlazadas);
+    }
 
+    private void enlazarLinealmente(PosicionEnlazada[][] matrizPosicionesEnlazadas) {
         // enlazo el primero de una fila con el ultimo de la fila anterior
         for (int fila = 1 ; fila < this.filas ; fila++){
             PosicionEnlazada ultimaPosFilaDeArriba = matrizPosicionesEnlazadas[fila-1][cantidadColumnas()-1];
             PosicionEnlazada primeraPosFilaSiguiente =matrizPosicionesEnlazadas[fila][0];
-
             ultimaPosFilaDeArriba.enlazarADerecha(primeraPosFilaSiguiente);
         }
         this.posicionInicial = matrizPosicionesEnlazadas[0][0];
-
     }
 
     public PosicionEnlazada posicionInicial(){return this.posicionInicial;}
-
-
-    public Casillero getCasillero(PosicionEnlazada posicion){
-        return this.matriz[posicion.geti()][posicion.getj()];
-    }
-
-
-    // métodos info para vista
-    public Ocupante ocupante(PosicionEnlazada posicion){
-        return matriz[posicion.geti()][posicion.getj()].ocupante();
-    }
-
-    public int cantidadFilas(){return this.filas;}
-    public int cantidadColumnas(){return this.columnas;}
-    // fin métodos para vista
 
 }
 
