@@ -1,6 +1,7 @@
 package Vista;
 
-import Controlador.*;
+import Controlador.ControladoresJugador.*;
+import Controlador.ControladoresMesa.*;
 import Modelo.Jugador.Jugador;
 import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.Modelo;
@@ -20,16 +21,16 @@ public class ContenedorPrincipal extends BorderPane {
     private Canvas canvasCentral;
     private VBox contenedorCentral;
     private VistaModelo vistaModelo;
+    private VistaMesa vistaMesa;
 
-	public ContenedorPrincipal(Stage stage, Modelo modelo) {
+    public ContenedorPrincipal(Stage stage, Modelo modelo) {
 
         this.setMenu(stage);
         this.setCentro(modelo);
-        this.setBotoneraJugador(modelo.jugador());
+        this.setPanelIzquierdo(modelo);
 
-        //this.setBotoneraMesaDeTrabajo(modelo.mesa());
 	}
-	
+
     private void setMenu(Stage stage) {
         this.menuBar = new BarraDeMenu(stage);
         this.setTop(menuBar);
@@ -37,6 +38,88 @@ public class ContenedorPrincipal extends BorderPane {
 
     public BarraDeMenu getBarraDeMenu() {
         return menuBar;
+    }
+
+
+    private void setPanelIzquierdo(Modelo modelo) {
+        VBox botonesJugador = this.botoneraJugador(modelo.jugador());
+        VBox panelMesa = this.mesa(modelo);
+
+        VBox panelIzquierdo = new VBox(botonesJugador,panelMesa);
+
+        this.setLeft(panelIzquierdo);
+    }
+
+    private VBox mesa(Modelo modelo) {
+        Text tituloMesa = new Text("Mesa de Trabajo");
+
+        Canvas canvasMesa = new Canvas(80,80);
+        this.vistaMesa = new VistaMesa(modelo,canvasMesa);
+        vistaMesa.dibujar();
+
+        VBox botonesMesa = this.botonesMesa(modelo);
+        botonesMesa.setSpacing(20);
+
+        VBox panelMesa = new VBox(tituloMesa,canvasMesa,botonesMesa);
+        panelMesa.setAlignment(Pos.CENTER);
+
+        return panelMesa;
+    }
+
+    private VBox botonesMesa(Modelo modelo) {
+
+        Text textoMP = new Text("Agregar materia prima");
+
+        Button botonAgregarMPMadera = new Button();
+        botonAgregarMPMadera.setText("madera");
+        BotonAgregarMPMaderaHandler botonAgregarMPMaderaHandler = new BotonAgregarMPMaderaHandler(modelo,this.vistaMesa);
+        botonAgregarMPMadera.setOnAction(botonAgregarMPMaderaHandler);
+
+        Button botonAgregarMPPiedra = new Button();
+        botonAgregarMPPiedra.setText("piedra");
+        BotonAgregarMPPiedraHandler botonAgregarMPPiedraHandler = new BotonAgregarMPPiedraHandler(modelo,this.vistaMesa);
+        botonAgregarMPPiedra.setOnAction(botonAgregarMPPiedraHandler);
+
+        Button botonAgregarMPMetal = new Button();
+        botonAgregarMPMetal.setText("metal");
+        BotonAgregarMPMetalHandler botonAgregarMPMetalHandler = new BotonAgregarMPMetalHandler(modelo,this.vistaMesa);
+        botonAgregarMPMetal.setOnAction(botonAgregarMPMetalHandler);
+
+        Button botonAgregarMPDiamante = new Button();
+        botonAgregarMPDiamante.setText("diamante");
+        BotonAgregarMPDiamanteHandler botonAgregarMPDiamanteHandler = new BotonAgregarMPDiamanteHandler(modelo,this.vistaMesa);
+        botonAgregarMPDiamante.setOnAction(botonAgregarMPDiamanteHandler);
+
+        Button botonAgregarMPVacio = new Button();
+        botonAgregarMPVacio.setText("dejar vacío");
+        BotonAgregarMPVacioHandler botonAgregarMPVacioHandler = new BotonAgregarMPVacioHandler(modelo,this.vistaMesa);
+        botonAgregarMPVacio.setOnAction(botonAgregarMPVacioHandler);
+
+
+        Button botonLimpiarMesa = new Button();
+        botonLimpiarMesa.setText("Limpiar Mesa");
+        BotonLimpiarMesaHandler botonLimpiarMesaHandler = new BotonLimpiarMesaHandler(modelo,this.vistaMesa);
+        botonLimpiarMesa.setOnAction(botonLimpiarMesaHandler);
+
+        Button botonConstruirHerramienta = new Button();
+        botonConstruirHerramienta.setText("Construir Herramienta");
+        BotonConstruirHerramientaHandler botonConstruirHerramientaHandler = new BotonConstruirHerramientaHandler(modelo,this.vistaMesa);
+        botonConstruirHerramienta.setOnAction(botonConstruirHerramientaHandler);
+
+
+        HBox botonesAgregarMP1 = new HBox(botonAgregarMPMadera,botonAgregarMPPiedra,botonAgregarMPMetal);
+        HBox botonesAgregarMP2 = new HBox(botonAgregarMPDiamante,botonAgregarMPVacio);
+        botonesAgregarMP1.setAlignment(Pos.CENTER);
+        botonesAgregarMP2.setAlignment(Pos.CENTER);
+
+        VBox agregarMP = new VBox(textoMP,botonesAgregarMP1,botonesAgregarMP2);
+        agregarMP.setSpacing(10);
+        agregarMP.setAlignment(Pos.CENTER);
+
+        VBox botonesMesa = new VBox(agregarMP,botonLimpiarMesa,botonConstruirHerramienta);
+        botonesMesa.setAlignment(Pos.CENTER);
+
+        return botonesMesa;
     }
 
 
@@ -58,7 +141,8 @@ public class ContenedorPrincipal extends BorderPane {
 
 
 
-    private void setBotoneraJugador(Jugador jugador) {
+
+    private VBox botoneraJugador(Jugador jugador) {
 
         Button botonGolpear = new Button();
         botonGolpear.setText("Golpear");
@@ -77,7 +161,7 @@ public class ContenedorPrincipal extends BorderPane {
         botoneraJugador.setPadding(new Insets(50));
         botoneraJugador.setAlignment(Pos.TOP_CENTER);
 
-        this.setLeft(botoneraJugador);
+        return new VBox(botoneraJugador);
 
     }
 

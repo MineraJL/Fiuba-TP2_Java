@@ -1,4 +1,4 @@
-package Controlador;
+package Controlador.ControladoresJugador;
 
 import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Jugador.Jugador;

@@ -10,10 +10,34 @@ public class Imagenes {
 
     public Imagenes(){
         this.coleccionImagenes = new HashMap<String,Image>();
+        //this.cargarImagenesMapa();
+        //this.cargarImagenesMesa();
+    }
+
+    public void cargarImagenesMesa() {
+        Image mpmadera = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPMadera.png");
+        Image mppiedra = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPPiedra.png");
+        Image mpmetal = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPMetal.png");
+        Image mpdiamante = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPDiamante.png");
+        Image mpvacio = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPVacio.png");
+        coleccionImagenes.put("MPMadera",mpmadera);
+        coleccionImagenes.put("MPPiedra",mppiedra);
+        coleccionImagenes.put("MPMetal",mpmetal);
+        coleccionImagenes.put("MPDiamante",mpdiamante);
+        coleccionImagenes.put("MPVacio",mpvacio);
+        coleccionImagenes.put("OcupanteVacio",mpvacio);
+    }
+
+    public void cargarImagenesMapa() {
         this.cargarImagenesRecursos();
         this.cargarImagenJugador();
         this.cargarImagenesMateriaPrima();
     }
+
+    public Image getImage(String nombreOcupante){
+        return coleccionImagenes.get(nombreOcupante);
+    }
+
 
     private void cargarImagenesMateriaPrima() {
         Image mpmadera = new Image("file:src/Vista/Imagenes/MateriaPrima/mpmadera.png");
@@ -47,10 +71,5 @@ public class Imagenes {
         coleccionImagenes.put("Diamante",diamante);
 
     }
-
-    public Image getImage(String nombreOcupante){
-        return coleccionImagenes.get(nombreOcupante);
-    }
-
 
 }

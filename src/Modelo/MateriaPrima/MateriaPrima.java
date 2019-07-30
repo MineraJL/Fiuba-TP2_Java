@@ -40,7 +40,7 @@ public abstract class MateriaPrima implements Ocupante {
 	}
 
 	@Override
-	public void ingresar(Mapa mapa, PosicionEnlazada posicion) {}
+	public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
 
 	@Override
 	public abstract String obtenerNombreOcupante();
