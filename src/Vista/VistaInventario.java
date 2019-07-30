@@ -26,8 +26,8 @@ public class VistaInventario {
     
     private void inicializarInventario() {
     	
-        for (int i=0; i<4; i++){
-            for (int j=0;j<4;j++){
+        for (int i=0; i<2; i++){
+            for (int j=0;j<10;j++){
 
                 String vacio = "fondoVacio";
                 Image imagenFondoInventario = imagenes.getImage(vacio);
@@ -38,8 +38,12 @@ public class VistaInventario {
         
         String herramienta = "hachaMadera";
         Image imagenHerramientaInicialInventario = imagenes.getImage(herramienta);
-        canvasInventario.getGraphicsContext2D().drawImage(imagenHerramientaInicialInventario,width*0,height*1,width,height);
+        canvasInventario.getGraphicsContext2D().drawImage(imagenHerramientaInicialInventario,width*0,height*0,width,height);
 
+    }
+    
+    public void dibujar() {
+    	
     }
 
 }

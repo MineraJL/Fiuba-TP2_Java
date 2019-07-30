@@ -16,6 +16,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -37,6 +43,10 @@ public class ContenedorPrincipal extends BorderPane {
         this.setCentro(modelo);
         this.setPanelIzquierdo(modelo);
         this.setPanelInferior(modelo);
+        
+        Image imagen = new Image("Vista/Imagenes/fondo_principal.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.ROUND, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        this.setBackground(new Background(imagenDeFondo));
 
 	}
 
@@ -85,10 +95,10 @@ public class ContenedorPrincipal extends BorderPane {
     private VBox inventario(Modelo modelo) {
     	Text tituloInventario = new Text("Inventario");
     	
-    	Canvas canvasInventario = new Canvas(80, 150);
+    	Canvas canvasInventario = new Canvas(120, 120);
     	this.vistaInventario = new VistaInventario(modelo, canvasInventario);
     	
-    	VBox botonesInventario = this.botonesInventario(modelo);
+    	HBox botonesInventario = this.botonesInventario(modelo);
     	botonesInventario.setSpacing(20);
     	
     	VBox panelInventario = new VBox(tituloInventario, canvasInventario, botonesInventario);
@@ -153,7 +163,7 @@ public class ContenedorPrincipal extends BorderPane {
         return botonesMesa;
     }
 
-    private VBox botonesInventario(Modelo modelo) {
+    private HBox botonesInventario(Modelo modelo) {
     	Text textoSeleccionarHerramienta = new Text("Seleccionar herramienta");
     	
         Button botonSeleccionarHachaMadera = new Button();
@@ -188,7 +198,7 @@ public class ContenedorPrincipal extends BorderPane {
         botonSeleccionarPicoPiedra.setOnAction(botonSeleccionarPicoPiedraHandler);
         
         Button botonSeleccionarPicoMetal = new Button();
-        botonSeleccionarPicoMetal.setText("Hacha De Metal");
+        botonSeleccionarPicoMetal.setText("Pico De Metal");
         BotonSeleccionarPicoMetalHandler botonSeleccionarPicoMetalHandler = 
         		new BotonSeleccionarPicoMetalHandler(modelo,this.vistaInventario);
         botonSeleccionarPicoMetal.setOnAction(botonSeleccionarPicoMetalHandler);
@@ -215,7 +225,7 @@ public class ContenedorPrincipal extends BorderPane {
         botonesSeleccionarPicos.setAlignment(Pos.CENTER);
         botonesSeleccionarPicoFino.setAlignment(Pos.CENTER);
 
-        VBox botonesHerramientas = new VBox(textoSeleccionarHerramienta,
+        HBox botonesHerramientas = new HBox(textoSeleccionarHerramienta,
         									botonesSeleccionarHachas,
         									botonesSeleccionarPicos, 
         									botonesSeleccionarPicoFino);

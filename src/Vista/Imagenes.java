@@ -41,15 +41,15 @@ public class Imagenes {
         Image mpmetal = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPMetal.png");
         Image mpdiamante = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPDiamante.png");
         
-        Image hachaMadera = new Image("file:src/VistaImagenes/Inventario/hacha_madera.png");
-        Image hachaPiedra = new Image("file:src/VistaImagenes/Inventario/hacha_piedra.png");
-        Image hachaMetal = new Image("file:src/VistaImagenes/Inventario/hacha_metal.png");
+        Image hachaMadera = new Image("file:src/Vista/Imagenes/Inventario/hacha_madera.png");
+        Image hachaPiedra = new Image("file:src/Vista/Imagenes/Inventario/hacha_piedra.png");
+        Image hachaMetal = new Image("file:src/Vista/Imagenes/Inventario/hacha_metal.png");
         
-        Image picoMadera = new Image("file:src/VistaImagenes/Inventario/pico_madera.png");
-        Image picoPiedra = new Image("file:src/VistaImagenes/Inventario/pico_piedra.png");
-        Image picoMetal = new Image("file:src/VistaImagenes/Inventario/pico_metal.png");
+        Image picoMadera = new Image("file:src/Vista/Imagenes/Inventario/pico_madera.png");
+        Image picoPiedra = new Image("file:src/Vista/Imagenes/Inventario/pico_piedra.png");
+        Image picoMetal = new Image("file:src/Vista/Imagenes/Inventario/pico_metal.png");
         
-        Image picoFino = new Image("file:src/VistaImagenes/Inventario/pico_fino.png");
+        Image picoFino = new Image("file:src/Vista/Imagenes/Inventario/pico_fino.png");
         
         coleccionImagenes.put("fondoVacio",fondoVacio);
         
