@@ -17,6 +17,10 @@ public class BotonConstruirHerramientaHandler implements EventHandler<ActionEven
 
     @Override
     public void handle(ActionEvent event) {
+        //Herramienta herramientaConstruida = this.modelo.mesa().construiHerramienta(); // hay que
+        //modelo.inventario().agregarElemento(herramientaConstruida); // hacer esto pero primero
 
+        //modelo.mesa().limpiar();  // modificar que mesa pase disposicion en vez de a sí misma
+        vistaMesa.construirHerramienta();
     }
 }

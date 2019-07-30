@@ -18,9 +18,6 @@ public class VistaMesa {
     private PosicionEnlazada posicionActual;
     private GraphicsContext gc;
 
-    //private Canvas canvasBorde;
-    //private GraphicsContext gcBorde;
-
     public VistaMesa(Modelo modelo, Canvas canvasMesa) {
         this.modelo = modelo;
         this.imagenes = new Imagenes();
@@ -30,10 +27,19 @@ public class VistaMesa {
         gc = this.canvasMesa.getGraphicsContext2D();
         this.establecerTamanioCuadradoDeCadaMateriaPrima(25);
 
+        this.limpiar();
+        //this.iniciaaaaaarBorde();
+    }
+/*
+    private void iniciaaaaaarBorde() {
+        this.seleccionarConBorde(new PosicionEnlazada(0,0));
+        gc.fillOval(0,0,9,9); // no quiere dibujar
+    }*/
+
+    public void limpiar() {
+        this.dibujar();
         this.inicializarPosicionActual();
-
-        this.inicializarVistaMesa();
-
+        this.seleccionarConBorde(posicionActual);
     }
 
     public void dibujar(){
@@ -42,13 +48,24 @@ public class VistaMesa {
 
         for (int i=0; i<3; i++){
             for (int j=0;j<3;j++){
-
                 this.mostrarElemento(i,j);
-
             }
         }
 
     }
+
+    public void actualizar() {
+        PosicionEnlazada anterior = this.posicionActual.posicionAIzquierda();
+        this.limpiarBorde(anterior.geti(),anterior.getj());
+
+        this.dibujar();
+        this.seleccionarConBorde(this.posicionActual.posicionADerecha());
+
+        this.posicionActual=posicionActual.posicionADerecha();
+    }
+
+    public PosicionEnlazada posicionActual(){return this.posicionActual;}
+
 
     private void mostrarElemento(int i, int j){
 
@@ -67,17 +84,15 @@ public class VistaMesa {
         this.mostrarElemento(i,j);
     }
 
-    public void actualizar() {
-        PosicionEnlazada anterior = this.posicionActual.posicionAIzquierda();
-        this.limpiarBorde(anterior.geti(),anterior.getj());
-
-        this.dibujar();
-        this.seleccionarConBorde(this.posicionActual);
-
-        this.posicionActual=posicionActual.posicionADerecha();
+    private void inicializarPosicionActual() {
+        this.posicionActual = modelo.mesa().posicionInicial();
+        this.seleccionarConBorde(posicionActual);
     }
 
-    public PosicionEnlazada posicionActual(){return this.posicionActual;}
+    private void establecerTamanioCuadradoDeCadaMateriaPrima(int tamanio) {
+        this.width = tamanio;
+        this.height = tamanio;
+    }
 
     private void inicializarVistaMesa() {
 
@@ -87,23 +102,12 @@ public class VistaMesa {
                 String vacio = "MPVacio";
                 Image imagenMPEnMesa = imagenes.getImage(vacio);
                 gc.drawImage(imagenMPEnMesa,width*j,height*i,width,height);
-
             }
         }
 
     }
 
-    private void inicializarPosicionActual() {
-        this.posicionActual = modelo.mesa().posicionInicial();
-    }
-
-    private void establecerTamanioCuadradoDeCadaMateriaPrima(int tamanio) {
-        this.width = tamanio;
-        this.height = tamanio;
-    }
-
-    public void limpiar() {
-        this.dibujar();
-        this.inicializarPosicionActual();
+    public void construirHerramienta() {
+        limpiarBorde(2,2);
     }
 }
