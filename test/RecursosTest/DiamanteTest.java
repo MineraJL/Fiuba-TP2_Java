@@ -1,4 +1,5 @@
 package RecursosTest;
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Herramientas.*;
 import Modelo.Recursos.*;
 import Modelo.MateriaPrima.*;
@@ -10,7 +11,7 @@ public class DiamanteTest {
     
         // Diamante Durabilidad
         @Test
-        public void testDiamanteSeCreaConDurabilidad100(){
+        public void test01DiamanteSeCreaConDurabilidad100(){
         	Diamante DiamanteTest =  new Diamante();
             assertEquals(100, DiamanteTest.durabilidad());
 
@@ -18,7 +19,7 @@ public class DiamanteTest {
 
         // Diamante reduce durabilidad
         @Test
-        public void testDiamanteAlSerGolpeadoReduceSuDurabilidadEn10(){
+        public void test02DiamanteAlSerGolpeadoReduceSuDurabilidadEn10(){
             Diamante diamante =  new Diamante();
             diamante.reducirDurabilidadEn(10);
             assertEquals(90, diamante.durabilidad());
@@ -29,7 +30,7 @@ public class DiamanteTest {
 
         // Golpe hacha de madera
         @Test
-        public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorHachaDeMadera(){
+        public void test03DiamanteNoReduceSuDurabilidadSiEsGolpeadoPorHachaDeMadera() throws HerramientaDesgastadaExcepcion{
             TipoMadera materialMadera = new TipoMadera();
             Herramienta hacha = new Hacha(materialMadera);
             Recurso diamante =  new Diamante();
@@ -38,7 +39,7 @@ public class DiamanteTest {
         }
         // Golpe hacha de Piedra
         @Test
-        public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorHachaDePiedra(){
+        public void test04DiamanteNoReduceSuDurabilidadSiEsGolpeadoPorHachaDePiedra() throws HerramientaDesgastadaExcepcion{
             TipoPiedra materialPiedra = new TipoPiedra();
             Herramienta hacha = new Hacha(materialPiedra);
             Recurso diamante =  new Diamante();
@@ -47,7 +48,7 @@ public class DiamanteTest {
         }
         // Golpe hacha de Metal
         @Test
-        public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorHachaDeMetal(){
+        public void test05DiamanteNoReduceSuDurabilidadSiEsGolpeadoPorHachaDeMetal() throws HerramientaDesgastadaExcepcion{
             TipoMetal materialMetal = new TipoMetal();
             Herramienta hacha = new Hacha(materialMetal);
             Recurso diamante =  new Diamante();
@@ -58,7 +59,7 @@ public class DiamanteTest {
         // GOLPES PICO
         // Golpe Pico de Madera
         @Test
-        public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorPicoMadera(){
+        public void test06DiamanteNoReduceSuDurabilidadSiEsGolpeadoPorPicoMadera() throws HerramientaDesgastadaExcepcion{
             TipoMadera materialMadera = new TipoMadera();
             Herramienta pico = new Pico(materialMadera);
             Recurso diamante =  new Diamante();
@@ -67,7 +68,7 @@ public class DiamanteTest {
         }
         // Golpe Pico de Piedra
         @Test
-        public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorPicoPiedra(){
+        public void test07DiamanteNoReduceSuDurabilidadSiEsGolpeadoPorPicoPiedra() throws HerramientaDesgastadaExcepcion{
             TipoPiedra materialPiedra = new TipoPiedra();
             Herramienta pico = new Pico(materialPiedra);
             Recurso diamante =  new Diamante();
@@ -76,7 +77,7 @@ public class DiamanteTest {
         }
         // Golpe Pico de Metal
         @Test
-        public void testDiamanteNoReduceSuDurabilidadSiEsGolpeadoPorPicoMetal(){
+        public void test08DiamanteNoReduceSuDurabilidadSiEsGolpeadoPorPicoMetal() throws HerramientaDesgastadaExcepcion{
             TipoMetal materialMetal = new TipoMetal();
             Herramienta pico = new Pico(materialMetal);
             Recurso diamante =  new Diamante();
@@ -86,7 +87,7 @@ public class DiamanteTest {
 
         // GOLPES PICO FINO
         @Test
-        public void testDiamanteReduceSuDurabilidadEn20SiEsGolpeadoPorPicoFino(){
+        public void test09DiamanteReduceSuDurabilidadEn20SiEsGolpeadoPorPicoFino() throws HerramientaDesgastadaExcepcion{
             TipoMetalYPiedra materialMetalYPiedra = new TipoMetalYPiedra();
             Herramienta pico = new PicoFino(materialMetalYPiedra);
             Recurso diamante =  new Diamante();
@@ -95,7 +96,7 @@ public class DiamanteTest {
         }
         
         @Test
-        public void testRecursoDiamanteAlLlegarACeroSuDurabilidadSeTransformaEnMateriaPrimaDiamante() {
+        public void test10RecursoDiamanteAlLlegarACeroSuDurabilidadSeTransformaEnMateriaPrimaDiamante() {
         	Recurso diamante = new Diamante();
         	MateriaPrima mpDiamante = new MPDiamante();
 
@@ -105,7 +106,7 @@ public class DiamanteTest {
         }
 
         @Test
-        public void ocupanteDiamanteDevuelveSuNombre(){
+        public void test11ocupanteDiamanteDevuelveSuNombre(){
             Diamante diamante = new Diamante();
             String nombre = diamante.obtenerNombreOcupante();
             assertEquals("Diamante",nombre);

@@ -1,5 +1,6 @@
 package MapaTest;
 
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Herramientas.Hacha;
 import Modelo.Inventario.Inventario;
 import Modelo.Jugador.Jugador;
@@ -324,7 +325,7 @@ public class MapaOcupantesIntegracionTest {
     // Jugador golpea en casillero siguiente en distintas direcciones
 
     @Test
-    public void testGolpeaMaderaEnSiguienteAbajo_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+    public void testGolpeaMaderaEnSiguienteAbajo_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() throws HerramientaDesgastadaExcepcion {
 
         // J * *
         // * * *
@@ -352,7 +353,7 @@ public class MapaOcupantesIntegracionTest {
     }
 
     @Test
-    public void testGolpeaMaderaEnSiguienteArriba_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+    public void testGolpeaMaderaEnSiguienteArriba_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() throws HerramientaDesgastadaExcepcion {
 
         // M * *
         // * * *
@@ -378,7 +379,7 @@ public class MapaOcupantesIntegracionTest {
     }
 
     @Test
-    public void testGolpeaMaderaEnSiguienteDerecha_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+    public void testGolpeaMaderaEnSiguienteDerecha_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() throws HerramientaDesgastadaExcepcion {
 
         // J * M
         // * * *
@@ -404,7 +405,7 @@ public class MapaOcupantesIntegracionTest {
     }
 
     @Test
-    public void testGolpeaMaderaEnSiguienteIzquierda_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() {
+    public void testGolpeaMaderaEnSiguienteIzquierda_conHachaDeMadera_YLaMismaDisminuyeSuDurabilidad() throws HerramientaDesgastadaExcepcion {
 
         // M * J
         // * * *
@@ -433,7 +434,7 @@ public class MapaOcupantesIntegracionTest {
     //
 
     @Test
-    public void testHachaDeMaderaGolpeaOcupanteRecursoMaderaYSeDisminuyenSusDurabilidades() {
+    public void testHachaDeMaderaGolpeaOcupanteRecursoMaderaYSeDisminuyenSusDurabilidades() throws HerramientaDesgastadaExcepcion {
         TipoMadera maderaHerramienta = new TipoMadera();
         Hacha hacha = new Hacha(maderaHerramienta);
         Madera madera = new Madera();
@@ -450,7 +451,7 @@ public class MapaOcupantesIntegracionTest {
     ///////////////////////////////////////////
 
     @Test
-    public void jugadorGolpeaMaderaHastaQueSuDurabilidadLlegaACeroYSeLiberaMateriaPrima() {
+    public void jugadorGolpeaMaderaHastaQueSuDurabilidadLlegaACeroYSeLiberaMateriaPrima() throws HerramientaDesgastadaExcepcion {
 
         // M * J
         // * * *
@@ -497,7 +498,7 @@ public class MapaOcupantesIntegracionTest {
     ////////////////////////////////////
 
     @Test
-    public void jugadorGolpeaMaderaRecolectaLaMateriaPrimaYElCasilleroEnElQueHabiaMPQuedaDisponible() {
+    public void jugadorGolpeaMaderaRecolectaLaMateriaPrimaYElCasilleroEnElQueHabiaMPQuedaDisponible() throws HerramientaDesgastadaExcepcion {
 
         // M * J
         // * * *

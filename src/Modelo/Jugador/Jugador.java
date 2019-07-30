@@ -1,5 +1,6 @@
 package Modelo.Jugador;
 
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Herramientas.Hacha;
 import Modelo.Herramientas.Herramienta;
 import Modelo.Inventario.Inventario;
@@ -32,7 +33,7 @@ public class Jugador implements OcupanteMovible {
 		this.casilleroSeleccionadoParaGolpear.ocupante().serRecolectadoEn(this.inventario);
 	}
 
-	public void golpear(){
+	public void golpear() throws HerramientaDesgastadaExcepcion{
 		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaGolpear.ocupante());
 	}
 

@@ -1,5 +1,6 @@
 package MesaDeTrabajoTest;
 
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Herramientas.Herramienta;
 import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.PosicionEnlazada;
@@ -45,7 +46,7 @@ public class MesaTest {
     ///// Creacion de Herramientas /////
 	
     @Test
-    public void testMesaDeTrabajoRecibeFiguraCorrectaYCreaHachaDeMadera(){
+    public void test01MesaDeTrabajoRecibeFiguraCorrectaYCreaHachaDeMadera() throws HerramientaDesgastadaExcepcion{
 
         Mesa mesa = new Mesa();
 
@@ -75,7 +76,7 @@ public class MesaTest {
     }
 
     @Test
-    public void testMesaDeTrabajoRecibeFiguraCorrectaYCreaHachaDePiedra(){
+    public void test02MesaDeTrabajoRecibeFiguraCorrectaYCreaHachaDePiedra() throws HerramientaDesgastadaExcepcion{
 
         Mesa mesa = new Mesa();
 
@@ -106,7 +107,7 @@ public class MesaTest {
     }
     
     @Test
-    public void testMesaDeTrabajoRecibeFiguraCorrectaYCreaHachaDeMetal(){
+    public void test03MesaDeTrabajoRecibeFiguraCorrectaYCreaHachaDeMetal() throws HerramientaDesgastadaExcepcion{
 
         Mesa mesa = new Mesa();
 
@@ -137,7 +138,7 @@ public class MesaTest {
     }
 
     @Test
-    public void testMesaDeTrabajoRecibeFiguraCorrectaYCreaPicoDeMadera(){
+    public void test04MesaDeTrabajoRecibeFiguraCorrectaYCreaPicoDeMadera() throws HerramientaDesgastadaExcepcion{
 
         Mesa mesa = new Mesa();
 
@@ -167,7 +168,7 @@ public class MesaTest {
     }
     
     @Test
-    public void testMesaDeTrabajoRecibeFiguraCorrectaYCreaPicoDePiedra(){
+    public void test05MesaDeTrabajoRecibeFiguraCorrectaYCreaPicoDePiedra() throws HerramientaDesgastadaExcepcion{
 
         Mesa mesa = new Mesa();
 
@@ -198,7 +199,7 @@ public class MesaTest {
     }
     
     @Test
-    public void testMesaDeTrabajoRecibeFiguraCorrectaYCreaPicoDeMetal(){
+    public void test06MesaDeTrabajoRecibeFiguraCorrectaYCreaPicoDeMetal() throws HerramientaDesgastadaExcepcion{
 
         Mesa mesa = new Mesa();
 
@@ -229,7 +230,7 @@ public class MesaTest {
     }
     
     @Test
-    public void testMesaDeTrabajoRecibeFiguraCorrectaYCreaPicoFino(){
+    public void test07MesaDeTrabajoRecibeFiguraCorrectaYCreaPicoFino() throws HerramientaDesgastadaExcepcion{
 
         Mesa mesa = new Mesa();
 
@@ -261,7 +262,7 @@ public class MesaTest {
     }
     
     @Test
-    public void testMesaDeTrabajoRecibeFiguraINCorrectaYCreaHerramientaInexistente(){
+    public void test08MesaDeTrabajoRecibeFiguraINCorrectaYCreaHerramientaInexistente() throws HerramientaDesgastadaExcepcion{
 
         Mesa mesa = new Mesa();
 
@@ -291,7 +292,7 @@ public class MesaTest {
     }
 
     @Test
-    public void testMesaDeTrabajoDevuelveItemDelLugarCorrecto(){
+    public void test09MesaDeTrabajoDevuelveItemDelLugarCorrecto(){
         Mesa mesa = new Mesa();
         MPMadera madera = new MPMadera();
         MPVacio vacio = new MPVacio();

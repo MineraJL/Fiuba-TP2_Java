@@ -1,4 +1,5 @@
 package RecursosTest;
+import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Herramientas.*;
 import Modelo.MateriaPrima.MPMadera;
 import Modelo.MateriaPrima.MateriaPrima;
@@ -11,7 +12,7 @@ public class MaderaTest {
 
     // Madera Durabilidad
     @Test
-    public void testMaderaSeCreaConDurabilidad10(){
+    public void test01MaderaSeCreaConDurabilidad10(){
         Recurso madera =  new Madera();
         assertEquals(10, madera.durabilidad());
 
@@ -19,26 +20,26 @@ public class MaderaTest {
 
     // Madera reduce durabilidad
     @Test
-    public void testMaderaAlSerGolpeadoReduceSuDurabilidadEn4(){
+    public void test02MaderaAlSerGolpeadoReduceSuDurabilidadEn4(){
         Recurso madera =  new Madera();
         madera.reducirDurabilidadEn(4);
         assertEquals(6, madera.durabilidad());
     }
 
     //Igualdad
-    /*@Test // temp: borrar este equals.
-    public void testUnaMaderaEsIgualAOtraMadera(){
+    @Test
+    public void test03UnaMaderaEsIgualAOtraMadera(){
         Madera unaMadera =  new Madera();
         Madera otraMadera =  new Madera();
         assertEquals(unaMadera, otraMadera);
-    }*/
+    }
 
 
     // GOLPES HACHA
 
     // Golpe hacha de madera
     @Test
-    public void testMaderaReduceSuDurabilidadEnDosSiEsGolpeadoPorHachaDeMadera(){
+    public void test04MaderaReduceSuDurabilidadEnDosSiEsGolpeadoPorHachaDeMadera() throws HerramientaDesgastadaExcepcion{
         TipoMadera materialMadera = new TipoMadera();
         Herramienta hacha = new Hacha(materialMadera);
         Recurso madera =  new Madera();
@@ -47,7 +48,7 @@ public class MaderaTest {
     }
     // Golpe hacha de Piedra
     @Test
-    public void testMaderaReduceSuDurabilidadEnCincoSiEsGolpeadoPorHachaDePiedra(){
+    public void test05MaderaReduceSuDurabilidadEnCincoSiEsGolpeadoPorHachaDePiedra() throws HerramientaDesgastadaExcepcion{
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta hacha = new Hacha(materialPiedra);
         Recurso madera =  new Madera();
@@ -56,7 +57,7 @@ public class MaderaTest {
     }
     // Golpe hacha de Metal
     @Test
-    public void testMaderaReduceSuDurabilidadEnDiezSiEsGolpeadoPorHachaDeMetal(){
+    public void test06MaderaReduceSuDurabilidadEnDiezSiEsGolpeadoPorHachaDeMetal() throws HerramientaDesgastadaExcepcion{
         TipoMetal materialMetal = new TipoMetal();
         Herramienta hacha = new Hacha(materialMetal);
         Recurso madera =  new Madera();
@@ -67,7 +68,7 @@ public class MaderaTest {
     // GOLPES PICO
     // Golpe Pico de Madera
     @Test
-    public void testMaderaNoReduceSuDurabilidadSiEsGolpeadoPorPicoMadera(){
+    public void test07MaderaNoReduceSuDurabilidadSiEsGolpeadoPorPicoMadera() throws HerramientaDesgastadaExcepcion{
         TipoMadera materialMadera = new TipoMadera();
         Herramienta pico = new Pico(materialMadera);
         Recurso madera =  new Madera();
@@ -76,7 +77,7 @@ public class MaderaTest {
     }
     // Golpe Pico de Piedra
     @Test
-    public void testMaderaNoReduceSuDurabilidadSiEsGolpeadoPorPicoPiedra(){
+    public void test08MaderaNoReduceSuDurabilidadSiEsGolpeadoPorPicoPiedra() throws HerramientaDesgastadaExcepcion{
         TipoPiedra materialPiedra = new TipoPiedra();
         Herramienta pico = new Pico(materialPiedra);
         Recurso madera =  new Madera();
@@ -85,7 +86,7 @@ public class MaderaTest {
     }
     // Golpe Pico de Metal
     @Test
-    public void testMaderaNoReduceSuDurabilidadSiEsGolpeadoPorPicoMetal(){
+    public void test09MaderaNoReduceSuDurabilidadSiEsGolpeadoPorPicoMetal() throws HerramientaDesgastadaExcepcion{
         TipoMetal materialMetal = new TipoMetal();
         Herramienta pico = new Pico(materialMetal);
         Recurso madera =  new Madera();
@@ -95,7 +96,7 @@ public class MaderaTest {
 
     // GOLPES PICO FINO
     @Test
-    public void testMaderaNoReduceSuDurabilidadSiEsGolpeadoPorPicoFino(){
+    public void test10MaderaNoReduceSuDurabilidadSiEsGolpeadoPorPicoFino() throws HerramientaDesgastadaExcepcion{
         TipoMetalYPiedra materialMetalYPiedra = new TipoMetalYPiedra();
         Herramienta pico = new PicoFino(materialMetalYPiedra);
         Recurso madera =  new Madera();
@@ -104,7 +105,7 @@ public class MaderaTest {
     }
     
     @Test
-    public void testRecursoMaderaAlLlegarACeroSuDurabilidadSeTransformaEnMateriaPrimaMadera() {
+    public void test11RecursoMaderaAlLlegarACeroSuDurabilidadSeTransformaEnMateriaPrimaMadera() {
         Recurso madera = new Madera();
         MateriaPrima mpMadera = new MPMadera();
 
@@ -114,7 +115,7 @@ public class MaderaTest {
     }
 
     @Test
-    public void ocupanteMaderaDevuelveSuNombre(){
+    public void test12ocupanteMaderaDevuelveSuNombre(){
         Madera madera = new Madera();
         String nombre = madera.obtenerNombreOcupante();
         assertEquals("Madera",nombre);
