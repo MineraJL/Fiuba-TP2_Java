@@ -13,27 +13,32 @@ public class VistaInventario {
     private Imagenes imagenes;
     
     public VistaInventario(Modelo modelo, Canvas canvasInventario) {
-    	this.width = 50;
+    	this.width = 25;
     	this.height = 25;
         this.modelo = modelo;
         this.imagenes = new Imagenes();
         this.imagenes.cargarImagenesInventario();
 
         this.canvasInventario = canvasInventario;
+        
+        this.inicializarInventario();
     }
     
     private void inicializarInventario() {
+    	
+        for (int i=0; i<4; i++){
+            for (int j=0;j<4;j++){
 
-    	canvasInventario.getGraphicsContext2D().drawImage(imagenMPEnMesa,width*0,height*0,width,height);
-        for (int i=0; i<3; i++){
-            for (int j=0;j<3;j++){
-
-                String vacio = "MPVacio";
-                Image imagenMPEnMesa = imagenes.getImage(vacio);
-                canvasInventario.getGraphicsContext2D().drawImage(imagenMPEnMesa,width*j,height*i,width,height);
+                String vacio = "fondoVacio";
+                Image imagenFondoInventario = imagenes.getImage(vacio);
+                canvasInventario.getGraphicsContext2D().drawImage(imagenFondoInventario,width*j,height*i,width,height);
 
             }
         }
+        
+        String herramienta = "hachaMadera";
+        Image imagenHerramientaInicialInventario = imagenes.getImage(herramienta);
+        canvasInventario.getGraphicsContext2D().drawImage(imagenHerramientaInicialInventario,width*0,height*1,width,height);
 
     }
 

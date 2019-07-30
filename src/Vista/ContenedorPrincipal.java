@@ -1,5 +1,12 @@
 package Vista;
 
+import Controlador.ControladoresInventario.BotonSeleccionarHachaMaderaHandler;
+import Controlador.ControladoresInventario.BotonSeleccionarHachaMetalHandler;
+import Controlador.ControladoresInventario.BotonSeleccionarHachaPiedraHandler;
+import Controlador.ControladoresInventario.BotonSeleccionarPicoFinoHandler;
+import Controlador.ControladoresInventario.BotonSeleccionarPicoMaderaHandler;
+import Controlador.ControladoresInventario.BotonSeleccionarPicoMetalHandler;
+import Controlador.ControladoresInventario.BotonSeleccionarPicoPiedraHandler;
 import Controlador.ControladoresJugador.*;
 import Controlador.ControladoresMesa.*;
 import Modelo.Jugador.Jugador;
@@ -22,12 +29,14 @@ public class ContenedorPrincipal extends BorderPane {
     private VBox contenedorCentral;
     private VistaModelo vistaModelo;
     private VistaMesa vistaMesa;
+    private VistaInventario vistaInventario;
 
     public ContenedorPrincipal(Stage stage, Modelo modelo) {
 
         this.setMenu(stage);
         this.setCentro(modelo);
         this.setPanelIzquierdo(modelo);
+        this.setPanelInferior(modelo);
 
 	}
 
@@ -49,6 +58,13 @@ public class ContenedorPrincipal extends BorderPane {
 
         this.setLeft(panelIzquierdo);
     }
+    
+    private void setPanelInferior(Modelo modelo) {
+    	VBox panelInventario = this.inventario(modelo);
+    	VBox panelInferior = new VBox(panelInventario);
+    	
+    	this.setBottom(panelInferior);
+    }
 
     private VBox mesa(Modelo modelo) {
         Text tituloMesa = new Text("Mesa de Trabajo");
@@ -64,6 +80,21 @@ public class ContenedorPrincipal extends BorderPane {
         panelMesa.setAlignment(Pos.CENTER);
 
         return panelMesa;
+    }
+    
+    private VBox inventario(Modelo modelo) {
+    	Text tituloInventario = new Text("Inventario");
+    	
+    	Canvas canvasInventario = new Canvas(80, 150);
+    	this.vistaInventario = new VistaInventario(modelo, canvasInventario);
+    	
+    	VBox botonesInventario = this.botonesInventario(modelo);
+    	botonesInventario.setSpacing(20);
+    	
+    	VBox panelInventario = new VBox(tituloInventario, canvasInventario, botonesInventario);
+    	panelInventario.setAlignment(Pos.BOTTOM_CENTER);
+    	
+    	return panelInventario;
     }
 
     private VBox botonesMesa(Modelo modelo) {
@@ -122,6 +153,79 @@ public class ContenedorPrincipal extends BorderPane {
         return botonesMesa;
     }
 
+    private VBox botonesInventario(Modelo modelo) {
+    	Text textoSeleccionarHerramienta = new Text("Seleccionar herramienta");
+    	
+        Button botonSeleccionarHachaMadera = new Button();
+        botonSeleccionarHachaMadera.setText("Hacha De Madera");
+        BotonSeleccionarHachaMaderaHandler botonSeleccionarHachaMaderaHandler = 
+        		new BotonSeleccionarHachaMaderaHandler(modelo,this.vistaInventario);
+        botonSeleccionarHachaMadera.setOnAction(botonSeleccionarHachaMaderaHandler);
+        
+        Button botonSeleccionarHachaPiedra = new Button();
+        botonSeleccionarHachaPiedra.setText("Hacha De Piedra");
+        BotonSeleccionarHachaPiedraHandler botonSeleccionarHachaPiedraHandler = 
+        		new BotonSeleccionarHachaPiedraHandler(modelo,this.vistaInventario);
+        botonSeleccionarHachaPiedra.setOnAction(botonSeleccionarHachaPiedraHandler);
+        
+        Button botonSeleccionarHachaMetal = new Button();
+        botonSeleccionarHachaMetal.setText("Hacha De Metal");
+        BotonSeleccionarHachaMetalHandler botonSeleccionarHachaMetalHandler = 
+        		new BotonSeleccionarHachaMetalHandler(modelo,this.vistaInventario);
+        botonSeleccionarHachaMetal.setOnAction(botonSeleccionarHachaMetalHandler);
+        
+        
+        Button botonSeleccionarPicoMadera = new Button();
+        botonSeleccionarPicoMadera.setText("Pico De Madera");
+        BotonSeleccionarPicoMaderaHandler botonSeleccionarPicoMaderaHandler = 
+        		new BotonSeleccionarPicoMaderaHandler(modelo,this.vistaInventario);
+        botonSeleccionarPicoMadera.setOnAction(botonSeleccionarPicoMaderaHandler);
+        
+        Button botonSeleccionarPicoPiedra = new Button();
+        botonSeleccionarPicoPiedra.setText("Pico De Piedra");
+        BotonSeleccionarPicoPiedraHandler botonSeleccionarPicoPiedraHandler = 
+        		new BotonSeleccionarPicoPiedraHandler(modelo,this.vistaInventario);
+        botonSeleccionarPicoPiedra.setOnAction(botonSeleccionarPicoPiedraHandler);
+        
+        Button botonSeleccionarPicoMetal = new Button();
+        botonSeleccionarPicoMetal.setText("Hacha De Metal");
+        BotonSeleccionarPicoMetalHandler botonSeleccionarPicoMetalHandler = 
+        		new BotonSeleccionarPicoMetalHandler(modelo,this.vistaInventario);
+        botonSeleccionarPicoMetal.setOnAction(botonSeleccionarPicoMetalHandler);
+        
+        
+        Button botonSeleccionarPicoFino = new Button();
+        botonSeleccionarPicoFino.setText("Pico Fino");
+        BotonSeleccionarPicoFinoHandler botonSeleccionarPicoFinoHandler = 
+        		new BotonSeleccionarPicoFinoHandler(modelo,this.vistaInventario);
+        botonSeleccionarPicoFino.setOnAction(botonSeleccionarPicoFinoHandler);
+        
+        
+        HBox botonesSeleccionarHachas = new HBox(botonSeleccionarHachaMadera,
+        										 botonSeleccionarHachaPiedra,
+        										 botonSeleccionarHachaMetal);
+        
+        HBox botonesSeleccionarPicos = new HBox(botonSeleccionarPicoMadera,
+        										botonSeleccionarPicoPiedra,
+        										botonSeleccionarPicoMetal);
+        
+        HBox botonesSeleccionarPicoFino = new HBox(botonSeleccionarPicoFino);
+        
+        botonesSeleccionarHachas.setAlignment(Pos.CENTER);
+        botonesSeleccionarPicos.setAlignment(Pos.CENTER);
+        botonesSeleccionarPicoFino.setAlignment(Pos.CENTER);
+
+        VBox botonesHerramientas = new VBox(textoSeleccionarHerramienta,
+        									botonesSeleccionarHachas,
+        									botonesSeleccionarPicos, 
+        									botonesSeleccionarPicoFino);
+        
+        botonesHerramientas.setSpacing(10);
+        botonesHerramientas.setAlignment(Pos.CENTER);
+
+        return botonesHerramientas;
+        
+    }
 
     private void setCentro(Modelo modelo){
 

@@ -32,6 +32,40 @@ public class Imagenes {
         this.cargarImagenJugador();
         this.cargarImagenesMateriaPrima();
     }
+    
+    public void cargarImagenesInventario() {
+    	Image fondoVacio = new Image("file:src/Vista/Imagenes/Inventario/fondo_vacio.png");
+    	
+        Image mpmadera = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPMadera.png");
+        Image mppiedra = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPPiedra.png");
+        Image mpmetal = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPMetal.png");
+        Image mpdiamante = new Image("file:src/Vista/Imagenes/Mesa/mesa_MPDiamante.png");
+        
+        Image hachaMadera = new Image("file:src/VistaImagenes/Inventario/hacha_madera.png");
+        Image hachaPiedra = new Image("file:src/VistaImagenes/Inventario/hacha_piedra.png");
+        Image hachaMetal = new Image("file:src/VistaImagenes/Inventario/hacha_metal.png");
+        
+        Image picoMadera = new Image("file:src/VistaImagenes/Inventario/pico_madera.png");
+        Image picoPiedra = new Image("file:src/VistaImagenes/Inventario/pico_piedra.png");
+        Image picoMetal = new Image("file:src/VistaImagenes/Inventario/pico_metal.png");
+        
+        Image picoFino = new Image("file:src/VistaImagenes/Inventario/pico_fino.png");
+        
+        coleccionImagenes.put("fondoVacio",fondoVacio);
+        
+        coleccionImagenes.put("MPMadera",mpmadera);
+        coleccionImagenes.put("MPPiedra",mppiedra);
+        coleccionImagenes.put("MPMetal",mpmetal);
+        coleccionImagenes.put("MPDiamante",mpdiamante);
+        
+        coleccionImagenes.put("hachaMadera",hachaMadera);
+        coleccionImagenes.put("hachaPiedra",hachaPiedra);
+        coleccionImagenes.put("hachaMetal",hachaMetal);
+        coleccionImagenes.put("picoMadera",picoMadera);
+        coleccionImagenes.put("picoPiedra",picoPiedra);
+        coleccionImagenes.put("picoMetal",picoMetal);
+        coleccionImagenes.put("picoFino",picoFino);  
+    }
 
     public Image getImage(String nombreOcupante){
         return coleccionImagenes.get(nombreOcupante);
