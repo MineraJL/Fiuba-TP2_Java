@@ -10,9 +10,10 @@ public class PosicionEnlazadaTest {
     // A11 A12
     // A21 A22
 
-    // enlaces
+    //// enlaces ////
+    // enlaces bidireccionalmente entre dos posiciones
     @Test
-    public void testSeEnlazaPosicionIzquierda(){
+    public void seEnlazaPosicionIzquierda(){
         PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
         PosicionEnlazada posicionA12 = new PosicionEnlazada(1,2);
         posicionA12.enlazarAIzquierda(posicionA11);
@@ -20,7 +21,7 @@ public class PosicionEnlazadaTest {
     }
 
     @Test
-    public void testPosicionADerecha(){
+    public void posicionADerechaQuedaEstablecidaAlEnlazarAIzquierda(){
         PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
         PosicionEnlazada posicionA12 = new PosicionEnlazada(1,2);
         posicionA12.enlazarAIzquierda(posicionA11);
@@ -29,7 +30,7 @@ public class PosicionEnlazadaTest {
 
 
     @Test
-    public void testPosicionArriba(){
+    public void posicionArriba(){
         PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
         PosicionEnlazada posicionA21 = new PosicionEnlazada(2,1);
         posicionA21.enlazarArriba(posicionA11);
@@ -37,7 +38,7 @@ public class PosicionEnlazadaTest {
     }
 
     @Test
-    public void testPosicionAbajo(){
+    public void posicionAbajoQuedaEstablecidaAlEnlazarArriba(){
         PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
         PosicionEnlazada posicionA21 = new PosicionEnlazada(2,1);
         posicionA21.enlazarArriba(posicionA11);
@@ -45,7 +46,7 @@ public class PosicionEnlazadaTest {
     }
 
     @Test
-    public void testPosicionArribaEIzquierda(){
+    public void posicionArribaEIzquierda(){
         PosicionEnlazada posicionA12 = new PosicionEnlazada(1,2);
         PosicionEnlazada posicionA21 = new PosicionEnlazada(2,1);
         PosicionEnlazada posicionA22 = new PosicionEnlazada(2,2);
@@ -58,7 +59,7 @@ public class PosicionEnlazadaTest {
 
     // borde
     @Test
-    public void testUnaPosicionEstaEnlazadaConsigoMismaAMenosQueSeLaEnlaceConOtra(){
+    public void unaPosicionEstaEnlazadaConsigoMismaAMenosQueSeLaEnlaceConOtra(){
         PosicionEnlazada posicionA11 = new PosicionEnlazada(1,1);
 
         assertEquals(posicionA11,posicionA11.posicionAIzquierda());
@@ -68,23 +69,44 @@ public class PosicionEnlazadaTest {
 
     }
 
-    // coordenadas
+    // enlaces unidireccionales de una PosicionEnlazada a otra
+    @Test
+    public void seEnlazaPosicionADerechaCorrectamente(){
+        PosicionEnlazada posicionInicial = new PosicionEnlazada(0,0);
+        PosicionEnlazada siguiente = new PosicionEnlazada(0,1);
+        posicionInicial.enlazarADerecha(siguiente);
+
+        assertEquals(siguiente,posicionInicial.posicionADerecha());
+
+    }
 
     @Test
-    public void testPosicionTieneCoordenadaEnXConLaQueSeCreoIgualDos(){
+    public void seEnlazaPosicionAbajoCorrectamente(){
+        PosicionEnlazada posicionInicial = new PosicionEnlazada(0,0);
+        PosicionEnlazada siguiente = new PosicionEnlazada(1,0);
+        posicionInicial.enlazarAbajo(siguiente);
+
+        assertEquals(siguiente,posicionInicial.posicionAbajo());
+
+    }
+
+    /// coordenadas
+
+    @Test
+    public void posicionTieneCoordenadaIConLaQueSeCreoIgualDos(){
         PosicionEnlazada posicion = new PosicionEnlazada(2,3);
         assertEquals(2, posicion.geti());
     }
 
     @Test
-    public void testPosicionTieneCoordenadaEnYConLaQueSeCreoIgualATres(){
+    public void posicionTieneCoordenadaJConLaQueSeCreoIgualATres(){
         PosicionEnlazada posicion = new PosicionEnlazada(2,3);
         assertEquals(3, posicion.getj());
     }
 
-    // equals
+    /// equals
     @Test
-    public void testPosicionEsIgualAOtraSiTienenMismoValorDeXyDeY(){
+    public void posicionEsIgualAOtraSiTienenMismoValorDeIyDeJ(){
         PosicionEnlazada posicion1 = new PosicionEnlazada(4,5);
         PosicionEnlazada posicion2 = new PosicionEnlazada(4,5);
 
@@ -93,7 +115,7 @@ public class PosicionEnlazadaTest {
     }
 
     @Test
-    public void testPosicionNoEsIgualAOtraSiTienenDiferentesValoresDeXyDeY(){
+    public void posicionNoEsIgualAOtraSiTienenDiferentesValoresDeIyDeJ(){
         PosicionEnlazada posicion1 = new PosicionEnlazada(4,5);
         PosicionEnlazada posicion2 = new PosicionEnlazada(2,5);
 

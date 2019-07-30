@@ -46,7 +46,7 @@ public class Disposicion extends ConjuntoDeCasilleros {
         for (int fila = 1 ; fila < this.filas ; fila++){
             PosicionEnlazada ultimaPosFilaDeArriba = matrizPosicionesEnlazadas[fila-1][cantidadColumnas()-1];
             PosicionEnlazada primeraPosFilaSiguiente =matrizPosicionesEnlazadas[fila][0];
-            ultimaPosFilaDeArriba.enlazarADerecha(primeraPosFilaSiguiente);
+            primeraPosFilaSiguiente.enlazarAIzquierda(ultimaPosFilaDeArriba);
         }
         this.posicionInicial = matrizPosicionesEnlazadas[0][0];
     }
