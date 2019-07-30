@@ -25,6 +25,7 @@ public class Imagenes {
         coleccionImagenes.put("MPMetal",mpmetal);
         coleccionImagenes.put("MPDiamante",mpdiamante);
         coleccionImagenes.put("MPVacio",mpvacio);
+        coleccionImagenes.put("OcupanteVacio",mpvacio);
     }
 
     public void cargarImagenesMapa() {

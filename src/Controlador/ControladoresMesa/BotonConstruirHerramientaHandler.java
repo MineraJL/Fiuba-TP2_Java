@@ -1,5 +1,6 @@
 package Controlador.ControladoresMesa;
 
+import Modelo.Herramientas.Herramienta;
 import Modelo.Modelo;
 import Vista.VistaMesa;
 import javafx.event.ActionEvent;
@@ -17,10 +18,10 @@ public class BotonConstruirHerramientaHandler implements EventHandler<ActionEven
 
     @Override
     public void handle(ActionEvent event) {
-        //Herramienta herramientaConstruida = this.modelo.mesa().construiHerramienta(); // hay que
-        //modelo.inventario().agregarElemento(herramientaConstruida); // hacer esto pero primero
+        Herramienta herramientaConstruida = this.modelo.mesa().construiHerramienta();
+        modelo.inventario().agregarElemento(herramientaConstruida);
 
-        //modelo.mesa().limpiar();  // modificar que mesa pase disposicion en vez de a sí misma
+        modelo.mesa().limpiar();
         vistaMesa.construirHerramienta();
     }
 }

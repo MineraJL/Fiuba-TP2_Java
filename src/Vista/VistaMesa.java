@@ -28,13 +28,8 @@ public class VistaMesa {
         this.establecerTamanioCuadradoDeCadaMateriaPrima(25);
 
         this.limpiar();
-        //this.iniciaaaaaarBorde();
     }
-/*
-    private void iniciaaaaaarBorde() {
-        this.seleccionarConBorde(new PosicionEnlazada(0,0));
-        gc.fillOval(0,0,9,9); // no quiere dibujar
-    }*/
+
 
     public void limpiar() {
         this.dibujar();
@@ -43,8 +38,6 @@ public class VistaMesa {
     }
 
     public void dibujar(){
-
-        this.inicializarVistaMesa();
 
         for (int i=0; i<3; i++){
             for (int j=0;j<3;j++){
@@ -92,19 +85,6 @@ public class VistaMesa {
     private void establecerTamanioCuadradoDeCadaMateriaPrima(int tamanio) {
         this.width = tamanio;
         this.height = tamanio;
-    }
-
-    private void inicializarVistaMesa() {
-
-        for (int i=0; i<3; i++){
-            for (int j=0;j<3;j++){
-
-                String vacio = "MPVacio";
-                Image imagenMPEnMesa = imagenes.getImage(vacio);
-                gc.drawImage(imagenMPEnMesa,width*j,height*i,width,height);
-            }
-        }
-
     }
 
     public void construirHerramienta() {
