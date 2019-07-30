@@ -66,15 +66,15 @@ public class VistaMesa {
         this.inicializarVistaMesa(); // TEMPORAL: borrar esta línea.
     }
 
-    public void dibujar(PosicionEnlazada posicionSiguiente) {
-        // limpiarBorde de pos anterior
-        this.limpiarBorde(posicionActual.geti(),posicionActual.getj());
+    public void dibujar(PosicionEnlazada actual) {
+        // limpiarBorde de pos anterior // mostrar siguiente // avanzar actual a siguiente
+        PosicionEnlazada anterior = this.posicionActual.posicionAIzquierda();
+        this.limpiarBorde(anterior.geti(),anterior.getj());
 
-        this.mostrarElemento(posicionSiguiente.geti(),posicionSiguiente.getj());
-        this.seleccionarConBorde(posicionSiguiente);
+        this.mostrarElemento(actual.geti(),actual.getj());
+        this.seleccionarConBorde(actual);
 
-        this.posicionActual=posicionSiguiente;
-        // avanzar a la siguiente posicion.
+        this.posicionActual=actual.posicionADerecha();
     }
 
     public PosicionEnlazada posicionActual(){return this.posicionActual;}
@@ -94,10 +94,7 @@ public class VistaMesa {
     }
 
     private void inicializarPosicionActual() {
-
-         //this.posicionActual = modelo.mesa().obtenerOcupanteEn(0,0).getPosicion();
-        this.posicionActual = new PosicionEnlazada(0,0);
-
+        this.posicionActual = modelo.mesa().posicionInicial();
     }
 
     private void establecerTamanioCuadradoDeCadaMateriaPrima(int tamanio) {
