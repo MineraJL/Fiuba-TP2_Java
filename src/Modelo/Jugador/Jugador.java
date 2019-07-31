@@ -9,13 +9,12 @@ import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.TipoMaterial.TipoMadera;
 
 
-public class Jugador implements OcupanteMovible {
+public class Jugador extends Ocupante {
 	private Mapa mapa;
 	private Casillero casilleroSeleccionadoParaGolpear;
 	private Inventario inventario;
 	private Mesa mesa;
 	private Herramienta herramientaDeTrabajo;
-	private Casillero casillero;
 
 	public Jugador(Inventario inventario, Mesa mesa) {
 		TipoMadera madera = new TipoMadera();
@@ -28,6 +27,9 @@ public class Jugador implements OcupanteMovible {
 		this.casillero = new Casillero();
 	}
 
+	private void mover(Mapa mapa, Direccion direccion){
+		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this); // no siempre se desocupa el cas actual.
+	}
 
 	public void recolectar(){
 		this.casilleroSeleccionadoParaGolpear.ocupante().serRecolectadoEn(this.inventario);
@@ -38,34 +40,22 @@ public class Jugador implements OcupanteMovible {
 	}
 
 
-	private void mover(Mapa mapa, Direccion direccion){
-		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this); // no siempre se desocupa el cas actual.
-	}
-
-	// Implementacion interface ocupanteMovible
-	public void setCasillero(Casillero casillero){
-		this.casillero.desocupar();
-		this.casillero = casillero;
-	}
-
-	public Casillero getCasillero(){
-		return this.casillero;
-	}
-	public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}
-
 	public void mover(Direccion direccion){
 		this.mover(this.mapa,direccion);
 		this.casilleroSeleccionadoParaGolpear =this.casillero.obtenerCasilleroVecino(this.mapa,direccion);
 	}
 
-
-	public void ingresar(Mapa mapa, PosicionEnlazada posicion){
-		mapa.getCasillero(posicion).ocuparPor(this);
-		this.mapa = mapa;
+	@Override
+	public void setCasillero(Casillero casillero){
+		this.casillero.desocupar();
+		this.casillero = casillero;
 	}
 
-	public String obtenerNombreOcupante(){return this.getClass().getSimpleName();}
-	// Fin implementacion
+	@Override
+	public void ingresar(Mapa mapa, PosicionEnlazada posicion){
+		super.ingresar(mapa,posicion);
+		this.mapa = mapa;
+	}
 
 	/*public void construirHacha(Modelo.TipoMaterial unMaterial) {
 		Hacha hacha = new Hacha(unMaterial);

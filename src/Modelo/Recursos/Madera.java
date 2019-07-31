@@ -11,16 +11,12 @@ public class Madera extends Recurso {
         this.MPaLiberar = new MPMadera();
     }
 
-    public void golpearCon(Herramienta herramienta) throws HerramientaDesgastadaExcepcion{
+    public void golpearCon(Herramienta herramienta) throws HerramientaDesgastadaExcepcion {
         herramienta.golpear(this);
     }
 
     @Override
-    public void golpeateCon(Herramienta herramienta) throws HerramientaDesgastadaExcepcion{
-    	herramienta.golpear(this);
-    	}
-
-    @Override
-    public String obtenerNombreOcupante(){return this.getClass().getSimpleName();}
-
+    public void golpeateCon(Herramienta herramienta) throws HerramientaDesgastadaExcepcion {
+        herramienta.golpear(this);
+    }
 }

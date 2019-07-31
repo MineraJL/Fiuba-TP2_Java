@@ -9,7 +9,4 @@ public class MPDiamante extends MateriaPrima {
 	    	inventario.agregarMateriaPrima(this);
 	}
 
-	@Override
-	public String obtenerNombreOcupante(){return this.getClass().getSimpleName();}
-
 }

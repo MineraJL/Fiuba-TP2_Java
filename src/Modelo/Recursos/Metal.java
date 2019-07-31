@@ -20,8 +20,4 @@ public class Metal extends Recurso {
     	herramienta.golpear(this);
     }
 
-    @Override
-    public String obtenerNombreOcupante(){
-        return this.getClass().getSimpleName();
-    }
 }

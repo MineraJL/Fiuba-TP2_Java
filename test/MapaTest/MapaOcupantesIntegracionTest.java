@@ -109,7 +109,6 @@ public class MapaOcupantesIntegracionTest {
         PosicionEnlazada posicion5 = new PosicionEnlazada(5,4); // Aca pongo a la Madera
 
 
-
         jugador.ingresar(mapa, posicion1);
         ocupante2.ingresar(mapa, posicion2);
         ocupante3.ingresar(mapa, posicion3);
@@ -131,171 +130,6 @@ public class MapaOcupantesIntegracionTest {
 
         assertSame(mapa.getCasillero(posicion1), jugador.getCasillero());
     }
-
-    // MOVIMIENTO OCUPANTE JUGADOR - MAPA CON OCUPANTES RECURSOS
-    //
-    /*@Test
-    public void testOcupanteJugadorSeMueveALaDerechaHastaChocarConOtroOcupante() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-    	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
-        Madera madera = new Madera();
-        jugador.setCasillero(casillero1);
-        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
-        PosicionEnlazada posicion2 = new PosicionEnlazada(6,5); // No puede moverse mas
-        PosicionEnlazada posicion3 = new PosicionEnlazada(7,5); // Aca pongo a la Madera
-
-        jugador.ingresar(mapa, posicion1);
-        madera.ingresar(mapa, posicion3);
-        // Lo muevo a la derecha 2 veces
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-
-        assertSame(mapa.getCasillero(posicion2), jugador.getCasillero());
-    }
-
-    @Test
-    public void testOcupanteJugadorNoPuedeMoverseDerechaPorOtroOcupantePeroSiParaArriba() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-    	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
-        Ocupante ocupante2 = new Madera();
-        jugador.setCasillero(casillero1);
-        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
-        PosicionEnlazada posicion2 = new PosicionEnlazada(7,5); // Aca pongo a la Madera
-
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(6,6); // No puede moverse mas
-
-        jugador.ingresar(mapa, posicion1);
-        ocupante2.ingresar(mapa, posicion2);
-        // Lo muevo a la derecha 2 veces
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-
-        jugador.mover(new DireccionArriba());
-
-        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
-    }
-
-    @Test
-    public void testOcupanteJugadorNoPuedeMoverseDerechaPorOtroOcupantePeroSiParaAbajo() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-    	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
-        Ocupante ocupante2 = new Madera();
-        jugador.setCasillero(casillero1);
-        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
-        PosicionEnlazada posicion2 = new PosicionEnlazada(7,5); // Aca pongo a la Madera
-
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(6,4); // No puede moverse mas
-
-        jugador.ingresar(mapa, posicion1);
-        ocupante2.ingresar(mapa, posicion2);
-        // Lo muevo a la derecha 2 veces
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-
-        jugador.mover(new DireccionAbajo());
-
-        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
-    }
-
-    @Test
-    public void testOcupanteJugadorNoPuedeMoverseDerechaPorOtroOcupantePeroSiParaArribaYDerechaDeNuevo() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-    	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
-        Ocupante ocupante2 = new Madera();
-        jugador.setCasillero(casillero1);
-        PosicionEnlazada posicion1 = new PosicionEnlazada(5,5); // Aca pongo al Modelo.Jugador
-        PosicionEnlazada posicion2 = new PosicionEnlazada(7,5); // Aca pongo a la Madera
-
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(7,4); // No puede moverse mas
-
-        jugador.ingresar(mapa, posicion1);
-        ocupante2.ingresar(mapa, posicion2);
-        // Lo muevo a la derecha 2 veces
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-
-        jugador.mover(new DireccionAbajo());
-
-        jugador.mover(new DireccionDerecha());
-
-        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
-    }*/
-
-
-
-    /*@Test
-    public void testOcupanteJugadorEsquivaOcupanteEnMapa() {
-        Mapa mapa = new Mapa(10,10);
-        Casillero casillero1 = new Casillero();
-    	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
-        Ocupante ocupante2 = new Madera();
-        Ocupante ocupante3 = new Madera();
-        Ocupante ocupante4 = new Madera();
-        Ocupante ocupante5 = new Madera();
-        jugador.setCasillero(casillero1);
-        PosicionEnlazada posicion1 = new PosicionEnlazada(3,3); // Aca pongo al Modelo.Jugador
-        PosicionEnlazada posicion2 = new PosicionEnlazada(5,3); // Aca pongo a la Madera
-        PosicionEnlazada posicion3 = new PosicionEnlazada(6,3); // Aca pongo a la Madera
-        PosicionEnlazada posicion4 = new PosicionEnlazada(6,4); // Aca pongo a la Madera
-        PosicionEnlazada posicion5 = new PosicionEnlazada(6,5); // Aca pongo a la Madera
-
-        PosicionEnlazada posicionFinal = new PosicionEnlazada(7,3); // Donde quiero llegar
-
-        jugador.ingresar(mapa, posicion1);
-        ocupante2.ingresar(mapa, posicion2);
-        ocupante3.ingresar(mapa, posicion3);
-        ocupante4.ingresar(mapa, posicion4);
-        ocupante5.ingresar(mapa, posicion5);
-        // Lo muevo a la derecha 2 veces
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-
-        jugador.mover(new DireccionArriba());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-
-        jugador.mover(new DireccionArriba());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-
-        jugador.mover(new DireccionArriba());
-        jugador.mover(new DireccionDerecha());
-        jugador.mover(new DireccionDerecha());
-
-        jugador.mover(new DireccionAbajo());
-        jugador.mover(new DireccionAbajo());
-        jugador.mover(new DireccionAbajo());
-
-
-        assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
-    }*/
-
-
 
     // Casillero ocupado / desocupado
     @Test
@@ -320,8 +154,6 @@ public class MapaOcupantesIntegracionTest {
     }
 
 
-
-    // Jugador golpea distintos Ocupantes
     // Jugador golpea en casillero siguiente en distintas direcciones
 
     @Test
