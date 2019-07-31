@@ -1,6 +1,6 @@
 package Modelo.Mapa;
 
-public abstract class Ocupante implements Golpeable {
+public abstract class Ocupante implements Golpeable, Recolectable {
 
     protected Casillero casillero;
 
