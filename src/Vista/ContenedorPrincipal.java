@@ -41,8 +41,9 @@ public class ContenedorPrincipal extends BorderPane {
 
         this.setMenu(stage);
         this.setCentro(modelo);
-        this.setPanelIzquierdo(modelo);
         this.setPanelInferior(modelo);
+        this.setPanelIzquierdo(modelo);
+
         
         Image imagen = new Image("Vista/Imagenes/fondo_principal.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.ROUND, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
@@ -113,27 +114,27 @@ public class ContenedorPrincipal extends BorderPane {
 
         Button botonAgregarMPMadera = new Button();
         botonAgregarMPMadera.setText("madera");
-        BotonAgregarMPMaderaHandler botonAgregarMPMaderaHandler = new BotonAgregarMPMaderaHandler(modelo,this.vistaMesa);
+        BotonAgregarMPMaderaHandler botonAgregarMPMaderaHandler = new BotonAgregarMPMaderaHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonAgregarMPMadera.setOnAction(botonAgregarMPMaderaHandler);
 
         Button botonAgregarMPPiedra = new Button();
         botonAgregarMPPiedra.setText("piedra");
-        BotonAgregarMPPiedraHandler botonAgregarMPPiedraHandler = new BotonAgregarMPPiedraHandler(modelo,this.vistaMesa);
+        BotonAgregarMPPiedraHandler botonAgregarMPPiedraHandler = new BotonAgregarMPPiedraHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonAgregarMPPiedra.setOnAction(botonAgregarMPPiedraHandler);
 
         Button botonAgregarMPMetal = new Button();
         botonAgregarMPMetal.setText("metal");
-        BotonAgregarMPMetalHandler botonAgregarMPMetalHandler = new BotonAgregarMPMetalHandler(modelo,this.vistaMesa);
+        BotonAgregarMPMetalHandler botonAgregarMPMetalHandler = new BotonAgregarMPMetalHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonAgregarMPMetal.setOnAction(botonAgregarMPMetalHandler);
 
         Button botonAgregarMPDiamante = new Button();
         botonAgregarMPDiamante.setText("diamante");
-        BotonAgregarMPDiamanteHandler botonAgregarMPDiamanteHandler = new BotonAgregarMPDiamanteHandler(modelo,this.vistaMesa);
+        BotonAgregarMPDiamanteHandler botonAgregarMPDiamanteHandler = new BotonAgregarMPDiamanteHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonAgregarMPDiamante.setOnAction(botonAgregarMPDiamanteHandler);
 
         Button botonAgregarMPVacio = new Button();
         botonAgregarMPVacio.setText("dejar vacío");
-        BotonAgregarMPVacioHandler botonAgregarMPVacioHandler = new BotonAgregarMPVacioHandler(modelo,this.vistaMesa);
+        BotonAgregarMPVacioHandler botonAgregarMPVacioHandler = new BotonAgregarMPVacioHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonAgregarMPVacio.setOnAction(botonAgregarMPVacioHandler);
 
 
@@ -144,7 +145,7 @@ public class ContenedorPrincipal extends BorderPane {
 
         Button botonConstruirHerramienta = new Button();
         botonConstruirHerramienta.setText("Construir Herramienta");
-        BotonConstruirHerramientaHandler botonConstruirHerramientaHandler = new BotonConstruirHerramientaHandler(modelo,this.vistaMesa);
+        BotonConstruirHerramientaHandler botonConstruirHerramientaHandler = new BotonConstruirHerramientaHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonConstruirHerramienta.setOnAction(botonConstruirHerramientaHandler);
 
 
