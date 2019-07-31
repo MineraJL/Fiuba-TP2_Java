@@ -17,7 +17,7 @@ public abstract class Ocupante implements Golpeable {
 
     public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}
 
-    //void ingresar(Mapa mapa, PosicionEnlazada posicion);
+    public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
 
     public String obtenerNombreOcupante(){return this.getClass().getSimpleName();}
 

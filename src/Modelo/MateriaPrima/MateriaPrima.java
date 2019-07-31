@@ -10,18 +10,13 @@ import Modelo.Mapa.PosicionEnlazada;
 
 
 public abstract class MateriaPrima extends Ocupante {
-	
+
+	public MateriaPrima() {}
 
     @Override
     public boolean equals(Object obj) {
         return this.getClass() == obj.getClass();
     }
-
-	public MateriaPrima() {}
-
-	//@Override
-	public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
-
 
 	public abstract void agregarAlInventario(InventarioMateriaPrima inventario);
 

@@ -39,21 +39,21 @@ public class Jugador extends Ocupante {
 		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaGolpear.ocupante());
 	}
 
-	@Override
-	public void setCasillero(Casillero casillero){
-		this.casillero.desocupar();
-		this.casillero = casillero;
-	}
-
 
 	public void mover(Direccion direccion){
 		this.mover(this.mapa,direccion);
 		this.casilleroSeleccionadoParaGolpear =this.casillero.obtenerCasilleroVecino(this.mapa,direccion);
 	}
 
+	@Override
+	public void setCasillero(Casillero casillero){
+		this.casillero.desocupar();
+		this.casillero = casillero;
+	}
 
+	@Override
 	public void ingresar(Mapa mapa, PosicionEnlazada posicion){
-		mapa.getCasillero(posicion).ocuparPor(this);
+		super.ingresar(mapa,posicion);
 		this.mapa = mapa;
 	}
 

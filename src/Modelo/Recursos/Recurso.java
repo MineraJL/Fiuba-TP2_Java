@@ -23,15 +23,13 @@ public abstract class Recurso extends Ocupante {
         this.durabilidad.reducirDurabilidadEn(cantidadAReducir,this.MPaLiberar,this.casillero);
     }
 
-    // Implementacion interfaz Ocupante
-
-    public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
+    // Ocupante
 
     public abstract void golpeateCon(Herramienta herramienta) throws HerramientaDesgastadaExcepcion;
 
     public void serRecolectadoEn(Inventario inventario){}
 
-    // Fin implementacion
+    // Fin
 
     public int durabilidad(){
         return this.durabilidad.durabilidad();
