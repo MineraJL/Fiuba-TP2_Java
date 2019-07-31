@@ -6,16 +6,16 @@ public abstract class Ocupante implements Golpeable, Recolectable {
 
     public Ocupante(){}
     public Ocupante(Casillero casillero){
-        this.setCasillero(casillero);
+        this.establecerCasillero(casillero);
     }
 
-    public void setCasillero(Casillero casilleroRecibido) {this.casillero = casilleroRecibido;}
+    public void establecerCasillero(Casillero casilleroRecibido) {this.casillero = casilleroRecibido;}
 
-    public Casillero getCasillero(){
+    public Casillero obtenerCasillero(){
         return this.casillero;
     }
 
-    public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}
+    public PosicionEnlazada posicion(){return this.casillero.posicion();}
 
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
 

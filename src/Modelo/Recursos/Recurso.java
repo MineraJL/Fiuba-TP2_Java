@@ -5,9 +5,7 @@ import Modelo.Excepciones.HerramientaDesgastadaExcepcion;
 import Modelo.Herramientas.Herramienta;
 import Modelo.Inventario.Inventario;
 import Modelo.Mapa.Casillero;
-import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Ocupante;
-import Modelo.Mapa.PosicionEnlazada;
 import Modelo.MateriaPrima.MateriaPrima;
 
 public abstract class Recurso extends Ocupante {
@@ -16,7 +14,7 @@ public abstract class Recurso extends Ocupante {
     protected MateriaPrima MPaLiberar;
 
     protected Recurso() {
-        this.setCasillero(new Casillero());
+        this.establecerCasillero(new Casillero());
     }
 
     public void reducirDurabilidadEn(int cantidadAReducir) {

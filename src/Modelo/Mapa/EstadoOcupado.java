@@ -5,7 +5,7 @@ public class EstadoOcupado implements EstadoCasillero {
 
     public EstadoOcupado(Casillero casilleroDelQueSoyEstado, Ocupante ocupanteNuevo) {
         this.ocupante = ocupanteNuevo;
-        ocupanteNuevo.setCasillero(casilleroDelQueSoyEstado);
+        ocupanteNuevo.establecerCasillero(casilleroDelQueSoyEstado);
 
     }
 

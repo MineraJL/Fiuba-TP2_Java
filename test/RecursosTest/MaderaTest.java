@@ -103,7 +103,7 @@ public class MaderaTest {
 
         madera.reducirDurabilidadEn(10);
 
-        assertEquals(mpMadera, madera.getCasillero().ocupante());
+        assertEquals(mpMadera, madera.obtenerCasillero().ocupante());
     }
 
     @Test 

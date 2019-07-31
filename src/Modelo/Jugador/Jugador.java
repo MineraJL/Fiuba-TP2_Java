@@ -46,7 +46,7 @@ public class Jugador extends Ocupante {
 	}
 
 	@Override
-	public void setCasillero(Casillero casillero){
+	public void establecerCasillero(Casillero casillero){
 		this.casillero.desocupar();
 		this.casillero = casillero;
 	}

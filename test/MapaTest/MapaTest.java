@@ -17,7 +17,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicion = new PosicionEnlazada(0,2);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(0, casillero.getPosicion().geti());
+        assertEquals(0, casillero.posicion().geti());
     }
 
     @Test
@@ -25,7 +25,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicion = new PosicionEnlazada(1,2);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(1, casillero.getPosicion().geti());
+        assertEquals(1, casillero.posicion().geti());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicion = new PosicionEnlazada(2,0);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(0, casillero.getPosicion().getj());
+        assertEquals(0, casillero.posicion().getj());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,10);
         PosicionEnlazada posicion = new PosicionEnlazada(2,1);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(1, casillero.getPosicion().getj());
+        assertEquals(1, casillero.posicion().getj());
     }
 
     // caso mapa rectangular
@@ -50,14 +50,14 @@ public class MapaTest{
         Mapa mapa = new Mapa(10,5);
         PosicionEnlazada posicion = new PosicionEnlazada(9,4);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(9, casillero.getPosicion().geti());
+        assertEquals(9, casillero.posicion().geti());
     }
     @Test
     public void testMapaRectangularSeInicializaYCreaCasillerosConCorrespondienteCoordenadaEnYIgualACuatro(){
         Mapa mapa = new Mapa(10,5);
         PosicionEnlazada posicion = new PosicionEnlazada(9,4);
         Casillero casillero= mapa.getCasillero(posicion);
-        assertEquals(4, casillero.getPosicion().getj());
+        assertEquals(4, casillero.posicion().getj());
     }
 
 }
