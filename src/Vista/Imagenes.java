@@ -2,6 +2,7 @@ package Vista;
 
 import javafx.scene.image.Image;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Imagenes {
@@ -70,6 +71,26 @@ public class Imagenes {
 
     public Image getImage(String nombreOcupante){
         return coleccionImagenes.get(nombreOcupante);
+    }
+    
+    public ArrayList<String> nombresItemsIventario(){
+        ArrayList<String> itemsInventario = 
+        		new ArrayList<String>();
+        
+        itemsInventario.add("hachaMadera");
+        itemsInventario.add("hachaPiedra");
+        itemsInventario.add("hachaMetal");
+        itemsInventario.add("picoMadera");
+        itemsInventario.add("picoPiedra");
+        itemsInventario.add("picoMetal");
+        itemsInventario.add("picoFino"); 
+        itemsInventario.add("MPMadera");
+        itemsInventario.add("MPPiedra");
+        itemsInventario.add("MPMetal");
+        itemsInventario.add("MPDiamante");
+        itemsInventario.add("fondoVacio");
+        
+        return itemsInventario;
     }
 
 

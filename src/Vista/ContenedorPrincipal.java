@@ -95,7 +95,7 @@ public class ContenedorPrincipal extends BorderPane {
     private VBox inventario(Modelo modelo) {
     	Text tituloInventario = new Text("Inventario");
     	
-    	Canvas canvasInventario = new Canvas(120, 120);
+    	Canvas canvasInventario = new Canvas(480, 180);
     	this.vistaInventario = new VistaInventario(modelo, canvasInventario);
     	
     	HBox botonesInventario = this.botonesInventario(modelo);

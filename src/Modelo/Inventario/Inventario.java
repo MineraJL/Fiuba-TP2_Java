@@ -65,18 +65,50 @@ public class Inventario {
 		return herramienta.extraerPicoFino();
 	}
 	
-	/*public int cantidadHerramientas() {
-		int totalHerramientas = 0;
-		
-		totalHerramientas += hachaMadera.size();
-		totalHerramientas += hachaPiedra.size();
-		totalHerramientas += hachaMetal.size();
-		totalHerramientas += picoMadera.size();
-		totalHerramientas += picoPiedra.size();
-		totalHerramientas += picoMetal.size();
-		totalHerramientas += picoFino.size();
-		
-		return totalHerramientas;
-	}*/
+	public int cantidadHachaMadera() {
+		return herramienta.cantidadHachaMadera();
+	}
+	
+	public int cantidadHachaPiedra() {
+		return herramienta.cantidadHachaPiedra();
+	}
+	
+	public int cantidadHachaMetal() {
+		return herramienta.cantidadHachaMetal();
+	}
+	
+	
+	public int cantidadPicoMadera() {
+		return herramienta.cantidadPicoMadera();
+	}
+	
+	public int cantidadPicoPiedra() {
+		return herramienta.cantidadPicoPiedra();
+	}
+	
+	public int cantidadPicoMetal() {
+		return herramienta.cantidadPicoMetal();
+	}
+	
+	
+	public int cantidadPicoFino() {
+		return herramienta.cantidadPicoFino();
+	}
+	
+	public int cantidadMadera() {
+		return materiaPrima.cantidadMadera();
+	}
+	
+	public int cantidadPiedra() {
+		return materiaPrima.cantidadPiedra();
+	}
+	
+	public int cantidadMetal() {
+		return materiaPrima.cantidadMetal();
+	}
+	
+	public int cantidadDiamante() {
+		return materiaPrima.cantidadDiamante();
+	}
 
 }
