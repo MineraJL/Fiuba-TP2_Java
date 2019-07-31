@@ -37,7 +37,7 @@ public class JugadorTest {
 
         PosicionEnlazada posicionFinal = new PosicionEnlazada(5,5);
 
-        assertSame(mapa.getCasillero(posicionFinal),jugador.obtenerCasillero());
+        assertSame(mapa.obtenerCasillero(posicionFinal),jugador.obtenerCasillero());
     }
     
     @Test

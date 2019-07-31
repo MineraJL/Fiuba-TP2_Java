@@ -76,7 +76,7 @@ public class CasilleroTest {
     public void testCasilleroDevuelveCasilleroEnDireccionArriba(){
 
         Mapa mapa = new Mapa(5,5);
-        Casillero casillero = mapa.getCasillero(new PosicionEnlazada(2,2));
+        Casillero casillero = mapa.obtenerCasillero(new PosicionEnlazada(2,2));
         Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionArriba());
         PosicionEnlazada posicionEsperada = new PosicionEnlazada(1,2);
         assertTrue(posicionEsperada.equals(casilleroVecino.posicion()));
@@ -87,7 +87,7 @@ public class CasilleroTest {
 
         Mapa mapa = new Mapa(5,5);
         PosicionEnlazada posicion = new PosicionEnlazada(2,2);
-        Casillero casillero= mapa.getCasillero(posicion);
+        Casillero casillero= mapa.obtenerCasillero(posicion);
         Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionAbajo());
         PosicionEnlazada posicionEsperada = new PosicionEnlazada(3,2);
         assertTrue(posicionEsperada.equals(casilleroVecino.posicion()));
@@ -98,7 +98,7 @@ public class CasilleroTest {
 
         Mapa mapa = new Mapa(5,5);
         PosicionEnlazada posicion = new PosicionEnlazada(2,2);
-        Casillero casillero= mapa.getCasillero(posicion);
+        Casillero casillero= mapa.obtenerCasillero(posicion);
         Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionDerecha());
         PosicionEnlazada posicionEsperada = new PosicionEnlazada(2,3);
         assertTrue(posicionEsperada.equals(casilleroVecino.posicion()));
@@ -109,7 +109,7 @@ public class CasilleroTest {
 
         Mapa mapa = new Mapa(5,5);
         PosicionEnlazada posicion = new PosicionEnlazada(2,2);
-        Casillero casillero= mapa.getCasillero(posicion);
+        Casillero casillero= mapa.obtenerCasillero(posicion);
         Casillero casilleroVecino = casillero.obtenerCasilleroVecino(mapa,new DireccionIzquierda());
         PosicionEnlazada posicionEsperada = new PosicionEnlazada(2,1);
         assertTrue(posicionEsperada.equals(casilleroVecino.posicion()));

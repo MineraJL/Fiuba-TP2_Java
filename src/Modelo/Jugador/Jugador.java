@@ -51,7 +51,7 @@ public class Jugador extends Ocupante {
 		this.casillero = casillero;
 	}
 
-	@Override
+	@Override // una vez sacado el atributo, no se sobreescribe.
 	public void ingresar(Mapa mapa, PosicionEnlazada posicion){
 		super.ingresar(mapa,posicion);
 		this.mapa = mapa;

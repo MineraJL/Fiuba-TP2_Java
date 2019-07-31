@@ -96,7 +96,7 @@ public class OcupanteTest {
 
         ocupante.ingresar(mapa,posicion);
 
-        assertSame(mapa.getCasillero(posicion), ocupante.obtenerCasillero());
+        assertSame(mapa.obtenerCasillero(posicion), ocupante.obtenerCasillero());
     }
     // Ocupante no ingresa al mapa si en la posicion ya hay un ocupante.
     @Test
@@ -117,7 +117,7 @@ public class OcupanteTest {
         ocupante1.ingresar(mapa,posicion);
         ocupante2.ingresar(mapa,posicion);
 
-        assertNotSame(mapa.getCasillero(posicion), ocupante2.obtenerCasillero());
+        assertNotSame(mapa.obtenerCasillero(posicion), ocupante2.obtenerCasillero());
     }
 
 
