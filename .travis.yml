@@ -4,6 +4,8 @@ jdk:
 
 install: ant
 
+dist: trusty
+
 script:
   - ant integracion-continua
 after_success:

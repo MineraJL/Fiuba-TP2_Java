@@ -106,7 +106,7 @@ public class MaderaTest {
         assertEquals(mpMadera, madera.getCasillero().ocupante());
     }
 
-    @Test
+    @Test 
     public void test12ocupanteMaderaDevuelveSuNombre(){
         Madera madera = new Madera();
         String nombre = madera.obtenerNombreOcupante();
