@@ -1,14 +1,24 @@
 package Modelo.Mapa;
 
-public interface Ocupante extends Golpeable {
+public abstract class Ocupante implements Golpeable {
 
-    void setCasillero(Casillero casillero);
+    protected Casillero casillero;
 
-    Casillero getCasillero();
+    public Ocupante(){}
+    public Ocupante(Casillero casillero){
+        this.setCasillero(casillero);
+    }
 
-    PosicionEnlazada getPosicion();
+    public void setCasillero(Casillero casilleroRecibido) {this.casillero = casilleroRecibido;}
 
-    void ingresar(Mapa mapa, PosicionEnlazada posicion);
+    public Casillero getCasillero(){
+        return this.casillero;
+    }
 
-    String obtenerNombreOcupante();
+    public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}
+
+
+    //void ingresar(Mapa mapa, PosicionEnlazada posicion);
+
+    public abstract String obtenerNombreOcupante();
 }
