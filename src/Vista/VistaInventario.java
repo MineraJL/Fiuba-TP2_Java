@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import Modelo.Modelo;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -52,7 +53,7 @@ public class VistaInventario {
     }
     
     public void dibujar() {
-    	ArrayList<String> itemsIventario = imagenes.nombresItemsIventario();
+    	ArrayList<String> itemsInventario = imagenes.nombresItemsIventario();
     	HashMap<String, String> cantidadItemsInventario = new HashMap<String, String>();
     	
     	cantidadItemsInventario.put("hachaMadera", 
@@ -82,13 +83,18 @@ public class VistaInventario {
         for (int i=0, k = 0; i<alturaCelda; i++){
             for (int j=0;j<anchuraCelda;j++, k++){
 
-                Image imagenFondoInventario = imagenes.getImage(itemsIventario.get(k));
+                Image imagenFondoInventario = imagenes.getImage(itemsInventario.get(k));
                 canvasInventario.getGraphicsContext2D().drawImage(imagenFondoInventario,anchuraInventario*j,alturaInventario*i,anchuraInventario,alturaInventario);
-                canvasInventario.getGraphicsContext2D().fillText("x"+cantidadItemsInventario.get(itemsIventario.get(k)),
+                canvasInventario.getGraphicsContext2D().fillText("x"+cantidadItemsInventario.get(itemsInventario.get(k)),
                 		 (anchuraInventario-20)+(j*anchuraInventario), alturaInventario*(i+1));
             }
         }
     }
 
+    public void setearEstadoBotones(Button boton, int cantidad) {
+    	if (cantidad == 0)
+    		boton.setDisable(true);
+    	else boton.setDisable(false);
+    }
 
 }

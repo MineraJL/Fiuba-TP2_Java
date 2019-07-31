@@ -6,11 +6,13 @@ import Vista.VistaInventario;
 import Vista.VistaModelo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 
 public class BotonSeleccionarHachaMaderaHandler extends BotonSeleccionarHerramientaHandler {
 
-	public BotonSeleccionarHachaMaderaHandler(Modelo modelo, VistaInventario vistaInventario) {
-		super(modelo, vistaInventario);
+	public BotonSeleccionarHachaMaderaHandler(Modelo modelo, VistaInventario vistaInventario, Button botonSeleccionarHachaMadera) {
+		super(modelo, vistaInventario, botonSeleccionarHachaMadera);
+		this.cantidadHerramientas = modelo.inventario().cantidadHachaMadera();
 	}
 
 	@Override

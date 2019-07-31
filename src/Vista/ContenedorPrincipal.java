@@ -173,47 +173,52 @@ public class ContenedorPrincipal extends BorderPane {
         Button botonSeleccionarHachaMadera = new Button();
         botonSeleccionarHachaMadera.setText("Hacha De Madera");
         BotonSeleccionarHachaMaderaHandler botonSeleccionarHachaMaderaHandler = 
-        		new BotonSeleccionarHachaMaderaHandler(modelo,this.vistaInventario);
+        		new BotonSeleccionarHachaMaderaHandler(modelo,this.vistaInventario,botonSeleccionarHachaMadera);
         botonSeleccionarHachaMadera.setOnAction(botonSeleccionarHachaMaderaHandler);
+        botonSeleccionarHachaMadera.setDisable(true);
         
         Button botonSeleccionarHachaPiedra = new Button();
         botonSeleccionarHachaPiedra.setText("Hacha De Piedra");
         BotonSeleccionarHachaPiedraHandler botonSeleccionarHachaPiedraHandler = 
-        		new BotonSeleccionarHachaPiedraHandler(modelo,this.vistaInventario);
+        		new BotonSeleccionarHachaPiedraHandler(modelo,this.vistaInventario, botonSeleccionarHachaPiedra);
         botonSeleccionarHachaPiedra.setOnAction(botonSeleccionarHachaPiedraHandler);
+        botonSeleccionarHachaPiedra.setDisable(true);
         
         Button botonSeleccionarHachaMetal = new Button();
         botonSeleccionarHachaMetal.setText("Hacha De Metal");
         BotonSeleccionarHachaMetalHandler botonSeleccionarHachaMetalHandler = 
-        		new BotonSeleccionarHachaMetalHandler(modelo,this.vistaInventario);
+        		new BotonSeleccionarHachaMetalHandler(modelo,this.vistaInventario, botonSeleccionarHachaMetal);
         botonSeleccionarHachaMetal.setOnAction(botonSeleccionarHachaMetalHandler);
+        botonSeleccionarHachaMetal.setDisable(true);
         
         
         Button botonSeleccionarPicoMadera = new Button();
         botonSeleccionarPicoMadera.setText("Pico De Madera");
         BotonSeleccionarPicoMaderaHandler botonSeleccionarPicoMaderaHandler = 
-        		new BotonSeleccionarPicoMaderaHandler(modelo,this.vistaInventario);
+        		new BotonSeleccionarPicoMaderaHandler(modelo,this.vistaInventario, botonSeleccionarPicoMadera);
         botonSeleccionarPicoMadera.setOnAction(botonSeleccionarPicoMaderaHandler);
+        botonSeleccionarPicoMadera.setDisable(true);
         
         Button botonSeleccionarPicoPiedra = new Button();
         botonSeleccionarPicoPiedra.setText("Pico De Piedra");
         BotonSeleccionarPicoPiedraHandler botonSeleccionarPicoPiedraHandler = 
-        		new BotonSeleccionarPicoPiedraHandler(modelo,this.vistaInventario);
+        		new BotonSeleccionarPicoPiedraHandler(modelo,this.vistaInventario, botonSeleccionarPicoPiedra);
         botonSeleccionarPicoPiedra.setOnAction(botonSeleccionarPicoPiedraHandler);
+        botonSeleccionarPicoPiedra.setDisable(true);
         
         Button botonSeleccionarPicoMetal = new Button();
         botonSeleccionarPicoMetal.setText("Pico De Metal");
         BotonSeleccionarPicoMetalHandler botonSeleccionarPicoMetalHandler = 
-        		new BotonSeleccionarPicoMetalHandler(modelo,this.vistaInventario);
+        		new BotonSeleccionarPicoMetalHandler(modelo,this.vistaInventario, botonSeleccionarPicoMetal);
         botonSeleccionarPicoMetal.setOnAction(botonSeleccionarPicoMetalHandler);
-        
+        botonSeleccionarPicoMetal.setDisable(true);
         
         Button botonSeleccionarPicoFino = new Button();
         botonSeleccionarPicoFino.setText("Pico Fino");
         BotonSeleccionarPicoFinoHandler botonSeleccionarPicoFinoHandler = 
-        		new BotonSeleccionarPicoFinoHandler(modelo,this.vistaInventario);
+        		new BotonSeleccionarPicoFinoHandler(modelo,this.vistaInventario, botonSeleccionarPicoFino);
         botonSeleccionarPicoFino.setOnAction(botonSeleccionarPicoFinoHandler);
-        
+        botonSeleccionarPicoFino.setDisable(true);
         
         HBox botonesSeleccionarHachas = new HBox(botonSeleccionarHachaMadera,
         										 botonSeleccionarHachaPiedra,
