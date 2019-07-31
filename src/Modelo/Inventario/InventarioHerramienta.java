@@ -116,10 +116,34 @@ public class InventarioHerramienta {
 		return pico;
 	}
 	
-	/*public Hacha extraerHerramienta() {
-		Herramienta herramienta = hachaMadera.get(0);		
-		hachaMadera.remove(0);
-		
-		return herramienta;
-	}*/
+	
+	public int cantidadHachaMadera() {
+		return hachaMadera.size();
+	}
+	
+	public int cantidadHachaPiedra() {
+		return hachaPiedra.size();
+	}
+	
+	public int cantidadHachaMetal() {
+		return hachaMetal.size();
+	}
+	
+	
+	public int cantidadPicoMadera() {
+		return picoMadera.size();
+	}
+	
+	public int cantidadPicoPiedra() {
+		return picoPiedra.size();
+	}
+	
+	public int cantidadPicoMetal() {
+		return picoMetal.size();
+	}
+	
+	
+	public int cantidadPicoFino() {
+		return picoFino.size();
+	}
 }

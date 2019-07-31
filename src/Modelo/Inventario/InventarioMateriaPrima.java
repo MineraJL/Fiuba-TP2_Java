@@ -64,4 +64,19 @@ public class InventarioMateriaPrima {
 			return diamante;
 		}
 
+		public int cantidadMadera() {
+			return mpMadera.size();
+		}
+		
+		public int cantidadPiedra() {
+			return mpPiedra.size();
+		}
+		
+		public int cantidadMetal() {
+			return mpMetal.size();
+		}
+		
+		public int cantidadDiamante() {
+			return mpDiamante.size();
+		}
 }
