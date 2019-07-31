@@ -9,7 +9,7 @@ import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.PosicionEnlazada;
 
 
-public abstract class MateriaPrima implements Ocupante {
+public abstract class MateriaPrima extends Ocupante {
 	
 
     @Override
@@ -18,18 +18,16 @@ public abstract class MateriaPrima implements Ocupante {
     }
 
     
-	protected Casillero casillero;
+	//protected Casillero casillero;
 
-	public MateriaPrima() {
-		this.setCasillero(casillero);
-	}
+	public MateriaPrima() {}
 
-	@Override
+	/*@Override
 	public void setCasillero(Casillero casillero) {
 		this.casillero = casillero;
-	}
+	}*/
 
-	@Override
+/*	@Override
 	public Casillero getCasillero() {
 		return this.casillero;
 	}
@@ -37,9 +35,9 @@ public abstract class MateriaPrima implements Ocupante {
 	@Override
 	public PosicionEnlazada getPosicion() {
 		return this.casillero.getPosicion();
-	}
+	}*/
 
-	@Override
+	//@Override
 	public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
 
 	@Override

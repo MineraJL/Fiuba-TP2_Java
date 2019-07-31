@@ -90,7 +90,7 @@ public class MapaOcupantesIntegracionTest {
         assertSame(mapa.getCasillero(posicionFinal), jugador.getCasillero());
     }
 
-    @Test
+/*    @Test
     public void testOcupanteJugadorEncerradoPorRecursos() {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
@@ -130,7 +130,7 @@ public class MapaOcupantesIntegracionTest {
         jugador.mover(new DireccionIzquierda());
 
         assertSame(mapa.getCasillero(posicion1), jugador.getCasillero());
-    }
+    }*/
 
     // MOVIMIENTO OCUPANTE JUGADOR - MAPA CON OCUPANTES RECURSOS
     //

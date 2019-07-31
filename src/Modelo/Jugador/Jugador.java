@@ -9,13 +9,13 @@ import Modelo.MesaDeTrabajo.Mesa;
 import Modelo.TipoMaterial.TipoMadera;
 
 
-public class Jugador implements OcupanteMovible {
+public class Jugador extends Ocupante {
 	private Mapa mapa;
 	private Casillero casilleroSeleccionadoParaGolpear;
 	private Inventario inventario;
 	private Mesa mesa;
 	private Herramienta herramientaDeTrabajo;
-	private Casillero casillero;
+	//private Casillero casillero;
 
 	public Jugador(Inventario inventario, Mesa mesa) {
 		TipoMadera madera = new TipoMadera();
@@ -42,16 +42,17 @@ public class Jugador implements OcupanteMovible {
 		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this); // no siempre se desocupa el cas actual.
 	}
 
-	// Implementacion interface ocupanteMovible
+	// Implementacion
+	@Override
 	public void setCasillero(Casillero casillero){
 		this.casillero.desocupar();
 		this.casillero = casillero;
 	}
 
-	public Casillero getCasillero(){
+/*	public Casillero getCasillero(){
 		return this.casillero;
 	}
-	public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}
+	public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}*/
 
 	public void mover(Direccion direccion){
 		this.mover(this.mapa,direccion);

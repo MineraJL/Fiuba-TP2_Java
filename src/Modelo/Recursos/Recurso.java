@@ -10,10 +10,10 @@ import Modelo.Mapa.Ocupante;
 import Modelo.Mapa.PosicionEnlazada;
 import Modelo.MateriaPrima.MateriaPrima;
 
-public abstract class Recurso implements Ocupante {
+public abstract class Recurso extends Ocupante {
 
     protected DurabilidadRecurso durabilidad;
-    protected Casillero casillero;
+    //protected Casillero casillero;
     protected MateriaPrima MPaLiberar;
 
     protected Recurso() {
@@ -25,15 +25,13 @@ public abstract class Recurso implements Ocupante {
     }
 
     // Implementacion interfaz Ocupante
-    public void setCasillero(Casillero casillero){
-        this.casillero= casillero;
-    }
+    /*public void setCasillero(Casillero casillero){ this.casillero= casillero;}*/
 
-    public Casillero getCasillero(){
+/*    public Casillero getCasillero(){
         return this.casillero;
     }
 
-    public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}
+    public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}*/
 
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
 

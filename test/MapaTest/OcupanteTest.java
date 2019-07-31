@@ -82,7 +82,7 @@ public class OcupanteTest {
     }
 
     // Ocupante al ingresar al mapa en una posicion, se le asigna casillero de la posicion
-    @Test
+/*    @Test
     public void testOcupanteIngresaAlMapaEnCasilleroLibre() {
         Mapa mapa = new Mapa(10,10);
 
@@ -120,7 +120,7 @@ public class OcupanteTest {
         assertNotSame(mapa.getCasillero(posicion), ocupante2.getCasillero());
     }
 
-
+*/
 
 
 }
