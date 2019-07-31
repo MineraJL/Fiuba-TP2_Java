@@ -26,7 +26,6 @@ public class Jugador implements OcupanteMovible {
 		this.inventario.agregarElemento(unHacha);
 		herramientaDeTrabajo = this.inventario.extraerHachaMadera();
 		this.casillero = new Casillero();
-		//this.setCasillero(new Casillero());
 	}
 
 
