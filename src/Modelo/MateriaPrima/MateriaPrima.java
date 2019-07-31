@@ -17,31 +17,10 @@ public abstract class MateriaPrima extends Ocupante {
         return this.getClass() == obj.getClass();
     }
 
-    
-	//protected Casillero casillero;
-
 	public MateriaPrima() {}
-
-	/*@Override
-	public void setCasillero(Casillero casillero) {
-		this.casillero = casillero;
-	}*/
-
-/*	@Override
-	public Casillero getCasillero() {
-		return this.casillero;
-	}
-
-	@Override
-	public PosicionEnlazada getPosicion() {
-		return this.casillero.getPosicion();
-	}*/
 
 	//@Override
 	public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
-
-	@Override
-	public abstract String obtenerNombreOcupante();
 
 
 	public abstract void agregarAlInventario(InventarioMateriaPrima inventario);

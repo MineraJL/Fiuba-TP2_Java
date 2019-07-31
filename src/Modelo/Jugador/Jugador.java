@@ -15,7 +15,6 @@ public class Jugador extends Ocupante {
 	private Inventario inventario;
 	private Mesa mesa;
 	private Herramienta herramientaDeTrabajo;
-	//private Casillero casillero;
 
 	public Jugador(Inventario inventario, Mesa mesa) {
 		TipoMadera madera = new TipoMadera();
@@ -28,6 +27,9 @@ public class Jugador extends Ocupante {
 		this.casillero = new Casillero();
 	}
 
+	private void mover(Mapa mapa, Direccion direccion){
+		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this); // no siempre se desocupa el cas actual.
+	}
 
 	public void recolectar(){
 		this.casilleroSeleccionadoParaGolpear.ocupante().serRecolectadoEn(this.inventario);
@@ -37,22 +39,12 @@ public class Jugador extends Ocupante {
 		this.herramientaDeTrabajo.golpear(this.casilleroSeleccionadoParaGolpear.ocupante());
 	}
 
-
-	private void mover(Mapa mapa, Direccion direccion){
-		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this); // no siempre se desocupa el cas actual.
-	}
-
-	// Implementacion
 	@Override
 	public void setCasillero(Casillero casillero){
 		this.casillero.desocupar();
 		this.casillero = casillero;
 	}
 
-/*	public Casillero getCasillero(){
-		return this.casillero;
-	}
-	public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}*/
 
 	public void mover(Direccion direccion){
 		this.mover(this.mapa,direccion);
@@ -64,9 +56,6 @@ public class Jugador extends Ocupante {
 		mapa.getCasillero(posicion).ocuparPor(this);
 		this.mapa = mapa;
 	}
-
-	public String obtenerNombreOcupante(){return this.getClass().getSimpleName();}
-	// Fin implementacion
 
 	/*public void construirHacha(Modelo.TipoMaterial unMaterial) {
 		Hacha hacha = new Hacha(unMaterial);

@@ -9,8 +9,4 @@ public class MPPiedra extends MateriaPrima {
 		inventario.agregarMateriaPrima(this);
 	}
 
-	@Override
-	public String obtenerNombreOcupante(){
-		return this.getClass().getSimpleName();
-	}
 }

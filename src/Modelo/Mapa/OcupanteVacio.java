@@ -5,20 +5,10 @@ import Modelo.Inventario.Inventario;
 
 public class OcupanteVacio extends Ocupante {
 
-    //private Casillero casillero;
-
-/*    @Override
-    public void setCasillero(Casillero casilleroRecibido) {
-        this.casillero = casilleroRecibido;
-    }*/
     public OcupanteVacio(){
         this.casillero = new Casillero(new PosicionEnlazada(0,0));
     }
 
-/*    @Override
-    public Casillero getCasillero(){return new Casillero();}
-    @Override
-    public PosicionEnlazada getPosicion(){return new PosicionEnlazada(0,0);}*/
     //@Override
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){}
 

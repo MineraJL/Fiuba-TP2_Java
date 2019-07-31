@@ -13,7 +13,6 @@ import Modelo.MateriaPrima.MateriaPrima;
 public abstract class Recurso extends Ocupante {
 
     protected DurabilidadRecurso durabilidad;
-    //protected Casillero casillero;
     protected MateriaPrima MPaLiberar;
 
     protected Recurso() {
@@ -25,17 +24,8 @@ public abstract class Recurso extends Ocupante {
     }
 
     // Implementacion interfaz Ocupante
-    /*public void setCasillero(Casillero casillero){ this.casillero= casillero;}*/
-
-/*    public Casillero getCasillero(){
-        return this.casillero;
-    }
-
-    public PosicionEnlazada getPosicion(){return this.casillero.getPosicion();}*/
 
     public void ingresar(Mapa mapa, PosicionEnlazada posicion){ mapa.getCasillero(posicion).ocuparPor(this);}
-
-    public abstract String obtenerNombreOcupante();
 
     public abstract void golpeateCon(Herramienta herramienta) throws HerramientaDesgastadaExcepcion;
 
