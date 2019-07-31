@@ -10,7 +10,7 @@ import Modelo.TipoMaterial.TipoMadera;
 
 
 public class Jugador extends Ocupante {
-	private Mapa mapa;
+	private Mapa mapa; // quiero sacar este atributo // hago commit para integrar
 	private Casillero casilleroSeleccionadoParaGolpear;
 	private Inventario inventario;
 	private Mesa mesa;
