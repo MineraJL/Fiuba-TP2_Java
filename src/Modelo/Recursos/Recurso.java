@@ -37,9 +37,4 @@ public abstract class Recurso extends Ocupante {
 
     public abstract void golpearCon(Herramienta herramienta) throws HerramientaDesgastadaExcepcion;
 
-    /*@Override // temp: borrar este equals.
-    public boolean equals(Object object){
-        return object.getClass() == this.getClass();
-    }*/
-
 }
