@@ -25,7 +25,7 @@ public class Jugador implements OcupanteMovible {
 		
 		this.inventario.agregarElemento(unHacha);
 		herramientaDeTrabajo = this.inventario.extraerHachaMadera();
-		this.setCasillero(new Casillero());
+		this.casillero = new Casillero();
 	}
 
 
@@ -39,13 +39,13 @@ public class Jugador implements OcupanteMovible {
 
 
 	private void mover(Mapa mapa, Direccion direccion){
-		this.casillero.desocupar();
-		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this);
+		this.casillero.obtenerCasilleroVecino(mapa, direccion).ocuparPor(this); // no siempre se desocupa el cas actual.
 	}
 
 	// Implementacion interface ocupanteMovible
 	public void setCasillero(Casillero casillero){
-		this.casillero= casillero;
+		this.casillero.desocupar();
+		this.casillero = casillero;
 	}
 
 	public Casillero getCasillero(){
