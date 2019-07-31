@@ -31,13 +31,13 @@ public class JugadorTest {
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Jugador jugador = new Jugador(inventario, mesa);
-        jugador.setCasillero(casillero);
+        jugador.establecerCasillero(casillero);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
 
         PosicionEnlazada posicionFinal = new PosicionEnlazada(5,5);
 
-        assertSame(mapa.getCasillero(posicionFinal),jugador.getCasillero());
+        assertSame(mapa.getCasillero(posicionFinal),jugador.obtenerCasillero());
     }
     
     @Test
@@ -48,13 +48,13 @@ public class JugadorTest {
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Jugador jugador = new Jugador(inventario, mesa);
-        jugador.setCasillero(casillero);
+        jugador.establecerCasillero(casillero);
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionIzquierda());
         PosicionEnlazada posicionFinal = new PosicionEnlazada(2,4);
 
-        assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
+        assertTrue(jugador.obtenerCasillero().posicion().equals(posicionFinal));
     }
 
     @Test
@@ -65,14 +65,14 @@ public class JugadorTest {
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Jugador jugador = new Jugador(inventario, mesa);
-        jugador.setCasillero(casillero);
+        jugador.establecerCasillero(casillero);
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionDerecha());
         PosicionEnlazada posicionFinal = new PosicionEnlazada(2,6);
 
 
-        assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
+        assertTrue(jugador.obtenerCasillero().posicion().equals(posicionFinal));
     }
 
     @Test
@@ -83,13 +83,13 @@ public class JugadorTest {
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Jugador jugador = new Jugador(inventario, mesa);
-        jugador.setCasillero(casillero);
+        jugador.establecerCasillero(casillero);
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionArriba());
         PosicionEnlazada posicionFinal = new PosicionEnlazada(1,5);
 
-        assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
+        assertTrue(jugador.obtenerCasillero().posicion().equals(posicionFinal));
     }
 
     @Test
@@ -100,13 +100,13 @@ public class JugadorTest {
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Jugador jugador = new Jugador(inventario, mesa);
-        jugador.setCasillero(casillero);
+        jugador.establecerCasillero(casillero);
         jugador.ingresar(mapa, posicionInicial);
 
         jugador.mover(new DireccionAbajo());
         PosicionEnlazada posicionFinal = new PosicionEnlazada(3,5);
 
-        assertTrue(jugador.getCasillero().getPosicion().equals(posicionFinal));
+        assertTrue(jugador.obtenerCasillero().posicion().equals(posicionFinal));
     }
 
 	/*@Test

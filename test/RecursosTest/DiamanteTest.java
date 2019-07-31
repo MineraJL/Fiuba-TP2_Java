@@ -102,7 +102,7 @@ public class DiamanteTest {
 
         	diamante.reducirDurabilidadEn(100);
         	
-        	assertEquals(mpDiamante, diamante.getCasillero().ocupante());
+        	assertEquals(mpDiamante, diamante.obtenerCasillero().ocupante());
         }
 
         @Test

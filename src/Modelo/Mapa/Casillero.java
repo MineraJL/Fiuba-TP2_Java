@@ -7,26 +7,23 @@ public class Casillero {
 
 
     public Casillero(){
-        this.setEstado(new EstadoDisponible());
+        this.asignarEstado(new EstadoDisponible());
     }
     public Casillero(PosicionEnlazada unaPosicion){
-        this.setEstado(new EstadoDisponible());
+        this.asignarEstado(new EstadoDisponible());
         this.posicion=unaPosicion;
     }
 
-    // Set ubicacion mapa
-    public void setPosicion(int fila, int columna){ // temp: este metodo no deberia existir
+    public void establecerPosicion(int fila, int columna){ // temp: este metodo no deberia existir
         this.posicion= new PosicionEnlazada(fila, columna);
     }
-    public void setPosicion(PosicionEnlazada posicion){this.posicion= posicion;}
+    public void establecerPosicion(PosicionEnlazada posicion){this.posicion= posicion;}
 
-    // Get posicion mapa
-    public PosicionEnlazada getPosicion(){
+    public PosicionEnlazada posicion(){
         return this.posicion;
     }
 
-    // Set estado
-    private void setEstado(EstadoCasillero estado){
+    private void asignarEstado(EstadoCasillero estado){
         this.estado=estado;
     }
 

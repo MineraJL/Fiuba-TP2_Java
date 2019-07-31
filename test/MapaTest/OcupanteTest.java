@@ -17,42 +17,42 @@ public class OcupanteTest {
     @Test
     public void testOcupanteTieneLaMismaFilaDelCasilleroSeteadoEnCero() {
         Casillero casillero1 = new Casillero();
-        casillero1.setPosicion(0, 0);
+        casillero1.establecerPosicion(0, 0);
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Ocupante ocupante = new Jugador(inventario, mesa);
-        ocupante.setCasillero(casillero1);
-        assertEquals(0, ocupante.getPosicion().geti());
+        ocupante.establecerCasillero(casillero1);
+        assertEquals(0, ocupante.posicion().geti());
     }
     @Test
     public void testOcupanteTieneLaMismaColumnaDelCasilleroSeteadoEnCero() {
         Casillero casillero1 = new Casillero();
-        casillero1.setPosicion(0, 0);
+        casillero1.establecerPosicion(0, 0);
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Ocupante ocupante = new Jugador(inventario, mesa);
-        ocupante.setCasillero(casillero1);
-        assertEquals(0,  ocupante.getPosicion().getj());
+        ocupante.establecerCasillero(casillero1);
+        assertEquals(0,  ocupante.posicion().getj());
     }
     @Test
     public void testOcupanteTieneLaMismaFilaDelCasilleroSeteadoEnUno() {
         Casillero casillero1 = new Casillero();
-        casillero1.setPosicion(1, 0);
+        casillero1.establecerPosicion(1, 0);
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Ocupante ocupante = new Jugador(inventario, mesa);
-        ocupante.setCasillero(casillero1);
-        assertEquals(1, ocupante.getPosicion().geti());
+        ocupante.establecerCasillero(casillero1);
+        assertEquals(1, ocupante.posicion().geti());
     }
     @Test
     public void testOcupanteTieneLaMismaColumnaDelCasilleroSeteadoEnUno() {
         Casillero casillero1 = new Casillero();
-        casillero1.setPosicion(0, 1);
+        casillero1.establecerPosicion(0, 1);
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Ocupante ocupante = new Jugador(inventario, mesa);
-        ocupante.setCasillero(casillero1);
-        assertEquals(1, ocupante.getPosicion().getj());
+        ocupante.establecerCasillero(casillero1);
+        assertEquals(1, ocupante.posicion().getj());
     }
     //
 
@@ -61,24 +61,24 @@ public class OcupanteTest {
     @Test
     public void testOcupanteTieneElCasilleroSeteado() {
         Casillero casillero1 = new Casillero();
-        casillero1.setPosicion(0, 0);
+        casillero1.establecerPosicion(0, 0);
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Ocupante ocupante = new Jugador(inventario, mesa);
-        ocupante.setCasillero(casillero1);
-        assertSame(casillero1, ocupante.getCasillero());
+        ocupante.establecerCasillero(casillero1);
+        assertSame(casillero1, ocupante.obtenerCasillero());
     }
     @Test
     public void testOcupanteTieneElUltimoCasilleroSeteado() {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
-        casillero1.setPosicion(0, 0);
+        casillero1.establecerPosicion(0, 0);
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Ocupante ocupante1 = new Jugador(inventario, mesa);
-        ocupante1.setCasillero(casillero2);
-        ocupante1.setCasillero(casillero1);
-        assertSame(casillero1, ocupante1.getCasillero());
+        ocupante1.establecerCasillero(casillero2);
+        ocupante1.establecerCasillero(casillero1);
+        assertSame(casillero1, ocupante1.obtenerCasillero());
     }
 
     // Ocupante al ingresar al mapa en una posicion, se le asigna casillero de la posicion
@@ -90,13 +90,13 @@ public class OcupanteTest {
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Ocupante ocupante = new Jugador(inventario, mesa);
-        ocupante.setCasillero(casillero1);
+        ocupante.establecerCasillero(casillero1);
 
         PosicionEnlazada posicion = new PosicionEnlazada(3,3);
 
         ocupante.ingresar(mapa,posicion);
 
-        assertSame(mapa.getCasillero(posicion), ocupante.getCasillero());
+        assertSame(mapa.getCasillero(posicion), ocupante.obtenerCasillero());
     }
     // Ocupante no ingresa al mapa si en la posicion ya hay un ocupante.
     @Test
@@ -109,15 +109,15 @@ public class OcupanteTest {
     	Mesa mesa = new Mesa();
         Ocupante ocupante1 = new Jugador(inventario, mesa);
         Ocupante ocupante2 = new Jugador(inventario, mesa);
-        ocupante1.setCasillero(casillero1);
-        ocupante2.setCasillero(casillero2);
+        ocupante1.establecerCasillero(casillero1);
+        ocupante2.establecerCasillero(casillero2);
 
         PosicionEnlazada posicion = new PosicionEnlazada(3,3);
 
         ocupante1.ingresar(mapa,posicion);
         ocupante2.ingresar(mapa,posicion);
 
-        assertNotSame(mapa.getCasillero(posicion), ocupante2.getCasillero());
+        assertNotSame(mapa.getCasillero(posicion), ocupante2.obtenerCasillero());
     }
 
 

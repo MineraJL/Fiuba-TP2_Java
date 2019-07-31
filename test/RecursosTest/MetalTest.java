@@ -105,7 +105,7 @@ public class MetalTest {
 
         	metal.reducirDurabilidadEn(50);
 
-        	assertEquals(mpMetal, metal.getCasillero().ocupante());
+        	assertEquals(mpMetal, metal.obtenerCasillero().ocupante());
         }
 
         @Test

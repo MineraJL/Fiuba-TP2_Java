@@ -26,7 +26,7 @@ public class CreadorDeMapaTest {
         creadorDeMapa.ingresarJugadorAMapa(jugador);
 
         PosicionEnlazada posicionEsperada = new PosicionEnlazada(0,0);
-        assertTrue(jugador.getPosicion().equals(posicionEsperada));
+        assertTrue(jugador.posicion().equals(posicionEsperada));
 
     }
 

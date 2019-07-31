@@ -24,14 +24,14 @@ public class EstadoCasilleroTest {
     	Mesa mesa = new Mesa();
         Ocupante ocupante1 = new Jugador(inventario, mesa);
         Ocupante ocupante2 = new Jugador(inventario, mesa);
-        ocupante2.setCasillero(casillero3);
-        ocupante1.setCasillero(casillero2);
+        ocupante2.establecerCasillero(casillero3);
+        ocupante1.establecerCasillero(casillero2);
 
 
         estado.ocuparPor(casillero1, ocupante1);
         casillero1.ocuparPor(ocupante2);
 
-        assertSame(casillero1, ocupante2.getCasillero());
+        assertSame(casillero1, ocupante2.obtenerCasillero());
     }
 
     // Estado no tiene que setear ocupado al casillero
@@ -44,11 +44,11 @@ public class EstadoCasilleroTest {
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Ocupante ocupante1 = new Jugador(inventario, mesa);
-        ocupante1.setCasillero(casillero2);
+        ocupante1.establecerCasillero(casillero2);
 
         estado.ocuparPor(casillero1, ocupante1);
 
-        assertSame(casillero2, ocupante1.getCasillero());
+        assertSame(casillero2, ocupante1.obtenerCasillero());
     }
 
     // CASILLERO DISPONIBLE
@@ -64,14 +64,14 @@ public class EstadoCasilleroTest {
     	Mesa mesa = new Mesa();
         Ocupante ocupante1 = new Jugador(inventario, mesa);
         Ocupante ocupante2 = new Jugador(inventario, mesa);
-        ocupante2.setCasillero(casillero3);
-        ocupante1.setCasillero(casillero2);
+        ocupante2.establecerCasillero(casillero3);
+        ocupante1.establecerCasillero(casillero2);
 
 
         estado.ocuparPor(casillero1, ocupante1);
         casillero1.ocuparPor(ocupante2);
 
-        assertSame(casillero1, ocupante1.getCasillero());
+        assertSame(casillero1, ocupante1.obtenerCasillero());
     }
 
 
@@ -85,11 +85,11 @@ public class EstadoCasilleroTest {
     	Inventario inventario = new Inventario();
     	Mesa mesa = new Mesa();
         Ocupante ocupante1 = new Jugador(inventario, mesa);
-        ocupante1.setCasillero(casillero2);
+        ocupante1.establecerCasillero(casillero2);
 
         estado.ocuparPor(casillero1, ocupante1);
 
-        assertSame(casillero1, ocupante1.getCasillero());
+        assertSame(casillero1, ocupante1.obtenerCasillero());
     }
 
 
