@@ -13,8 +13,12 @@ public class BotonSeleccionarPicoMetalHandler extends BotonSeleccionarHerramient
 
 	@Override
 	public void handle(ActionEvent event) {
-		this.modelo.jugador().seleccionarPicoMetal();
-		super.handle(event);
+		try {
+			this.modelo.jugador().seleccionarPicoMetal();
+			super.handle(event);
+		} catch (Exception e) {
+			
+		}
 	}
 
 }

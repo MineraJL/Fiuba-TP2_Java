@@ -15,6 +15,11 @@ public class BotonAgregarMPPiedraHandler extends BotonAgregarMPHandler {
 
     @Override
     public void handle(ActionEvent event) {
-        super.handle(event);
+    	try {
+    		this.materiaPrima = this.modelo.inventario().extraerMateriaPrimaPiedra();
+    		super.handle(event);
+    	}catch(Exception e) {
+    		
+    	}
     }
 }

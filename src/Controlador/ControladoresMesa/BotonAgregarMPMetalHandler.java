@@ -10,11 +10,15 @@ public class BotonAgregarMPMetalHandler extends BotonAgregarMPHandler {
 
     public BotonAgregarMPMetalHandler(Modelo modelo, VistaMesa vistaMesa, VistaInventario vistaInventario) {
         super(modelo,vistaMesa, vistaInventario);
-        this.materiaPrima = new MPMetal();
     }
 
     @Override
     public void handle(ActionEvent event) {
-        super.handle(event);
+    	try {
+    		this.materiaPrima = this.modelo.inventario().extraerMateriaPrimaMetal();
+    		super.handle(event);
+    	}catch(Exception e) {
+    		
+    	}
     }
 }

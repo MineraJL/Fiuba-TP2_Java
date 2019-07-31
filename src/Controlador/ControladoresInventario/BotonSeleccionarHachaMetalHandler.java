@@ -13,9 +13,12 @@ public class BotonSeleccionarHachaMetalHandler extends BotonSeleccionarHerramien
 
 	@Override
 	public void handle(ActionEvent event) {
-		this.modelo.jugador().seleccionarHachaMetal();
-		super.handle(event);
-		
+		try {
+			this.modelo.jugador().seleccionarHachaMetal();
+			super.handle(event);
+		} catch(Exception e) {
+			
+		}
 	}
 
 }

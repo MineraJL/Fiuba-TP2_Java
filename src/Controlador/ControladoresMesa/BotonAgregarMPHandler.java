@@ -10,7 +10,7 @@ import javafx.event.EventHandler;
 
 public abstract class BotonAgregarMPHandler implements EventHandler<ActionEvent> {
 
-    private Modelo modelo;
+    protected Modelo modelo;
     private VistaMesa vistaMesa;
     private VistaInventario vistaInventario;
     private PosicionEnlazada posicionActual;

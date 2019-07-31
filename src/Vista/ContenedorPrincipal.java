@@ -269,7 +269,7 @@ public class ContenedorPrincipal extends BorderPane {
 
         Button botonRecolectar = new Button();
         botonRecolectar.setText("Recolectar");
-        BotonRecolectarHandler botonRecolectarHandler = new BotonRecolectarHandler(jugador,this.vistaModelo);
+        BotonRecolectarHandler botonRecolectarHandler = new BotonRecolectarHandler(jugador,this.vistaModelo, this.vistaInventario);
         botonRecolectar.setOnAction(botonRecolectarHandler);
 
         VBox botonesMover = this.botonesMover(jugador);

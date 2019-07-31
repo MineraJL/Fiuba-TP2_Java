@@ -13,8 +13,12 @@ public class BotonSeleccionarPicoFinoHandler extends BotonSeleccionarHerramienta
 
 	@Override
 	public void handle(ActionEvent event) {
-		this.modelo.jugador().seleccionarPicoFino();
-		super.handle(event);
+		try {
+			this.modelo.jugador().seleccionarPicoFino();
+			super.handle(event);
+		} catch (Exception e) {
+			
+		}
 	}
 
 }

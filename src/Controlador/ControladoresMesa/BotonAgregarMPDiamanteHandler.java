@@ -10,11 +10,15 @@ public class BotonAgregarMPDiamanteHandler extends BotonAgregarMPHandler {
 
     public BotonAgregarMPDiamanteHandler(Modelo modelo, VistaMesa vistaMesa, VistaInventario vistaInventario) {
         super(modelo,vistaMesa, vistaInventario);
-        this.materiaPrima = new MPDiamante();
     }
 
     @Override
     public void handle(ActionEvent event) {
-        super.handle(event);
+    	try {
+    		this.materiaPrima = this.modelo.inventario().extraerMateriaPrimaDiamante();
+    		super.handle(event);
+    	} catch(Exception e) {
+    		
+    	}
     }
 }
