@@ -31,6 +31,7 @@ public class AlgoCraft extends Application {
 
         stage.show();
 			
+        
 	}
 
 }
