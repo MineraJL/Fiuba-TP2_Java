@@ -23,8 +23,7 @@ public class MapaOcupantesIntegracionTest {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.establecerCasillero(casillero1);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -41,8 +40,7 @@ public class MapaOcupantesIntegracionTest {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.establecerCasillero(casillero1);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -59,8 +57,7 @@ public class MapaOcupantesIntegracionTest {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.establecerCasillero(casillero1);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -77,8 +74,7 @@ public class MapaOcupantesIntegracionTest {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.establecerCasillero(casillero1);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -95,8 +91,7 @@ public class MapaOcupantesIntegracionTest {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero1 = new Casillero();
         Inventario inventario = new Inventario();
-        Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         Ocupante ocupante2 = new Madera();
         Ocupante ocupante3 = new Madera();
         Ocupante ocupante4 = new Madera();
@@ -138,8 +133,7 @@ public class MapaOcupantesIntegracionTest {
         Casillero casilleroOrigen = new Casillero();
 
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.establecerCasillero(casilleroOrigen);
 
         Mapa mapa = new Mapa(10,10);
@@ -147,7 +141,7 @@ public class MapaOcupantesIntegracionTest {
         jugador.mover(new DireccionIzquierda());
 
         // ahora el casillero origen debe estar disponible
-        Jugador otroJugador = new Jugador(inventario, mesa);
+        Jugador otroJugador = new Jugador(inventario);
         otroJugador.establecerCasillero(casilleroOrigen);
 
         assertEquals(casilleroOrigen,otroJugador.obtenerCasillero());
@@ -170,7 +164,7 @@ public class MapaOcupantesIntegracionTest {
         PosicionEnlazada posicionMadera = new PosicionEnlazada(2, 2);
         madera.ingresar(mapa, posicionMadera);
 
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.ingresar(mapa, new PosicionEnlazada(0, 0));
 
         jugador.mover(new DireccionDerecha());
@@ -192,13 +186,12 @@ public class MapaOcupantesIntegracionTest {
         // J * *
 
         Inventario inventario = new Inventario();
-        Mesa mesa = new Mesa(); //
         Mapa mapa = new Mapa(3, 3);
         Madera madera = new Madera();
         PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
         madera.ingresar(mapa, posicionMadera);
 
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.ingresar(mapa, new PosicionEnlazada(2, 0));
 
         jugador.mover(new DireccionArriba());
@@ -218,13 +211,12 @@ public class MapaOcupantesIntegracionTest {
         // * * *
 
         Inventario inventario = new Inventario();
-        Mesa mesa = new Mesa(); //
         Mapa mapa = new Mapa(3, 3);
         Madera madera = new Madera();
         PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 2);
         madera.ingresar(mapa, posicionMadera);
 
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.ingresar(mapa, new PosicionEnlazada(0, 0));
 
         jugador.mover(new DireccionDerecha());
@@ -244,13 +236,12 @@ public class MapaOcupantesIntegracionTest {
         // * * *
 
         Inventario inventario = new Inventario();
-        Mesa mesa = new Mesa(); //
         Mapa mapa = new Mapa(3, 3);
         Madera madera = new Madera();
         PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
         madera.ingresar(mapa, posicionMadera);
 
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.ingresar(mapa, new PosicionEnlazada(0, 2));
 
         jugador.mover(new DireccionIzquierda());
@@ -290,14 +281,13 @@ public class MapaOcupantesIntegracionTest {
         // * * *
 
         Inventario inventario = new Inventario();
-        Mesa mesa = new Mesa(); //
 
         Mapa mapa = new Mapa(3, 3);
         Madera madera = new Madera();
         PosicionEnlazada posicionMadera = new PosicionEnlazada(0, 0);
         madera.ingresar(mapa, posicionMadera);
 
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.ingresar(mapa, new PosicionEnlazada(0, 2));
 
         jugador.mover(new DireccionIzquierda());
@@ -337,14 +327,13 @@ public class MapaOcupantesIntegracionTest {
         // * * *
 
         Inventario inventario = new Inventario();
-        Mesa mesa = new Mesa(); //
 
         Mapa mapa = new Mapa(3, 3);
         Madera madera = new Madera();
         PosicionEnlazada posicionInicialMadera = new PosicionEnlazada(0, 0);
         madera.ingresar(mapa, posicionInicialMadera);
 
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.ingresar(mapa, new PosicionEnlazada(0, 2));
 
         jugador.mover(new DireccionIzquierda());

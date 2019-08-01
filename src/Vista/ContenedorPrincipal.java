@@ -250,7 +250,7 @@ public class ContenedorPrincipal extends BorderPane {
 	    contenedorCentral = new VBox(canvasCentral);
 	    contenedorCentral.setAlignment(Pos.CENTER);
 
-        Text textoPuntos = new Text("Tenés muchos puntos y maderitas");
+        Text textoPuntos = new Text("AlgoCraft");
         VBox contenedorConPuntos = new VBox(textoPuntos,contenedorCentral);
         contenedorConPuntos.setSpacing(30);
 

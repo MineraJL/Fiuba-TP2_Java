@@ -10,17 +10,15 @@ import Modelo.TipoMaterial.TipoMadera;
 
 
 public class Jugador extends Ocupante {
-	private Mapa mapa; // quiero sacar este atributo // hago commit para integrar
+	private Mapa mapa;
 	private Casillero casilleroSeleccionadoParaGolpear;
 	private Inventario inventario;
-	private Mesa mesa;
 	private Herramienta herramientaDeTrabajo;
 
-	public Jugador(Inventario inventario, Mesa mesa) {
+	public Jugador(Inventario inventario) {
 		TipoMadera madera = new TipoMadera();
 		Hacha unHacha = new Hacha(madera);
 		this.inventario = inventario;
-		this.mesa = mesa;
 		
 		this.inventario.agregarElemento(unHacha);
 		herramientaDeTrabajo = this.inventario.extraerHachaMadera();

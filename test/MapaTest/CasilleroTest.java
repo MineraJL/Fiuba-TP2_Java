@@ -123,8 +123,7 @@ public class CasilleroTest {
         Casillero casillero = new Casillero();
         
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante = new Jugador(inventario, mesa);
+        Ocupante ocupante = new Jugador(inventario);
 
         casillero.ocuparPor(ocupante);
 
@@ -136,9 +135,8 @@ public class CasilleroTest {
         Casillero casillero = new Casillero();
         
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante1 = new Jugador(inventario, mesa);
-        Ocupante ocupante2 = new Jugador(inventario, mesa);
+        Ocupante ocupante1 = new Jugador(inventario);
+        Ocupante ocupante2 = new Jugador(inventario);
 
         casillero.ocuparPor(ocupante1);
         casillero.ocuparPor(ocupante2);
