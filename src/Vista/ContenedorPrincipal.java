@@ -25,6 +25,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -39,6 +40,9 @@ public class ContenedorPrincipal extends BorderPane {
 
     public ContenedorPrincipal(Stage stage, Modelo modelo) {
 
+		AudioClip audio = new AudioClip ("file:src/Media/soundtrack_AlgoCraft.mp3");
+		audio.play();
+		
         this.setMenu(stage);
         this.setCentro(modelo);
         this.setPanelInferior(modelo);
