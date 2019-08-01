@@ -45,7 +45,7 @@ public class ContenedorPrincipal extends BorderPane {
         this.setPanelIzquierdo(modelo);
 
         
-        Image imagen = new Image("Vista/Imagenes/fondo_principal.jpg");
+        Image imagen = new Image("Vista/Imagenes/fondo_principal.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.ROUND, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 
