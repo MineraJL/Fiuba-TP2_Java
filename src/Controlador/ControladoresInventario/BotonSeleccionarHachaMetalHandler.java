@@ -5,20 +5,20 @@ import Vista.VistaInventario;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonSeleccionarHachaMetalHandler implements EventHandler<ActionEvent> {
+public class BotonSeleccionarHachaMetalHandler extends BotonSeleccionarHerramientaHandler {
 
-	private Modelo modelo;
-	private VistaInventario vistaInventario;
-	
 	public BotonSeleccionarHachaMetalHandler(Modelo modelo, VistaInventario vistaInventario) {
-		this.modelo = modelo;
-		this.vistaInventario = vistaInventario;
+		super(modelo, vistaInventario);
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		this.modelo.jugador().seleccionarHachaMetal();
-		
+		try {
+			this.modelo.jugador().seleccionarHachaMetal();
+			super.handle(event);
+		} catch(Exception e) {
+			
+		}
 	}
 
 }

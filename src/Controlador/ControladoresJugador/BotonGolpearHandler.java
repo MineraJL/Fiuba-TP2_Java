@@ -20,8 +20,6 @@ public class BotonGolpearHandler implements EventHandler<ActionEvent> {
 		try {
 			this.jugador.golpear();
 		} catch (HerramientaDesgastadaExcepcion e) {
-			//mostrar mensaje por pantalla que se rompio herramienta
-			e.printStackTrace();
 		}
 		this.vistaModelo.actualizar();
 	}
