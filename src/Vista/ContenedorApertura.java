@@ -37,7 +37,7 @@ public class ContenedorApertura extends VBox {
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 
-        etiqueta.setText("Bienvenidos a la aplicación AlgoCraft de Algoritmos y Programación III. Hacer click en comenzar");
+        etiqueta.setText("Te damos la bienvenida a la aplicación AlgoCraft de Algoritmos y Programación III. Hacé click en comenzar");
         etiqueta.setTextFill(Color.web("#66A7C5"));
 
         BotonComenzarEventHandler botonComenzarHandler = new BotonComenzarEventHandler(stage, proximaEscena);
