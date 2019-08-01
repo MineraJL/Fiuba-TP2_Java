@@ -5,20 +5,20 @@ import Vista.VistaInventario;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonSeleccionarPicoFinoHandler implements EventHandler<ActionEvent> {
+public class BotonSeleccionarPicoFinoHandler extends BotonSeleccionarHerramientaHandler {
 
-	private Modelo modelo;
-	private VistaInventario vistaInventario;
-	
 	public BotonSeleccionarPicoFinoHandler(Modelo modelo, VistaInventario vistaInventario) {
-		this.modelo = modelo;
-		this.vistaInventario = vistaInventario;
+		super(modelo, vistaInventario);
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		this.modelo.jugador().seleccionarPicoFino();
-		
+		try {
+			this.modelo.jugador().seleccionarPicoFino();
+			super.handle(event);
+		} catch (Exception e) {
+			
+		}
 	}
 
 }

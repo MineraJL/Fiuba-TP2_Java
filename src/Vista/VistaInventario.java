@@ -78,13 +78,13 @@ public class VistaInventario {
     	cantidadItemsInventario.put("MPDiamante", 
     			Integer.toString(modelo.inventario().cantidadDiamante()));
     	
-    	
+    	canvasInventario.getGraphicsContext2D().clearRect(0, 0, anchuraInventario, alturaInventario);
         for (int i=0, k = 0; i<alturaCelda; i++){
             for (int j=0;j<anchuraCelda;j++, k++){
 
                 Image imagenFondoInventario = imagenes.getImage(itemsIventario.get(k));
                 canvasInventario.getGraphicsContext2D().drawImage(imagenFondoInventario,anchuraInventario*j,alturaInventario*i,anchuraInventario,alturaInventario);
-                canvasInventario.getGraphicsContext2D().fillText(cantidadItemsInventario.get(itemsIventario.get(k)),
+                canvasInventario.getGraphicsContext2D().fillText("x"+cantidadItemsInventario.get(itemsIventario.get(k)),
                 		 (anchuraInventario-20)+(j*anchuraInventario), alturaInventario*(i+1));
             }
         }

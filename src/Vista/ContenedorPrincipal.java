@@ -41,8 +41,9 @@ public class ContenedorPrincipal extends BorderPane {
 
         this.setMenu(stage);
         this.setCentro(modelo);
-        this.setPanelIzquierdo(modelo);
         this.setPanelInferior(modelo);
+        this.setPanelIzquierdo(modelo);
+
         
         Image imagen = new Image("Vista/Imagenes/fondo_principal.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.ROUND, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
@@ -70,8 +71,8 @@ public class ContenedorPrincipal extends BorderPane {
     }
     
     private void setPanelInferior(Modelo modelo) {
-    	VBox panelInventario = this.inventario(modelo);
-    	VBox panelInferior = new VBox(panelInventario);
+    	HBox panelInventario = this.inventario(modelo);
+    	HBox panelInferior = new HBox(panelInventario);
     	
     	this.setBottom(panelInferior);
     }
@@ -92,17 +93,20 @@ public class ContenedorPrincipal extends BorderPane {
         return panelMesa;
     }
     
-    private VBox inventario(Modelo modelo) {
+    private HBox inventario(Modelo modelo) {
     	Text tituloInventario = new Text("Inventario");
     	
-    	Canvas canvasInventario = new Canvas(480, 180);
+    	Canvas canvasInventario = new Canvas(480, 120);
     	this.vistaInventario = new VistaInventario(modelo, canvasInventario);
     	
-    	HBox botonesInventario = this.botonesInventario(modelo);
+    	VBox botonesInventario = this.botonesInventario(modelo);
     	botonesInventario.setSpacing(20);
     	
-    	VBox panelInventario = new VBox(tituloInventario, canvasInventario, botonesInventario);
-    	panelInventario.setAlignment(Pos.BOTTOM_CENTER);
+    	VBox inventario = new VBox(tituloInventario, canvasInventario);
+    	inventario.setAlignment(Pos.CENTER_LEFT);
+    	
+    	HBox panelInventario = new HBox(inventario, botonesInventario);
+    	panelInventario.setAlignment(Pos.CENTER_RIGHT);
     	
     	return panelInventario;
     }
@@ -113,27 +117,27 @@ public class ContenedorPrincipal extends BorderPane {
 
         Button botonAgregarMPMadera = new Button();
         botonAgregarMPMadera.setText("madera");
-        BotonAgregarMPMaderaHandler botonAgregarMPMaderaHandler = new BotonAgregarMPMaderaHandler(modelo,this.vistaMesa);
+        BotonAgregarMPMaderaHandler botonAgregarMPMaderaHandler = new BotonAgregarMPMaderaHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonAgregarMPMadera.setOnAction(botonAgregarMPMaderaHandler);
 
         Button botonAgregarMPPiedra = new Button();
         botonAgregarMPPiedra.setText("piedra");
-        BotonAgregarMPPiedraHandler botonAgregarMPPiedraHandler = new BotonAgregarMPPiedraHandler(modelo,this.vistaMesa);
+        BotonAgregarMPPiedraHandler botonAgregarMPPiedraHandler = new BotonAgregarMPPiedraHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonAgregarMPPiedra.setOnAction(botonAgregarMPPiedraHandler);
 
         Button botonAgregarMPMetal = new Button();
         botonAgregarMPMetal.setText("metal");
-        BotonAgregarMPMetalHandler botonAgregarMPMetalHandler = new BotonAgregarMPMetalHandler(modelo,this.vistaMesa);
+        BotonAgregarMPMetalHandler botonAgregarMPMetalHandler = new BotonAgregarMPMetalHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonAgregarMPMetal.setOnAction(botonAgregarMPMetalHandler);
 
         Button botonAgregarMPDiamante = new Button();
         botonAgregarMPDiamante.setText("diamante");
-        BotonAgregarMPDiamanteHandler botonAgregarMPDiamanteHandler = new BotonAgregarMPDiamanteHandler(modelo,this.vistaMesa);
+        BotonAgregarMPDiamanteHandler botonAgregarMPDiamanteHandler = new BotonAgregarMPDiamanteHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonAgregarMPDiamante.setOnAction(botonAgregarMPDiamanteHandler);
 
         Button botonAgregarMPVacio = new Button();
         botonAgregarMPVacio.setText("dejar vacío");
-        BotonAgregarMPVacioHandler botonAgregarMPVacioHandler = new BotonAgregarMPVacioHandler(modelo,this.vistaMesa);
+        BotonAgregarMPVacioHandler botonAgregarMPVacioHandler = new BotonAgregarMPVacioHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonAgregarMPVacio.setOnAction(botonAgregarMPVacioHandler);
 
 
@@ -144,7 +148,7 @@ public class ContenedorPrincipal extends BorderPane {
 
         Button botonConstruirHerramienta = new Button();
         botonConstruirHerramienta.setText("Construir Herramienta");
-        BotonConstruirHerramientaHandler botonConstruirHerramientaHandler = new BotonConstruirHerramientaHandler(modelo,this.vistaMesa);
+        BotonConstruirHerramientaHandler botonConstruirHerramientaHandler = new BotonConstruirHerramientaHandler(modelo,this.vistaMesa, this.vistaInventario);
         botonConstruirHerramienta.setOnAction(botonConstruirHerramientaHandler);
 
 
@@ -163,7 +167,7 @@ public class ContenedorPrincipal extends BorderPane {
         return botonesMesa;
     }
 
-    private HBox botonesInventario(Modelo modelo) {
+    private VBox botonesInventario(Modelo modelo) {
     	Text textoSeleccionarHerramienta = new Text("Seleccionar herramienta");
     	
         Button botonSeleccionarHachaMadera = new Button();
@@ -221,17 +225,17 @@ public class ContenedorPrincipal extends BorderPane {
         
         HBox botonesSeleccionarPicoFino = new HBox(botonSeleccionarPicoFino);
         
-        botonesSeleccionarHachas.setAlignment(Pos.CENTER);
-        botonesSeleccionarPicos.setAlignment(Pos.CENTER);
-        botonesSeleccionarPicoFino.setAlignment(Pos.CENTER);
+        botonesSeleccionarHachas.setAlignment(Pos.CENTER_RIGHT);
+        botonesSeleccionarPicos.setAlignment(Pos.CENTER_RIGHT);
+        botonesSeleccionarPicoFino.setAlignment(Pos.CENTER_RIGHT);
 
-        HBox botonesHerramientas = new HBox(textoSeleccionarHerramienta,
+        VBox botonesHerramientas = new VBox(textoSeleccionarHerramienta,
         									botonesSeleccionarHachas,
         									botonesSeleccionarPicos, 
         									botonesSeleccionarPicoFino);
         
         botonesHerramientas.setSpacing(10);
-        botonesHerramientas.setAlignment(Pos.CENTER);
+        botonesHerramientas.setAlignment(Pos.CENTER_RIGHT);
 
         return botonesHerramientas;
         
@@ -265,7 +269,7 @@ public class ContenedorPrincipal extends BorderPane {
 
         Button botonRecolectar = new Button();
         botonRecolectar.setText("Recolectar");
-        BotonRecolectarHandler botonRecolectarHandler = new BotonRecolectarHandler(jugador,this.vistaModelo);
+        BotonRecolectarHandler botonRecolectarHandler = new BotonRecolectarHandler(jugador,this.vistaModelo, this.vistaInventario);
         botonRecolectar.setOnAction(botonRecolectarHandler);
 
         VBox botonesMover = this.botonesMover(jugador);

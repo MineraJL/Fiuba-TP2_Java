@@ -7,20 +7,19 @@ import Vista.VistaModelo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonSeleccionarHachaMaderaHandler implements EventHandler<ActionEvent> {
-	
-	private Modelo modelo;
-	private VistaInventario vistaInventario;
+public class BotonSeleccionarHachaMaderaHandler extends BotonSeleccionarHerramientaHandler {
 
 	public BotonSeleccionarHachaMaderaHandler(Modelo modelo, VistaInventario vistaInventario) {
-		this.modelo = modelo;
-		this.vistaInventario = vistaInventario;
+		super(modelo, vistaInventario);
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		this.modelo.jugador().seleccionarHachaMadera();
-		
+		try {
+			this.modelo.jugador().seleccionarHachaMadera();
+			super.handle(event);
+		} catch (Exception e) {
+		}
 	}
 
 }

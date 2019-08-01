@@ -2,13 +2,14 @@ package Controlador.ControladoresMesa;
 
 import Modelo.MateriaPrima.MPVacio;
 import Modelo.Modelo;
+import Vista.VistaInventario;
 import Vista.VistaMesa;
 import javafx.event.ActionEvent;
 
 public class BotonAgregarMPVacioHandler extends BotonAgregarMPHandler {
 
-    public BotonAgregarMPVacioHandler(Modelo modelo, VistaMesa vistaMesa) {
-        super(modelo, vistaMesa);
+    public BotonAgregarMPVacioHandler(Modelo modelo, VistaMesa vistaMesa, VistaInventario vistaInventario) {
+        super(modelo, vistaMesa, vistaInventario);
         this.materiaPrima = new MPVacio();
     }
 

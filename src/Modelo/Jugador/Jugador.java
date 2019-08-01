@@ -56,41 +56,47 @@ public class Jugador extends Ocupante {
 		super.ingresar(mapa,posicion);
 		this.mapa = mapa;
 	}
-
-	/*public void construirHacha(Modelo.TipoMaterial unMaterial) {
-		Hacha hacha = new Hacha(unMaterial);
-
-
-		inventario.agregarElemento(hacha);
-	}
-*/
 	
 	public void seleccionarHachaMadera() {
-		herramientaDeTrabajo = inventario.extraerHachaMadera();
+		Herramienta herramientaSeleccionada = inventario.extraerHachaMadera();
+		inventario.agregarElemento(herramientaDeTrabajo);
+		herramientaDeTrabajo = herramientaSeleccionada;
 	}
 	
 	public void seleccionarHachaPiedra() {
-		herramientaDeTrabajo = inventario.extraerHachaPiedra();
+		Herramienta herramientaSeleccionada = inventario.extraerHachaPiedra();
+		inventario.agregarElemento(herramientaDeTrabajo);
+		herramientaDeTrabajo = herramientaSeleccionada;
 	}
 	
 	public void seleccionarHachaMetal() {
-		herramientaDeTrabajo = inventario.extraerHachaMetal();
+		Herramienta herramientaSeleccionada = inventario.extraerHachaMetal();
+		inventario.agregarElemento(herramientaDeTrabajo);
+		herramientaDeTrabajo = herramientaSeleccionada;
 	}
 	
 	public void seleccionarPicoMadera() {
-		herramientaDeTrabajo = inventario.extraerPicoMadera();
+		Herramienta herramientaSeleccionada = inventario.extraerPicoMadera();
+		inventario.agregarElemento(herramientaDeTrabajo);
+		herramientaDeTrabajo = herramientaSeleccionada;
 	}
 	
 	public void seleccionarPicoPiedra() {
-		herramientaDeTrabajo = inventario.extraerPicoPiedra();
+		Herramienta herramientaSeleccionada = inventario.extraerPicoPiedra();
+		inventario.agregarElemento(herramientaDeTrabajo);
+		herramientaDeTrabajo = herramientaSeleccionada;
 	}
 	
 	public void seleccionarPicoMetal() {
-		herramientaDeTrabajo = inventario.extraerPicoMetal();
+		Herramienta herramientaSeleccionada = inventario.extraerPicoMetal();
+		inventario.agregarElemento(herramientaDeTrabajo);
+		herramientaDeTrabajo = herramientaSeleccionada;
 	}
 	
 	public void seleccionarPicoFino() {
-		herramientaDeTrabajo = inventario.extraerPicoFino();
+		Herramienta herramientaSeleccionada = inventario.extraerPicoFino();
+		inventario.agregarElemento(herramientaDeTrabajo);
+		herramientaDeTrabajo = herramientaSeleccionada;
 	}
 	
 	

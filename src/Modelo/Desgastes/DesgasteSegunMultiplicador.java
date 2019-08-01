@@ -1,7 +1,7 @@
 package Modelo.Desgastes;
 
 import Modelo.Excepciones.DurabilidadDesgastadaExcepcion;
-
+// solo comento para hacer un commit y crear una nueva branch a la que integrar las cosas del inventario
 public class DesgasteSegunMultiplicador extends Desgaste {
 
     private double multiplicador;
