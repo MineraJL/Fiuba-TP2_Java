@@ -32,7 +32,7 @@ public class Mesa {
     }
     public void guardarMateriaPrimaEn(Ocupante materiaPrima, PosicionEnlazada posicion){
         //materiaPrima.ingresar(this.disposicion,posicion); // hacer que esta línea funcione
-        this.disposicion.getCasillero(posicion).ocuparPor(materiaPrima); // temp: línea temporal, debe funcionar la de arriba
+        this.disposicion.obtenerCasillero(posicion).ocuparPor(materiaPrima); // temp: línea temporal, debe funcionar la de arriba
     }
 
 

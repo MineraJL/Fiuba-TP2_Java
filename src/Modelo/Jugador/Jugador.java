@@ -10,7 +10,7 @@ import Modelo.TipoMaterial.TipoMadera;
 
 
 public class Jugador extends Ocupante {
-	private Mapa mapa;
+	private Mapa mapa; // quiero sacar este atributo // hago commit para integrar
 	private Casillero casilleroSeleccionadoParaGolpear;
 	private Inventario inventario;
 	private Mesa mesa;
@@ -51,7 +51,7 @@ public class Jugador extends Ocupante {
 		this.casillero = casillero;
 	}
 
-	@Override
+	@Override // una vez sacado el atributo, no se sobreescribe.
 	public void ingresar(Mapa mapa, PosicionEnlazada posicion){
 		super.ingresar(mapa,posicion);
 		this.mapa = mapa;

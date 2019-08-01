@@ -29,7 +29,7 @@ public class Casillero {
 
     public Casillero obtenerCasilleroVecino(Mapa mapa, Direccion direccion){
         PosicionEnlazada posSiguiente = direccion.siguiente(this.posicion);
-        return mapa.getCasillero(posSiguiente);
+        return mapa.obtenerCasillero(posSiguiente);
     }
 
     // Manejo del ocupante

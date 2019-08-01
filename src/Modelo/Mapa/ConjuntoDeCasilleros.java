@@ -16,7 +16,7 @@ public abstract class ConjuntoDeCasilleros {
 
     protected abstract void inicializarCasilleros();
 
-    public Casillero getCasillero(PosicionEnlazada posicion){
+    public Casillero obtenerCasillero(PosicionEnlazada posicion){
         return this.matriz[posicion.geti()][posicion.getj()];
     }
 
