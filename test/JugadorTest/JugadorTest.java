@@ -16,8 +16,7 @@ public class JugadorTest {
 	@Test
 	public void jugadorSeCreaConHerramientaHachaDeMaderaPorDefecto() {
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-		Jugador jugador = new Jugador(inventario, mesa);
+		Jugador jugador = new Jugador(inventario);
 		TipoMadera madera = new TipoMadera();
 		Hacha hacha = new Hacha(madera);
 		
@@ -29,8 +28,7 @@ public class JugadorTest {
         Mapa mapa = new Mapa(10,10);
         Casillero casillero = new Casillero();
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.establecerCasillero(casillero);
         PosicionEnlazada posicionInicial = new PosicionEnlazada(5,5);
         jugador.ingresar(mapa, posicionInicial);
@@ -46,8 +44,7 @@ public class JugadorTest {
         PosicionEnlazada posicionInicial = new PosicionEnlazada(2,5);
         Casillero casillero = new Casillero(posicionInicial);
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.establecerCasillero(casillero);
         jugador.ingresar(mapa, posicionInicial);
 
@@ -63,8 +60,7 @@ public class JugadorTest {
         PosicionEnlazada posicionInicial = new PosicionEnlazada(2,5);
         Casillero casillero = new Casillero(posicionInicial);
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.establecerCasillero(casillero);
         jugador.ingresar(mapa, posicionInicial);
 
@@ -81,8 +77,7 @@ public class JugadorTest {
         PosicionEnlazada posicionInicial = new PosicionEnlazada(2,5);
         Casillero casillero = new Casillero(posicionInicial);
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.establecerCasillero(casillero);
         jugador.ingresar(mapa, posicionInicial);
 
@@ -98,8 +93,7 @@ public class JugadorTest {
         PosicionEnlazada posicionInicial = new PosicionEnlazada(2,5);
         Casillero casillero = new Casillero(posicionInicial);
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         jugador.establecerCasillero(casillero);
         jugador.ingresar(mapa, posicionInicial);
 
@@ -109,23 +103,11 @@ public class JugadorTest {
         assertTrue(jugador.obtenerCasillero().posicion().equals(posicionFinal));
     }
 
-	/*@Test
-	public void testJugadorConstruyeHachaDeMadera() {
-		TipoMadera unaMadera = new TipoMadera();
-		Modelo.Jugador jugador = new Modelo.Jugador();
-		
-		jugador.construirHacha(unaMadera);
-		
-		assertEquals(2, jugador.cantidadHerramientas());
-	}*/
-
-
     @Test
     public void ocupanteJugadorDevuelveSuNombre(){
         Inventario inventario = new Inventario();
-        Mesa mesa = new Mesa();
 
-        Jugador jugador = new Jugador(inventario, mesa);
+        Jugador jugador = new Jugador(inventario);
         String nombre = jugador.obtenerNombreOcupante();
         assertEquals("Jugador",nombre);
     }

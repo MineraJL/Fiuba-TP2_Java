@@ -19,8 +19,7 @@ public class OcupanteTest {
         Casillero casillero1 = new Casillero();
         casillero1.establecerPosicion(0, 0);
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante = new Jugador(inventario, mesa);
+        Ocupante ocupante = new Jugador(inventario);
         ocupante.establecerCasillero(casillero1);
         assertEquals(0, ocupante.posicion().geti());
     }
@@ -29,8 +28,7 @@ public class OcupanteTest {
         Casillero casillero1 = new Casillero();
         casillero1.establecerPosicion(0, 0);
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante = new Jugador(inventario, mesa);
+        Ocupante ocupante = new Jugador(inventario);
         ocupante.establecerCasillero(casillero1);
         assertEquals(0,  ocupante.posicion().getj());
     }
@@ -39,8 +37,7 @@ public class OcupanteTest {
         Casillero casillero1 = new Casillero();
         casillero1.establecerPosicion(1, 0);
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante = new Jugador(inventario, mesa);
+        Ocupante ocupante = new Jugador(inventario);
         ocupante.establecerCasillero(casillero1);
         assertEquals(1, ocupante.posicion().geti());
     }
@@ -49,8 +46,7 @@ public class OcupanteTest {
         Casillero casillero1 = new Casillero();
         casillero1.establecerPosicion(0, 1);
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante = new Jugador(inventario, mesa);
+        Ocupante ocupante = new Jugador(inventario);
         ocupante.establecerCasillero(casillero1);
         assertEquals(1, ocupante.posicion().getj());
     }
@@ -63,8 +59,7 @@ public class OcupanteTest {
         Casillero casillero1 = new Casillero();
         casillero1.establecerPosicion(0, 0);
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante = new Jugador(inventario, mesa);
+        Ocupante ocupante = new Jugador(inventario);
         ocupante.establecerCasillero(casillero1);
         assertSame(casillero1, ocupante.obtenerCasillero());
     }
@@ -74,8 +69,7 @@ public class OcupanteTest {
         Casillero casillero2 = new Casillero();
         casillero1.establecerPosicion(0, 0);
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante1 = new Jugador(inventario);
         ocupante1.establecerCasillero(casillero2);
         ocupante1.establecerCasillero(casillero1);
         assertSame(casillero1, ocupante1.obtenerCasillero());
@@ -88,8 +82,7 @@ public class OcupanteTest {
 
         Casillero casillero1 = new Casillero();
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante = new Jugador(inventario, mesa);
+        Ocupante ocupante = new Jugador(inventario);
         ocupante.establecerCasillero(casillero1);
 
         PosicionEnlazada posicion = new PosicionEnlazada(3,3);
@@ -106,9 +99,8 @@ public class OcupanteTest {
         Casillero casillero1 = new Casillero();
         Casillero casillero2 = new Casillero();
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante1 = new Jugador(inventario, mesa);
-        Ocupante ocupante2 = new Jugador(inventario, mesa);
+        Ocupante ocupante1 = new Jugador(inventario);
+        Ocupante ocupante2 = new Jugador(inventario);
         ocupante1.establecerCasillero(casillero1);
         ocupante2.establecerCasillero(casillero2);
 

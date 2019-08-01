@@ -19,7 +19,7 @@ public class Modelo {
         this.inventario = new Inventario();
         this.mesa = new Mesa();
 
-        this.jugador = new Jugador(inventario, mesa);
+        this.jugador = new Jugador(inventario);
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
         creadorDeMapa.ingresarJugadorAMapa(jugador);
 

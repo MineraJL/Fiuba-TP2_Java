@@ -21,9 +21,8 @@ public class EstadoCasilleroTest {
         Casillero casillero3 = new Casillero();
 
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante1 = new Jugador(inventario, mesa);
-        Ocupante ocupante2 = new Jugador(inventario, mesa);
+        Ocupante ocupante1 = new Jugador(inventario);
+        Ocupante ocupante2 = new Jugador(inventario);
         ocupante2.establecerCasillero(casillero3);
         ocupante1.establecerCasillero(casillero2);
 
@@ -42,8 +41,7 @@ public class EstadoCasilleroTest {
         Casillero casillero2 = new Casillero();
 
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante1 = new Jugador(inventario);
         ocupante1.establecerCasillero(casillero2);
 
         estado.ocuparPor(casillero1, ocupante1);
@@ -61,9 +59,8 @@ public class EstadoCasilleroTest {
         Casillero casillero3 = new Casillero();
 
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante1 = new Jugador(inventario, mesa);
-        Ocupante ocupante2 = new Jugador(inventario, mesa);
+        Ocupante ocupante1 = new Jugador(inventario);
+        Ocupante ocupante2 = new Jugador(inventario);
         ocupante2.establecerCasillero(casillero3);
         ocupante1.establecerCasillero(casillero2);
 
@@ -83,8 +80,7 @@ public class EstadoCasilleroTest {
         Casillero casillero2 = new Casillero();
 
     	Inventario inventario = new Inventario();
-    	Mesa mesa = new Mesa();
-        Ocupante ocupante1 = new Jugador(inventario, mesa);
+        Ocupante ocupante1 = new Jugador(inventario);
         ocupante1.establecerCasillero(casillero2);
 
         estado.ocuparPor(casillero1, ocupante1);
