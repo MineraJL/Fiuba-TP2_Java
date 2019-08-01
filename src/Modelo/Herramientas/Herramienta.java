@@ -34,16 +34,14 @@ public abstract class Herramienta {
     public void asignarMaterial(TipoMetalYPiedra metalYPiedra){}
 
 
-    // Set
-    public void asignarFuerza(int fuerza){
+    protected void asignarFuerza(int fuerza){
         this.fuerza= fuerza;
     }
-    public void asignarDesgaste(Desgaste desgaste){
+    protected void asignarDesgaste(Desgaste desgaste){
         this.desgaste = desgaste;
     }
 
 
-    // Get
     public int fuerza() {
         return this.fuerza;
     }
